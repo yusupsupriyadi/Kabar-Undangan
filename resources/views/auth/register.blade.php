@@ -118,7 +118,7 @@
                        $('#toast-success').addClass('hidden') 
                     }, 3000);
 
-                    window.location.href = '/complate-register'
+                    window.location.href = '/complete-register'
                 }
             });
         })

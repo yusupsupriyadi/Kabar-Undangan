@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\MempelaiController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,11 +37,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::controller(RegisteredUserController::class)->group(function () {
-        Route::get('/complate-register', 'complateRegister');
+        Route::get('/complete-register', 'completeRegister');
     });
 
     Route::controller(UserController::class)->group(function () {
         Route::get('/data-couple', 'dataCouple');
+    });
+
+    Route::prefix('route-mempelai')->group(function () {
+        Route::controller(MempelaiController::class)->group(function () {
+            Route::get('/get-data-mempelai', 'getDataMempelai');
+            Route::get('/get-data-mempelai-pria', 'getDataMempelaiPria');
+            Route::get('/get-data-mempelai-wanita', 'getDataMempelaiWanita');
+            Route::get('/store-data-mempelai', 'storeDataMempelai');
+            Route::get('/store-mempelai-pria', 'storeMempelaiPria');
+        });
     });
 });
 

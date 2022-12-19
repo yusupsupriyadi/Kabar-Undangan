@@ -26,6 +26,10 @@
 
 <body id="body">
     @yield('content')
+
+    <section id="footer">
+        <x-footer/>
+    </section>
     @stack('scripts')
 </body>
 

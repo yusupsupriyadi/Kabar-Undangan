@@ -38,6 +38,8 @@ class RegisteredUserController extends Controller
             'phone' => $request->phone,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 'user',
+            'vip' => false
         ]);
 
         Auth::login($user);
@@ -48,8 +50,17 @@ class RegisteredUserController extends Controller
         ]);
     }
 
-    public function complateRegister(Request $request)
+    public function completeRegister(Request $request)
     {
-        return view('auth.complate-register');
+        $dataMempelaiPria = $request->user()->mempelai_pria;
+        $dataMempelaiWanita = $request->user()->mempelai_wanita;
+        $dataMempelaiExists = false;
+
+        if ($dataMempelaiPria !== null && $dataMempelaiWanita !== null) {
+            $dataMempelaiExists = true;
+        }
+
+        return view('user.complete_register.index')
+            ->with('dataMempelaiExists', $dataMempelaiExists);
     }
 }
