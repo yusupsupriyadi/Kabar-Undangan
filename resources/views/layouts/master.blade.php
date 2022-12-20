@@ -16,8 +16,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,700;1,400&display=swap"
         rel="stylesheet">
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Develop --}}
+    @vite(['resources/css/app.css', 'resources/css/tailwind-elements.min.css', 'resources/js/app.js', 'resources/js/tailwind-elements.min.js'])
     @vite([])
+
     <!-- Build -->
     {{-- <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
     <link rel="stylesheet" href="{{ asset('/build/assets/app.a0aae1e6.css') }}">
@@ -28,8 +31,9 @@
     @yield('content')
 
     <section id="footer">
-        <x-footer/>
+        <x-footer />
     </section>
+    
     @stack('scripts')
 </body>
 

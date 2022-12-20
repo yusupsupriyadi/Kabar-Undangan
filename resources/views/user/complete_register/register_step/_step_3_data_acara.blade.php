@@ -11,35 +11,44 @@
         <form class="lg:flex lg:gap-20 justify-between items-start mt-6" enctype="multipart/form-data" id="form">
             <section>
                 <h1 class="mb-2 font-bold text-lg text-left">Informasi Acara</h1>
-                <div class="grid grid-cols-2 items-center">
-                    <div class="label-text text-sm text-gray-600">Zona Waktu</div>
-                    <select class="select select-bordered select-sm w-full max-w-xs text-xs rounded-md">
-                        <option disabled selected>Pilih zona waktu</option>
-                        <option value="WIB">WIB</option>
-                        <option value="WIT">WIT</option>
-                        <option value="WITA">WITA</option>
-                    </select>
+                <div class="lg:grid lg:grid-cols-4 lg:gap-20 justify-between items-start">
+                    <div class="col-span-2 grid grid-cols-2 items-center">
+                        <div class="label-text text-sm text-gray-600">Zona Waktu</div>
+                        <select class="select select-bordered select-sm w-full max-w-xs text-xs rounded-md">
+                            <option disabled selected>Pilih zona waktu</option>
+                            <option value="WIB">WIB</option>
+                            <option value="WIT">WIT</option>
+                            <option value="WITA">WITA</option>
+                        </select>
+                    </div>
+                    <div class="col-span-2"></div>
                 </div>
 
 
-                <div class="lg:flex lg:gap-20 justify-between items-start mt-8">
-                    <section>
+                <div class="lg:grid lg:grid-cols-4 lg:gap-20 lg:justify-between lg:items-start mt-8">
+                    <section class="lg:col-span-2">
                         <h1 class="mb-4 font-bold text-lg text-left">Akad Pernikah</h1>
+                        
                         <div class="grid grid-cols-2 items-center mt-4">
                             <div class="label-text text-sm text-gray-600">Tanggal berlangsung</div>
-                            <input id="tanggal-akad" data-name="tanggal-akad" type="date"
-                                class="input input-bordered input-sm rounded-md" />
+                            <div class="datepicker relative form-floating" data-mdb-toggle-button="false">
+                                <input id="Tanggal-akad" data-name="tanggal-akad" type="text"
+                                    placeholder="Atur tanggal" class="input input-bordered input-sm rounded-md"
+                                    data-mdb-toggle="datepicker" />
+                            </div>
                         </div>
 
                         <div class="grid grid-cols-2 items-center mt-4">
-                            <div class="label-text text-sm text-gray-600">Jam Mulai</div>
-                            <input id="tanggal-akad" data-name="nama-panggilan" type="text"
-                                placeholder="Nama panggilan mempelai pria"
-                                class="input input-bordered input-sm rounded-md" />
+                            <div class="label-text text-sm text-gray-600">Waktu Mulai</div>
+                            <div class="timepicker" data-mdb-with-icon="false">
+                                <input type="text" placeholder="Select a date"
+                                    class="input input-bordered input-sm rounded-md"
+                                    data-mdb-toggle="input-toggle-timepicker" />
+                            </div>
                         </div>
                     </section>
 
-                    <section>
+                    <section class="lg:col-span-2">
                         <h1 class="mb-4 font-bold text-lg text-left">Resepsi Pernikah</h1>
                     </section>
                 </div>
