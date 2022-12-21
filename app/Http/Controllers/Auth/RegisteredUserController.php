@@ -54,13 +54,8 @@ class RegisteredUserController extends Controller
     {
         $dataMempelaiPria = $request->user()->mempelai_pria;
         $dataMempelaiWanita = $request->user()->mempelai_wanita;
-        $dataMempelaiExists = false;
-
-        if ($dataMempelaiPria !== null && $dataMempelaiWanita !== null) {
-            $dataMempelaiExists = true;
-        }
-
         return view('user.complete_register.index')
-            ->with('dataMempelaiExists', $dataMempelaiExists);
+            ->with('dataMempelaiPria', $dataMempelaiPria)
+            ->with('dataMempelaiWanita', $dataMempelaiWanita);
     }
 }

@@ -44,13 +44,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/data-couple', 'dataCouple');
     });
 
-    Route::prefix('route-mempelai')->group(function () {
+    Route::prefix('mempelai')->group(function () {
         Route::controller(MempelaiController::class)->group(function () {
-            Route::get('/get-data-mempelai', 'getDataMempelai');
             Route::get('/get-data-mempelai-pria', 'getDataMempelaiPria');
             Route::get('/get-data-mempelai-wanita', 'getDataMempelaiWanita');
-            Route::get('/store-data-mempelai', 'storeDataMempelai');
-            Route::get('/store-mempelai-pria', 'storeMempelaiPria');
+            Route::get('/store-data-mempelai-pria', 'storeMempelaiPria');
+            Route::get('/update-data-mempelai-pria', 'updateMempelaiPria');
+            Route::get('/store-data-mempelai-wanita', 'storeMempelaiWanita');
+            Route::get('/update-data-mempelai-wanita', 'updateMempelaiWanita');
         });
     });
 });

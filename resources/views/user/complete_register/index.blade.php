@@ -4,26 +4,56 @@
 
 @section('content')
     @include('components.navbar')
-    <main class="hero mb-10">
-        <div class="hero-content block">
-            <section class="mb-10 mt-10 flex justify-center">
-                <ul class="steps text-sm">
-                    <li id="st-1" class="step step-primary text-primary/50">Daftar Akun</li>
-                    <li id="st-2" class="step step-primary {{ $dataMempelaiExists === true ? 'text-primary/50' : 'text-gray-700' }}">
-                        Info Mempelai</li>
-                    <li id="st-3"
-                        class="step {{ $dataMempelaiExists === true ? 'step-primary text-gray-700' : 'text-gray-400' }}">
-                        Informasi Acara</li>
-                    <li id="st-4" class="step text-gray-400">Receive Product</li>
-                </ul>
-            </section>
+    <main class="hero min-h-screen bg-base-200">
+        <div class="hero-content my-6">
+            <section>
+                <div class="w-full max-w-xl flex-shrink-0">
+                    <ol class="border-l-2 border-blue-600">
+                        <li>
+                            <div class="flex-start flex items-center">
+                                <div class="-ml-2 mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-blue-600">
+                                </div>
+                                <h4 class="-mt-2 text-xl font-semibold text-gray-800">Daftar Akun</h4>
+                            </div>
 
-            <section id="step-2" class="{{ $dataMempelaiExists === true ? 'hidden' : '' }}">
-                @include('user.complete_register.register_step._step_2_data_mempelai')
-            </section>
+                            <div class="ml-6" id="pendaftaran">
+                                <p class="desc-timeline text-green-600">Pendaftaran berhasil.</p>
+                            </div>
+                        </li>
 
-            <section id="step-3" class="{{ $dataMempelaiExists === true ? '' : 'hidden' }}">
-                @include('user.complete_register.register_step._step_3_data_acara')
+                        <li class="{{ $dataMempelaiPria === null ? 'pb-6' : '' }} pt-6" id="section-mempelai-pria">
+                            <div class="flex-start flex cursor-pointer items-center">
+                                <div class="-ml-2 mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-blue-600">
+                                </div>
+                                <h4 class="-mt-2 text-xl font-semibold text-gray-800">Profile Mempelai Pria</h4>
+                            </div>
+                            <div class="{{ $dataMempelaiPria === null ? '' : 'hidden' }} ml-6" id="form-mempelai-pria">
+                                <p class="desc-timeline">Silahkan isi formulir dengan lengkap.</p>
+                                @include('user.complete_register.partials.formMempelaiPria')
+                            </div>
+
+                            <div class="{{ $dataMempelaiPria === null ? 'hidden' : '' }} ml-6" id="form-mempelai-pria-not-null">
+                                <p class="desc-timeline text-green-600">Informasi profile mempelai pria lengkap.</p>
+                                <section class="hidden">
+                                    @include('user.complete_register.partials.formMempelaiPria')
+                                </section>
+                            </div>
+                        </li>
+
+                        <li class="{{ $dataMempelaiPria === null ? 'hidden' : '' }} pt-6 pb-6" id="section-mempelai-wanita">
+                            <div class="flex-start flex cursor-pointer items-center">
+                                <div class="-ml-2 mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-blue-600">
+                                </div>
+                                <h4 class="-mt-2 text-xl font-semibold text-gray-800">Profile Mempelai Wanita </h4>
+                            </div>
+                            <div class="ml-6" id="form-wanita">
+                                <p class="desc-timeline">Silahkan isi formulir dengan lengkap.</p>
+                                @include('user.complete_register.partials.formMempelaiWanita')
+                            </div>
+                        </li>
+
+                    </ol>
+                </div>
             </section>
         </div>
     </main>
@@ -34,73 +64,34 @@
 @push('scripts')
     <script type="module">
         // Variabel
-        localStorage.clear();
+        $('#footer').addClass('hidden')
+        var dataMempelaiPria = @json($dataMempelaiPria);
+        var dataMempelaiWanita = @json($dataMempelaiWanita);
+
         var dataNull = {
-            'dataMempelaiPria' : true,
-            'dataMempelaiWanita' : true,
+            'dataMempelaiPria' : dataMempelaiPria !== null ? false : true,
+            'dataMempelaiWanita' : dataMempelaiWanita !== null ? false : true,
         }
 
-        // Feature
-        
-
-        // Function
-        getDataMempelai()
-
-        function getDataMempelai(){
-            $.ajax({
-                url: `/route-mempelai/get-data-mempelai`,
-                type: 'GET',
-                dataType: 'json',
-                data: {},
-                beforeSend: function() {
-                    $('#loading-data-mempelai').removeClass('hidden')
-                    $('#form-mempelai').addClass('hidden')
-                },
-                error: function(error) {
-
-                },
-                success: function(response) {
-                    $('#loading-data-mempelai').addClass('hidden')
-                    $('#form-mempelai').removeClass('hidden')
-                    if(response.data.mempelai_pria !== null) {
-                        dataNull.dataMempelaiPria = false
-                        $('#id-pria').val(response.data.mempelai_pria.id)
-                        $('#nama-lengkap-pria').val(response.data.mempelai_pria.nama_lengkap)
-                        $('#nama-panggilan-pria').val(response.data.mempelai_pria.nama_panggilan)
-                        $('#tanggal-lahir-pria').val(response.data.mempelai_pria.tanggal_lahir)
-                        $('#tempat-lahir-pria').val(response.data.mempelai_pria.tempat_lahir)
-                        $('#nama-ayah-pria').val(response.data.mempelai_pria.nama_ayah)
-                        $('#nama-ibu-pria').val(response.data.mempelai_pria.nama_ibu)
-                        $('#instagram-pria').val(response.data.mempelai_pria.instagram === 'null' ? '' : response.data.mempelai_pria.instagram)
-                    }
-                    
-                    if(response.data.mempelai_wanita !== null) {
-                        dataNull.dataMempelaiWanita = false
-                        $('#id-wanita').val(response.data.mempelai_wanita.id)
-                        $('#nama-lengkap-wanita').val(response.data.mempelai_wanita.nama_lengkap)
-                        $('#nama-panggilan-wanita').val(response.data.mempelai_wanita.nama_panggilan)
-                        $('#tanggal-lahir-wanita').val(response.data.mempelai_wanita.tanggal_lahir)
-                        $('#tempat-lahir-wanita').val(response.data.mempelai_wanita.tempat_lahir)
-                        $('#nama-ayah-wanita').val(response.data.mempelai_wanita.nama_ayah)
-                        $('#nama-ibu-wanita').val(response.data.mempelai_wanita.nama_ibu)
-                        $('#instagram-wanita').val(response.data.mempelai_wanita.instagram === 'null' ? '' : response.data.mempelai_wanita.instagram)
-                    }
-
-                    if(response.data.mempelai_pria !== null && response.data.mempelai_wanita !== null) {
-                        $('#st-2').removeClass('font-bold text-gray-700').addClass('text-primary/50')
-                        $('#st-3').addClass('step-primary text-gray-700').removeClass('text-gray-400')
-                        $('#step-2').addClass('hidden');
-                        $('#step-3').removeClass('hidden');
-                    }
-                }
-            });
+        if(dataMempelaiPria === null){
+            $('html, body').animate({
+                scrollTop: $("#section-mempelai-pria").offset().top
+            }, 1000);
+        } else if(dataMempelaiWanita === null){
+            $('html, body').animate({
+                scrollTop: $("#section-mempelai-wanita").offset().top
+            }, 1000);
         }
 
-        $(document).on('click', '#handleStoreDataMempelai', function (){
-            storeDataMempelai()
+        $('#handleStoreDataMempelaiPria').click(function(){
+            storeDataMempelaiPria()
         })
 
-        function storeDataMempelai (){
+        $('#handleStoreDataMempelaiwanita').click(function(){
+            storeDataMempelaiWanita()
+        })
+
+        function storeDataMempelaiPria() {
             var dataMempelaiPria = {
                 id: $('#id-pria').val(),
                 nama_lengkap: $('#nama-lengkap-pria').val(),
@@ -112,6 +103,39 @@
                 instagram: $('#instagram-pria').val(),
             }
 
+            $.ajax({
+                url: `${dataNull.dataMempelaiPria === false ? '/mempelai/update-data-mempelai-pria' : '/mempelai/store-data-mempelai-pria'}`,
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    dataMempelaiPria,
+                    dataNull,
+                },
+                beforeSend: function() {
+                    $('.btn-handle').html('Loading...').addClass('opacity-50 cursor-not-allowed');
+                },
+                error: function(error) {
+                    $('.btn-handle').html('Coba lagi').removeClass('opacity-50 cursor-not-allowed').addClass('bg-red-500');
+                },
+                success: function(response) {
+                    $('#toast-success').removeClass('hidden');
+                    $('.btn-handle').html('Lanjutkan').removeClass('opacity-50 cursor-not-allowed');
+                    setTimeout(() => {
+                       $('#toast-success').addClass('hidden')
+                    }, 3000);
+                    $('#section-mempelai-wanita').removeClass('hidden').addClass('pb-6')
+                    $('#section-mempelai-pria').removeClass('pb-6')
+                    $('#form-mempelai-pria').addClass('hidden')
+                    $('#form-mempelai-pria-not-null').removeClass('hidden')
+                    $('html, body').animate({
+                        scrollTop: $("#section-mempelai-wanita").offset().top
+                    }, 1000);
+                    getDataMempelaiPria()
+                }
+            });
+        }
+
+        function storeDataMempelaiWanita(){
             var dataMempelaiWanita = {
                 id: $('#id-wanita').val(),
                 nama_lengkap: $('#nama-lengkap-wanita').val(),
@@ -124,11 +148,10 @@
             }
 
             $.ajax({
-                url: `/route-mempelai/store-data-mempelai`,
+                url: `${dataNull.dataMempelaiWanita === false ? '/mempelai/update-data-mempelai-wanita' : '/mempelai/store-data-mempelai-wanita'}`,
                 type: 'GET',
                 dataType: 'json',
                 data: {
-                    dataMempelaiPria,
                     dataMempelaiWanita,
                     dataNull,
                 },
@@ -142,13 +165,14 @@
                     $('#toast-success').removeClass('hidden');
                     $('.btn-handle').html('Lanjutkan').removeClass('opacity-50 cursor-not-allowed');
                     setTimeout(() => {
-                       $('#toast-success').addClass('hidden') 
+                       $('#toast-success').addClass('hidden')
                     }, 3000);
-                    $('#st-2').removeClass('font-bold')
-                    $('#st-3').addClass('step-primary text-gray-700').removeClass('text-gray-400')
-                    $('#step-2').addClass('hidden');
-                    $('#step-3').removeClass('hidden');
-                    getDataMempelai()
+                    $('#section-mempelai-wanita').removeClass('pb-6')
+                    $('#form-wanita').addClass('hidden')
+                    $('html, body').animate({
+                        scrollTop: $("#section-mempelai-wanita").offset().top
+                    }, 1000);
+                    window.location.href = '/dashboard'
                 }
             });
         }
