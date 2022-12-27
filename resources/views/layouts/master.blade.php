@@ -13,12 +13,12 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <!-- Scripts -->
 
     {{-- Develop --}}
-    @vite(['resources/css/app.css', 'resources/css/tailwind-elements.min.css', 'resources/js/app.js', 'resources/js/tailwind-elements.min.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @vite([])
 
     <!-- Build -->
@@ -34,6 +34,7 @@
         <x-navigation.footer />
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     @stack('scripts')
 </body>
 

@@ -1,13 +1,13 @@
-<div class="sm:w-full text-xl leading-normal text-gray-800 lg:w-1/5 lg:px-6">
+<div class="w-full text-xl leading-normal text-gray-800 lg:w-1/5 lg:px-6">
     <p class="py-2 text-base font-bold text-gray-700">Menu</p>
     <div class="block lg:hidden">
-        <button id="menu-toggle" class="flex sm:w-full appearance-none justify-end rounded border border-gray-600 bg-white px-3 py-3 hover:border-purple-500 focus:outline-none lg:bg-transparent">
+        <button id="menu-toggle" class="flex w-full appearance-none justify-end rounded border border-gray-600 bg-white px-3 py-3 hover:border-purple-500 focus:outline-none lg:bg-transparent">
             <svg class="float-right h-3 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
             </svg>
         </button>
     </div>
-    <div class="z-20 mt-0 hidden h-64 sm:w-full overflow-y-auto overflow-x-hidden border border-gray-400 bg-white shadow lg:block lg:h-auto lg:overflow-y-hidden lg:border-transparent lg:bg-transparent lg:shadow-none" style="top:5em;" id="menu-content">
+    <div class="z-20 mt-0 hidden h-64 w-full overflow-y-auto overflow-x-hidden border border-gray-400 bg-white shadow lg:block lg:h-auto lg:overflow-y-hidden lg:border-transparent lg:bg-transparent lg:shadow-none" style="top:5em;" id="menu-content">
         <ul class="list-reset">
             <li class="py-2 hover:bg-purple-100 md:my-0 lg:hover:bg-transparent">
                 <a href="#" class="{{ $active === 'halaman-utama' ? 'hover:text-purple-500 lg:border-purple-500 lg:hover:border-purple-500' : 'hover:text-purple-500 lg:hover:border-gray-400' }} flex items-center gap-2 border-l-4 border-transparent pl-4 align-middle text-gray-700 no-underline">

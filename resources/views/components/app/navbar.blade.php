@@ -16,14 +16,14 @@
                 </svg>
             </button>
         </div>
-        <div class="z-20 mt-2 hidden  flex-grow lg:mt-0 lg:flex lg:w-auto lg:content-center lg:items-center" id="nav-content">
-            <div class="mx-auto  max-w-sm flex-1 content-center py-4 lg:py-0">
+        <div class="z-20 mt-2 hidden w-full flex-grow lg:mt-0 lg:flex lg:w-auto lg:content-center lg:items-center" id="nav-content">
+            <div class="mx-auto w-full max-w-sm flex-1 content-center py-4 lg:py-0">
             </div>
             <ul class="list-reset items-center justify-end lg:flex">
                 <li class="mr-3 py-2 lg:py-0">
                     <a class="inline-block py-2 px-4 font-bold text-gray-900 no-underline" href="#">Paket Premium</a>
                 </li>
-                <li class="mr-3 py-2 lg:py-0">
+                <li class="mr-3 py-2 lg:py-0 text-right">
                     <div class="dropdown-end dropdown">
                         <label tabindex="0" class="btn-ghost btn-circle avatar btn">
                             <div class="w-100 rounded-full">
@@ -32,7 +32,7 @@
                                 </svg>
                             </div>
                         </label>
-                        <ul tabindex="0" class="dropdown-content menu menu-compact mt-3 w-52 rounded-lg bg-transparent p-2 font-semibold text-black shadow-xl backdrop-blur-sm">
+                        <ul tabindex="0" class="dropdown-content menu menu-compact mt-3 w-52 rounded-lg bg-transparent p-2 font-semibold text-black shadow-xl backdrop-blur-sm text-left">
                             {{-- Auth Login Register --}}
                             @if (Route::has('login'))
                                 @auth

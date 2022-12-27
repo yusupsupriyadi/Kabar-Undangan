@@ -9,7 +9,7 @@
             <x-app.menu active="halaman-utama" />
 
             <!--Main Content-->
-            <div class="border-rounded mt-6  border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0 lg:w-4/5">
+            <div class="border-rounded mt-6 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0 lg:w-4/5">
 
                 <section class="{{ $user['vip'] === true ? 'hidden' : '' }}">
                     <x-app.card-premium />
