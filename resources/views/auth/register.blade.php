@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
-    @include('components.navbar')
+    <x-navigation.navbar/>
     <main class="hero min-h-screen bg-base-200">
         <div class="hero-content my-6">
             <section>
                 <div class="w-full max-w-xl flex-shrink-0">
                     <ol class="border-l-2 border-blue-600">
-                        
+
                         <li class="mb-6 pb-6">
                             <div class="flex-start flex items-center">
                                 <div class="-ml-2 mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-blue-600">
@@ -101,14 +101,14 @@
                     $('#handleRegister').html('Coba Lagi').removeClass('opacity-50');
                     $('#toast-failed').removeClass('hidden');
                     setTimeout(() => {
-                       $('#toast-failed').addClass('hidden') 
+                       $('#toast-failed').addClass('hidden')
                     }, 3000);
                 },
                 success: function(response) {
                     $('#handleRegister').html('Berhasil').removeClass('opacity-50');
                     $('#toast-success').removeClass('hidden');
                     setTimeout(() => {
-                       $('#toast-success').addClass('hidden') 
+                       $('#toast-success').addClass('hidden')
                     }, 3000);
 
                     window.location.href = '/complete-register'

@@ -31,9 +31,9 @@
     @yield('content')
 
     <section id="footer">
-        <x-footer />
+        <x-navigation.footer />
     </section>
-    
+
     @stack('scripts')
 </body>
 
