@@ -17,7 +17,7 @@
                             </div>
 
                             <div class="ml-6" id="pendaftaran">
-                                <p class="desc-timeline text-green-600">Pendaftaran berhasil.</p>
+                                <p class="-ml-1 text-sm text-green-500">Pendaftaran berhasil.</p>
                             </div>
                         </li>
 
@@ -29,11 +29,11 @@
                             </div>
                             <div class="{{ $dataMempelaiPria === null ? '' : 'hidden' }} ml-6" id="form-mempelai-pria">
                                 <p class="desc-timeline">Silahkan isi formulir dengan lengkap.</p>
-                                @include('user.complete_register.partials.formMempelaiPria')
+                                @include('user.complete-register.partials.formMempelaiPria')
                             </div>
 
                             <div class="{{ $dataMempelaiPria === null ? 'hidden' : '' }} ml-6" id="form-mempelai-pria-not-null">
-                                <p class="desc-timeline text-green-600">Informasi profile mempelai pria sudah lengkap.</p>
+                                <p class="-ml-1 text-sm text-green-500">Informasi profile mempelai pria sudah lengkap.</p>
                             </div>
                         </li>
 
@@ -45,11 +45,11 @@
                             </div>
                             <div class="{{ $dataMempelaiWanita === null ? '' : 'hidden' }} ml-6" id="form-wanita">
                                 <p class="desc-timeline">Silahkan isi formulir dengan lengkap.</p>
-                                @include('user.complete_register.partials.formMempelaiWanita')
+                                @include('user.complete-register.partials.formMempelaiWanita')
                             </div>
 
                             <div class="{{ $dataMempelaiWanita === null ? 'hidden' : '' }} ml-6" id="form-mempelai-wanita-not-null">
-                                <p class="desc-timeline text-green-600">Informasi profile mempelai Wanita sudah lengkap.</p>
+                                <p class="-ml-1 text-sm text-green-500">Informasi profile mempelai Wanita sudah lengkap.</p>
                             </div>
                         </li>
 

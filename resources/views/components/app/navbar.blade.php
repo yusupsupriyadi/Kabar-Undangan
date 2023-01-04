@@ -4,8 +4,8 @@
             <svg class="h-5 fill-current pr-3 text-purple-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M0 2C0 .9.9 0 2 0h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm14 12h4V2H2v12h4c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2zM5 9l2-2 2 2 4-4 2 2-6 6-4-4z" />
             </svg>
-            <a class="text-xl font-extrabold text-gray-900 no-underline hover:no-underline" href="#">
-                Help Article
+            <a class="text-xl font-extrabold text-gray-900 no-underline hover:no-underline" href="/">
+                Kabar Undangan
             </a>
         </div>
         <div class="block pr-4 lg:hidden">
@@ -18,13 +18,16 @@
         </div>
         <div class="z-20 mt-2 hidden w-full flex-grow lg:mt-0 lg:flex lg:w-auto lg:content-center lg:items-center" id="nav-content">
             <div class="mx-auto w-full max-w-sm flex-1 content-center py-4 lg:py-0">
+                <a href="/paket-premium" class="flex items-center justify-center rounded-xl border-2 border-black bg-pink-100 px-4 py-2 font-bold shadow-[5px_5px_0_0_#000] transition hover:shadow-none focus:outline-none focus:ring active:bg-pink-50">
+                    Premium <span aria-hidden="true" class="ml-1.5" role="img">✨</span>
+                </a>
             </div>
             <ul class="list-reset items-center justify-end lg:flex">
                 <li class="mr-3 py-2 lg:py-0">
-                    <a class="inline-block py-2 px-4 font-bold text-gray-900 no-underline" href="#">Paket Premium</a>
+                    <a class="inline-block py-2 px-4 font-bold text-gray-900 no-underline" href="#">Lihat Undangan</a>
                 </li>
-                <li class="mr-3 py-2 lg:py-0 text-right">
-                    <div class="dropdown-end dropdown">
+                <li class="mr-3 py-2 text-left lg:py-0">
+                    <div class="dropdown lg:dropdown-end">
                         <label tabindex="0" class="btn-ghost btn-circle avatar btn">
                             <div class="w-100 rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
@@ -32,7 +35,7 @@
                                 </svg>
                             </div>
                         </label>
-                        <ul tabindex="0" class="dropdown-content menu menu-compact mt-3 w-52 rounded-lg bg-transparent p-2 font-semibold text-black shadow-xl backdrop-blur-sm text-left">
+                        <ul tabindex="0" class="dropdown-content menu menu-compact mt-3 w-52 rounded-lg bg-transparent p-2 text-left font-semibold text-black shadow-xl backdrop-blur-lg">
                             {{-- Auth Login Register --}}
                             @if (Route::has('login'))
                                 @auth
@@ -50,7 +53,7 @@
                                     <li>
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <a :href="route('logout')" class=" text-lg" onclick="event.preventDefault();
+                                            <a :href="route('logout')" class="text-lg" onclick="event.preventDefault();
                                                             this.closest('form').submit();">
                                                 {{ __('Log Out') }}
                                             </a>
