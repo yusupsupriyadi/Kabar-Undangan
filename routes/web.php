@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UndanganController;
 use App\Http\Controllers\User\MempelaiController;
 use App\Http\Controllers\User\SettingUndanganController;
 use App\Http\Controllers\UserController;
@@ -33,6 +34,10 @@ Route::prefix('auth')->group(function () {
 Route::controller(HomeController::class)->group(function () {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
 })->middleware(['auth', 'verified']);
+
+Route::controller(UndanganController::class)->group(function () {
+    Route::get('/undangan/{id}', 'index');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

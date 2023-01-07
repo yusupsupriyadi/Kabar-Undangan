@@ -18,20 +18,17 @@
     <!-- Scripts -->
 
     {{-- Develop --}}
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite([]) --}}
 
     <!-- Build -->
-    <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
-    <link rel="stylesheet" href="{{ asset('/build/assets/app.f2178838.css') }}">
-    <script src="{{ asset('/build/assets/app.57e74c43.js') }}"></script>
+    {{-- <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
+    <link rel="stylesheet" href="{{ asset('/build/assets/app.a0aae1e6.css') }}">
+    <script src="{{ asset('/build/assets/app.23d6acfe.js') }}"></script> --}}
 </head>
 
 <body id="body">
     @yield('content')
-
-    <section id="footer">
-        <x-navigation.footer />
-    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     @stack('scripts')

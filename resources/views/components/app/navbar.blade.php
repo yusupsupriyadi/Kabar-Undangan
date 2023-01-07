@@ -24,7 +24,7 @@
             </div>
             <ul class="list-reset items-center justify-end lg:flex">
                 <li class="mr-3 py-2 lg:py-0">
-                    <a class="inline-block py-2 px-4 font-bold text-gray-900 no-underline" href="#">Lihat Undangan</a>
+                    <a class="inline-block py-2 px-4 font-bold text-gray-900 no-underline" href="/undangan/{{ Auth::user()->id }}">Lihat Undangan</a>
                 </li>
                 <li class="mr-3 py-2 text-left lg:py-0">
                     <div class="dropdown lg:dropdown-end">

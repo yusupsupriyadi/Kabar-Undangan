@@ -37,8 +37,8 @@ class MempelaiController extends Controller
         if ($dataNull['dataMempelaiPria'] === 'true') {
             $user->mempelai_pria()->create([
                 'user_id' => $user->id,
-                'nama_lengkap' => $dataMempelaiPria['nama_lengkap'],
-                'nama_panggilan' => $dataMempelaiPria['nama_panggilan'],
+                'nama_lengkap' => ucfirst($dataMempelaiPria['nama_lengkap']),
+                'nama_panggilan' => ucfirst($dataMempelaiPria['nama_panggilan']),
                 'tempat_lahir' => $dataMempelaiPria['tempat_lahir'],
                 'tanggal_lahir' => $dataMempelaiPria['tanggal_lahir'],
                 'nama_ayah' => $dataMempelaiPria['nama_ayah'],
@@ -48,8 +48,8 @@ class MempelaiController extends Controller
         } else {
             $user->mempelai_pria()->update([
                 'user_id' => $user->id,
-                'nama_lengkap' => $dataMempelaiPria['nama_lengkap'],
-                'nama_panggilan' => $dataMempelaiPria['nama_panggilan'],
+                'nama_lengkap' => ucfirst($dataMempelaiPria['nama_lengkap']),
+                'nama_panggilan' => ucfirst($dataMempelaiPria['nama_panggilan']),
                 'tempat_lahir' => $dataMempelaiPria['tempat_lahir'],
                 'tanggal_lahir' => $dataMempelaiPria['tanggal_lahir'],
                 'nama_ayah' => $dataMempelaiPria['nama_ayah'],
@@ -61,8 +61,8 @@ class MempelaiController extends Controller
         if ($dataNull['dataMempelaiWanita'] === 'true') {
             $user->mempelai_wanita()->create([
                 'user_id' => $user->id,
-                'nama_lengkap' => $dataMempelaiWanita['nama_lengkap'],
-                'nama_panggilan' => $dataMempelaiWanita['nama_panggilan'],
+                'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
+                'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
                 'tempat_lahir' => $dataMempelaiWanita['tempat_lahir'],
                 'tanggal_lahir' => $dataMempelaiWanita['tanggal_lahir'],
                 'nama_ayah' => $dataMempelaiWanita['nama_ayah'],
@@ -72,8 +72,8 @@ class MempelaiController extends Controller
         } else {
             $user->mempelai_wanita()->update([
                 'user_id' => $user->id,
-                'nama_lengkap' => $dataMempelaiWanita['nama_lengkap'],
-                'nama_panggilan' => $dataMempelaiWanita['nama_panggilan'],
+                'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
+                'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
                 'tempat_lahir' => $dataMempelaiWanita['tempat_lahir'],
                 'tanggal_lahir' => $dataMempelaiWanita['tanggal_lahir'],
                 'nama_ayah' => $dataMempelaiWanita['nama_ayah'],
@@ -95,8 +95,8 @@ class MempelaiController extends Controller
 
         $user->mempelai_pria()->create([
             'user_id' => $user->id,
-            'nama_lengkap' => $dataMempelaiPria['nama_lengkap'],
-            'nama_panggilan' => $dataMempelaiPria['nama_panggilan'],
+            'nama_lengkap' => ucfirst($dataMempelaiPria['nama_lengkap']),
+            'nama_panggilan' => ucfirst($dataMempelaiPria['nama_panggilan']),
             'tempat_lahir' => $dataMempelaiPria['tempat_lahir'],
             'tanggal_lahir' => Carbon::parse(strtr($dataMempelaiPria['tanggal_lahir'], '/', '-'))->format('Y-m-d'),
             'nama_ayah' => $dataMempelaiPria['nama_ayah'],
@@ -118,8 +118,8 @@ class MempelaiController extends Controller
 
         $user->mempelai_pria()->update([
             'user_id' => $user->id,
-            'nama_lengkap' => $dataMempelaiPria['nama_lengkap'],
-            'nama_panggilan' => $dataMempelaiPria['nama_panggilan'],
+            'nama_lengkap' => ucfirst($dataMempelaiPria['nama_lengkap']),
+            'nama_panggilan' => ucfirst($dataMempelaiPria['nama_panggilan']),
             'tempat_lahir' => $dataMempelaiPria['tempat_lahir'],
             'tanggal_lahir' => Carbon::parse(strtr($dataMempelaiPria['tanggal_lahir'], '/', '-'))->format('Y-m-d'),
             'nama_ayah' => $dataMempelaiPria['nama_ayah'],
@@ -140,8 +140,8 @@ class MempelaiController extends Controller
 
         $user->mempelai_wanita()->create([
             'user_id' => $user->id,
-            'nama_lengkap' => $dataMempelaiWanita['nama_lengkap'],
-            'nama_panggilan' => $dataMempelaiWanita['nama_panggilan'],
+            'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
+            'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
             'tempat_lahir' => $dataMempelaiWanita['tempat_lahir'],
             'tanggal_lahir' => Carbon::parse(strtr($dataMempelaiWanita['tanggal_lahir'], '/', '-'))->format('Y-m-d'),
             'nama_ayah' => $dataMempelaiWanita['nama_ayah'],
@@ -162,8 +162,8 @@ class MempelaiController extends Controller
 
         $user->mempelai_wanita()->update([
             'user_id' => $user->id,
-            'nama_lengkap' => $dataMempelaiWanita['nama_lengkap'],
-            'nama_panggilan' => $dataMempelaiWanita['nama_panggilan'],
+            'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
+            'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
             'tempat_lahir' => $dataMempelaiWanita['tempat_lahir'],
             'tanggal_lahir' => Carbon::parse(strtr($dataMempelaiWanita['tanggal_lahir'], '/', '-'))->format('Y-m-d'),
             'nama_ayah' => $dataMempelaiWanita['nama_ayah'],
