@@ -16,7 +16,7 @@
                             </div>
                             <div class="ml-6">
                                 <p class="mt-2 mb-4 text-sm text-gray-700">Silahkan isi formulir dengan lengkap.</p>
-                                <section class="card w-96 bg-base-100 shadow-xl">
+                                <section class="card lg:w-96 bg-base-100 shadow-xl">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="name" class="form-label mb-2 inline-block text-gray-700">Nama</label>

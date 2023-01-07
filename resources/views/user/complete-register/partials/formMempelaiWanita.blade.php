@@ -1,4 +1,4 @@
-<section class="card w-96 bg-base-100 shadow-xl">
+<section class="card lg:w-96 bg-base-100 shadow-xl">
     <div class="card-body">
         <input id="id-wanita" type="hidden">
 
