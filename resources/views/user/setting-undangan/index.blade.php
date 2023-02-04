@@ -23,9 +23,38 @@
                     <x-app.card-premium />
                 </section>
 
-                <x-app.title title="Pengaturan Undangan" />
 
-                <main class="py-12">
+                <x-app.title title="Pengaturan Undangan" desc="Fasilitas ini anda dapat gunakan untuk mengatur pengaturan umum website anda, anda bisa mengganti informasi website yang berhubungan dengan pernikahan anda." />
+
+                <main class="py-5">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="form-label font-bold">Nama Domain</span>
+                        </label>
+                        <label class="input-group">
+                            <input id="domain" type="text" placeholder="masukan domain" class="input-bordered input" value="{{ $dataSettingUndangan['domain'] }}" />
+                            <span class="text-sm">.kabarundangan.com</span>
+                        </label>
+                        <label class="label">
+                            <span class="label-text-alt text-xs text-gray-600">ini untuk nama link undangan digital kamu</span>
+                        </label>
+                    </div>
+
+                    <div class="form-control mt-2 w-full">
+                        <label class="label">
+                            <span class="form-label font-bold">Judul Undangan</span>
+                        </label>
+                        <input id="judul_undangan" type="text" placeholder="masukan judul" class="input-bordered input w-full max-w-xs" value="{{ $dataSettingUndangan['judul_undangan'] }}" />
+                        <label class="label">
+                            <span class="label-text-alt text-xs text-gray-600">Judul untuk menamai website Anda yang akan muncul pada bagian atas browser.</span>
+                        </label>
+                    </div>
+
+                    <div class="mt-6">
+                        <button id="btn-simpan" type="button" class="inline-block rounded bg-green-600 px-6 py-2.5 text-sm font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg">
+                            Simpan
+                        </button>
+                    </div>
                 </main>
 
                 <x-app.testimoni-bar />
@@ -37,69 +66,45 @@
             </div>
         </div>
 
-        <x-app.footer/>
+        <x-app.footer />
     </main>
+
+    <x-toast-alert id="toast-success" type="success" message="Berhasil." />
+    <x-toast-alert id="toast-failed" type="failed" message="Tidak Berhasil." />
 @endsection
 
 @push('scripts')
-    <script>
-        /*Toggle dropdown list*/
-        /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+    <script type="module">
+        var id = @json($dataSettingUndangan['id']);
+        $(document).ready(function() {
+            $('#btn-simpan').click(function() {
+                var domain = $('#domain').val();
+                var judul_undangan = $('#judul_undangan').val();
 
-        var navMenuDiv = document.getElementById("nav-content");
-        var navMenu = document.getElementById("nav-toggle");
+                $.ajax({
+                    url: `/setting-undangan/update`,
+                    type: "GET",
+                    dataType: 'json',
+                    data: {
+                        id: id,
+                        domain: domain,
+                        judul_undangan: judul_undangan
+                    },
 
-        var helpMenuDiv = document.getElementById("menu-content");
-        var helpMenu = document.getElementById("menu-toggle");
-
-        document.onclick = check;
-
-        function check(e) {
-            var target = (e && e.target) || (event && event.srcElement);
-
-
-            //Nav Menu
-            if (!checkParent(target, navMenuDiv)) {
-                // click NOT on the menu
-                if (checkParent(target, navMenu)) {
-                    // click on the link
-                    if (navMenuDiv.classList.contains("hidden")) {
-                        navMenuDiv.classList.remove("hidden");
-                    } else {
-                        navMenuDiv.classList.add("hidden");
-                    }
-                } else {
-                    // click both outside link and outside menu, hide menu
-                    navMenuDiv.classList.add("hidden");
-                }
-            }
-
-            //Help Menu
-            if (!checkParent(target, helpMenuDiv)) {
-                // click NOT on the menu
-                if (checkParent(target, helpMenu)) {
-                    // click on the link
-                    if (helpMenuDiv.classList.contains("hidden")) {
-                        helpMenuDiv.classList.remove("hidden");
-                    } else {
-                        helpMenuDiv.classList.add("hidden");
-                    }
-                } else {
-                    // click both outside link and outside menu, hide menu
-                    helpMenuDiv.classList.add("hidden");
-                }
-            }
-
-        }
-
-        function checkParent(t, elm) {
-            while (t.parentNode) {
-                if (t == elm) {
-                    return true;
-                }
-                t = t.parentNode;
-            }
-            return false;
-        }
+                    error: function(response) {
+                        $('#toast-failed').removeClass('hidden');
+                        setTimeout(() => {
+                            $('#toast-failed').addClass('hidden')
+                        }, 3000);
+                    },
+                    success: function(response) {
+                        $('#toast-success').removeClass('hidden');
+                        setTimeout(() => {
+                            $('#toast-success').addClass('hidden')
+                        }, 3000);
+                    },
+                });
+            });
+        });
     </script>
 @endpush

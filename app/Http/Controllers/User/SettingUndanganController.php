@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 
 class SettingUndanganController extends Controller
 {
-    public function index(){
+    public function index(Request $request)
+    {
         $user = auth()->user();
+        $dataSettingUndangan = $request->user()->setting_undangan;
         return view('user.setting-undangan.index')
-        ->with('user', $user);
+            ->with('user', $user)
+            ->with('dataSettingUndangan', $dataSettingUndangan);
     }
 }

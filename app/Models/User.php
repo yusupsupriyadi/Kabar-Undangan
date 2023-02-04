@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Models\User\MempelaiPria;
 use App\Models\User\MempelaiWanita;
+use App\Models\User\SettingUndangan;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -56,5 +57,10 @@ class User extends Authenticatable
     public function mempelai_wanita()
     {
         return $this->hasOne(MempelaiWanita::class);
+    }
+
+    public function setting_undangan()
+    {
+        return $this->hasOne(SettingUndangan::class);
     }
 }

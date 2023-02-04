@@ -1,5 +1,5 @@
 @if ($type === 'success')
-    <div class="toast hidden transform duration-100" id="{{ $id }}">
+    <div class="toast toast-center right-1/4 hidden transform duration-100" id="{{ $id }}">
         <div class="alert alert-success shadow-md rounded-xl p-4">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-5 w-5" fill="none"
@@ -12,7 +12,7 @@
         </div>
     </div>
 @else
-    <div class="toast hidden transform duration-100" id="{{ $id }}">
+    <div class="toast toast-center right-1/4 hidden transform duration-100" id="{{ $id }}">
         <div class="alert alert-error shadow-md rounded-xl p-4">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-5 w-5" fill="none"

@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="content-language" content="id">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Platform pembuatan undangan digital gratis.">
@@ -18,12 +19,12 @@
     <!-- Scripts -->
 
     {{-- Develop --}}
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Build -->
-    <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
+    {{-- <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
     <link rel="stylesheet" href="{{ asset('/build/assets/app.f2178838.css') }}">
-    <script src="{{ asset('/build/assets/app.57e74c43.js') }}"></script>
+    <script src="{{ asset('/build/assets/app.57e74c43.js') }}"></script> --}}
 </head>
 
 <body id="body">

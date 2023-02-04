@@ -138,21 +138,33 @@ class MempelaiController extends Controller
         $user = User::find($request->user()->id);
         $dataMempelaiWanita = $request->dataMempelaiWanita;
 
-        $user->mempelai_wanita()->create([
-            'user_id' => $user->id,
-            'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
-            'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
-            'tempat_lahir' => $dataMempelaiWanita['tempat_lahir'],
-            'tanggal_lahir' => Carbon::parse(strtr($dataMempelaiWanita['tanggal_lahir'], '/', '-'))->format('Y-m-d'),
-            'nama_ayah' => $dataMempelaiWanita['nama_ayah'],
-            'nama_ibu' => $dataMempelaiWanita['nama_ibu'],
-            'instagram' => $dataMempelaiWanita['instagram'] ?? 'null',
-        ]);
+        try {
+            $user->mempelai_wanita()->create([
+                'user_id' => $user->id,
+                'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
+                'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
+                'tempat_lahir' => $dataMempelaiWanita['tempat_lahir'],
+                'tanggal_lahir' => Carbon::parse(strtr($dataMempelaiWanita['tanggal_lahir'], '/', '-'))->format('Y-m-d'),
+                'nama_ayah' => $dataMempelaiWanita['nama_ayah'],
+                'nama_ibu' => $dataMempelaiWanita['nama_ibu'],
+                'instagram' => $dataMempelaiWanita['instagram'] ?? 'null',
+            ]);
 
-        return response()->json([
-            'message' => 'success',
-            'data' => $user
-        ]);
+            $namaPanggilanMempelaiPria = $user->mempelai_pria->nama_panggilan;
+
+            $user->setting_undangan()->create([
+                'user_id' => $user->id,
+                'domain' => $namaPanggilanMempelaiPria . '-' . $dataMempelaiWanita['nama_panggilan'],
+                'judul_undangan' => $namaPanggilanMempelaiPria . ' & ' . $dataMempelaiWanita['nama_panggilan'],
+            ]);
+
+            return response()->json([
+                'message' => 'success',
+                'data' => $user
+            ]);
+        } catch (\Throwable $th) {
+            return abort(500, 'error');
+        }
     }
 
     public function updateMempelaiWanita(Request $request)
