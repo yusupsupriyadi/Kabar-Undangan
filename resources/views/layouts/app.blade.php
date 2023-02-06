@@ -16,6 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/confetti.css">
+
     <!-- Scripts -->
 
     {{-- Develop --}}
@@ -28,13 +31,27 @@
 </head>
 
 <body id="body">
-    @yield('content')
+    <main class="body">
+        @yield('content')
+    </main>
 
-    {{-- <section id="footer">
-        <x-footer />
-    </section> --}}
+    <section class="loading-screen hidden">
+        <div class="toast-center toast-middle toast">
+            <div class="alert-loading alert">
+                <div>
+                    <div class="loading">
+                        <div class="ball one"></div>
+                        <div class="ball two"></div>
+                        <div class="ball three"></div>
+                        <div class="ball four"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         /*Toggle dropdown list*/
         /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/

@@ -6,6 +6,9 @@ namespace App\Models;
 
 use App\Models\User\MempelaiPria;
 use App\Models\User\MempelaiWanita;
+use App\Models\User\SettingAcara;
+use App\Models\User\SettingAkad;
+use App\Models\User\SettingResepsi;
 use App\Models\User\SettingUndangan;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -63,4 +66,20 @@ class User extends Authenticatable
     {
         return $this->hasOne(SettingUndangan::class);
     }
+
+    public function setting_acara()
+    {
+        return $this->hasOne(SettingAcara::class);
+    }
+
+    public function setting_akad()
+    {
+        return $this->hasOne(SettingAkad::class);
+    }
+
+    public function setting_resepsi()
+    {
+        return $this->hasOne(SettingResepsi::class);
+    }
+
 }
