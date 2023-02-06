@@ -53,9 +53,6 @@
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        /*Toggle dropdown list*/
-        /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
-
         var navMenuDiv = document.getElementById("nav-content");
         var navMenu = document.getElementById("nav-toggle");
 
@@ -111,6 +108,19 @@
             }
             return false;
         }
+
+        function loadingStop(){
+            setTimeout(() => {
+                document.querySelector('.body').classList.remove('blur-[2px]')
+                document.querySelector('.loading-screen').classList.add('hidden')
+            }, 1000);
+        }
+
+        function loadingStart(){
+            document.querySelector('.body').classList.add('blur-[2px]')
+            document.querySelector('.loading-screen').classList.remove('hidden')
+        }
+
     </script>
     @stack('scripts')
 </body>

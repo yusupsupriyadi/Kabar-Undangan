@@ -34,7 +34,7 @@
                             <label class="label">
                                 <span class="form-label text-sm font-normal">Zona Waktu</span>
                             </label>
-                            <select id="zona-waktu" name="zona-waktu" class="form-select-sm t form-select m-0 block w-full max-w-xs appearance-none rounded border border-solid border-gray-300 bg-white bg-clip-padding bg-no-repeat px-3 py-1 text-sm text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none" aria-label="Default select example">
+                            <select id="zona-waktu" name="zona-waktu" class="select-primary" aria-label="Default select example">
                                 <option value="WIB">WIB</option>
                                 <option value="WITA">WITA</option>
                                 <option value="WIT">WIT</option>
@@ -45,7 +45,7 @@
                             <label class="label">
                                 <span class="form-label text-sm font-normal">Agama</span>
                             </label>
-                            <select id="agama" name="agama" class="form-select-sm t form-select m-0 block w-full max-w-xs appearance-none rounded border border-solid border-gray-300 bg-white bg-clip-padding bg-no-repeat px-3 py-1 text-sm text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none" aria-label="Default select example">
+                            <select id="agama" name="agama" class="select-primary" aria-label="Default select example">
                                 <option value="islam">Islam</option>
                                 <option value="protestan">Protestan</option>
                                 <option value="katolik">Katolik</option>
@@ -68,14 +68,14 @@
                                 </label>
                                 <div class="ml-2 flex">
                                     <div class="form-check">
-                                        <input value="true" class="form-check-input float-left mt-1 mr-2 h-4 w-4 cursor-pointer appearance-none rounded-full border border-gray-300 bg-white bg-contain bg-center bg-no-repeat align-top transition duration-200 checked:border-blue-600 checked:bg-blue-600 focus:outline-none" type="radio" name="tampilkan-akad" id="tampilkan-true-akad">
-                                        <label class="form-check-label inline-block text-sm text-gray-800" for="tampilkan-true-akad">
+                                        <input value="true" class="checkbox-primary" type="radio" name="tampilkan-akad" id="tampilkan-true-akad">
+                                        <label class="label-checkbox-primary" for="tampilkan-true-akad">
                                             Tampilkan
                                         </label>
                                     </div>
                                     <div class="form-check ml-4">
-                                        <input value="false" class="form-check-input float-left mt-1 mr-2 h-4 w-4 cursor-pointer appearance-none rounded-full border border-gray-300 bg-white bg-contain bg-center bg-no-repeat align-top transition duration-200 checked:border-blue-600 checked:bg-blue-600 focus:outline-none" type="radio" name="tampilkan-akad" id="tampilkan-false-akad">
-                                        <label class="form-check-label inline-block text-sm text-gray-800" for="tampilkan-false-akad">
+                                        <input value="false" class="checkbox-primary" type="radio" name="tampilkan-akad" id="tampilkan-false-akad">
+                                        <label class="label-checkbox-primary" for="tampilkan-false-akad">
                                             Sembunyikan
                                         </label>
                                     </div>
@@ -87,6 +87,7 @@
                                     <span class="form-label text-sm font-normal">Tanggal Akad Nikah</span>
                                 </label>
                                 <input id="tanggal-akad" type="text" class="input-form flatpicker-date form-control max-w-xs" placeholder="masukan tanggal" required>
+                                <label-validate id="tanggal-akad-validate">Wajib disi</label-validate>
                             </div>
 
                             <div class="form-control mt-4">
@@ -96,10 +97,12 @@
                                 <div class="flex">
                                     <div>
                                         <input id="waktu-mulai-akad" type="text" class="input-form form-control max-w-[7.2rem]" placeholder="..." required>
+                                        <label-validate id="waktu-mulai-akad-validate">Wajib disi</label-validate>
                                     </div>
                                     <p class="mx-4 text-sm">Sampai</p>
                                     <div>
                                         <input id="waktu-selesai-akad" type="text" class="input-form form-control max-w-[7.2rem]" placeholder="...">
+                                        <label-validate id="waktu-selesai-akad-validate">Wajib disi</label-validate>
                                     </div>
                                 </div>
                             </div>
@@ -108,14 +111,16 @@
                                 <label class="label">
                                     <span class="form-label text-sm font-normal">Tempat dan Alamat</span>
                                 </label>
-                                <textarea class="form-control m-0 block w-full max-w-xs rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-sm font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none" id="alamat-akad" rows="3" placeholder="Tuliskan alamat dan tempat akad nikah"></textarea>
+                                <textarea class="input-primary" id="alamat-akad" rows="3" placeholder="Tuliskan alamat dan tempat akad nikah"></textarea>
+                                <label-validate id="alamat-akad-validate">Wajib disi</label-validate>
                             </div>
 
                             <div class="form-control mt-4">
                                 <label class="label">
                                     <span class="form-label text-sm font-normal">Link Google Map</span>
                                 </label>
-                                <input type="text" class="form-control m-0 block w-full max-w-xs rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-sm font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none" id="link-google-map-akad" placeholder="Masukan URL Google Maps alamat anda telah anda salin" />
+                                <input type="text" class="input-primary" id="link-google-map-akad" placeholder="Masukan URL Google Maps alamat anda telah anda salin" />
+                                <label-validate id="link-google-map-akad-validate">Wajib disi</label-validate>
                             </div>
 
                         </section>
@@ -128,14 +133,14 @@
                                 </label>
                                 <div class="ml-2 flex">
                                     <div class="form-check">
-                                        <input value="true" class="form-check-input float-left mt-1 mr-2 h-4 w-4 cursor-pointer appearance-none rounded-full border border-gray-300 bg-white bg-contain bg-center bg-no-repeat align-top transition duration-200 checked:border-blue-600 checked:bg-blue-600 focus:outline-none" type="radio" name="tampilkan-resepsi" id="tampilkan-true-resepsi" checked>
-                                        <label class="form-check-label inline-block text-sm text-gray-800" for="tampilkan-true-resepsi">
+                                        <input value="true" class="checkbox-primary" type="radio" name="tampilkan-resepsi" id="tampilkan-true-resepsi" checked>
+                                        <label class="label-checkbox-primary" for="tampilkan-true-resepsi">
                                             Tampilkan
                                         </label>
                                     </div>
                                     <div class="form-check ml-4">
-                                        <input value="false" class="form-check-input float-left mt-1 mr-2 h-4 w-4 cursor-pointer appearance-none rounded-full border border-gray-300 bg-white bg-contain bg-center bg-no-repeat align-top transition duration-200 checked:border-blue-600 checked:bg-blue-600 focus:outline-none" type="radio" name="tampilkan-resepsi" id="tampilkan-false-resepsi">
-                                        <label class="form-check-label inline-block text-sm text-gray-800" for="tampilkan-false-resepsi">
+                                        <input value="false" class="checkbox-primary" type="radio" name="tampilkan-resepsi" id="tampilkan-false-resepsi">
+                                        <label class="label-checkbox-primary" for="tampilkan-false-resepsi">
                                             Sembunyikan
                                         </label>
                                     </div>
@@ -147,6 +152,7 @@
                                     <span class="form-label text-sm font-normal">Tanggal Resepsi</span>
                                 </label>
                                 <input id="tanggal-resepsi" type="text" class="input-form flatpicker-date form-control max-w-xs" placeholder="masukan tanggal">
+                                <label-validate id="tanggal-resepsi-validate">Wajib disi</label-validate>
                             </div>
 
                             <div class="form-control mt-4">
@@ -156,10 +162,12 @@
                                 <div class="flex">
                                     <div>
                                         <input id="waktu-mulai-resepsi" type="text" class="input-form form-control max-w-[7.2rem]" placeholder="...">
+                                        <label-validate id="waktu-mulai-resepsi-validate">Wajib disi</label-validate>
                                     </div>
                                     <p class="mx-4 text-sm">Sampai</p>
                                     <div>
                                         <input id="waktu-selesai-resepsi" type="text" class="input-form form-control max-w-[7.2rem]" placeholder="...">
+                                        <label-validate id="waktu-selesai-resepsi-validate">Wajib disi</label-validate>
                                     </div>
                                 </div>
                             </div>
@@ -168,20 +176,21 @@
                                 <label class="label">
                                     <span class="form-label text-sm font-normal">Tempat dan Alamat</span>
                                 </label>
-                                <textarea class="form-control m-0 block w-full max-w-xs rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-sm font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none" id="alamat-resepsi" rows="3" placeholder="Tuliskan alamat dan tempat akad nikah"></textarea>
+                                <textarea class="input-primary" id="alamat-resepsi" rows="3" placeholder="Tuliskan alamat dan tempat akad nikah"></textarea>
+                                <label-validate id="alamat-resepsi-validate">Wajib disi</label-validate>
                             </div>
 
                             <div class="form-control mt-4">
                                 <label class="label">
                                     <span class="form-label text-sm font-normal">Link Google Map</span>
                                 </label>
-                                <input id="link-google-map-resepsi" type="text" name="google-maps-resepsi" class="form-control m-0 block w-full max-w-xs rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-sm font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none" placeholder="Masukan URL Google Maps alamat anda telah anda salin" required/>
-                                <small id="link-google-map-resepsi-validation" class="mt-2 text-xs text-red-500 font-serif hidden">Wajib disi</small>
+                                <input id="link-google-map-resepsi" type="text" name="google-maps-resepsi" class="input-primary" placeholder="Masukan URL Google Maps alamat anda telah anda salin" required />
+                                <label-validate id="link-google-map-resepsi-validate">Wajib disi</label-validate>
                             </div>
                         </section>
 
                         <div class="mt-6">
-                            <button id="btn-simpan" type="button" name="google-maps-resepsi" class="inline-block rounded bg-[#fbbd23] px-6 py-2.5 text-lg font-bold uppercase leading-tight text-black shadow-md transition duration-150 ease-in-out hover:bg-[#b58714] hover:shadow-lg focus:bg-[#b58714] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#b58714] active:shadow-lg">
+                            <button id="btn-simpan" type="button" name="google-maps-resepsi" class="btn-primary">
                                 Simpan
                             </button>
                         </div>
@@ -266,12 +275,28 @@
                 typeAction = 'update';
             }
 
-            validateForm()
-            // storeData(typeAction)
+            validateForm(typeAction)
         })
 
-        function validateForm(){
-            $('#link-google-map-resepsi').val() === '' ? $('#link-google-map-resepsi-validation').show() : $('#link-google-map-resepsi-validation').hide()
+        function validateForm(typeAction){
+            var validateError = false;
+            $('#link-google-map-resepsi').val() === '' ? $('#link-google-map-resepsi-validate').show() : $('#link-google-map-resepsi-validate').hide()
+            $('#alamat-resepsi').val() === '' ? $('#alamat-resepsi-validate').show() : $('#alamat-resepsi-validate').hide()
+            $('#waktu-mulai-resepsi').val() === '' ? $('#waktu-mulai-resepsi-validate').show() : $('#waktu-mulai-resepsi-validate').hide()
+            $('#waktu-selesai-resepsi').val() === '' ? $('#waktu-selesai-resepsi-validate').show() : $('#waktu-selesai-resepsi-validate').hide()
+            $('#tanggal-resepsi').val() === '' ? $('#tanggal-resepsi-validate').show() : $('#tanggal-resepsi-validate').hide()
+
+            $('#link-google-map-akad').val() === '' ? $('#link-google-map-akad-validate').show() : $('#link-google-map-akad-validate').hide()
+            $('#alamat-akad').val() === '' ? $('#alamat-akad-validate').show() : $('#alamat-akad-validate').hide()
+            $('#waktu-mulai-akad').val() === '' ? $('#waktu-mulai-akad-validate').show() : $('#waktu-mulai-akad-validate').hide()
+            $('#waktu-selesai-akad').val() === '' ? $('#waktu-selesai-akad-validate').show() : $('#waktu-selesai-akad-validate').hide()
+            $('#tanggal-akad').val() === '' ? $('#tanggal-akad-validate').show() : $('#tanggal-akad-validate').hide()
+
+            if($('#link-google-map-resepsi').val() === '' || $('#alamat-resepsi').val() === '' || $('#waktu-mulai-resepsi').val() === '' || $('#waktu-selesai-resepsi').val() === '' || $('#tanggal-resepsi').val() === '' || $('#link-google-map-akad').val() === '' || $('#alamat-akad').val() === '' || $('#waktu-mulai-akad').val() === '' || $('#waktu-selesai-akad').val() === '' || $('#tanggal-akad').val() === ''){
+                validateError = true;
+            }else{
+                storeData(typeAction)
+            }
         }
 
         setupValue()
@@ -324,7 +349,6 @@
                 'google_maps' : $('#link-google-map-resepsi').val(),
             }
 
-            console.log(dataAkadNikah);
             $.ajax({
                 url: "/setting-acara/store",
                 type: "GET",
@@ -335,28 +359,25 @@
                     typeAction
                 },
                 beforeSend: function() {
-                    $('.body').addClass('blur-[2px]')
-                    $('.loading-screen').removeClass('hidden')
+                    loadingStart()
                     $('#btn-simpan').attr('disabled', true).addClass('cursor-progress')
                 },
                 success: function(response) {
                     $('#toast-success').removeClass('hidden');
                     setTimeout(() => {
                         $('#toast-success').addClass('hidden')
-                    }, 3000);
+                    }, 4000);
 
-                    $('.body').removeClass('blur-[2px]')
-                    $('.loading-screen').addClass('hidden')
-                    $('#btn-simpan').removeAttr('disabled', true).removeClass('cursor-progress')
+                    loadingStop()
                 },
                 error: function(response) {
                     $('#toast-failed').removeClass('hidden');
                     setTimeout(() => {
                         $('#toast-failed').addClass('hidden')
-                    }, 3000);
+                    }, 4000);
 
-                    $('.body').removeClass('blur-[2px]')
-                    $('.loading-screen').addClass('hidden')
+                    loadingStop()
+
                     $('#btn-simpan').removeAttr('disabled', true).removeClass('cursor-progress')
                 }
             })

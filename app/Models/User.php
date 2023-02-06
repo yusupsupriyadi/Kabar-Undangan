@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Models\User\CeritaCinta;
 use App\Models\User\MempelaiPria;
 use App\Models\User\MempelaiWanita;
 use App\Models\User\SettingAcara;
@@ -80,6 +81,11 @@ class User extends Authenticatable
     public function setting_resepsi()
     {
         return $this->hasOne(SettingResepsi::class);
+    }
+
+    public function ceritaCinta()
+    {
+        return $this->hasMany(CeritaCinta::class);
     }
 
 }

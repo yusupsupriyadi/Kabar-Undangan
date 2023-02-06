@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+label-validate {
+    @apply mt-2 text-xs text-red-500 font-serif hidden;
+}
+
+.input-primary {
+    @apply form-control m-0 block w-full max-w-xs rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-sm font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none;
+}
+
+.checkbox-primary {
+    @apply float-left mt-1 mr-2 h-4 w-4 cursor-pointer appearance-none rounded-full border border-gray-300 bg-white bg-contain bg-center bg-no-repeat align-top transition duration-200 checked:border-blue-600 checked:bg-blue-600 focus:outline-none;
+}
+
+.label-checkbox-primary {
+    @apply inline-block text-sm text-gray-800;
+}
+
+.btn-primary {
+    @apply inline-block rounded bg-[#fbbd23] px-6 py-2.5 text-sm font-bold uppercase leading-tight text-black shadow-md transition duration-150 ease-in-out hover:bg-[#b58714] hover:shadow-lg focus:bg-[#b58714] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#b58714] active:shadow-lg;
+}
+
+.select-primary {
+    @apply form-select m-0 block w-full max-w-xs appearance-none rounded border border-solid border-gray-300 bg-white bg-clip-padding bg-no-repeat px-3 py-1 text-sm text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none;
+}
+
 /* timeline */
 .desc-timeline {
 	@apply mt-2 mb-4 text-sm text-gray-700;

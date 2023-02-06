@@ -32,9 +32,10 @@
                             <span class="form-label font-bold">Nama Domain</span>
                         </label>
                         <label class="input-group">
-                            <input id="domain" type="text" placeholder="masukan domain" class="input-bordered input" value="{{ $dataSettingUndangan['domain'] }}" />
-                            <span class="text-sm">.kabarundangan.com</span>
+                            <input id="domain" type="text" placeholder="masukan domain" class="input-primary h-[2rem]" style="border-radius: 0.2rem 0 0 0.25rem !important" value="{{ $dataSettingUndangan === null ? '' : $dataSettingUndangan['domain'] }}" />
+                            <span class="text-sm" style="0 0.25rem 0.25rem 0 !important">.kabarundangan.com</span>
                         </label>
+                        <x-label-validate id="domain-validate" />
                         <label class="label">
                             <span class="label-text-alt text-xs text-gray-600">ini untuk nama link undangan digital kamu</span>
                         </label>
@@ -44,14 +45,15 @@
                         <label class="label">
                             <span class="form-label font-bold">Judul Undangan</span>
                         </label>
-                        <input id="judul_undangan" type="text" placeholder="masukan judul" class="input-bordered input w-full max-w-xs" value="{{ $dataSettingUndangan['judul_undangan'] }}" />
+                        <input id="judul_undangan" type="text" placeholder="masukan judul" class="input-primary" value="{{ $dataSettingUndangan === null ? '' :  $dataSettingUndangan['judul_undangan'] }}" />
+                        <x-label-validate id="judul-undangan-validate" />
                         <label class="label">
                             <span class="label-text-alt text-xs text-gray-600">Judul untuk menamai website Anda yang akan muncul pada bagian atas browser.</span>
                         </label>
                     </div>
 
                     <div class="mt-6">
-                        <button id="btn-simpan" type="button" class="inline-block rounded bg-green-600 px-6 py-2.5 text-sm font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg">
+                        <button id="btn-simpan" type="button" class="btn-primary">
                             Simpan
                         </button>
                     </div>
@@ -75,36 +77,64 @@
 
 @push('scripts')
     <script type="module">
-        var id = @json($dataSettingUndangan['id']);
+        var id = @json($dataSettingUndangan === null ? '' : $dataSettingUndangan['id']);
+        var dataSettingUndangan = @json($dataSettingUndangan);
+        var action = 'create';
+        if(dataSettingUndangan !== null){
+            action = 'update';
+        }
+
         $(document).ready(function() {
             $('#btn-simpan').click(function() {
-                var domain = $('#domain').val();
-                var judul_undangan = $('#judul_undangan').val();
-
-                $.ajax({
-                    url: `/setting-undangan/update`,
-                    type: "GET",
-                    dataType: 'json',
-                    data: {
-                        id: id,
-                        domain: domain,
-                        judul_undangan: judul_undangan
-                    },
-
-                    error: function(response) {
-                        $('#toast-failed').removeClass('hidden');
-                        setTimeout(() => {
-                            $('#toast-failed').addClass('hidden')
-                        }, 3000);
-                    },
-                    success: function(response) {
-                        $('#toast-success').removeClass('hidden');
-                        setTimeout(() => {
-                            $('#toast-success').addClass('hidden')
-                        }, 3000);
-                    },
-                });
+                validateForm()
             });
         });
+
+        function validateForm(){
+            var error = false;
+            $('#domain').val() === '' ? $('#domain-validate').show() : $('#domain-validate').hide();
+            $('#judul_undangan').val() === '' ? $('#judul-undangan-validate').show() : $('#judul-undangan-v alidate').hide();
+
+            if($('#domain').val() === '' || $('#judul_undangan').val() === ''){
+                error = true;
+            }else{
+                storeData()
+            }
+        }
+
+        function storeData(){
+            var domain = $('#domain').val();
+            var judul_undangan = $('#judul_undangan').val();
+
+            $.ajax({
+                url: `/setting-undangan/store`,
+                type: "GET",
+                dataType: 'json',
+                data: {
+                    id,
+                    domain,
+                    judul_undangan,
+                    action
+                },
+
+                beforeSend: function() {
+                    loadingStart();
+                },
+                error: function(response) {
+                    $('#toast-failed').removeClass('hidden');
+                    setTimeout(() => {
+                        $('#toast-failed').addClass('hidden')
+                    }, 4000);
+                    loadingStop();
+                },
+                success: function(response) {
+                    $('#toast-success').removeClass('hidden');
+                    setTimeout(() => {
+                        $('#toast-success').addClass('hidden')
+                    }, 4000);
+                    loadingStop();
+                },
+            });
+        }
     </script>
 @endpush
