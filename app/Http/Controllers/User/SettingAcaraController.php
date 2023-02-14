@@ -10,9 +10,9 @@ class SettingAcaraController extends Controller
     public function index(Request $request)
     {
         $user = auth()->user();
-        $dataInformasiAcara = $user->setting_acara;
-        $dataAkadNikah = $user->setting_akad;
-        $dataResepsi = $user->setting_resepsi;
+        $dataInformasiAcara = $user->settingAcaraApi;
+        $dataAkadNikah = $user->settingAkadApi;
+        $dataResepsi = $user->settingResepsiApi;
         if ($dataInformasiAcara === null) {
             $data = null;
         } else {
@@ -36,17 +36,17 @@ class SettingAcaraController extends Controller
         $action = $request->typeAction;
         if ($action === 'update') {
             try {
-                $user->setting_acara()->update($dataInformasiAcara);
-                $user->setting_akad()->update($dataAkadNikah);
-                $user->setting_resepsi()->update($dataResepsi);
+                $user->settingAcaraApi()->update($dataInformasiAcara);
+                $user->settingAkadApi()->update($dataAkadNikah);
+                $user->settingResepsiApi()->update($dataResepsi);
             } catch (\Throwable $th) {
                 return abort(500, 'error');
             }
         } else {
             try {
-                $user->setting_acara()->create($dataInformasiAcara);
-                $user->setting_akad()->create($dataAkadNikah);
-                $user->setting_resepsi()->create($dataResepsi);
+                $user->settingAcaraApi()->create($dataInformasiAcara);
+                $user->settingAkadApi()->create($dataAkadNikah);
+                $user->settingResepsiApi()->create($dataResepsi);
             } catch (\Throwable $th) {
                 return abort(500, 'error');
             }

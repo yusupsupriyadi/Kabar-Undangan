@@ -52,6 +52,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/id.js"></script>
     <script>
         var navMenuDiv = document.getElementById("nav-content");
         var navMenu = document.getElementById("nav-toggle");
@@ -109,18 +110,24 @@
             return false;
         }
 
-        function loadingStop(){
+        function loadingStop() {
             setTimeout(() => {
                 document.querySelector('.body').classList.remove('blur-[2px]')
                 document.querySelector('.loading-screen').classList.add('hidden')
             }, 1000);
         }
 
-        function loadingStart(){
+        function loadingStart() {
             document.querySelector('.body').classList.add('blur-[2px]')
             document.querySelector('.loading-screen').classList.remove('hidden')
         }
-
+    </script>
+    <script type="module">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     </script>
     @stack('scripts')
 </body>

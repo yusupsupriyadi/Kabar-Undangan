@@ -11,7 +11,7 @@ class MempelaiWanita extends Model
     use HasFactory;
 
     protected $table = 'mempelai_wanita';
-    
+
     protected $fillable = [
         'user_id',
         'nama_lengkap',
@@ -21,6 +21,9 @@ class MempelaiWanita extends Model
         'nama_ayah',
         'nama_ibu',
         'instagram',
+        'tampilkan_foto',
+        'facebook',
+        'twitter',
     ];
 
     public function user()

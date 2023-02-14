@@ -52,8 +52,8 @@ class RegisteredUserController extends Controller
 
     public function completeRegister(Request $request)
     {
-        $dataMempelaiPria = $request->user()->mempelai_pria;
-        $dataMempelaiWanita = $request->user()->mempelai_wanita;
+        $dataMempelaiPria = $request->user()->MempelaiPriaAPi;
+        $dataMempelaiWanita = $request->user()->mempelaiWanitaApi;
         return view('user.complete-register.index')
             ->with('dataMempelaiPria', $dataMempelaiPria)
             ->with('dataMempelaiWanita', $dataMempelaiWanita);

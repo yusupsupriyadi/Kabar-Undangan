@@ -55,111 +55,127 @@
                             </x-app.card-menu>
                         </a>
 
-                        <x-app.card-menu id="mempelai-pria" paint="">
-                            <x-slot name='icon'>
-                                <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <circle cx="12" cy="7" r="4" />
-                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="slot">
-                                <p class="mt-2 text-center text-sm">Mempelai <br> pria</p>
-                            </x-slot>
-                        </x-app.card-menu>
+                        <a href="/mempelai-pria">
+                            <x-app.card-menu id="mempelai-pria" paint="">
+                                <x-slot name='icon'>
+                                    <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <circle cx="12" cy="7" r="4" />
+                                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                                    </svg>
+                                </x-slot>
+                                <x-slot name="slot">
+                                    <p class="mt-2 text-center text-sm">Mempelai <br> pria</p>
+                                </x-slot>
+                            </x-app.card-menu>
+                        </a>
 
-                        <x-app.card-menu id="mempelai-wanita" paint="">
-                            <x-slot name='icon'>
-                                <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="slot">
-                                <p class="mt-2 text-center text-sm">Mempelai <br> Wanita</p>
-                            </x-slot>
-                        </x-app.card-menu>
+                        <a href="/mempelai-wanita">
+                            <x-app.card-menu id="mempelai-wanita" paint="">
+                                <x-slot name='icon'>
+                                    <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                </x-slot>
+                                <x-slot name="slot">
+                                    <p class="mt-2 text-center text-sm">Mempelai <br> Wanita</p>
+                                </x-slot>
+                            </x-app.card-menu>
+                        </a>
 
-                        <x-app.card-menu id="cerita-cinta" paint="">
-                            <x-slot name='icon'>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-10 w-10">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="slot">
-                                <p class="mt-2 text-center text-sm">Cerita <br> Cinta</p>
-                            </x-slot>
-                        </x-app.card-menu>
+                        <a href="/cerita-cinta">
+                            <x-app.card-menu id="cerita-cinta" paint="">
+                                <x-slot name='icon'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-10 w-10">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                    </svg>
+                                </x-slot>
+                                <x-slot name="slot">
+                                    <p class="mt-2 text-center text-sm">Cerita <br> Cinta</p>
+                                </x-slot>
+                            </x-app.card-menu>
+                        </a>
 
-                        <x-app.card-menu id="photo-gallery" paint="">
-                            <x-slot name='icon'>
-                                <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
-                                    <circle cx="12" cy="13" r="3" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="slot">
-                                <p class="mt-2 text-center text-sm">Photo <br> Gallery</p>
-                            </x-slot>
-                        </x-app.card-menu>
+                        <a href="/photo-gallery">
+                            <x-app.card-menu id="photo-gallery" paint="">
+                                <x-slot name='icon'>
+                                    <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
+                                        <circle cx="12" cy="13" r="3" />
+                                    </svg>
+                                </x-slot>
+                                <x-slot name="slot">
+                                    <p class="mt-2 text-center text-sm">Photo <br> Gallery</p>
+                                </x-slot>
+                            </x-app.card-menu>
+                        </a>
 
-                        <x-app.card-menu id="photo-background" paint="indicator">
-                            <x-slot name='icon'>
-                                <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <line x1="15" y1="8" x2="15.01" y2="8" />
-                                    <rect x="4" y="4" width="16" height="16" rx="3" />
-                                    <path d="M4 15l4 -4a3 5 0 0 1 3 0l 5 5" />
-                                    <path d="M14 14l1 -1a3 5 0 0 1 3 0l 2 2" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="slot">
-                                <p class="mt-2 text-center text-sm">Photo <br> Background</p>
-                            </x-slot>
-                        </x-app.card-menu>
+                        <a href="/photo-background">
+                            <x-app.card-menu id="photo-background" paint="indicator">
+                                <x-slot name='icon'>
+                                    <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <line x1="15" y1="8" x2="15.01" y2="8" />
+                                        <rect x="4" y="4" width="16" height="16" rx="3" />
+                                        <path d="M4 15l4 -4a3 5 0 0 1 3 0l 5 5" />
+                                        <path d="M14 14l1 -1a3 5 0 0 1 3 0l 2 2" />
+                                    </svg>
+                                </x-slot>
+                                <x-slot name="slot">
+                                    <p class="mt-2 text-center text-sm">Photo <br> Background</p>
+                                </x-slot>
+                            </x-app.card-menu>
+                        </a>
 
-                        <x-app.card-menu id="music-background" paint="indicator">
-                            <x-slot name='icon'>
-                                <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M9 18V5l12-2v13" />
-                                    <circle cx="6" cy="18" r="3" />
-                                    <circle cx="18" cy="16" r="3" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="slot">
-                                <p class="mt-2 text-center text-sm">Music <br> Background</p>
-                            </x-slot>
-                        </x-app.card-menu>
+                        <a href="/music-background">
+                            <x-app.card-menu id="music-background" paint="indicator">
+                                <x-slot name='icon'>
+                                    <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 18V5l12-2v13" />
+                                        <circle cx="6" cy="18" r="3" />
+                                        <circle cx="18" cy="16" r="3" />
+                                    </svg>
+                                </x-slot>
+                                <x-slot name="slot">
+                                    <p class="mt-2 text-center text-sm">Music <br> Background</p>
+                                </x-slot>
+                            </x-app.card-menu>
+                        </a>
 
-                        <x-app.card-menu id="kado-nikah" paint="indicator">
-                            <x-slot name='icon'>
-                                <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <rect x="3" y="8" width="18" height="4" rx="1" />
-                                    <line x1="12" y1="8" x2="12" y2="21" />
-                                    <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7" />
-                                    <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="slot">
-                                <p class="mt-2 text-center text-sm">Kado <br> Nikah</p>
-                            </x-slot>
-                        </x-app.card-menu>
+                        <a href="/kado-nikah">
+                            <x-app.card-menu id="kado-nikah" paint="indicator">
+                                <x-slot name='icon'>
+                                    <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <rect x="3" y="8" width="18" height="4" rx="1" />
+                                        <line x1="12" y1="8" x2="12" y2="21" />
+                                        <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7" />
+                                        <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5" />
+                                    </svg>
+                                </x-slot>
+                                <x-slot name="slot">
+                                    <p class="mt-2 text-center text-sm">Kado <br> Nikah</p>
+                                </x-slot>
+                            </x-app.card-menu>
+                        </a>
 
-                        <x-app.card-menu id="ganti-tema" paint="indicator">
-                            <x-slot name='icon'>
-                                <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                    <path d="M12 21a9 9 0 1 1 0 -18a9 8 0 0 1 9 8a4.5 4 0 0 1 -4.5 4h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
-                                    <circle cx="7.5" cy="10.5" r=".5" fill="currentColor" />
-                                    <circle cx="12" cy="7.5" r=".5" fill="currentColor" />
-                                    <circle cx="16.5" cy="10.5" r=".5" fill="currentColor" />
-                                </svg>
-                            </x-slot>
-                            <x-slot name="slot">
-                                <p class="mt-2 text-center text-sm">Ganti <br> Tema</p>
-                            </x-slot>
-                        </x-app.card-menu>
+                        <a href="/ganti-tema">
+                            <x-app.card-menu id="ganti-tema" paint="indicator">
+                                <x-slot name='icon'>
+                                    <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <path d="M12 21a9 9 0 1 1 0 -18a9 8 0 0 1 9 8a4.5 4 0 0 1 -4.5 4h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+                                        <circle cx="7.5" cy="10.5" r=".5" fill="currentColor" />
+                                        <circle cx="12" cy="7.5" r=".5" fill="currentColor" />
+                                        <circle cx="16.5" cy="10.5" r=".5" fill="currentColor" />
+                                    </svg>
+                                </x-slot>
+                                <x-slot name="slot">
+                                    <p class="mt-2 text-center text-sm">Ganti <br> Tema</p>
+                                </x-slot>
+                            </x-app.card-menu>
+                        </a>
 
                     </section>
                 </main>

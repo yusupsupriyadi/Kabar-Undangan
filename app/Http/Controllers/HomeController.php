@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function dashboard(Request $request){
-        $dataMempelaiWanita = $request->user()->mempelai_wanita;
+        $dataMempelaiWanita = $request->user()->mempelaiWanitaApi;
         if($dataMempelaiWanita === null){
             return redirect()->route('complete-register');
         }

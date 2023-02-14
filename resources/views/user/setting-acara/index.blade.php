@@ -31,7 +31,8 @@
                         <p class="text-lg font-bold">Informasi Umum <span class="text-red-500">*</span></p>
 
                         <div class="form-control mt-4">
-                            <label class="label">
+                            <label class="label flex justify-start items-center gap-1">
+                                <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="8 16 10 10 16 8 14 14 8 16" />  <circle cx="12" cy="12" r="9" /></svg>
                                 <span class="form-label text-sm font-normal">Zona Waktu</span>
                             </label>
                             <select id="zona-waktu" name="zona-waktu" class="select-primary" aria-label="Default select example">
@@ -58,7 +59,7 @@
                         </div>
                     </section>
 
-                    <form class="grid md:grid-cols-2">
+                    <form class="grid gap-10 md:grid-cols-2">
                         <section class="mt-4">
                             <p class="text-lg font-bold">Akad nikah <span class="text-red-500">*</span></p>
 
@@ -83,41 +84,45 @@
                             </div>
 
                             <div class="form-control mt-4">
-                                <label class="label">
+                                <label class="label flex justify-start items-center gap-1">
+                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <rect x="4" y="5" width="16" height="16" rx="2" />  <line x1="16" y1="3" x2="16" y2="7" />  <line x1="8" y1="3" x2="8" y2="7" />  <line x1="4" y1="11" x2="20" y2="11" />  <rect x="8" y="15" width="2" height="2" /></svg>
                                     <span class="form-label text-sm font-normal">Tanggal Akad Nikah</span>
                                 </label>
-                                <input id="tanggal-akad" type="text" class="input-form flatpicker-date form-control max-w-xs" placeholder="masukan tanggal" required>
+                                <input id="tanggal-akad" type="text" class="!bg-gray-100 input-form flatpicker-date form-control max-w-xs" placeholder="masukan tanggal" required>
                                 <label-validate id="tanggal-akad-validate">Wajib disi</label-validate>
                             </div>
 
                             <div class="form-control mt-4">
-                                <label class="label">
+                                <label class="label flex justify-start items-center gap-1">
+                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
                                     <span class="form-label text-sm font-normal">Waktu Acara</span>
                                 </label>
                                 <div class="flex">
                                     <div>
-                                        <input id="waktu-mulai-akad" type="text" class="input-form form-control max-w-[7.2rem]" placeholder="..." required>
+                                        <input id="waktu-mulai-akad" type="text" class="!bg-gray-100 input-form form-control max-w-[7.2rem]" placeholder="..." required>
                                         <label-validate id="waktu-mulai-akad-validate">Wajib disi</label-validate>
                                     </div>
                                     <p class="mx-4 text-sm">Sampai</p>
                                     <div>
-                                        <input id="waktu-selesai-akad" type="text" class="input-form form-control max-w-[7.2rem]" placeholder="...">
+                                        <input id="waktu-selesai-akad" type="text" class="!bg-gray-100 input-form form-control max-w-[7.2rem]" placeholder="...">
                                         <label-validate id="waktu-selesai-akad-validate">Wajib disi</label-validate>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-control mt-4">
-                                <label class="label">
-                                    <span class="form-label text-sm font-normal">Tempat dan Alamat</span>
+                                <label class="label flex justify-start items-center gap-2">
+                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="18" y1="6" x2="18" y2="6.01" />  <path d="M18 13l-3.5 -5a4 4 0 1 1 7 0l-3.5 5" />  <polyline points="10.5 4.75 9 4 3 7 3 20 9 17 15 20 21 17 21 15" />  <line x1="9" y1="4" x2="9" y2="17" />  <line x1="15" y1="15" x2="15" y2="20" /></svg>
+                                    <span class="form-label text-sm font-normal">Tempat dan Alamat akad</span>
                                 </label>
                                 <textarea class="input-primary" id="alamat-akad" rows="3" placeholder="Tuliskan alamat dan tempat akad nikah"></textarea>
                                 <label-validate id="alamat-akad-validate">Wajib disi</label-validate>
                             </div>
 
                             <div class="form-control mt-4">
-                                <label class="label">
-                                    <span class="form-label text-sm font-normal">Link Google Map</span>
+                                <label class="label flex justify-start items-center gap-1">
+                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="11" r="3" />  <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1 -2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z" /></svg>
+                                    <span class="form-label text-sm font-normal">Link Google Map Akad</span>
                                 </label>
                                 <input type="text" class="input-primary" id="link-google-map-akad" placeholder="Masukan URL Google Maps alamat anda telah anda salin" />
                                 <label-validate id="link-google-map-akad-validate">Wajib disi</label-validate>
@@ -148,56 +153,57 @@
                             </div>
 
                             <div class="form-control mt-4">
-                                <label class="label">
-                                    <span class="form-label text-sm font-normal">Tanggal Resepsi</span>
+                                <label class="label flex justify-start items-center gap-1">
+                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <rect x="4" y="5" width="16" height="16" rx="2" />  <line x1="16" y1="3" x2="16" y2="7" />  <line x1="8" y1="3" x2="8" y2="7" />  <line x1="4" y1="11" x2="20" y2="11" />  <rect x="8" y="15" width="2" height="2" /></svg>
+                                    <span class="form-label text-sm font-normal">Tanggal Akad Nikah</span>
                                 </label>
-                                <input id="tanggal-resepsi" type="text" class="input-form flatpicker-date form-control max-w-xs" placeholder="masukan tanggal">
+                                <input id="tanggal-resepsi" type="text" class="!bg-gray-100 input-form flatpicker-date form-control max-w-xs" placeholder="masukan tanggal">
                                 <label-validate id="tanggal-resepsi-validate">Wajib disi</label-validate>
                             </div>
 
                             <div class="form-control mt-4">
-                                <label class="label">
+                                <label class="label flex justify-start items-center gap-1">
+                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="9" />  <polyline points="12 7 12 12 15 15" /></svg>
                                     <span class="form-label text-sm font-normal">Waktu Acara</span>
                                 </label>
                                 <div class="flex">
                                     <div>
-                                        <input id="waktu-mulai-resepsi" type="text" class="input-form form-control max-w-[7.2rem]" placeholder="...">
+                                        <input id="waktu-mulai-resepsi" type="text" class="!bg-gray-100 input-form form-control max-w-[7.2rem]" placeholder="...">
                                         <label-validate id="waktu-mulai-resepsi-validate">Wajib disi</label-validate>
                                     </div>
                                     <p class="mx-4 text-sm">Sampai</p>
                                     <div>
-                                        <input id="waktu-selesai-resepsi" type="text" class="input-form form-control max-w-[7.2rem]" placeholder="...">
+                                        <input id="waktu-selesai-resepsi" type="text" class="!bg-gray-100 input-form form-control max-w-[7.2rem]" placeholder="...">
                                         <label-validate id="waktu-selesai-resepsi-validate">Wajib disi</label-validate>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-control mt-4">
-                                <label class="label">
-                                    <span class="form-label text-sm font-normal">Tempat dan Alamat</span>
+                                <label class="label flex justify-start items-center gap-2">
+                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="18" y1="6" x2="18" y2="6.01" />  <path d="M18 13l-3.5 -5a4 4 0 1 1 7 0l-3.5 5" />  <polyline points="10.5 4.75 9 4 3 7 3 20 9 17 15 20 21 17 21 15" />  <line x1="9" y1="4" x2="9" y2="17" />  <line x1="15" y1="15" x2="15" y2="20" /></svg>
+                                    <span class="form-label text-sm font-normal">Tempat dan Alamat Resepsi</span>
                                 </label>
                                 <textarea class="input-primary" id="alamat-resepsi" rows="3" placeholder="Tuliskan alamat dan tempat akad nikah"></textarea>
                                 <label-validate id="alamat-resepsi-validate">Wajib disi</label-validate>
                             </div>
 
                             <div class="form-control mt-4">
-                                <label class="label">
-                                    <span class="form-label text-sm font-normal">Link Google Map</span>
+                                <label class="label flex justify-start items-center gap-1">
+                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="11" r="3" />  <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1 -2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z" /></svg>
+                                    <span class="form-label text-sm font-normal">Link Google Map Resepsi</span>
                                 </label>
                                 <input id="link-google-map-resepsi" type="text" name="google-maps-resepsi" class="input-primary" placeholder="Masukan URL Google Maps alamat anda telah anda salin" required />
                                 <label-validate id="link-google-map-resepsi-validate">Wajib disi</label-validate>
                             </div>
                         </section>
-
-                        <div class="mt-6">
-                            <button id="btn-simpan" type="button" name="google-maps-resepsi" class="btn-primary">
-                                Simpan
-                            </button>
-                        </div>
-
                     </form>
 
-
+                    <div class="mt-6">
+                        <button id="btn-simpan" type="button" name="google-maps-resepsi" class="btn-primary">
+                            Simpan
+                        </button>
+                    </div>
 
                 </main>
 
@@ -213,12 +219,13 @@
         <x-app.footer />
     </main>
 
-    <x-toast-alert id="toast-success" type="success" message="Berhasil." />
-    <x-toast-alert id="toast-failed" type="failed" message="Tidak Berhasil." />
+    <x-toast-alert id="toast-success" type="success" message="Berhasil menyimpan" />
+    <x-toast-alert id="toast-failed" type="failed" message="Gagal menyimpan" />
+    <x-toast-alert id="toast-loading" type="loading" message="Sedang memproses" />
+    <x-toast-alert id="toast-validate" type="failed" message="Periksa kembali yang wajib diisi." />
 @endsection
 
 @push('scripts')
-    <script src="https://npmcdn.com/flatpickr/dist/l10n/id.js"></script>
     <script>
         var data = @json($data);
         var userId = @json($user->id);
@@ -293,7 +300,10 @@
             $('#tanggal-akad').val() === '' ? $('#tanggal-akad-validate').show() : $('#tanggal-akad-validate').hide()
 
             if($('#link-google-map-resepsi').val() === '' || $('#alamat-resepsi').val() === '' || $('#waktu-mulai-resepsi').val() === '' || $('#waktu-selesai-resepsi').val() === '' || $('#tanggal-resepsi').val() === '' || $('#link-google-map-akad').val() === '' || $('#alamat-akad').val() === '' || $('#waktu-mulai-akad').val() === '' || $('#waktu-selesai-akad').val() === '' || $('#tanggal-akad').val() === ''){
-                validateError = true;
+                $('#toast-validate').show()
+                setTimeout(function(){
+                    $('#toast-validate').fadeOut('past')
+                }, 5000)
             }else{
                 storeData(typeAction)
             }
@@ -359,25 +369,26 @@
                     typeAction
                 },
                 beforeSend: function() {
-                    loadingStart()
-                    $('#btn-simpan').attr('disabled', true).addClass('cursor-progress')
+                    $('#toast-loading').show()
+                    $('#toast-validate').hide()
                 },
                 success: function(response) {
-                    $('#toast-success').removeClass('hidden');
-                    setTimeout(() => {
-                        $('#toast-success').addClass('hidden')
-                    }, 4000);
-
-                    loadingStop()
+                    setTimeout(function(){
+                        $('#toast-loading').hide()
+                        $('#toast-success').fadeIn('past')
+                    }, 1000)
+                    setTimeout(function(){
+                        $('#toast-success').fadeOut('past')
+                    }, 4000)
                 },
                 error: function(response) {
-                    $('#toast-failed').removeClass('hidden');
-                    setTimeout(() => {
-                        $('#toast-failed').addClass('hidden')
-                    }, 4000);
-
-                    loadingStop()
-
+                    setTimeout(function(){
+                        $('#toast-loading').hide()
+                        $('#toast-failed').fadeIn('past')
+                    }, 1000)
+                    setTimeout(function(){
+                        $('#toast-failed').fadeOut('past')
+                    }, 4000)
                     $('#btn-simpan').removeAttr('disabled', true).removeClass('cursor-progress')
                 }
             })

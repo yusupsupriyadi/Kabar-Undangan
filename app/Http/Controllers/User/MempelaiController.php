@@ -20,7 +20,7 @@ class MempelaiController extends Controller
 
     public function getDataMempelaiWanita(Request $request)
     {
-        $dataMempelaiWanita = $request->user()->mempelai_wanita;
+        $dataMempelaiWanita = $request->user()->mempelaiWanitaApi;
         return response()->json([
             'message' => 'success',
             'data' => $dataMempelaiWanita
@@ -35,7 +35,7 @@ class MempelaiController extends Controller
         $dataNull = $request->dataNull;
 
         if ($dataNull['dataMempelaiPria'] === 'true') {
-            $user->mempelai_pria()->create([
+            $user->MempelaiPria()->create([
                 'user_id' => $user->id,
                 'nama_lengkap' => ucfirst($dataMempelaiPria['nama_lengkap']),
                 'nama_panggilan' => ucfirst($dataMempelaiPria['nama_panggilan']),
@@ -46,7 +46,7 @@ class MempelaiController extends Controller
                 'instagram' => $dataMempelaiPria['instagram'] ?? 'null',
             ]);
         } else {
-            $user->mempelai_pria()->update([
+            $user->MempelaiPria()->update([
                 'user_id' => $user->id,
                 'nama_lengkap' => ucfirst($dataMempelaiPria['nama_lengkap']),
                 'nama_panggilan' => ucfirst($dataMempelaiPria['nama_panggilan']),
@@ -59,7 +59,7 @@ class MempelaiController extends Controller
         }
 
         if ($dataNull['dataMempelaiWanita'] === 'true') {
-            $user->mempelai_wanita()->create([
+            $user->mempelaiWanitaApi()->create([
                 'user_id' => $user->id,
                 'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
                 'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
@@ -70,7 +70,7 @@ class MempelaiController extends Controller
                 'instagram' => $dataMempelaiWanita['instagram'] ?? 'null',
             ]);
         } else {
-            $user->mempelai_wanita()->update([
+            $user->mempelaiWanitaApi()->update([
                 'user_id' => $user->id,
                 'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
                 'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
@@ -93,7 +93,7 @@ class MempelaiController extends Controller
         $user = User::find($request->user()->id);
         $dataMempelaiPria = $request->dataMempelaiPria;
 
-        $user->mempelai_pria()->create([
+        $user->MempelaiPria()->create([
             'user_id' => $user->id,
             'nama_lengkap' => ucfirst($dataMempelaiPria['nama_lengkap']),
             'nama_panggilan' => ucfirst($dataMempelaiPria['nama_panggilan']),
@@ -116,7 +116,7 @@ class MempelaiController extends Controller
         $user = User::find($request->user()->id);
         $dataMempelaiPria = $request->dataMempelaiPria;
 
-        $user->mempelai_pria()->update([
+        $user->MempelaiPria()->update([
             'user_id' => $user->id,
             'nama_lengkap' => ucfirst($dataMempelaiPria['nama_lengkap']),
             'nama_panggilan' => ucfirst($dataMempelaiPria['nama_panggilan']),
@@ -139,7 +139,7 @@ class MempelaiController extends Controller
         $dataMempelaiWanita = $request->dataMempelaiWanita;
 
         try {
-            $user->mempelai_wanita()->create([
+            $user->mempelaiWanitaApi()->create([
                 'user_id' => $user->id,
                 'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
                 'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
@@ -152,7 +152,7 @@ class MempelaiController extends Controller
 
             $namaPanggilanMempelaiPria = $user->mempelai_pria->nama_panggilan;
 
-            $user->setting_undangan()->create([
+            $user->settingUndanganApi()->create([
                 'user_id' => $user->id,
                 'domain' => $namaPanggilanMempelaiPria . '-' . $dataMempelaiWanita['nama_panggilan'],
                 'judul_undangan' => $namaPanggilanMempelaiPria . ' & ' . $dataMempelaiWanita['nama_panggilan'],
@@ -172,7 +172,7 @@ class MempelaiController extends Controller
         $user = User::find($request->user()->id);
         $dataMempelaiWanita = $request->dataMempelaiWanita;
 
-        $user->mempelai_wanita()->update([
+        $user->mempelaiWanitaApi()->update([
             'user_id' => $user->id,
             'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
             'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),

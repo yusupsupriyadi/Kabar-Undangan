@@ -53,37 +53,37 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function mempelai_pria()
+    public function MempelaiPriaApi()
     {
         return $this->hasOne(MempelaiPria::class);
     }
 
-    public function mempelai_wanita()
+    public function mempelaiWanitaApi()
     {
         return $this->hasOne(MempelaiWanita::class);
     }
 
-    public function setting_undangan()
+    public function settingUndanganApi()
     {
         return $this->hasOne(SettingUndangan::class);
     }
 
-    public function setting_acara()
+    public function settingAcaraApi()
     {
         return $this->hasOne(SettingAcara::class);
     }
 
-    public function setting_akad()
+    public function settingAkadApi()
     {
         return $this->hasOne(SettingAkad::class);
     }
 
-    public function setting_resepsi()
+    public function settingResepsiApi()
     {
         return $this->hasOne(SettingResepsi::class);
     }
 
-    public function ceritaCinta()
+    public function ceritaCintaApi()
     {
         return $this->hasMany(CeritaCinta::class);
     }

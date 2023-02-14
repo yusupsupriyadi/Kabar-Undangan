@@ -21,6 +21,10 @@ class MempelaiPria extends Model
         'nama_ayah',
         'nama_ibu',
         'instagram',
+        'foto',
+        'tampilkan_foto',
+        'facebook',
+        'twitter',
     ];
 
     public function user()

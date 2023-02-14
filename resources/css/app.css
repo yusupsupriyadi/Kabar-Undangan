@@ -7,7 +7,7 @@ label-validate {
 }
 
 .input-primary {
-    @apply form-control m-0 block w-full max-w-xs rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-sm font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none;
+    @apply form-control m-0 block w-full max-w-none rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-sm font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none;
 }
 
 .checkbox-primary {
@@ -157,10 +157,10 @@ label-validate {
 	position: absolute;
 	width: 20px;
 	height: 20px;
-	border: 2px solid blue;
+	border: 2px solid rgb(255, 255, 255);
 	border-radius: 50%;
 	animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-	border-color: blue transparent transparent transparent;
+	border-color: rgb(255, 255, 255) transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
 	animation-delay: -0.45s;

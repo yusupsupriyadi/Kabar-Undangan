@@ -71,8 +71,10 @@
         <x-app.footer />
     </main>
 
-    <x-toast-alert id="toast-success" type="success" message="Berhasil." />
-    <x-toast-alert id="toast-failed" type="failed" message="Tidak Berhasil." />
+    <x-toast-alert id="toast-success" type="success" message="Berhasil menyimpan" />
+    <x-toast-alert id="toast-failed" type="failed" message="Gagal menyimpan" />
+    <x-toast-alert id="toast-loading" type="loading" message="Sedang memproses" />
+    <x-toast-alert id="toast-validate" type="failed" message="Periksa kembali yang wajib diisi." />
 @endsection
 
 @push('scripts')
@@ -91,12 +93,14 @@
         });
 
         function validateForm(){
-            var error = false;
             $('#domain').val() === '' ? $('#domain-validate').show() : $('#domain-validate').hide();
             $('#judul_undangan').val() === '' ? $('#judul-undangan-validate').show() : $('#judul-undangan-v alidate').hide();
 
             if($('#domain').val() === '' || $('#judul_undangan').val() === ''){
-                error = true;
+                $('#toast-validate').fadeIn('past')
+                setTimeout(function(){
+                    $('#toast-validate').fadeOut('past')
+                }, 5000)
             }else{
                 storeData()
             }
@@ -116,23 +120,27 @@
                     judul_undangan,
                     action
                 },
-
                 beforeSend: function() {
-                    loadingStart();
+                    $('#toast-loading').show()
+                    $('#toast-validate').hide()
                 },
                 error: function(response) {
-                    $('#toast-failed').removeClass('hidden');
-                    setTimeout(() => {
-                        $('#toast-failed').addClass('hidden')
-                    }, 4000);
-                    loadingStop();
+                    setTimeout(function(){
+                        $('#toast-loading').hide()
+                        $('#toast-failed').fadeIn('past')
+                    }, 1000)
+                    setTimeout(function(){
+                        $('#toast-failed').fadeOut('past')
+                    }, 4000)
                 },
                 success: function(response) {
-                    $('#toast-success').removeClass('hidden');
-                    setTimeout(() => {
-                        $('#toast-success').addClass('hidden')
-                    }, 4000);
-                    loadingStop();
+                    setTimeout(function(){
+                        $('#toast-loading').hide()
+                        $('#toast-success').fadeIn('past')
+                    }, 1000)
+                    setTimeout(function(){
+                        $('#toast-success').fadeOut('past')
+                    }, 4000)
                 },
             });
         }

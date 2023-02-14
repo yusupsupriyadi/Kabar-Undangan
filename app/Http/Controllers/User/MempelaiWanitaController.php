@@ -5,22 +5,22 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MempelaiPriaController extends Controller
+class MempelaiWanitaController extends Controller
 {
     public function index(Request $request)
     {
         $user = auth()->user();
-        $dataMempelaiPria = $request->user()->MempelaiPriaAPi;
-        return view('user.mempelai-pria.index')
+        $dataMempelaiWanita = $request->user()->mempelaiWanitaApi;
+        return view('user.mempelai-wanita.index')
             ->with('user', $user)
-            ->with('dataMempelaiPria', $dataMempelaiPria);
+            ->with('dataMempelaiWanita', $dataMempelaiWanita);
     }
 
     public function store(Request $request)
     {
         $user = auth()->user();
-        $dataMempelaiPria = $request->user()->MempelaiPriaAPi;
-        $image_path = public_path('storage/images/' . $dataMempelaiPria->foto);
+        $dataMempelaiWanita = $request->user()->mempelaiWanitaApi;
+        $image_path = public_path('storage/images/' . $dataMempelaiWanita->foto);
         $file = $request->file('imageFile');
         $tanggalLahir = $request->tanggalLahir;
         $namaLengkap = $request->namaLengkap;
@@ -35,7 +35,7 @@ class MempelaiPriaController extends Controller
 
         try {
             if ($file !== null) {
-                $request->user()->MempelaiPriaAPi()->update([
+                $request->user()->mempelaiWanitaApi()->update([
                     'user_id' => $user->id,
                     'nama_lengkap' => $namaLengkap,
                     'nama_panggilan' => $namaPanggilan,
@@ -50,7 +50,7 @@ class MempelaiPriaController extends Controller
                     'twitter' => $twitter ?? 'null',
                 ]);
             } else {
-                $request->user()->MempelaiPriaAPi()->update([
+                $request->user()->mempelaiWanitaApi()->update([
                     'user_id' => $user->id,
                     'nama_lengkap' => $namaLengkap,
                     'nama_panggilan' => $namaPanggilan,
@@ -70,7 +70,7 @@ class MempelaiPriaController extends Controller
 
         if ($file !== null) {
             $file->store('/images');
-            $dataMempelaiPria->foto !== 'null' ? unlink($image_path) : null;
+            $dataMempelaiWanita->foto !== 'null' ? unlink($image_path) : null;
         }
 
         return response()->json([

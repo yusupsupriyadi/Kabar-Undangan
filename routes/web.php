@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UndanganController;
 use App\Http\Controllers\User\MempelaiController;
 use App\Http\Controllers\User\MempelaiPriaController;
+use App\Http\Controllers\User\MempelaiWanitaController;
 use App\Http\Controllers\User\SettingAcaraController;
 use App\Http\Controllers\User\SettingUndanganController;
 use App\Http\Controllers\UserController;
@@ -77,7 +78,12 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(MempelaiPriaController::class)->group(function () {
         Route::get('/mempelai-pria', 'index');
-        Route::get('/mempelai-pria/store', 'store');
+        Route::post('/mempelai-pria/store', 'store');
+    });
+
+    Route::controller(MempelaiWanitaController::class)->group(function () {
+        Route::get('/mempelai-wanita', 'index');
+        Route::post('/mempelai-wanita/store', 'store');
     });
 });
 
