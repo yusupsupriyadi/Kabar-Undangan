@@ -23,7 +23,7 @@
                     <x-app.card-premium />
                 </section>
 
-                <x-app.title title="Halaman Utama" desc="" />
+                <x-app.title title="Halaman Utama" desc="Banyak fasilitas yang dapat anda gunakan untuk mempercantik dan melengkapi informasi website pernikahan anda, silahkan gunakan fasilitas dibawah ini." />
 
                 <main class="py-12">
                     <section class="grid gap-8 lg:grid-cols-5">

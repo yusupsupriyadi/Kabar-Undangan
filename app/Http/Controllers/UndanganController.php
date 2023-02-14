@@ -10,7 +10,7 @@ class UndanganController extends Controller
     public function index(Request $request, $id)
     {
         $user = User::find($id);
-        $mempelaiPria = $user->MempelaiPria;
+        $mempelaiPria = $user->MempelaiPriaApi;
         $mempelaiWanita = $user->mempelaiWanitaApi;
         return view('undangan.index')
             ->with('mempelaiPria', $mempelaiPria)
