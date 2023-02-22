@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UndanganController;
+use App\Http\Controllers\User\CeritaCintaController;
 use App\Http\Controllers\User\MempelaiController;
 use App\Http\Controllers\User\MempelaiPriaController;
 use App\Http\Controllers\User\MempelaiWanitaController;
@@ -72,6 +73,11 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(MempelaiWanitaController::class)->group(function () {
         Route::get('/mempelai-wanita', 'index');
+        Route::post('/mempelai-wanita/store', 'store');
+    });
+
+    Route::controller(CeritaCintaController::class)->group(function () {
+        Route::get('/cerita-cinta', 'index');
         Route::post('/mempelai-wanita/store', 'store');
     });
 });

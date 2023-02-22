@@ -23,9 +23,57 @@
                     <x-app.card-premium />
                 </section>
 
-                <x-app.title title="Halaman Utama" />
+                <x-app.title title="Cerita Cinta" desc="Fasilitas ini digunakan untuk memberikan informasi perjalanan cinta mu." />
 
-                <main class="py-12">
+                <main class="py-5">
+                    <section id="list-story">
+                        {{-- <section class="border-2 border-b-4 border-gray-400 p-4 rounded-lg">
+                            <div class="form-control">
+                                <label class="label !pt-0">
+                                    <span class="form-label text-sm font-normal">Tanggal Cerita</span>
+                                </label>
+                                <input id="tanggal" type="text" class="input-form flatpicker-date form-control !bg-gray-100 !max-w-[200px] !text-sm" placeholder="0/0/0">
+                                <label-validate id="tanggal-validate">Wajib disi</label-validate>
+                            </div>
+
+                            <div class="form-control mt-2">
+                                <label class="label">
+                                    <span class="form-label text-sm font-normal">Judul Cerita</span>
+                                </label>
+                                <input id="judul" type="text" placeholder="masukan judul cerita" class="input-primary !max-w-sm" />
+                                <x-label-validate id="judul-validate" />
+                            </div>
+                        </section> --}}
+
+                        <section class="">
+                            <div>
+                                
+                            </div>
+                            <div class="mt-1 border-b-2 border-gray-300">
+                        </section>
+                    </section>
+
+                    {{-- <section id="blank-story" class="hidden">
+                        <div class="flex flex-col items-center justify-center">
+                            <div class="flex flex-col items-center justify-center">
+                                <svg class="h-12 w-12 text-red-500/25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                                </svg>
+                                <p class="text-lg text-gray-400">Belum ada cerita cinta</p>
+                                <div class="mt-6">
+                                    <button type="button" class="btn-add-story btn-primary !p-2 !px-3 !text-xs">
+                                        Tambah Cerita
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="mt-6 hidden" id="btn-index">
+                        <button type="button" class="btn-add-story inline-block rounded bg-[#fbbd23] px-6 py-2.5 text-sm font-bold uppercase leading-tight text-black shadow-md transition duration-150 ease-in-out hover:bg-[#fbbe23ce] hover:shadow-lg">
+                            Tambah Cerita Cinta
+                        </button>
+                    </div> --}}
                 </main>
 
                 <x-app.testimoni-bar />
@@ -37,69 +85,39 @@
             </div>
         </div>
 
-        <x-app.footer/>
+        <x-app.footer />
     </main>
 @endsection
 
 @push('scripts')
-    <script>
-        /*Toggle dropdown list*/
-        /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+    <script type="module">
+        var data = @json($data);
+        var keyList = data.length;
 
-        var navMenuDiv = document.getElementById("nav-content");
-        var navMenu = document.getElementById("nav-toggle");
+        setupIndex();
 
-        var helpMenuDiv = document.getElementById("menu-content");
-        var helpMenu = document.getElementById("menu-toggle");
-
-        document.onclick = check;
-
-        function check(e) {
-            var target = (e && e.target) || (event && event.srcElement);
-
-
-            //Nav Menu
-            if (!checkParent(target, navMenuDiv)) {
-                // click NOT on the menu
-                if (checkParent(target, navMenu)) {
-                    // click on the link
-                    if (navMenuDiv.classList.contains("hidden")) {
-                        navMenuDiv.classList.remove("hidden");
-                    } else {
-                        navMenuDiv.classList.add("hidden");
-                    }
-                } else {
-                    // click both outside link and outside menu, hide menu
-                    navMenuDiv.classList.add("hidden");
-                }
+        function setupIndex(){
+            if(data.length === 0){
+                $('#blank-story').show();
+                $('#btn-index').hide();
+            }else{
+                $('#blank-story').hide();
+                $('#btn-index').show();
             }
-
-            //Help Menu
-            if (!checkParent(target, helpMenuDiv)) {
-                // click NOT on the menu
-                if (checkParent(target, helpMenu)) {
-                    // click on the link
-                    if (helpMenuDiv.classList.contains("hidden")) {
-                        helpMenuDiv.classList.remove("hidden");
-                    } else {
-                        helpMenuDiv.classList.add("hidden");
-                    }
-                } else {
-                    // click both outside link and outside menu, hide menu
-                    helpMenuDiv.classList.add("hidden");
-                }
-            }
-
         }
 
-        function checkParent(t, elm) {
-            while (t.parentNode) {
-                if (t == elm) {
-                    return true;
-                }
-                t = t.parentNode;
+        $(document).on('click', '.btn-add-story' , function(){
+            keyList++
+            addStory();
+        })
+
+        function addStory(){
+            if(keyList !== 0){
+                $('#blank-story').hide();
+                $('#btn-index').show();
             }
-            return false;
+            var html = `<h1>list ${keyList}</h1>`;
+            $('#list-story').append(html);
         }
     </script>
 @endpush
