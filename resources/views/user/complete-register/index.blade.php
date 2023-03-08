@@ -1,7 +1,5 @@
 @extends('layouts.master')
-
-@section('title', 'Complete Register')
-
+@section('title', 'Pendaftaran')
 @section('content')
     <x-navigation.navbar />
     <main class="hero min-h-screen bg-base-200">
@@ -61,19 +59,29 @@
 
     <x-toast-alert id="toast-success" type="success" message="Berhasil." />
 @endsection
-
 @push('scripts')
+    <script>
+        flatpickr("#tanggal-lahir-pria", {
+            locale: "id",
+            dateFormat: "d/m/Y",
+        });
+
+        flatpickr("#tanggal-lahir-wanita", {
+            locale: "id",
+            dateFormat: "d/m/Y",
+        });
+    </script>
     <script type="module">
         // Variabel
         $('#footer').addClass('hidden')
         var dataMempelaiPria = @json($dataMempelaiPria);
         var dataMempelaiWanita = @json($dataMempelaiWanita);
-
+ 
         var dataNull = {
             'dataMempelaiPria' : dataMempelaiPria !== null ? false : true,
             'dataMempelaiWanita' : dataMempelaiWanita !== null ? false : true,
         }
-
+ 
         if(dataMempelaiPria === null){
             $('html, body').animate({
                 scrollTop: $("#section-mempelai-pria").offset().top
@@ -83,15 +91,15 @@
                 scrollTop: $("#section-mempelai-wanita").offset().top
             }, 1000);
         }
-
+ 
         $('#handleStoreDataMempelaiPria').click(function(){
             storeDataMempelaiPria()
         })
-
+ 
         $('#handleStoreDataMempelaiwanita').click(function(){
             storeDataMempelaiWanita()
         })
-
+ 
         function storeDataMempelaiPria() {
             var dataMempelaiPria = {
                 id: $('#id-pria').val(),
@@ -135,7 +143,7 @@
                 }
             });
         }
-
+ 
         function storeDataMempelaiWanita(){
             var dataMempelaiWanita = {
                 id: $('#id-wanita').val(),
@@ -147,7 +155,7 @@
                 nama_ibu: $('#nama-ibu-wanita').val(),
                 instagram: $('#instagram-wanita').val(),
             }
-
+ 
             $.ajax({
                 url: `${dataNull.dataMempelaiWanita === false ? '/mempelai/update-data-mempelai-wanita' : '/mempelai/store-data-mempelai-wanita'}`,
                 type: 'GET',
@@ -168,12 +176,15 @@
                     setTimeout(() => {
                        $('#toast-success').addClass('hidden')
                     }, 3000);
+
+                    setTimeout(() => {
+                        window.location.href = '/dashboard'
+                    }, 1500)
                     $('#section-mempelai-wanita').removeClass('pb-6')
                     $('#form-wanita').addClass('hidden')
                     $('html, body').animate({
                         scrollTop: $("#section-mempelai-wanita").offset().top
                     }, 1000);
-                    window.location.href = '/dashboard'
                 }
             });
         }

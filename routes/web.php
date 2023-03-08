@@ -78,7 +78,9 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(CeritaCintaController::class)->group(function () {
         Route::get('/cerita-cinta', 'index');
-        Route::post('/mempelai-wanita/store', 'store');
+        Route::post('/cerita-cinta/store', 'store');
+        Route::get('/cerita-cinta/get-data', 'getData');
+        Route::post('/cerita-cinta/delete', 'destroy');
     });
 });
 

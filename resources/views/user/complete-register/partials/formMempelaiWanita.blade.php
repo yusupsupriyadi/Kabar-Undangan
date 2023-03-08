@@ -4,37 +4,32 @@
 
         <div class="form-group">
             <label for="nama-lengkap-wanita" class="form-label mb-2 inline-block text-gray-700">Nama lengkap</label>
-            <input id="nama-lengkap-wanita" type="email" class="input-form form-control" placeholder="masukan nama lengkap">
+            <input id="nama-lengkap-wanita" type="text" class="input-form form-control" placeholder="masukan nama lengkap">
         </div>
 
         <div class="form-group mt-4">
             <label for="nama-panggilan-wanita" class="form-label mb-2 inline-block text-gray-700">Nama panggilan</label>
-            <input id="nama-panggilan-wanita" type="email" class="input-form form-control" placeholder="masukan nama panggilan">
+            <input id="nama-panggilan-wanita" type="text" class="input-form form-control" placeholder="masukan nama panggilan">
         </div>
 
         <div class="form-group mt-4">
             <label for="tempat-lahir-wanita" class="form-label mb-2 inline-block text-gray-700">Tempat lahir</label>
-            <input id="tempat-lahir-wanita" type="email" class="input-form form-control" placeholder="masukan tempat lahir">
+            <input id="tempat-lahir-wanita" type="text" class="input-form form-control" placeholder="masukan tempat lahir">
         </div>
 
         <div class="form-group datepicker mt-4" data-mdb-toggle-button="false">
             <label for="tanggal-lahir-wanita" class="form-label mb-2 inline-block text-gray-700">Tanggal lahir</label>
-            <input id="tanggal-lahir-wanita" type="email" class="input-form form-control" data-mdb-toggle="datepicker" placeholder="masukan tanggal lahir">
+            <input id="tanggal-lahir-wanita" type="text" class="input-form form-control" data-mdb-toggle="datepicker" placeholder="masukan tanggal lahir">
         </div>
 
         <div class="form-group mt-4">
             <label for="nama-ayah-wanita" class="form-label mb-2 inline-block text-gray-700">Nama ayah</label>
-            <input id="nama-ayah-wanita" type="email" class="input-form form-control" placeholder="masukan nama ayah">
+            <input id="nama-ayah-wanita" type="text" class="input-form form-control" placeholder="masukan nama ayah">
         </div>
 
         <div class="form-group mt-4">
             <label for="nama-ibu-wanita" class="form-label mb-2 inline-block text-gray-700">Nama ibu</label>
-            <input id="nama-ibu-wanita" type="email" class="input-form form-control" placeholder="masukan nama ibu">
-        </div>
-
-        <div class="form-group mt-4">
-            <label for="instagram-wanita" class="form-label mb-2 inline-block text-gray-700">Instagram <span class="text-sm text-gray-500">*optional</span></label>
-            <input id="instagram-wanita" type="email" class="input-form form-control" placeholder="masukan username instagram">
+            <input id="nama-ibu-wanita" type="text" class="input-form form-control" placeholder="masukan nama ibu">
         </div>
 
         <div class="card-actions mt-6 justify-end">
