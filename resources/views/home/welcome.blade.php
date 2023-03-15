@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="hero relative min-h-screen bg-[url('/public/images/bg-image-wedding.jpg')]">
+    <div class="hero relative min-h-screen bg-[url('/public/images/bg-image-wedding.webp')]">
         @include('home.partials._navbar')
         <section class="hero-content mt-20 flex-col lg:mt-0 lg:flex-row-reverse lg:gap-20">
             <div class="text-center lg:text-left">

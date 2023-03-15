@@ -1,4 +1,4 @@
-<div class="flex min-h-screen flex-col items-center bg-[url('/public/images/bg-image-login.jpg')] bg-cover md:pt-0 sm:justify-center pt-16">
+<div class="flex min-h-screen flex-col items-center bg-[url('/public/images/bg-image-login.webp')] bg-cover md:pt-0 sm:justify-center pt-16">
     <div>
         {{-- {{ $logo }} --}}
     </div>

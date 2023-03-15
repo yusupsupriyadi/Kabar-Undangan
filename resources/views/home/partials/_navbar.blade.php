@@ -5,8 +5,8 @@
         </div>
         <div class="flex-none">
             <ul class="menu menu-horizontal px-1 text-md font-semibold hidden lg:flex">
-                <li id="home"><a href="/">Home</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li id="home" cla><a href="/">Home</a></li>
+                <li><a href="/contact">Kontak</a></li>
             </ul>
             <div class="dropdown dropdown-end">
                 <label tabindex="0" class="btn btn-ghost btn-circle avatar">
