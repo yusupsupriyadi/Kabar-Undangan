@@ -3,7 +3,7 @@
 @section('content')
     <main class="bg-gray-100">
         <x-app.navbar />
-        <div class="container mx-auto mt-4 flex flex-wrap px-2 pt-4 lg:pt-10">
+        <div class="mx-auto mt-4 flex flex-wrap px-2 pt-4 md:px-12 lg:pt-10">
             <!--Menu-->
             <x-app.menu active="halaman-utama">
                 <x-slot name="activeDisplay">
@@ -29,7 +29,7 @@
 
                     <div class="alert alert-info my-4 items-start rounded-lg !bg-gray-500/20 py-3 px-4">
                         <div>
-                            <span class="text-sm font-extralight">Bila anda memiliki pertanyaan, mungkin anda bisa menemukannya <a href="/FAQ" class="font-bold cursor-pointer">Disini.</a></span>
+                            <span class="text-sm font-extralight">Bila anda memiliki pertanyaan, mungkin anda bisa menemukannya <a href="/FAQ" class="cursor-pointer font-bold">Disini.</a></span>
                         </div>
                     </div>
 

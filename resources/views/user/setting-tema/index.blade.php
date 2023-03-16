@@ -3,7 +3,7 @@
 @section('content')
     <main class="bg-gray-100">
         <x-app.navbar />
-        <div class="container mx-auto mt-4 flex flex-wrap px-2 pt-4 lg:pt-10">
+        <div class="mx-auto mt-4 flex flex-wrap px-2 pt-4 md:px-12 lg:pt-10">
             <!--Menu-->
             <x-app.menu active="halaman-utama">
                 <x-slot name="activeDisplay">
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <x-app.footer/>
+        <x-app.footer />
     </main>
 @endsection
 

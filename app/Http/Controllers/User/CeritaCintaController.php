@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\User\CeritaCinta;
 use Illuminate\Http\Request;
 
 class CeritaCintaController extends Controller
@@ -80,6 +81,42 @@ class CeritaCintaController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Data berhasil dihapus'
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        $file = $request->file('imageFile');
+        $ceritaCinta = CeritaCinta::findOrFail(4);
+        $image_path = public_path('storage/images/' . $ceritaCinta->gambar);
+
+        $payload = [
+            'judul' => $request->judul,
+            'tanggal' => $request->tanggal,
+            'cerita' => $request->cerita,
+        ];
+
+        if ($request->imageFile === "null") {
+            $payload['gambar'] = 'null';
+        } elseif ($request->imageFile !== "undefined") {
+            $payload['gambar'] = $file->hashName();
+        }
+
+        try {
+            CeritaCinta::where('id', $request->id)->update($payload);
+        } catch (\Exception $e) {
+            return abort(500, $e->getMessage());
+        }
+
+        if ($request->imageFile === "null") {
+            $ceritaCinta->gambar !== 'null' ? unlink($image_path) : null;
+        } elseif ($request->imageFile !== "undefined") {
+            $file->store('/images');
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data berhasil disimpan'
         ]);
     }
 }

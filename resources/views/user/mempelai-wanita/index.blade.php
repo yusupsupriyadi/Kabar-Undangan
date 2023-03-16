@@ -3,7 +3,7 @@
 @section('content')
     <main class="bg-gray-100">
         <x-app.navbar />
-        <div class="container mx-auto mt-4 flex flex-wrap px-2 pt-4 lg:pt-10">
+        <div class="mx-auto mt-4 flex flex-wrap px-2 pt-4 md:px-12 lg:pt-10">
             <!--Menu-->
             <x-app.menu active="Mempelai Wanita">
                 <x-slot name="activeDisplay">
@@ -31,8 +31,11 @@
                         <section>
                             <section class="flex justify-start gap-[10px]">
                                 <div class="form-control w-full">
-                                    <label class="label flex justify-start items-center gap-1">
-                                        <svg class="h-5 w-5 text-black"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />  <circle cx="12" cy="7" r="4" /></svg>
+                                    <label class="label flex items-center justify-start gap-1">
+                                        <svg class="h-5 w-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                            <circle cx="12" cy="7" r="4" />
+                                        </svg>
                                         <span class="form-label text-sm font-normal">Nama Lengkap</span>
                                     </label>
                                     <input id="nama-lengkap" type="text" placeholder="nama lengkap" class="input-primary" />
@@ -50,8 +53,12 @@
 
 
                             <div class="form-control mt-2 w-full">
-                                <label class="label flex justify-start items-center gap-1">
-                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="11" r="3" />  <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1 -2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z" /></svg>
+                                <label class="label flex items-center justify-start gap-1">
+                                    <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <circle cx="12" cy="11" r="3" />
+                                        <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1 -2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z" />
+                                    </svg>
                                     <span class="form-label text-sm font-normal">Tempat Lahir</span>
                                 </label>
                                 <input id="tempat-lahir" type="text" placeholder="masukan tempat lahir" class="input-primary" />
@@ -67,8 +74,12 @@
                             </div>
 
                             <div class="form-control mt-2 w-full">
-                                <label class="label flex justify-start items-center gap-1">
-                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="5" r="2" />  <path d="M10 22v-5l-1-1v-4a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4l-1 1v5" /></svg>
+                                <label class="label flex items-center justify-start gap-1">
+                                    <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <circle cx="12" cy="5" r="2" />
+                                        <path d="M10 22v-5l-1-1v-4a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4l-1 1v5" />
+                                    </svg>
                                     <span class="form-label text-sm font-normal">Nama Ayah</span>
                                 </label>
                                 <input id="nama-ayah" type="text" placeholder="masukan nama ayah" class="input-primary" />
@@ -76,8 +87,12 @@
                             </div>
 
                             <div class="form-control mt-2 w-full">
-                                <label class="label flex justify-start items-center gap-1">
-                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="5" r="2" />  <path d="M10 22v-4h-2l2 -6a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1l2 6h-2v4" /></svg>
+                                <label class="label flex items-center justify-start gap-1">
+                                    <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <circle cx="12" cy="5" r="2" />
+                                        <path d="M10 22v-4h-2l2 -6a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1l2 6h-2v4" />
+                                    </svg>
                                     <span class="form-label text-sm font-normal">Nama Ibu</span>
                                 </label>
                                 <input id="nama-ibu" type="text" placeholder="masukan nama ibu" class="input-primary" />
@@ -125,8 +140,13 @@
 
                         <section>
                             <div class="form-control">
-                                <label class="label flex justify-start items-center gap-1">
-                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="12" cy="12" r="2" />  <path d="M2 12l1.5 2a11 11 0 0 0 17 0l1.5 -2" />  <path d="M2 12l1.5 -2a11 11 0 0 1 17 0l1.5 2" /></svg>
+                                <label class="label flex items-center justify-start gap-1">
+                                    <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <circle cx="12" cy="12" r="2" />
+                                        <path d="M2 12l1.5 2a11 11 0 0 0 17 0l1.5 -2" />
+                                        <path d="M2 12l1.5 -2a11 11 0 0 1 17 0l1.5 2" />
+                                    </svg>
                                     <span class="form-label text-sm font-normal">Tampilkan foto</span>
                                 </label>
                                 <div class="ml-2 flex">
@@ -147,7 +167,11 @@
 
                             <div class="form-control w-full sm:mt-2 md:mt-4">
                                 <label class="label flex items-center justify-start gap-1">
-                                    <svg class="h-5 w-5 text-black"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />  <circle cx="8.5" cy="8.5" r="1.5" />  <polyline points="21 15 16 10 5 21" /></svg>
+                                    <svg class="h-5 w-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                        <circle cx="8.5" cy="8.5" r="1.5" />
+                                        <polyline points="21 15 16 10 5 21" />
+                                    </svg>
                                     <span class="form-label text-sm font-normal">Foto mempelai wanita <span class="text-red-500">*<span class="text-xs text-gray-500">optional</span></span></span>
                                 </label>
                                 @if ($dataMempelaiWanita['foto'] !== 'null')

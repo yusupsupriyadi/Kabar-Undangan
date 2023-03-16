@@ -81,6 +81,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/cerita-cinta/store', 'store');
         Route::get('/cerita-cinta/get-data', 'getData');
         Route::post('/cerita-cinta/delete', 'destroy');
+        Route::post('/cerita-cinta/update', 'update');
     });
 });
 

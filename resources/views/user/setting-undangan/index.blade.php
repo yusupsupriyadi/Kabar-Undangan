@@ -3,7 +3,7 @@
 @section('content')
     <main class="bg-gray-100">
         <x-app.navbar />
-        <div class="container mx-auto mt-4 flex flex-wrap px-2 pt-4 lg:pt-10">
+        <div class="mx-auto mt-4 flex flex-wrap px-2 pt-4 md:px-12 lg:pt-10">
             <!--Menu-->
             <x-app.menu active="pengaturan-undangan">
                 <x-slot name="activeDisplay">
@@ -45,7 +45,7 @@
                         <label class="label">
                             <span class="form-label font-bold">Judul Undangan</span>
                         </label>
-                        <input id="judul_undangan" type="text" placeholder="masukan judul" class="input-primary" value="{{ $dataSettingUndangan === null ? '' :  $dataSettingUndangan['judul_undangan'] }}" />
+                        <input id="judul_undangan" type="text" placeholder="masukan judul" class="input-primary" value="{{ $dataSettingUndangan === null ? '' : $dataSettingUndangan['judul_undangan'] }}" />
                         <x-label-validate id="judul-undangan-validate" />
                         <label class="label">
                             <span class="label-text-alt text-xs text-gray-600">Judul untuk menamai website Anda yang akan muncul pada bagian atas browser.</span>
