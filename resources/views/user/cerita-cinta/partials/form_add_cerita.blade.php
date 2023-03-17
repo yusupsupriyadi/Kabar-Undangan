@@ -36,7 +36,7 @@
                     </svg>
                     <span class="form-label text-sm font-normal">Cerita Cinta</span>
                 </label>
-                <textarea id="cerita" type="text" placeholder="masukan ceria cinta kamu" class="input-primary h-28 !max-w-md"></textarea>
+                <textarea id="cerita" type="text" placeholder="masukan ceria cinta kamu" class="input-primary h-44 !max-w-md"></textarea>
                 <x-label-validate id="cerita-validate" />
             </div>
         </div>
@@ -50,9 +50,11 @@
                 </svg>
                 <span class="form-label text-sm font-normal">Foto Kenangan<span class="text-red-500">*<span class="text-xs text-gray-500">optional</span></span></span>
             </label>
-            <img id="output" width="320">
-            <div class="w-full max-w-xs">
-                <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" class="form-control m-0 block w-full max-w-none rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-sm font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none" type="file" multiple>
+            <img id="output" width="300">
+            <div class="w-full max-w-xs mt-4">
+                <label class="inline-block w-[300px] rounded-sm bg-yellow-500 text-center px-6 py-2 text-md font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD GAMBAR
+                    <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" type="file" multiple>
+                </label>
             </div>
         </div>
     </section>

@@ -5,7 +5,7 @@
         <x-app.navbar />
         <div class="mx-auto mt-4 flex flex-wrap px-2 pt-4 md:px-12 lg:pt-10">
             <!--Menu-->
-            <x-app.menu active="halaman-utama">
+            <x-app.menu active="cerita-cinta">
                 <x-slot name="activeDisplay">
                     <div class="flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
@@ -88,6 +88,7 @@
     <script type="module">
         var keyList = data.length;
         const imageUrl = '{{ asset("storage/images") }}/'
+        const imagePublic = '{{ asset("/images") }}/'
 
         setupIndex();
 
@@ -124,9 +125,9 @@
                 $.each(data, function(key, value){
                     var tanggal = moment(value.tanggal).format('dddd, D MMMM YYYY')
                     html += `
-                    <div class="items-end justify-between rounded-lg bg-pink-200/40 shadow-md backdrop-blur-md md:flex ${key !== 0 ? 'mt-4' : ''} border-b-2 border border-gray-200">
+                    <div class="items-end justify-between rounded-lg bg-pink-200/40 shadow-md backdrop-blur-md md:flex ${key !== 0 ? 'mt-4' : ''}">
                         <section class="gap-4 md:flex">
-                            <img src="${value.gambar !== 'null' ? `${imageUrl}${value.gambar}` : `${imageUrl}image-empty.jpg`}" alt="" class="h-[150px] w-full object-cover rounded-lg md:!w-[200px] md:rounded-none md:rounded-tl-lg md:rounded-bl-lg">
+                            <img src="${value.gambar !== 'null' ? `${imageUrl}${value.gambar}` : `${imagePublic}image-empty.webp`}" alt="" class="h-[200px] w-full object-cover rounded-lg md:!w-[200px] md:rounded-none md:rounded-tl-lg md:rounded-bl-lg">
                             <section class="p-6">
                                 <h1>${value.judul}</h1>
                                 <h6 class="mt-2 text-xs text-gray-500">${tanggal}</h6>
@@ -195,9 +196,10 @@
             $('#judul-update').val(judul);
             $('#cerita-update').val(cerita);
             if(image === null){
-                $('.btn-delete-image').prop('disabled',true);
-                $('#output-update').attr('src', imageUrl+'image-empty.jpg');
+                $('.btn-delete-image').hide();
+                $('#output-update').attr('src', imagePublic+'image-empty.webp');
             }else{
+                $('.btn-delete-image').show();
                 $('#output-update').attr('src', imageUrl+image);
             }
         })
@@ -206,8 +208,15 @@
             setupIndex()
         })
 
+        $('#output').attr('src', imagePublic+'image-empty.webp');
+
         $(document).on('click', '.btn-delete-image', function(){
-            $('#output-update').attr('src', imageUrl+'image-empty.jpg');
+            $('#output-update').attr('src', imagePublic+'image-empty.webp');
+            $('.btn-delete-image').hide();
+        })
+
+        $(document).on('change', '#image-file-update', function(){
+            $('.btn-delete-image').show();
         })
 
         $(document).on('click', '.btn-store-story-update' , function(){
@@ -294,7 +303,7 @@
             myformData.append('judul', $('#judul-update').val());
             myformData.append('cerita', $('#cerita-update').val());
             var image = $('#output-update').attr('src').split('/').pop();
-            if(image === "image-empty.jpg"){
+            if(image === "image-empty.webp"){
                 myformData.append('imageFile', 'null');
             }else{
                 myformData.append('imageFile', imageFile.files[0]);
