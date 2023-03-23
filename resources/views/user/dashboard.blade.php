@@ -25,11 +25,11 @@
 
                 <div class="mt-6 font-sans">
                     <h1 class="break-normal font-sans text-xl text-gray-900">Halaman Utama</h1>
-                    <p class="my-2 pb-1 font-serif text-sm">Banyak fasilitas yang dapat anda gunakan untuk mempercantik dan melengkapi informasi website pernikahan anda, silahkan gunakan fasilitas dibawah ini.</p>
+                    <p class="my-2 pb-1 font-serif text-sm">Banyak fasilitas yang dapat kamu gunakan untuk mempercantik dan melengkapi informasi website pernikahan kamu, silahkan gunakan fasilitas dibawah ini.</p>
 
                     <div class="alert alert-info my-4 items-start rounded-lg !bg-gray-500/20 py-3 px-4">
                         <div>
-                            <span class="text-sm font-extralight">Bila anda memiliki pertanyaan, mungkin anda bisa menemukannya <a href="/FAQ" class="cursor-pointer font-bold">Disini.</a></span>
+                            <span class="text-sm font-extralight">Bila kamu memiliki pertanyaan, mungkin kamu bisa menemukannya <a href="/FAQ" class="cursor-pointer font-bold">Disini.</a></span>
                         </div>
                     </div>
 
@@ -107,7 +107,7 @@
                             </x-app.card-menu>
                         </a>
 
-                        <a href="/photo-gallery">
+                        <a href="/gallery">
                             <x-app.card-menu id="photo-gallery" paint="">
                                 <x-slot name='icon'>
                                     <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

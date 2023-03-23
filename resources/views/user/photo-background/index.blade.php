@@ -5,13 +5,13 @@
         <x-app.navbar />
         <div class="mx-auto mt-4 flex flex-wrap px-2 pt-4 md:px-12 lg:pt-10">
             <!--Menu-->
-            <x-app.menu active="gallery">
+            <x-app.menu active="photo-background">
                 <x-slot name="activeDisplay">
                     <div class="flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                         </svg>
-                        <p class="text-left text-sm">Photo Gallery</p>
+                        <p class="text-left text-sm">Photo Background</p>
                     </div>
                 </x-slot>
             </x-app.menu>
@@ -23,7 +23,7 @@
                     <x-app.card-premium />
                 </section>
 
-                <x-app.title title="Photo Gallery" desc="Fasilitas ini digunakan untuk menyampaikan foto pra pernikahan atau photo pernikahan kamu." />
+                <x-app.title title="Photo Background" desc="Fasilitas ini digunakan untuk menyampaikan foto pra pernikahan atau photo pernikahan pilihan kamu untuk ditampilan di website penikahan kamu berupa background website atau berbetuk slide." />
 
                 <main class="py-5">
                     <div id="main-page" class="hidden">
@@ -150,7 +150,7 @@
                     html += `
                     <div class="items-end justify-between rounded-lg bg-pink-200/40 shadow-md backdrop-blur-md md:flex ${key !== 0 ? 'mt-4' : ''}">
                         <section class="gap-4 md:flex">
-                            <img src="${value.gambar !== 'null' ? `${imageUrl}${value.gambar}` : `${imagePublic}image-empty.webp`}" alt="" class="h-auto max-w-full object-cover rounded-lg md:!w-[200px] md:rounded-none md:rounded-tl-lg md:rounded-bl-lg">
+                            <img src="${value.gambar !== 'null' ? `${imageUrl}${value.gambar}` : `${imagePublic}image-empty.webp`}" alt="" class="h-auto max-w-full rounded-lg md:!w-[200px] md:rounded-none md:rounded-tl-lg md:rounded-bl-lg">
                             <section class="p-6">
                                 <h1>${value.judul}</h1>
                                 <p class="mt-3 max-w-md text-xs text-gray-500">${value.keterangan}</p>
@@ -180,7 +180,7 @@
 
         function getData(){
             $.ajax({
-                url: `gallery/get-data`,
+                url: `photo-background/get-data`,
                 type: 'GET',
                 dataType: 'json',
                 data: {},
@@ -247,7 +247,7 @@
                 cache: false,
                 data: myformData,
                 enctype: 'multipart/form-data',
-                url: `/gallery/store`,
+                url: `/photo-background/store`,
                 beforeSend: function() {
                     $('#toast-loading').show()
                     $('#toast-validate').hide()
@@ -298,7 +298,7 @@
                 cache: false,
                 data: myformData,
                 enctype: 'multipart/form-data',
-                url: `/gallery/update`,
+                url: `/photo-background/update`,
                 beforeSend: function() {
                     $('#toast-loading').show()
                     $('#toast-validate').hide()
@@ -346,7 +346,7 @@
 
         function deleteData(){
             $.ajax({
-                url: `gallery/destroy`,
+                url: `photo-background/destroy`,
                 type: 'GET',
                 dataType: 'json',
                 data: {

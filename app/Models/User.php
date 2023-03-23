@@ -5,8 +5,11 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Models\User\CeritaCinta;
+use App\Models\User\Gallery;
 use App\Models\User\MempelaiPria;
 use App\Models\User\MempelaiWanita;
+use App\Models\User\MusicBackground;
+use App\Models\User\PhotoBackground;
 use App\Models\User\SettingAcara;
 use App\Models\User\SettingAkad;
 use App\Models\User\SettingResepsi;
@@ -88,4 +91,18 @@ class User extends Authenticatable
         return $this->hasMany(CeritaCinta::class);
     }
 
+    public function galleryApi()
+    {
+        return $this->hasMany(Gallery::class);
+    }
+
+    public function photoBackgroundApi()
+    {
+        return $this->hasMany(PhotoBackground::class);
+    }
+
+    public function musicBackgroundApi()
+    {
+        return $this->hasOne(MusicBackground::class);
+    }
 }

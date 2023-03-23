@@ -3,40 +3,38 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\User\CeritaCinta;
+use App\Models\User\Gallery;
 use Illuminate\Http\Request;
 
-class CeritaCintaController extends Controller
+class GalleryController extends Controller
 {
-    public function index(Request $request)
-    {
+    public function index(){
         $user = auth()->user();
-        $data = $request->user()->ceritaCintaApi->toArray();
-        return view('user.cerita-cinta.index')
-            ->with('user', $user)
-            ->with('data', $data);
+        return view('user.gallery.index')
+            ->with('user', $user);
     }
 
-    public function store(Request $request)
-    {
+    public function getData(Request $request){
+        return response()->json($request->user()->galleryApi->toArray());
+    }
+
+    public function store(Request $request){
         $user = auth()->user();
         $image_path = public_path('storage/images/');
         $file = $request->file('imageFile');
 
         try {
             if ($file !== null) {
-                $request->user()->ceritaCintaApi()->create([
+                $request->user()->galleryApi()->create([
                     'gambar' => $file->hashName(),
                     'judul' => $request->judul,
-                    'tanggal' => $request->tanggal,
-                    'cerita' => $request->cerita,
+                    'keterangan' => $request->keterangan,
                 ]);
             } else {
-                $request->user()->ceritaCintaApi()->create([
+                $request->user()->galleryApi()->create([
                     'gambar' => 'null',
                     'judul' => $request->judul,
-                    'tanggal' => $request->tanggal,
-                    'cerita' => $request->cerita,
+                    'keterangan' => $request->keterangan,
                 ]);
             }
         } catch (\Exception $e) {
@@ -53,18 +51,11 @@ class CeritaCintaController extends Controller
         ]);
     }
 
-    public function getData(Request $request)
-    {
-        $data = $request->user()->ceritaCintaApi->toArray();
-
-        return response()->json($data);
-    }
-
     public function destroy(Request $request)
     {
-        $id = $request->id;
+        $id = $request->idData;
         $user = $request->user();
-        $dataForDelete = $user->ceritaCintaApi()->findOrFail($id);
+        $dataForDelete = $user->galleryApi()->findOrFail($id);
         $gambarHasName = $dataForDelete->gambar;
 
         try {
@@ -84,33 +75,30 @@ class CeritaCintaController extends Controller
         ]);
     }
 
-    public function update(Request $request)
-    {
+    public function update(Request $request){
+        $user = auth()->user();
+        $image_path = public_path('storage/images/');
         $file = $request->file('imageFile');
-        $ceritaCinta = CeritaCinta::findOrFail($request->id);
-        $image_path = public_path('storage/images/' . $ceritaCinta->gambar);
+        $data = Gallery::findOrFail($request->id);
+        $image_path = public_path('storage/images/' . $data->gambar);
 
         $payload = [
             'judul' => $request->judul,
-            'tanggal' => $request->tanggal,
-            'cerita' => $request->cerita,
+            'keterangan' => $request->keterangan,
         ];
 
-        if ($request->imageFile === "null") {
-            $payload['gambar'] = 'null';
-        } elseif ($request->imageFile !== "undefined") {
+        if ($file !== null) {
             $payload['gambar'] = $file->hashName();
         }
 
         try {
-            CeritaCinta::where('id', $request->id)->update($payload);
+            Gallery::where('id', $request->id)->update($payload);
         } catch (\Exception $e) {
             return abort(500, $e->getMessage());
         }
 
-        if ($request->imageFile === "null") {
-            $ceritaCinta->gambar !== 'null' ? unlink($image_path) : null;
-        } elseif ($request->imageFile !== "undefined") {
+        if ($file !== null) {
+            unlink($image_path);
             $file->store('/images');
         }
 

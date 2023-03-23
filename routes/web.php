@@ -5,9 +5,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UndanganController;
 use App\Http\Controllers\User\CeritaCintaController;
+use App\Http\Controllers\User\GalleryController;
 use App\Http\Controllers\User\MempelaiController;
 use App\Http\Controllers\User\MempelaiPriaController;
 use App\Http\Controllers\User\MempelaiWanitaController;
+use App\Http\Controllers\User\MusicBackgroundController;
+use App\Http\Controllers\User\PhotoBackgroundController;
 use App\Http\Controllers\User\SettingAcaraController;
 use App\Http\Controllers\User\SettingUndanganController;
 use App\Http\Controllers\UserController;
@@ -82,6 +85,29 @@ Route::middleware('auth')->group(function () {
         Route::get('/cerita-cinta/get-data', 'getData');
         Route::post('/cerita-cinta/delete', 'destroy');
         Route::post('/cerita-cinta/update', 'update');
+    });
+
+    Route::controller(GalleryController::class)->group(function () {
+        Route::get('/gallery', 'index');
+        Route::get('/gallery/get-data', 'getData');
+        Route::post('/gallery/store', 'store');
+        Route::get('/gallery/destroy', 'destroy');
+        Route::post('/gallery/update', 'update');
+    });
+
+    Route::controller(PhotoBackgroundController::class)->group(function () {
+        Route::get('/photo-background', 'index');
+        Route::get('/photo-background/get-data', 'getData');
+        Route::post('/photo-background/store', 'store');
+        Route::get('/photo-background/destroy', 'destroy');
+        Route::post('/photo-background/update', 'update');
+    });
+
+    Route::controller(MusicBackgroundController::class)->group(function () {
+        Route::get('/music-background', 'index');
+        Route::get('/music-background/get-data', 'getData');
+        Route::post('/music-background/store', 'store');
+        Route::post('/music-background/update', 'update');
     });
 });
 

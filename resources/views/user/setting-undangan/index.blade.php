@@ -24,7 +24,7 @@
                 </section>
 
 
-                <x-app.title title="Pengaturan Undangan" desc="Fasilitas ini anda dapat gunakan untuk mengatur pengaturan umum website anda, anda bisa mengganti informasi website yang berhubungan dengan pernikahan anda." />
+                <x-app.title title="Pengaturan Undangan" desc="Fasilitas ini kamu dapat gunakan untuk mengatur pengaturan umum website kamu, kamu bisa mengganti informasi website yang berhubungan dengan pernikahan kamu." />
 
                 <main class="py-5">
                     <div class="form-control">
@@ -48,7 +48,7 @@
                         <input id="judul_undangan" type="text" placeholder="masukan judul" class="input-primary" value="{{ $dataSettingUndangan === null ? '' : $dataSettingUndangan['judul_undangan'] }}" />
                         <x-label-validate id="judul-undangan-validate" />
                         <label class="label">
-                            <span class="label-text-alt text-xs text-gray-600">Judul untuk menamai website Anda yang akan muncul pada bagian atas browser.</span>
+                            <span class="label-text-alt text-xs text-gray-600">Judul untuk menamai website kamu yang akan muncul pada bagian atas browser.</span>
                         </label>
                     </div>
 

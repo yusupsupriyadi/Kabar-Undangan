@@ -175,13 +175,15 @@
                                     <span class="form-label text-sm font-normal">Foto mempelai wanita <span class="text-red-500">*<span class="text-xs text-gray-500">optional</span></span></span>
                                 </label>
                                 @if ($dataMempelaiWanita['foto'] !== 'null')
-                                    <img id="image-blank" src="{{ asset('storage/images/' . $dataMempelaiWanita['foto']) }}" width="320" alt="">
+                                    <img id="image-blank" src="{{ asset('storage/images/' . $dataMempelaiWanita['foto']) }}" width="300" alt="">
                                 @else
-                                    <img id="image-blank" src="{{ asset('/images/photo-blank.png') }}" width="320" alt="">
+                                    <img id="image-blank" src="{{ asset('/images/image-empty.webp') }}" width="300" alt="">
                                 @endif
                                 <img id="output" width="320">
                                 <div class="mt-2 w-full max-w-xs">
-                                    <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" class="form-control m-0 block w-full max-w-none rounded border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-1.5 text-sm font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none" type="file" multiple>
+                                    <label class="text-md inline-block w-[300px] rounded-sm bg-yellow-500 px-6 py-2 text-center font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD GAMBAR
+                                        <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" type="file" multiple>
+                                    </label>
                                 </div>
                                 <x-label-validate id="tempat-lahir-validate" />
                             </div>

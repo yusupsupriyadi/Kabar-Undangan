@@ -5,7 +5,7 @@
         </svg>
     </div>
     <div class="grid">
-        <div class="text-sm">Saat ini anda menggunakan layanan paket gratis. Anda bisa mengupgrade layanan untuk mendapatkan fitur yang lebih lengkap dan menarik.</div>
+        <div class="text-sm">Saat ini kamu menggunakan layanan paket gratis. kamu bisa mengupgrade layanan untuk mendapatkan fitur yang lebih lengkap dan menarik.</div>
         <div>
             <button class="bg-gray-500/40 py-2 px-3 text-white text-xs rounded-lg">Lihat paket menarik</button>
         </div>

@@ -5,7 +5,7 @@
         <x-app.navbar />
         <div class="mx-auto mt-4 flex flex-wrap px-2 pt-4 md:px-12 lg:pt-10">
             <!--Menu-->
-            <x-app.menu active="halaman-utama">
+            <x-app.menu active="cerita-cinta">
                 <x-slot name="activeDisplay">
                     <div class="flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
@@ -23,11 +23,11 @@
                     <x-app.card-premium />
                 </section>
 
-                <x-app.title title="Halaman Utama" />
+                <x-app.title title="Cerita Cinta" desc="Fasilitas ini digunakan untuk memberikan informasi perjalanan cinta mu." />
 
-                <main class="py-12">
+                <main class="py-5">
+
                 </main>
-
                 <x-app.testimoni-bar />
             </div>
 
@@ -39,67 +39,17 @@
 
         <x-app.footer />
     </main>
+
+    <x-toast-alert id="toast-success" type="success" message="Berhasil menyimpan cerita" />
+    <x-toast-alert id="toast-success-delete" type="success" message="Berhasil menghapus cerita" />
+    <x-toast-alert id="toast-failed" type="failed" message="Gagal menyimpan cerita" />
+    <x-toast-alert id="toast-failed-delete" type="failed" message="Gagal menghapus cerita" />
+    <x-toast-alert id="toast-loading" type="loading" message="Sedang memproses" />
+    <x-toast-alert id="toast-validate" type="failed" message="Periksa kembali yang wajib diisi." />
 @endsection
 
 @push('scripts')
-    <script>
-        /*Toggle dropdown list*/
-        /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
-
-        var navMenuDiv = document.getElementById("nav-content");
-        var navMenu = document.getElementById("nav-toggle");
-
-        var helpMenuDiv = document.getElementById("menu-content");
-        var helpMenu = document.getElementById("menu-toggle");
-
-        document.onclick = check;
-
-        function check(e) {
-            var target = (e && e.target) || (event && event.srcElement);
-
-
-            //Nav Menu
-            if (!checkParent(target, navMenuDiv)) {
-                // click NOT on the menu
-                if (checkParent(target, navMenu)) {
-                    // click on the link
-                    if (navMenuDiv.classList.contains("hidden")) {
-                        navMenuDiv.classList.remove("hidden");
-                    } else {
-                        navMenuDiv.classList.add("hidden");
-                    }
-                } else {
-                    // click both outside link and outside menu, hide menu
-                    navMenuDiv.classList.add("hidden");
-                }
-            }
-
-            //Help Menu
-            if (!checkParent(target, helpMenuDiv)) {
-                // click NOT on the menu
-                if (checkParent(target, helpMenu)) {
-                    // click on the link
-                    if (helpMenuDiv.classList.contains("hidden")) {
-                        helpMenuDiv.classList.remove("hidden");
-                    } else {
-                        helpMenuDiv.classList.add("hidden");
-                    }
-                } else {
-                    // click both outside link and outside menu, hide menu
-                    helpMenuDiv.classList.add("hidden");
-                }
-            }
-
-        }
-
-        function checkParent(t, elm) {
-            while (t.parentNode) {
-                if (t == elm) {
-                    return true;
-                }
-                t = t.parentNode;
-            }
-            return false;
-        }
-    </script>
+<script type="module">
+    
+</script>
 @endpush

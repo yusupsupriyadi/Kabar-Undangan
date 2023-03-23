@@ -24,7 +24,7 @@
                 </section>
 
 
-                <x-app.title title="Informasi Acara" desc="Fasilitas ini digunakan untuk memberikan informasi yang lengkap tentang acara pernikahan anda, silahkan masukan informasi yang lengkap tentang acara yang akan diselenggarakan." />
+                <x-app.title title="Informasi Acara" desc="Fasilitas ini digunakan untuk memberikan informasi yang lengkap tentang acara pernikahan kamu, silahkan masukan informasi yang lengkap tentang acara yang akan diselenggarakan." />
 
                 <main class="py-5">
                     <section>
@@ -150,7 +150,7 @@
                                     </svg>
                                     <span class="form-label text-sm font-normal">Link Google Map Akad</span>
                                 </label>
-                                <input type="text" class="input-primary" id="link-google-map-akad" placeholder="Masukan URL Google Maps alamat anda telah anda salin" />
+                                <input type="text" class="input-primary" id="link-google-map-akad" placeholder="Masukan URL Google Maps alamat kamu telah kamu salin" />
                                 <label-validate id="link-google-map-akad-validate">Wajib disi</label-validate>
                             </div>
 
@@ -241,7 +241,7 @@
                                     </svg>
                                     <span class="form-label text-sm font-normal">Link Google Map Resepsi</span>
                                 </label>
-                                <input id="link-google-map-resepsi" type="text" name="google-maps-resepsi" class="input-primary" placeholder="Masukan URL Google Maps alamat anda telah anda salin" required />
+                                <input id="link-google-map-resepsi" type="text" name="google-maps-resepsi" class="input-primary" placeholder="Masukan URL Google Maps alamat kamu telah kamu salin" required />
                                 <label-validate id="link-google-map-resepsi-validate">Wajib disi</label-validate>
                             </div>
                         </section>
