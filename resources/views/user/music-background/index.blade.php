@@ -25,16 +25,46 @@
 
                 <x-app.title title="Musik Background" desc="Kamu bisa menambahkan audio atau musik selama website pernikahan kamu dibuka, silahkan pilih audio/musik pilihan kamu." />
 
+                <section class="{{ $user['vip'] === true ? 'hidden' : '' }} mt-2">
+                    <div class="alert alert-error shadow-lg animate-pulse">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span class="text-sm text-white">Fitur ini akan Aktip bila kamu sudah langganan <b>PREMIUM!</b></span>
+                          </div>
+                    </div>
+                </section>
+
                 <main class="py-5">
                     <section>
-                        <p class="text-sm text-gray-600">Silahkan upload audio sendiri bisa berupa musik atau rekaman anda sendiri dalam format MP3 dengan maksimum ukuran file 128M</p>
-                        <div class="w-full max-w-xs mt-4">
-                            <label class="text-md inline-block w-[300px] rounded-sm bg-yellow-600 px-6 py-2 text-center font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD AUDIO
-                                <input type="file" name="music_file" id="music-file" accept=".mp3,audio/*" type="file" multiple>
-                            </label>
+                        <div class="mx-auto rounded-sm border border-gray-200 bg-white shadow-lg">
+                            <header class="border-b border-gray-100 px-5 py-4">
+                                <h2 class="font-semibold text-gray-800">Lagu Rekomendasi</h2>
+                            </header>
+                            <div class="p-3">
+                                <div class="overflow-x-auto">
+                                    <table class="w-full table-auto">
+                                        <thead class="bg-gray-50 text-xs font-semibold uppercase text-gray-400">
+                                            <tr>
+                                                <th class="whitespace-nowrap p-2">
+                                                    <div class="text-left font-semibold">Judul</div>
+                                                </th>
+                                                <th class="whitespace-nowrap p-2">
+                                                    <div class="text-left font-semibold">Musik</div>
+                                                </th>
+                                                <th class="whitespace-nowrap p-2">
+                                                    <div class="text-left font-semibold">Aksi</div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-100 text-sm" id="table-audio">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </section>
-                
+
                 </main>
                 <x-app.testimoni-bar />
             </div>
@@ -48,16 +78,131 @@
         <x-app.footer />
     </main>
 
-    <x-toast-alert id="toast-success" type="success" message="Berhasil menyimpan cerita" />
-    <x-toast-alert id="toast-success-delete" type="success" message="Berhasil menghapus cerita" />
-    <x-toast-alert id="toast-failed" type="failed" message="Gagal menyimpan cerita" />
-    <x-toast-alert id="toast-failed-delete" type="failed" message="Gagal menghapus cerita" />
+    <x-toast-alert id="toast-success" type="success" message="Berhasil memilih lagu" />
+    <x-toast-alert id="toast-failed" type="failed" message="Gagal memilih lagu" />
     <x-toast-alert id="toast-loading" type="loading" message="Sedang memproses" />
-    <x-toast-alert id="toast-validate" type="failed" message="Periksa kembali yang wajib diisi." />
 @endsection
 
 @push('scripts')
-<script type="module">
-    
-</script>
+    <script type="module">
+        const storage = '{{ asset("storage/audios") }}/'
+        const asset = '{{ asset("/audios/") }}/'
+        const dataAudio = [
+            {
+                'judul' : 'My Heart Will Go On',
+                'audio' : 'My Heart Will Go On - Sexaphone.mp3'
+            },
+            {
+                'judul' : 'Cant Help Falling In Love',
+                'audio' : 'Elvis Presley - Cant Help Falling In Love.mp3'
+            },
+            {
+                'judul' : 'All of Me',
+                'audio' : 'John Legend - All of Me.mp3'
+            },
+            {
+                'judul' : 'Perfect',
+                'audio' : 'Perfect - Ed Sheeran.mp3'
+            },
+            {
+                'judul' : 'A Thousand Years',
+                'audio' : 'Christina Perri - A Thousand Years.mp3'
+            },
+            {
+                'judul' : 'I Will Always Love You',
+                'audio' : 'Whitney Houston - I Will Always Love You.mp3'
+            },
+        ];
+        var data = @json($data);
+
+        indexTable(data.music)
+        function indexTable(index = null){
+            var html = ``;
+            $.each(dataAudio, function(key, val){
+                html += `
+                <tr>
+                    <td class="whitespace-nowrap p-2">
+                        <div class="flex items-center">
+                            <div class="font-medium text-gray-800">${val.judul}</div>
+                        </div>
+                    </td>
+                    <td class="whitespace-nowrap p-2">
+                        <div class="text-left">
+                            <audio class="hidden" id="audio-${key}" controlsList="nodownload">
+                                <source src="${asset+val.audio}" type="audio/mpeg">
+                            </audio>
+                            <button type="button" data-id="${key}" class="btn-play-${key} inline-block rounded border-black border-2 bg-transparent px-4 py-2 text-xs font-bold uppercase leading-tight text-black shadow-md transition duration-150 ease-in-out hover:shadow-lg">
+                                Play
+                            </button>
+                        </div>
+                    </td>
+                    <td class="whitespace-nowrap p-2">
+                        <button type="button" data-id="${key}" class="btn-pilih inline-block rounded ${index === val.audio ? 'bg-yellow-600' : 'bg-green-600'} px-6 py-2.5 text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out ${index === val.audio ? '' : 'hover:bg-green-800'}  hover:shadow-lg">
+                            ${index === val.audio ? 'TERPILIH' : 'PILIH'}
+                        </button>
+                    </td>
+                </tr>
+                `
+
+                $(document).on('click', `.btn-play-${key}`, function(){
+                    const id = $(this).data('id');
+                    const audio = $(`#audio-${id}`)[0];
+                    if (audio.paused) {
+                        audio.play();
+                        $(this).html('STOP');
+                        $(this).addClass('bg-red-500 text-white');
+                    } else {
+                        audio.pause();
+                        audio.currentTime = 0;
+                        $(this).html('PLAY');
+                        $(this).removeClass('bg-red-500 text-white');
+                    }
+                })
+
+            })
+            $('#table-audio').html(html)
+        }
+
+        $(document).on('click', '.btn-pilih', function(){
+            var id = $(this).data('id');
+            updateMusicBackground(id)
+        })
+
+        function updateMusicBackground(id){
+            const value = dataAudio[id].audio;
+            const dataExist = data.music;
+            $.ajax({
+                url: `/music-background/update`,
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    value,
+                    dataExist
+                },
+                beforeSend: function() {
+                    $('#toast-loading').show()
+                    $('#toast-validate').hide()
+                },
+                error: function(error) {
+                    setTimeout(function(){
+                        $('#toast-loading').hide()
+                        $('#toast-failed').fadeIn('past')
+                    }, 1000)
+                    setTimeout(function(){
+                        $('#toast-failed').fadeOut('past')
+                    }, 4000)
+                },
+                success: function(response) {
+                    setTimeout(function(){
+                        $('#toast-loading').hide()
+                        $('#toast-success').fadeIn('past')
+                        indexTable(value)
+                    }, 1000)
+                    setTimeout(function(){
+                        $('#toast-success').fadeOut('past')
+                    }, 4000)
+                }
+            });
+        }
+    </script>
 @endpush

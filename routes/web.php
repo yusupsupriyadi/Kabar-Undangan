@@ -21,6 +21,12 @@ Route::get('/', function () {
     return view('home.welcome');
 });
 
+Route::domain('blog.' . env('APP_URL'))->group(function () {
+    Route::get('/', function () {
+        return 'Second subdomain landing page';
+    });
+});
+
 Route::prefix('auth')->group(function () {
     Route::controller(RegisteredUserController::class)->group(function () {
         Route::post('/register', 'store');
@@ -105,8 +111,6 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(MusicBackgroundController::class)->group(function () {
         Route::get('/music-background', 'index');
-        Route::get('/music-background/get-data', 'getData');
-        Route::post('/music-background/store', 'store');
         Route::post('/music-background/update', 'update');
     });
 });

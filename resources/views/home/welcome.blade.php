@@ -5,8 +5,8 @@
         @include('home.partials._navbar')
         <section class="hero-content mt-20 flex-col lg:mt-0 lg:flex-row-reverse lg:gap-20">
             <div class="text-center lg:text-left">
-                <h1 class="text-5xl font-bold">Buat undangan sekarang!</h1>
-                <p class="py-6">Saatnya tampil beda dengan beralih ke undangan digital dan bagikan kebahagianmu kepada
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Buat undangan sekarang!</h1>
+                <p class="pt-4 pb-6 text-sm px-6 md:text-lg md:px-0 text-gray-700">Saatnya tampil beda dengan beralih ke undangan digital dan bagikan kebahagianmu kepada
                     orang-orang terdekatmu.</p>
 
                 <div class="gap-4 lg:flex">
@@ -19,7 +19,7 @@
                         </a>
 
                         <div class="flex md:hidden justify-center mt-6">
-                            <a class="alert alert-success w-[180px] rounded-full px-4 py-2 text-center" href="https://api.whatsapp.com/send?phone=082138554318&text=">
+                            <a class="alert alert-success w-[180px] rounded-full px-4 py-2 text-center" href="https://api.whatsapp.com/send?phone=085155305665&text=">
                                 <div>
                                     <span class="text-sm">butuh bantuan?</span>
                                     <img src="{{ asset('/svg/whatsapp.svg') }}" />
