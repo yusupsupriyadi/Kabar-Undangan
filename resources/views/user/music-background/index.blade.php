@@ -150,12 +150,12 @@
                     if (audio.paused) {
                         audio.play();
                         $(this).html('STOP');
-                        $(this).addClass('bg-red-500 text-white');
+                        $(this).addClass('!bg-red-500 text-white');
                     } else {
                         audio.pause();
                         audio.currentTime = 0;
                         $(this).html('PLAY');
-                        $(this).removeClass('bg-red-500 text-white');
+                        $(this).removeClass('!bg-red-500 text-white');
                     }
                 })
 

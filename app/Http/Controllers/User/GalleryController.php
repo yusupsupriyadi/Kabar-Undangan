@@ -19,8 +19,6 @@ class GalleryController extends Controller
     }
 
     public function store(Request $request){
-        $user = auth()->user();
-        $image_path = public_path('storage/images/');
         $file = $request->file('imageFile');
 
         try {

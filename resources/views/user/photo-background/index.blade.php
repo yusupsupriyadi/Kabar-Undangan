@@ -26,11 +26,13 @@
                 <x-app.title title="Photo Background" desc="Fasilitas ini digunakan untuk menyampaikan foto pra pernikahan atau photo pernikahan pilihan kamu untuk ditampilan di website penikahan kamu berupa background website atau berbetuk slide." />
 
                 <section class="{{ $user['vip'] === true ? 'hidden' : '' }} mt-2">
-                    <div class="alert alert-error shadow-lg animate-pulse">
+                    <div class="alert alert-error animate-pulse shadow-lg">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 stroke-current text-white" fill="none" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                             <span class="text-sm text-white">Fitur ini akan Aktip bila kamu sudah langganan <b>PREMIUM!</b></span>
-                          </div>
+                        </div>
                     </div>
                 </section>
 
@@ -46,7 +48,7 @@
                                     <svg class="h-12 w-12 text-red-500/25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                                     </svg>
-                                    <p class="text-lg text-gray-400">Belum ada photo yang ditambahkan</p>
+                                    <p class="text-center text-lg text-gray-400">Belum ada photo yang ditambahkan</p>
                                     <div class="mt-6">
                                         <button type="button" class="btn-add-photo btn-primary !bg-pink-300 !p-2 !px-3 !text-sm !capitalize !text-gray-800">
                                             Tambah Photo

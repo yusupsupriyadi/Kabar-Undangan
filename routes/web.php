@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UndanganController;
 use App\Http\Controllers\User\CeritaCintaController;
 use App\Http\Controllers\User\GalleryController;
+use App\Http\Controllers\User\KadoNikahController;
 use App\Http\Controllers\User\MempelaiController;
 use App\Http\Controllers\User\MempelaiPriaController;
 use App\Http\Controllers\User\MempelaiWanitaController;
@@ -112,6 +113,14 @@ Route::middleware('auth')->group(function () {
     Route::controller(MusicBackgroundController::class)->group(function () {
         Route::get('/music-background', 'index');
         Route::post('/music-background/update', 'update');
+    });
+
+    Route::controller(KadoNikahController::class)->group(function () {
+        Route::get('/kado-nikah', 'index');
+        Route::get('/kado-nikah/get-data', 'getData');
+        Route::get('/kado-nikah/store', 'store');
+        Route::get('/kado-nikah/update', 'update');
+        Route::get('/kado-nikah/delete', 'destroy');
     });
 });
 

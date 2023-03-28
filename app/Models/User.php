@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Models\User\CeritaCinta;
 use App\Models\User\Gallery;
+use App\Models\User\KadoNikah;
 use App\Models\User\MempelaiPria;
 use App\Models\User\MempelaiWanita;
 use App\Models\User\MusicBackground;
@@ -104,5 +105,10 @@ class User extends Authenticatable
     public function musicBackgroundApi()
     {
         return $this->hasOne(MusicBackground::class);
+    }
+
+    public function kadoNikahApi()
+    {
+        return $this->hasMany(KadoNikah::class);
     }
 }

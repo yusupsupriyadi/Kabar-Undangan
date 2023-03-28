@@ -1,11 +1,9 @@
-<div class="w-full text-xl leading-normal text-gray-800 lg:w-1/5 lg:px-6">
+<div class="w-full text-xl leading-normal text-gray-800 lg:w-1/5 lg:px-6 pt-4">
     <p class="py-2 text-base font-bold text-gray-700">Menu</p>
     <div class="block lg:hidden">
         <button id="menu-toggle" class="flex w-full appearance-none justify-between rounded border border-gray-600 bg-white px-3 py-3 hover:border-purple-500 focus:outline-none lg:bg-transparent">
             {{ $activeDisplay }}
-            <svg class="float-right h-3 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-            </svg>
+            <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="6 9 12 15 18 9" /></svg>
         </button>
     </div>
     <div class="z-20 mt-0 hidden h-64 w-full overflow-y-auto overflow-x-hidden border border-gray-400 bg-white shadow lg:block lg:h-auto lg:overflow-y-hidden lg:border-transparent lg:bg-transparent lg:shadow-none" style="top:5em;" id="menu-content">
@@ -120,4 +118,14 @@
             </li>
         </ul>
     </div>
+    <div class="md:hidden flex justify-end">
+        <a class="btn-pilih  mt-4 flex  items-center gap-2 rounded bg-green-600 px-3 py-2 text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-green-800 hover:shadow-lg" href="/undangan/{{ Auth::user()->id }}">
+            <svg class="h-5 w-5 text-white"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            <div>Lihat Undangan</div>  
+        </a>
+    </div>
 </div>
+
+

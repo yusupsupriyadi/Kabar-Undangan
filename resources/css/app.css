@@ -15,7 +15,7 @@ label-validate {
 }
 
 .label-checkbox-primary {
-	@apply inline-block text-sm text-gray-800;
+	@apply inline-block text-sm text-gray-800 cursor-pointer;
 }
 
 .btn-primary {
