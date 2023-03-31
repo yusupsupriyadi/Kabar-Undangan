@@ -19,13 +19,13 @@
             <!--Main Content-->
             <div class="border-rounded mt-6 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0 lg:w-4/5">
 
-                <section class="{{ $user['vip'] === true ? 'hidden' : '' }}">
+                <section class="{{ $user['vip'] === 1 ? 'hidden' : '' }} mb-6">
                     <x-app.card-premium />
                 </section>
 
                 <x-app.title title="Photo Background" desc="Fasilitas ini digunakan untuk menyampaikan foto pra pernikahan atau photo pernikahan pilihan kamu untuk ditampilan di website penikahan kamu berupa background website atau berbetuk slide." />
 
-                <section class="{{ $user['vip'] === true ? 'hidden' : '' }} mt-2">
+                <section class="{{ $user['vip'] === 1 ? 'hidden' : '' }} mt-2">
                     <div class="alert alert-error animate-pulse shadow-lg">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 stroke-current text-white" fill="none" viewBox="0 0 24 24">
@@ -77,10 +77,7 @@
                 <x-app.testimoni-bar />
             </div>
 
-            <!--Back link -->
-            <div class="px-4 py-6 text-base text-gray-500 md:text-sm lg:ml-auto lg:w-4/5">
-                <span class="text-base font-bold text-purple-500">&lt;</span> <a href="#" class="text-base font-bold text-purple-500 no-underline hover:underline md:text-sm">Ke atas</a>
-            </div>
+
         </div>
 
         <x-app.footer />

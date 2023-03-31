@@ -19,7 +19,7 @@
             <!--Main Content-->
             <div class="border-rounded mt-6 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0 lg:w-4/5">
 
-                <section class="{{ $user['vip'] === true ? 'hidden' : '' }}">
+                <section class="{{ $user['vip'] === 1 ? 'hidden' : '' }} mb-6">
                     <x-app.card-premium />
                 </section>
 
@@ -31,10 +31,7 @@
                 <x-app.testimoni-bar />
             </div>
 
-            <!--Back link -->
-            <div class="px-4 py-6 text-base text-gray-500 md:text-sm lg:ml-auto lg:w-4/5">
-                <span class="text-base font-bold text-purple-500">&lt;</span> <a href="#" class="text-base font-bold text-purple-500 no-underline hover:underline md:text-sm">Ke atas</a>
-            </div>
+
         </div>
 
         <x-app.footer />
@@ -49,7 +46,7 @@
 @endsection
 
 @push('scripts')
-<script type="module">
+    <script type="module">
     
 </script>
 @endpush

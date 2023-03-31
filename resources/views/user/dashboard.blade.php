@@ -19,13 +19,13 @@
             <!--Main Content-->
             <div class="border-rounded mt-6 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0 lg:w-4/5">
 
-                <section class="{{ $user['vip'] === true ? 'hidden' : '' }}">
+                <section class="{{ $user['vip'] === 1 ? 'hidden' : '' }} mb-6">
                     <x-app.card-premium />
                 </section>
 
-                <div class="mt-6 font-sans">
-                    <h1 class="break-normal font-sans text-xl text-gray-900">Halaman Utama</h1>
-                    <p class="my-2 pb-1 font-serif text-sm">Banyak fasilitas yang dapat kamu gunakan untuk mempercantik dan melengkapi informasi website pernikahan kamu, silahkan gunakan fasilitas dibawah ini.</p>
+                <div class="font-sans">
+                    <h1 class="break-normal font-sans text-2xl font-semibold text-gray-900">Halaman Utama</h1>
+                    <p class="my-2 pb-1 font-sans text-sm">Banyak fasilitas yang dapat kamu gunakan untuk mempercantik dan melengkapi informasi website pernikahan kamu, silahkan gunakan fasilitas dibawah ini.</p>
 
                     <div class="alert alert-info my-4 items-start rounded-lg !bg-gray-500/20 py-3 px-4">
                         <div>
@@ -194,10 +194,7 @@
                 <x-app.testimoni-bar />
             </div>
 
-            <!--Back link -->
-            <div class="px-4 py-6 text-base text-gray-500 md:text-sm lg:ml-auto lg:w-4/5">
-                <span class="text-base font-bold text-purple-500">&lt;</span> <a href="#" class="text-base font-bold text-purple-500 no-underline hover:underline md:text-sm">Ke atas</a>
-            </div>
+
         </div>
 
         <x-app.footer />

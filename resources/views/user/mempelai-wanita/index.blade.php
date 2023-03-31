@@ -19,7 +19,7 @@
             <!--Main Content-->
             <div class="border-rounded mt-6 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0 lg:w-4/5">
 
-                <section class="{{ $user['vip'] === true ? 'hidden' : '' }}">
+                <section class="{{ $user['vip'] === 1 ? 'hidden' : '' }} mb-6">
                     <x-app.card-premium />
                 </section>
 
@@ -52,7 +52,7 @@
                             </section>
 
 
-                            <div class="form-control mt-2 w-full hidden">
+                            <div class="form-control mt-2 hidden w-full">
                                 <label class="label flex items-center justify-start gap-1">
                                     <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" />
@@ -180,7 +180,7 @@
                                         Hapus Gambar
                                     </button>
 
-                                    <label class="mt-2 text-md inline-block w-[260px] rounded-sm bg-yellow-500 px-6 py-2 text-center font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD GAMBAR
+                                    <label class="text-md mt-2 inline-block w-[260px] rounded-sm bg-yellow-500 px-6 py-2 text-center font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD GAMBAR
                                         <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" type="file" multiple>
                                     </label>
                                 </div>
@@ -199,10 +199,7 @@
                 <x-app.testimoni-bar />
             </div>
 
-            <!--Back link -->
-            <div class="px-4 py-6 text-base text-gray-500 md:text-sm lg:ml-auto lg:w-4/5">
-                <span class="text-base font-bold text-purple-500">&lt;</span> <a href="#" class="text-base font-bold text-purple-500 no-underline hover:underline md:text-sm">Ke atas</a>
-            </div>
+
         </div>
 
         <x-app.footer />
