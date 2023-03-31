@@ -12,7 +12,12 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
+                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+                serif: ["EB Garamond", ...defaultTheme.fontFamily.serif],
+                masthina: ["Masthina", ...defaultTheme.fontFamily.serif],
+                tangerine: ["Tangerine", ...defaultTheme.fontFamily.serif],
+                greatVibes: ["Great Vibes", ...defaultTheme.fontFamily.serif],
+                alkatra: ["Alkatra", ...defaultTheme.fontFamily.serif],
             },
         },
         container: {

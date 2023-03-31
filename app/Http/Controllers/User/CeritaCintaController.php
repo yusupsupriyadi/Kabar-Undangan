@@ -26,7 +26,6 @@ class CeritaCintaController extends Controller
         try {
             if ($file !== null) {
                 $request->user()->ceritaCintaApi()->create([
-                    'gambar' => $file->hashName(),
                     'judul' => $request->judul,
                     'tanggal' => $request->tanggal,
                     'cerita' => $request->cerita,
@@ -41,10 +40,6 @@ class CeritaCintaController extends Controller
             }
         } catch (\Exception $e) {
             return abort(500, $e->getMessage());
-        }
-
-        if ($file !== null) {
-            $file->store('/images');
         }
 
         return response()->json([
@@ -96,22 +91,10 @@ class CeritaCintaController extends Controller
             'cerita' => $request->cerita,
         ];
 
-        if ($request->imageFile === "null") {
-            $payload['gambar'] = 'null';
-        } elseif ($request->imageFile !== "undefined") {
-            $payload['gambar'] = $file->hashName();
-        }
-
         try {
             CeritaCinta::where('id', $request->id)->update($payload);
         } catch (\Exception $e) {
             return abort(500, $e->getMessage());
-        }
-
-        if ($request->imageFile === "null") {
-            $ceritaCinta->gambar !== 'null' ? unlink($image_path) : null;
-        } elseif ($request->imageFile !== "undefined") {
-            $file->store('/images');
         }
 
         return response()->json([

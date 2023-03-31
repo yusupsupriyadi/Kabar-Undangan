@@ -347,3 +347,14 @@ label-validate {
 input[type='file'] {
 	display: none;
 }
+
+.header {
+	background-size: cover,cover;
+    background-repeat: no-repeat;
+    background-position: center,center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

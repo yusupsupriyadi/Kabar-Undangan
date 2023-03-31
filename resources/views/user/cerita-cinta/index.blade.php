@@ -63,6 +63,7 @@
         <x-app.footer />
     </main>
 
+    @include('user.cerita-cinta.partials.modal')
     <x-toast-alert id="toast-success" type="success" message="Berhasil menyimpan cerita" />
     <x-toast-alert id="toast-success-delete" type="success" message="Berhasil menghapus cerita" />
     <x-toast-alert id="toast-failed" type="failed" message="Gagal menyimpan cerita" />
@@ -127,7 +128,6 @@
                     html += `
                     <div class="items-end justify-between rounded-lg bg-pink-200/40 shadow-md backdrop-blur-md md:flex ${key !== 0 ? 'mt-4' : ''}">
                         <section class="gap-4 md:flex">
-                            <img src="${value.gambar !== 'null' ? `${imageUrl}${value.gambar}` : `${imagePublic}image-empty.webp`}" alt="" class="h-[200px] w-full object-cover rounded-lg md:!w-[200px] md:rounded-none md:rounded-tl-lg md:rounded-bl-lg">
                             <section class="p-6">
                                 <h1>${value.judul}</h1>
                                 <h6 class="mt-2 text-xs text-gray-500">${tanggal}</h6>
@@ -155,6 +155,15 @@
         }
 
         $(document).on('click', '.btn-add-story' , function(){
+            const form = document.querySelector('#form-story');
+            const inputs = form.querySelectorAll('input, textarea, select');
+
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].value = '';
+            }
+
+            $('#output').attr('src', imagePublic+'image-empty.webp');
+            
             $('#form-story').show();
             $('#blank-story').hide();
             $('#list-story').hide()
@@ -167,10 +176,20 @@
         $(document).on('click', '.btn-store-story' , function(){
             validateValue()
         })
+        var idForDelete = null;
 
         $(document).on('click', '.btn-delete', function(){
-            const id = $(this).data('id');
-            deleteData(id);
+            $('#modal-delete').addClass('modal-open')
+            idForDelete = $(this).data('id');
+        })
+
+        $(document).on('click', '.btn-confirm-delete', function(){
+            $('#modal-delete').removeClass('modal-open')
+            deleteData(idForDelete);
+        })
+
+        $(document).on('click', '.btn-close-modal', function(){
+            $('#modal-delete').removeClass('modal-open')
         })
 
         $(document).on('click', '.btn-edit', function(){

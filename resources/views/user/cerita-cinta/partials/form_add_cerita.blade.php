@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="form-control w-full mt-4 md:mt-0">
+        <div class="form-control w-full mt-4 md:mt-0 hidden">
             <label class="label flex items-center justify-start gap-1">
                 <svg class="h-5 w-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />

@@ -16,7 +16,6 @@ use App\Http\Controllers\User\SettingAcaraController;
 use App\Http\Controllers\User\SettingUndanganController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('home.welcome');

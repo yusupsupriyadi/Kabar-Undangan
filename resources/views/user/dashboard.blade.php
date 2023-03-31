@@ -39,7 +39,7 @@
                 <main class="py-12">
                     <section class="grid gap-8 lg:grid-cols-5">
 
-                        <a href="/setting-undangan">
+                        <a href="/setting-undangan" class="hidden">
                             <x-app.card-menu id="pengaturan-undangan" paint="">
                                 <x-slot name='icon'>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-10 w-10">
@@ -171,7 +171,7 @@
                             </x-app.card-menu>
                         </a>
 
-                        <a href="/ganti-tema">
+                        <a href="/ganti-tema" class="hidden">
                             <x-app.card-menu id="ganti-tema" paint="indicator">
                                 <x-slot name='icon'>
                                     <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

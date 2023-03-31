@@ -27,83 +27,6 @@ class MempelaiController extends Controller
         ]);
     }
 
-    public function storeDataMempelai(Request $request)
-    {
-        $user = User::find($request->user()->id);
-        $dataMempelaiPria = $request->dataMempelaiPria;
-        $dataMempelaiWanita = $request->dataMempelaiWanita;
-        $dataNull = $request->dataNull;
-
-        if ($dataNull['dataMempelaiPria'] === 'true') {
-            $user->MempelaiPriaApi()->create([
-                'user_id' => $user->id,
-                'nama_lengkap' => ucfirst($dataMempelaiPria['nama_lengkap']),
-                'nama_panggilan' => ucfirst($dataMempelaiPria['nama_panggilan']),
-                'tempat_lahir' => $dataMempelaiPria['tempat_lahir'],
-                'tanggal_lahir' => $dataMempelaiPria['tanggal_lahir'],
-                'nama_ayah' => $dataMempelaiPria['nama_ayah'],
-                'nama_ibu' => $dataMempelaiPria['nama_ibu'],
-                'foto' => 'null',
-                'tampilkan_foto' => 'false',
-                'instagram' =>  'null',
-                'facebook' => 'null',
-                'twitter' => 'null',
-            ]);
-        } else {
-            $user->MempelaiPriaApi()->update([
-                'user_id' => $user->id,
-                'nama_lengkap' => ucfirst($dataMempelaiPria['nama_lengkap']),
-                'nama_panggilan' => ucfirst($dataMempelaiPria['nama_panggilan']),
-                'tempat_lahir' => $dataMempelaiPria['tempat_lahir'],
-                'tanggal_lahir' => $dataMempelaiPria['tanggal_lahir'],
-                'nama_ayah' => $dataMempelaiPria['nama_ayah'],
-                'nama_ibu' => $dataMempelaiPria['nama_ibu'],
-                'foto' => 'null',
-                'tampilkan_foto' => 'false',
-                'instagram' =>  'null',
-                'facebook' => 'null',
-                'twitter' => 'null',
-            ]);
-        }
-
-        if ($dataNull['dataMempelaiWanita'] === 'true') {
-            $user->mempelaiWanitaApi()->create([
-                'user_id' => $user->id,
-                'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
-                'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
-                'tempat_lahir' => $dataMempelaiWanita['tempat_lahir'],
-                'tanggal_lahir' => $dataMempelaiWanita['tanggal_lahir'],
-                'nama_ayah' => $dataMempelaiWanita['nama_ayah'],
-                'nama_ibu' => $dataMempelaiWanita['nama_ibu'],
-                'foto' => 'null',
-                'tampilkan_foto' => 'false',
-                'instagram' =>  'null',
-                'facebook' => 'null',
-                'twitter' => 'null',
-            ]);
-        } else {
-            $user->mempelaiWanitaApi()->update([
-                'user_id' => $user->id,
-                'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
-                'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
-                'tempat_lahir' => $dataMempelaiWanita['tempat_lahir'],
-                'tanggal_lahir' => $dataMempelaiWanita['tanggal_lahir'],
-                'nama_ayah' => $dataMempelaiWanita['nama_ayah'],
-                'nama_ibu' => $dataMempelaiWanita['nama_ibu'],
-                'foto' => 'null',
-                'tampilkan_foto' => 'false',
-                'instagram' =>  'null',
-                'facebook' => 'null',
-                'twitter' => 'null',
-            ]);
-        }
-
-        return response()->json([
-            'message' => 'success',
-            'data' => $user
-        ]);
-    }
-
     public function storeMempelaiPria(Request $request)
     {
         $user = User::find($request->user()->id);
@@ -113,8 +36,8 @@ class MempelaiController extends Controller
             'user_id' => $user->id,
             'nama_lengkap' => ucfirst($dataMempelaiPria['nama_lengkap']),
             'nama_panggilan' => ucfirst($dataMempelaiPria['nama_panggilan']),
-            'tempat_lahir' => $dataMempelaiPria['tempat_lahir'],
-            'tanggal_lahir' => Carbon::parse(strtr($dataMempelaiPria['tanggal_lahir'], '/', '-'))->format('Y-m-d'),
+            'tempat_lahir' => 'null',
+            'tanggal_lahir' => 'null',
             'nama_ayah' => $dataMempelaiPria['nama_ayah'],
             'nama_ibu' => $dataMempelaiPria['nama_ibu'],
             'foto' => 'null',
@@ -123,7 +46,6 @@ class MempelaiController extends Controller
             'facebook' => 'null',
             'twitter' => 'null',
         ]);
-
 
         return response()->json([
             'message' => 'success',
@@ -140,8 +62,8 @@ class MempelaiController extends Controller
             'user_id' => $user->id,
             'nama_lengkap' => ucfirst($dataMempelaiPria['nama_lengkap']),
             'nama_panggilan' => ucfirst($dataMempelaiPria['nama_panggilan']),
-            'tempat_lahir' => $dataMempelaiPria['tempat_lahir'],
-            'tanggal_lahir' => Carbon::parse(strtr($dataMempelaiPria['tanggal_lahir'], '/', '-'))->format('Y-m-d'),
+            'tempat_lahir' => 'null',
+            'tanggal_lahir' => 'null',
             'nama_ayah' => $dataMempelaiPria['nama_ayah'],
             'nama_ibu' => $dataMempelaiPria['nama_ibu'],
             'foto' => 'null',
@@ -166,8 +88,8 @@ class MempelaiController extends Controller
             'user_id' => $user->id,
             'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
             'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
-            'tempat_lahir' => $dataMempelaiWanita['tempat_lahir'],
-            'tanggal_lahir' => Carbon::parse(strtr($dataMempelaiWanita['tanggal_lahir'], '/', '-'))->format('Y-m-d'),
+            'tempat_lahir' => 'null',
+            'tanggal_lahir' => 'null',
             'nama_ayah' => $dataMempelaiWanita['nama_ayah'],
             'nama_ibu' => $dataMempelaiWanita['nama_ibu'],
             'foto' => 'null',
@@ -200,8 +122,8 @@ class MempelaiController extends Controller
             'user_id' => $user->id,
             'nama_lengkap' => ucfirst($dataMempelaiWanita['nama_lengkap']),
             'nama_panggilan' => ucfirst($dataMempelaiWanita['nama_panggilan']),
-            'tempat_lahir' => $dataMempelaiWanita['tempat_lahir'],
-            'tanggal_lahir' => Carbon::parse(strtr($dataMempelaiWanita['tanggal_lahir'], '/', '-'))->format('Y-m-d'),
+            'tempat_lahir' => 'null',
+            'tanggal_lahir' => 'null',
             'nama_ayah' => $dataMempelaiWanita['nama_ayah'],
             'nama_ibu' => $dataMempelaiWanita['nama_ibu'],
             'instagram' => $dataMempelaiWanita['instagram'] ?? 'null',

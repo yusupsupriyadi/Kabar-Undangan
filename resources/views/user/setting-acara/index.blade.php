@@ -428,6 +428,7 @@
                     setTimeout(function(){
                         $('#toast-success').fadeOut('past')
                     }, 4000)
+                    data = response;
                 },
                 error: function(response) {
                     setTimeout(function(){

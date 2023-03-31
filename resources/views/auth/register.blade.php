@@ -7,7 +7,6 @@
             <section>
                 <div class="w-full max-w-xl flex-shrink-0">
                     <ol class="border-l-2 border-blue-600">
-
                         <li class="mb-6 pb-6">
                             <div class="flex-start flex items-center">
                                 <div class="-ml-2 mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-blue-600">
@@ -19,24 +18,34 @@
                                 <section class="card bg-base-100 shadow-xl lg:w-96">
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="name" class="form-label mb-2 inline-block text-gray-700">Nama</label>
-                                            <input id="name" type="text" class="input-form form-control" placeholder="Masukan nama">
+                                            <label for="nama-pria" class="form-label mb-2 inline-block text-gray-700 pr-10 md:pr-20">Nama Panggilan Pengantin <b>Pria</b></label>
+                                            <input id="nama-pria" type="text" class="input-form form-control w-56" placeholder="Nama Panggilan Pengantin Pria">
+                                            <span class="text-xs text-red-500 mt-1 hidden" id="validation-nama-pria">wajib diisi.</span>
+                                        </div>
+
+                                        <div class="form-group mt-4">
+                                            <label for="nama-wanita" class="form-label mb-2 inline-block text-gray-700">Nama Panggilan Pengantin <b>Wanita</b></label>
+                                            <input id="nama-wanita" type="text" class="input-form form-control" placeholder="Nama Panggilan Pengantin Wanita">
+                                            <span class="text-xs text-red-500 mt-1 hidden" id="validation-nama-wanita">wajib diisi.</span>
                                         </div>
 
                                         <div class="form-group mt-4">
                                             <label for="phone" class="form-label mb-2 inline-block text-gray-700">No Telepon</label>
                                             <input id="phone" type="text" class="input-form form-control" placeholder="masukan nomor telepon">
+                                            <span class="text-xs text-red-500 mt-1 hidden" id="validation-phone">wajib diisi.</span>
                                         </div>
 
                                         <div class="form-group mt-4">
                                             <label for="email" class="form-label mb-2 inline-block text-gray-700">Email</label>
                                             <input id="email" type="email" class="input-form form-control" placeholder="Masukan email">
+                                            <span class="text-xs text-red-500 mt-1 hidden" id="validation-email">wajib diisi.</span>
                                         </div>
 
                                         <div class="relative">
                                             <div class="form-group mt-4">
                                                 <label for="password" class="form-label mb-2 inline-block text-gray-700">Password</label>
                                                 <input id="password" type="password" class="input-form form-control" placeholder="Masukan password">
+                                                <span class="text-xs text-red-500 mt-1 hidden" id="validation-password">wajib diisi.</span>
                                             </div>
                                             <div class="togglePasswordVisibility absolute inset-y-0 top-[47px] right-0 flex cursor-pointer items-center pr-3">
                                                 <svg class="h-5 w-5 text-gray-600 block" id="hide-password" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -91,8 +100,8 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        let name = localStorage.getItem('name');
         let phone = localStorage.getItem('phone');
+        let email = localStorage.getItem('email');
 
         $(document).on('click', '.togglePasswordVisibility', function(){
             const passwordInput = document.getElementById("password");
@@ -107,16 +116,45 @@
             }
         })
 
-        $('#name').val(name);
         $('#phone').val(phone);
+        $('#email').val(email);
 
         $(document).on('click', '#handleRegister', function() {
+            validation();
+        })
+
+        function validation(){
+            let namaPria = $('#nama-pria').val();
+            let namaWanita = $('#nama-wanita').val();
+            let email = $('#email').val();
+            let phone = $('#phone').val();
+            let password = $('#password').val();
+
+            namaPria === '' ? $('#nama-pria').addClass('!border-red-500') : $('#nama-pria').removeClass('!border-red-500');
+            namaWanita === '' ? $('#nama-wanita').addClass('!border-red-500') : $('#nama-wanita').removeClass('!border-red-500');
+            email === '' ? $('#email').addClass('!border-red-500') : $('#email').removeClass('!border-red-500');
+            phone === '' ? $('#phone').addClass('!border-red-500') : $('#phone').removeClass('!border-red-500');
+            password === '' ? $('#password').addClass('!border-red-500') : $('#password').removeClass('!border-red-500');
+
+            namaPria === '' ? $('#validation-nama-pria').show() : $('#validation-nama-pria').hide();
+            namaWanita === '' ? $('#validation-nama-wanita').show() : $('#validation-nama-wanita').hide();
+            email === '' ? $('#validation-email').show() : $('#validation-email').hide();
+            phone === '' ? $('#validation-phone').show() : $('#validation-phone').hide();
+            password === '' ? $('#validation-password').show() : $('#validation-password').hide();
+
+            if(namaPria !== '' && namaWanita !== '' && email !== '' && phone !== '' && password !== ''){
+                register();
+            }
+            
+        }
+
+        function register(){
             $.ajax({
                 url: `/auth/register`,
                 type: 'POST',
                 dataType: 'json',
                 data: {
-                    name: $('#name').val(),
+                    name: $('#nama-pria').val()+$('#nama-wanita').val(),
                     email: $('#email').val(),
                     phone: $('#phone').val(),
                     password: $('#password').val(),
@@ -141,6 +179,6 @@
                     window.location.href = '/complete-register'
                 }
             });
-        })
+        }
     </script>
 @endpush

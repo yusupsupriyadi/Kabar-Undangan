@@ -3,13 +3,13 @@
     <div class="card-body">
         <div class="form-control">
             <label class="label">
-                <span class="label-text">Nama</span>
+                <span class="label-text font-sans text-md font-semibold">Email</span>
             </label>
-            <input id="name" type="text" placeholder="Nama" class="input-bordered input" />
+            <input id="email" type="email" placeholder="Email" class="input-bordered input" />
         </div>
         <div class="form-control">
             <label class="label">
-                <span class="label-text">No Telepon</span>
+                <span class="label-text font-sans text-md font-semibold">No Telepon</span>
             </label>
             <input id="phone" type="text" placeholder="No Telepon" class="input-bordered input" />
             <a href="/login" class="link-hover label-text-alt link mt-4 text-right text-blue-600 text-sm">Sudah mendaftar?</a>

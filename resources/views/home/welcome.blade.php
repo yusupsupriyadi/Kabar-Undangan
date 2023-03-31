@@ -42,7 +42,7 @@
         $('#footer').addClass('hidden')
         $('#home').addClass('hidden')
         $(document).on('click', '#handleRegister', function (){
-            localStorage.setItem('name', document.getElementById('name').value);
+            localStorage.setItem('email', document.getElementById('email').value);
             localStorage.setItem('phone', document.getElementById('phone').value);
             window.location.href = '/register'
         })

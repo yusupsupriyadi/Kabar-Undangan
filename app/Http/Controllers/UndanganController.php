@@ -9,11 +9,7 @@ class UndanganController extends Controller
 {
     public function index(Request $request, $id)
     {
-        $user = User::find($id);
-        $mempelaiPria = $user->MempelaiPriaApi;
-        $mempelaiWanita = $user->mempelaiWanitaApi;
-        return view('undangan.index')
-            ->with('mempelaiPria', $mempelaiPria)
-            ->with('mempelaiWanita', $mempelaiWanita);
+        $data = User::with('mempelaiPriaApi', 'mempelaiWanitaApi', 'ceritaCintaApi', 'settingAcaraApi', 'settingUndanganApi', 'musicBackgroundApi', 'photoBackgroundApi', 'galleryApi', 'kadoNikahApi')->where('id', $id)->first();
+        return view('undangan.index', compact('data'));
     }
 }

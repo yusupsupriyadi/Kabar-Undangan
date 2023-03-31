@@ -12,14 +12,14 @@
             <input id="nama-panggilan-pria" type="text" class="input-form form-control" placeholder="masukan nama panggilan">
         </div>
 
-        <div class="form-group mt-4">
+        <div class="form-group mt-4 hidden">
             <label for="tempat-lahir-pria" class="form-label mb-2 inline-block text-gray-700">Tempat lahir</label>
-            <input id="tempat-lahir-pria" type="text" class="input-form form-control" placeholder="masukan tempat lahir">
+            <input id="tempat-lahir-pria" type="text" value="null" class="input-form form-control" placeholder="masukan tempat lahir">
         </div>
 
-        <div class="form-group datepicker mt-4" data-mdb-toggle-button="false">
+        <div class="form-group datepicker mt-4 hidden" data-mdb-toggle-button="false">
             <label for="tanggal-lahir-pria" class="form-label mb-2 inline-block text-gray-700">Tanggal lahir</label>
-            <input id="tanggal-lahir-pria" type="text" class="input-form form-control" data-mdb-toggle="datepicker" placeholder="masukan tanggal lahir">
+            <input id="tanggal-lahir-pria" value="null" type="text" class="input-form form-control" data-mdb-toggle="datepicker" placeholder="masukan tanggal lahir">
         </div>
 
         <div class="form-group mt-4">

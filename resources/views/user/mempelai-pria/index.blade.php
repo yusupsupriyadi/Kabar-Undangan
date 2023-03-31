@@ -5,7 +5,7 @@
         <x-app.navbar />
         <div class="mx-auto mt-4 flex flex-wrap px-2 pt-4 md:px-12 lg:pt-10">
             <!--Menu-->
-            <x-app.menu active="Mempelai Pria">
+            <x-app.menu active="mempelai-pria">
                 <x-slot name="activeDisplay">
                     <div class="flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
@@ -23,7 +23,7 @@
                     <x-app.card-premium />
                 </section>
 
-                <x-app.title title="Mempelai Pria" desc="Fasilitas ini digunakan untuk memberikan informasi yang lengkap tentang profile dari Mempelai Pria, silahkan masukan dengan lengkap dan jelas berikut dengan foto yang berkualitas bagus." />
+                <x-app.title title="Biodata Mempelai Pria" desc="Fasilitas ini digunakan untuk memberikan informasi yang lengkap tentang profile dari Mempelai Pria, silahkan masukan dengan lengkap dan jelas berikut dengan foto yang berkualitas bagus." />
 
                 <main class="py-4">
                     <form enctype="multipart/form-data" id="formUpload" class="grid gap-10 md:grid-cols-2">
@@ -51,8 +51,7 @@
                                 </div>
                             </section>
 
-
-                            <div class="form-control mt-2 w-full">
+                            <div class="form-control mt-2 hidden w-full">
                                 <label class="label flex items-center justify-start gap-1">
                                     <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" />
@@ -139,7 +138,7 @@
                         </section>
 
                         <section>
-                            <div class="form-control">
+                            <div class="form-control hidden">
                                 <label class="label flex items-center justify-start gap-1">
                                     <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" />
@@ -149,7 +148,7 @@
                                     </svg>
                                     <span class="form-label text-sm font-normal">Tampilkan foto</span>
                                 </label>
-                                <div class="ml-2 flex">
+                                <div class="ml-2 hidden">
                                     <div class="form-check">
                                         <input value="true" class="checkbox-primary" type="radio" name="tampilkan-foto" id="tampilkan-true-foto">
                                         <label class="label-checkbox-primary" for="tampilkan-true-foto">
@@ -174,14 +173,13 @@
                                     </svg>
                                     <span class="form-label text-sm font-normal">Foto mempelai pria <span class="text-red-500">*<span class="text-xs text-gray-500">optional</span></span></span>
                                 </label>
-                                @if ($dataMempelaiPria['foto'] !== 'null')
-                                    <img id="image-blank" src="{{ asset('storage/images/' . $dataMempelaiPria['foto']) }}" width="300" alt="">
-                                @else
-                                    <img id="image-blank" src="{{ asset('/images/image-empty.webp') }}" width="300" alt="">
-                                @endif
-                                <img id="output" width="320">
+                                <img id="output" width="260">
                                 <div class="mt-2 w-full max-w-xs">
-                                    <label class="text-md inline-block w-[300px] rounded-sm bg-yellow-500 px-6 py-2 text-center font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD GAMBAR
+                                    <button type="button" class="btn-delete-image text-md hidden w-[260px] rounded-sm bg-red-500 px-6 py-2 text-center font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg">
+                                        Hapus Gambar
+                                    </button>
+
+                                    <label class="text-md mt-2 inline-block w-[260px] rounded-sm bg-yellow-500 px-6 py-2 text-center font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD GAMBAR
                                         <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" type="file" multiple>
                                     </label>
                                 </div>
@@ -230,6 +228,27 @@
         if(data !== null){
             setupValue()
         }
+
+        const imageUrl = '{{ asset("storage/images") }}/'
+        const imagePublic = '{{ asset("/images") }}/'
+
+        if(data.foto === 'null' || data.foto === null){
+            $('.btn-delete-image').hide();
+            $('#output').attr('src', imagePublic+'foto-pria.png');
+        }else{
+            $('.btn-delete-image').show();
+            $('#output').attr('src', imageUrl+data.foto);
+        }
+
+        $(document).on('click', '.btn-delete-image', function(){
+            $('#output').attr('src', imagePublic+'foto-pria.png');
+            $('image-file').val('');
+            $('.btn-delete-image').hide();
+        })
+
+        $(document).on('change', '#image-file', function(){
+            $('.btn-delete-image').show();
+        })
 
         function setupValue(){
             $('#nama-lengkap').val(data.nama_lengkap);

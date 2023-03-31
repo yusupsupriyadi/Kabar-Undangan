@@ -41,8 +41,6 @@ class MempelaiWanitaController extends Controller
                     'nama_panggilan' => $namaPanggilan,
                     'nama_ayah' => $namaAyah,
                     'nama_ibu' => $namaIbu,
-                    'tempat_lahir' => $tempatLahir,
-                    'tanggal_lahir' => $tanggalLahir,
                     'foto' => $file->hashName(),
                     'tampilkan_foto' => $tampilkanFoto,
                     'instagram' => $instagram ?? 'null',
@@ -56,8 +54,7 @@ class MempelaiWanitaController extends Controller
                     'nama_panggilan' => $namaPanggilan,
                     'nama_ayah' => $namaAyah,
                     'nama_ibu' => $namaIbu,
-                    'tempat_lahir' => $tempatLahir,
-                    'tanggal_lahir' => $tanggalLahir,
+                    'foto' => 'null',
                     'tampilkan_foto' => $tampilkanFoto,
                     'instagram' => $instagram ?? 'null',
                     'facebook' => $facebook ?? 'null',
@@ -71,6 +68,8 @@ class MempelaiWanitaController extends Controller
         if ($file !== null) {
             $file->store('/images');
             $dataMempelaiWanita->foto !== 'null' ? unlink($image_path) : null;
+        }else{
+            $dataMempelaiWanita->foto !== 'null' || $dataMempelaiWanita->foto !== null ? unlink($image_path) : null;
         }
 
         return response()->json([
