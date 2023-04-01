@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('home.welcome');
 });
 
+Route::get('/demo', function () {
+    return view('demo.index');
+});
+
 Route::domain('blog.' . env('APP_URL'))->group(function () {
     Route::get('/', function () {
         return 'Second subdomain landing page';
