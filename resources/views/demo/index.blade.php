@@ -4,28 +4,61 @@
 @endsection
 
 @section('styles')
-    <style>
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-gap: 10px;
-        }
-
-        .photo {
-            overflow: hidden;
-        }
-
-        .photo img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-    </style>
 @endsection
 
 @section('content')
     <div id="particles-js" class="absolute h-full w-full bg-cover bg-repeat" style="background-position: 50% 50%"></div>
     <main class="m-auto">
+        <section class="header opening" id="opening">
+            <div class="container mx-auto max-w-xl text-center">
+                <h1 class="pb-6 font-sans text-xl uppercase">We Are Getting Married</h1>
+                <section class="font-masthina" data-aos="fade-right"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine">
+                    <h1 class="text-8xl">Kevin</h1>
+                    <h2 class="text-5xl">&</h2>
+                    <h1 class="text-8xl">Salsa</h1>
+                </section>
+                <h5 class="mt-4 text-xl">Save the date :</h5>
+                <section class="mt-4 flex justify-center">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" class="font-serif text-xl font-semibold uppercase">
+                                    Maret
+                                </td>
+                            </tr>
+                            <tr class="font-serif text-sm font-bold uppercase">
+                                <td>
+                                    <div class="w-20 border-y border-black py-1">SABTU</div>
+                                </td>
+                                <td class="px-2 text-6xl font-thin">25</td>
+                                <td>
+                                    <div class="w-20 border-y border-black py-1">
+                                        Jam 08:00</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="pt-1 font-serif text-2xl font-semibold uppercase">
+                                    2023
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section class="mt-4 flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-stone-600 p-3" id="open-undangan">
+                    <svg class="h-6 w-6 text-gray-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    <div class="text-md font-alkatra font-bold text-gray-200 pt-0.5">
+                        BUKA UNDANGAN
+                    </div>
+                </section>
+            </div>
+        </section>
+
         <section class="header">
             <div class="container mx-auto max-w-xl text-center">
                 <h1 class="pb-6 font-sans text-xl uppercase">We Are Getting Married</h1>
@@ -47,10 +80,10 @@
                                 <td>
                                     <div class="w-20 border-y border-black py-1">SABTU</div>
                                 </td>
-                                <td class="px-2 text-6xl font-thin">30</td>
+                                <td class="px-2 text-6xl font-thin">25</td>
                                 <td>
                                     <div class="w-20 border-y border-black py-1">
-                                        Jam 11:00
+                                        Jam 08:00</span>
                                     </div>
                                 </td>
                             </tr>
@@ -62,25 +95,32 @@
                         </tbody>
                     </table>
                 </section>
-                <section class="text-md mt-4 flex items-center justify-center gap-6 rounded-xl bg-stone-600 p-3 font-sans uppercase text-gray-200">
-                    <div>
-                        <h3>12</h3>
-                        <h4>Hari</h4>
+                <section class="text-md mt-4 rounded-xl bg-stone-600 p-3 font-sans text-gray-200">
+                    <div class="hidden uppercase" id="countdown">
+                        <div class="flex items-center justify-center gap-6">
+                            <div>
+                                <h3 id="day">-</h3>
+                                <h4>Hari</h4>
+                            </div>
+                            <div>:</div>
+                            <div>
+                                <h3 id="hour">-</h3>
+                                <h4>jam</h4>
+                            </div>
+                            <div>:</div>
+                            <div>
+                                <h3 id="minute">-</h3>
+                                <h4>menit</h4>
+                            </div>
+                            <div>:</div>
+                            <div>
+                                <h3 id="second">-</h3>
+                                <h4>detik</h4>
+                            </div>
+                        </div>
                     </div>
-                    <div>:</div>
-                    <div>
-                        <h3>12</h3>
-                        <h4>jam</h4>
-                    </div>
-                    <div>:</div>
-                    <div>
-                        <h3>12</h3>
-                        <h4>menit</h4>
-                    </div>
-                    <div>:</div>
-                    <div>
-                        <h3>12</h3>
-                        <h4>detik</h4>
+                    <div class="hidden" id="countdown-done">
+                        <h3 class="font-tangerine text-3xl font-bold">Kami Sudah Menikah 💍</h3>
                     </div>
                 </section>
             </div>
@@ -102,7 +142,7 @@
                     <p class="mt-6 text-[10px] text-gray-500">Anak dari Keluarga</p>
                     <p class="mt-1 text-[10px] text-gray-500">Bapak Andi Sulistyono (Alm.) & Ibu A. Riza Kusnawati</p>
                 </div>
-                <a href="#" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
+                <a href="https://www.instagram.com/kabarundangan/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
                     <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" />
                         <rect x="4" y="4" width="16" height="16" rx="4" />
@@ -122,7 +162,7 @@
                     <p class="mt-6 text-[10px] text-gray-500">Anak dari Keluarga</p>
                     <p class="mt-1 text-[10px] text-gray-500">Bapak Andi Sulistyono (Alm.) & Ibu A. Riza Kusnawati</p>
                 </div>
-                <a href="#" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
+                <a href="https://www.instagram.com/kabarundangan/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
                     <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" />
                         <rect x="4" y="4" width="16" height="16" rx="4" />
@@ -171,7 +211,7 @@
                             </div>
 
                         </div>
-                        <a href="#" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-stone-500 p-3">
+                        <a href="https://goo.gl/maps/uPzjuEvzsccbkzD88" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-stone-500 p-3">
                             <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
                                 <line x1="18" y1="6" x2="18" y2="6.01" />
@@ -219,7 +259,7 @@
                             </div>
                         </div>
 
-                        <a href="#" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-stone-500 p-3">
+                        <a href="https://goo.gl/maps/uPzjuEvzsccbkzD88" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-stone-500 p-3">
                             <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
                                 <line x1="18" y1="6" x2="18" y2="6.01" />
@@ -234,7 +274,7 @@
                 </div>
             </div>
 
-            <div class="mx-auto mt-12 flex max-w-[15rem] items-center gap-2 rounded-lg bg-stone-600 p-4 shadow-md">
+            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Acara+Pernikahan+Kevin+sanjaya+dan+Salsa+bila&dates=20230405T030000Z/20230405T050000Z&details=Deskripsi+Acara&location=Hotel+Kenangan&sprop=name:Organizer&sprop=website:https://www.kabarundangan.com" target="_blank" class="mx-auto mt-12 flex max-w-[15rem] items-center gap-2 rounded-lg bg-stone-600 p-4 shadow-md">
                 <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <rect x="4" y="5" width="16" height="16" rx="2" />
@@ -245,7 +285,7 @@
                     <line x1="12" y1="14" x2="12" y2="18" />
                 </svg>
                 <h3 class="font-sans text-lg font-semibold uppercase text-white">Add to Calendar</h3>
-            </div>
+            </a>
         </section>
 
         <section class="container mx-auto mt-20 hidden max-w-4xl transform animate-bounce cursor-pointer duration-1000">
@@ -279,7 +319,7 @@
                             </div>
                             <h4 class="text-md font-sans font-semibold">Pertama Jumpa</h4>
                             <p class="mt-1 font-sans text-sm font-thin">
-                                Menjelang semester akhir perkuliahan, kami ditempatkan di satu kelompok bimbingan yang sama. Pada proses inilah kami lebih didekatkan, obrolan kami semakin beragam. Kami mulai merasa cocok dan nyaman. Terlebih dalam proses penyelesaian skripsi, kami saling sharing dan membantu satu sama lain.
+                                Kampus adalah tempat pertama kali kami bertemu. Kami mengenal satu sama lain hanya sebagai teman satu kelas dan jurusan saja. Interaksi di antara kami berdua hanya seputar dunia perkuliahan atau organisasi. Ya, kami hanya sebatas teman biasa, tidak lebih dari itu.
                             </p>
                         </div>
                         <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
@@ -309,9 +349,9 @@
                                 </svg>
                                 <h3 class="text-lg font-semibold leading-none">Desember 2022</h3>
                             </div>
-                            <h4 class="text-md font-sans font-semibold">Pertama Jumpa</h4>
+                            <h4 class="text-md font-sans font-semibold">Mulai PDKT</h4>
                             <p class="mt-1 font-sans text-sm font-thin">
-                                Menjelang semester akhir perkuliahan, kami ditempatkan di satu kelompok bimbingan yang sama. Pada proses inilah kami lebih didekatkan, obrolan kami semakin beragam. Kami mulai merasa cocok dan nyaman. Terlebih dalam proses penyelesaian skripsi, kami saling sharing dan membantu satu sama lain.
+                                Di hari ujian skripsi. Tepat setelah perayaan ujian sidang, Dia menyatakan keinginannya untuk lebih serius dalam menjalani hubungan. Sudah tentu diterima, banyak hal baik yang saya dapatkan darinya. Sehingga saya yakin bahwa ia adalah orang yang tepat.
                             </p>
                         </div>
                     </div>
@@ -329,9 +369,9 @@
                                 </svg>
                                 <h3 class="text-lg font-semibold leading-none">Januari 2023</h3>
                             </div>
-                            <h4 class="text-md font-sans font-semibold">Pertama Jumpa</h4>
+                            <h4 class="text-md font-sans font-semibold">Tunangan</h4>
                             <p class="mt-1 font-sans text-sm font-thin">
-                                Menjelang semester akhir perkuliahan, kami ditempatkan di satu kelompok bimbingan yang sama. Pada proses inilah kami lebih didekatkan, obrolan kami semakin beragam. Kami mulai merasa cocok dan nyaman. Terlebih dalam proses penyelesaian skripsi, kami saling sharing dan membantu satu sama lain.
+                                Satu bulan setelah wisuda. Ia datang ke rumah menemui keluarga dan menyatakan komitmennya melalui cincin pertunangan. Di situlah harapan untuk kehidupan di masa depan
                             </p>
                         </div>
                         <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
@@ -348,7 +388,7 @@
         <section class="container mx-auto mt-24 max-w-4xl">
             <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl">Gallery</h1>
             <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
-            <section class="mt-6 overflow-hidden text-neutral-700">
+            <section class="mt-8 overflow-hidden text-neutral-700">
                 <div class="mx-auto">
                     <div class="-m-1 flex flex-wrap md:-m-2">
                         <div class="flex w-1/2 flex-wrap">
@@ -376,17 +416,19 @@
                     </div>
                 </div>
             </section>
+
+            <section class="container mx-auto mt-24 max-w-4xl">
+                <h3 class="text-center font-alkatra text-xl text-stone-500/90 antialiased md:text-2xl">Bila wujud cinta harus dibuktikan, maka pernikahan adalah bukti cinta lahir batin yang paling baik dan diridhoi-Nya, karena dengan begitu cinta tidak akan rusak karenanya, justru cintalah yang menjaganya</h3>
+            </section>
         </section>
 
-        <section class="container mx-auto mt-24 max-w-4xl">
-            <h3 class="text-center font-alkatra text-2xl text-stone-500/90 antialiased">Bila wujud cinta harus dibuktikan, maka pernikahan adalah bukti cinta lahir batin yang paling baik dan diridhoi-Nya, karena dengan begitu cinta tidak akan rusak karenanya, justru cintalah yang menjaganya</h3>
-        </section>
 
-        <section class="container mx-auto mt-24 max-w-6xl">
+
+        <section class="container mx-auto mt-32 max-w-6xl">
             <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Hadiah Untuk Kami</h1>
             <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500">Kehadiran Bapak/Ibu/Saudara/i merupakan hadiah terbaik bagi kami. Tetapi jika memberi merupakan tanda kasih, kami dengan senang hati menerimanya. Semoga kebaikan, keberkahan dan kesehatan selalu diberikan kepada kita semua. Aamiin...</p>
 
-            <div class="mx-auto mt-8 flex max-w-[12.5rem] cursor-pointer items-center gap-2 rounded-lg bg-stone-600 p-4 shadow-md">
+            <div class="btn-open-modal mx-auto mt-8 flex max-w-[12.5rem] cursor-pointer items-center gap-2 rounded-lg bg-stone-600 p-4 shadow-md">
                 <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <rect x="3" y="8" width="18" height="4" rx="1" />
@@ -398,11 +440,11 @@
             </div>
         </section>
 
-        <section class="container mx-auto mt-24 max-w-4xl">
+        <section class="container mx-auto mt-36 max-w-4xl">
             <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Ucapan Selamat & Do'a</h1>
             <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500">Kami mengharapkan kehadiran Anda.</p>
 
-            <form action="" class="mx-auto mt-6 mb-0 max-w-xl space-y-4 rounded-lg bg-stone-600 p-12 shadow-md">
+            <div class="mx-auto mt-6 mb-0 max-w-xl space-y-4 rounded-lg bg-stone-600 p-12 shadow-md">
                 <div>
                     <div class="relative">
                         <input type="text" name="name" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Nama" />
@@ -411,7 +453,7 @@
 
                 <div>
                     <div class="relative">
-                        <input type="text" name="instagram" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Instagram" />
+                        <input type="text" name="instagram" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Instagram *optional" />
                     </div>
                 </div>
 
@@ -421,7 +463,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="block w-full rounded-lg bg-stone-500 px-5 py-3 font-sans text-lg font-medium text-white">
+                <button class="block w-full rounded-lg bg-stone-500 px-5 py-3 font-sans text-lg font-medium text-white">
                     Kirim Ucapan
                 </button>
         </section>
@@ -431,34 +473,32 @@
                 <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
                     <div class="relative float-left -mr-[100%] hidden w-full text-center transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-active data-te-carousel-item style="backface-visibility: hidden">
                         <p class="mx-auto max-w-4xl text-xl italic text-neutral-700 dark:text-neutral-300">
-                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-                            error amet numquam iure provident voluptate esse quasi, voluptas
-                            nostrum quisquam!"
+                            "Angguuuuun. Selamat yaaa, semoga dilancarkan semua rencana baiknya.
+                            Buat bg rangga, titip anggun kami ya bg 😁😁"
                         </p>
                         <div class="mt-12 mb-6 flex justify-center">
-                            <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
+                            <img src="{{ asset('/images/photo-blank.png') }}" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
                         </div>
                         <p class="text-neutral-500 dark:text-neutral-300">- Anna Morian</p>
                     </div>
                     <div class="relative float-left -mr-[100%] hidden w-full text-center transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item style="backface-visibility: hidden">
                         <p class="mx-auto max-w-4xl text-xl italic text-neutral-700 dark:text-neutral-300">
-                            "Neque cupiditate assumenda in maiores repudiandae mollitia
-                            adipisci maiores repudiandae mollitia consectetur adipisicing
-                            architecto elit sed adipiscing elit."
+                            "Ga nyangka sih kalian berdua sampe ke tahap ini, tapi ikut bahagia!
+                            Semoga kalian berdua terus tetep jadi sahabat selain suami dan istri dalam pernikahan kalian. 🙏 ❤️"
                         </p>
                         <div class="mt-12 mb-6 flex justify-center">
-                            <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
+                            <img src="{{ asset('/images/photo-blank.png') }}" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
                         </div>
                         <p class="text-neutral-500 dark:text-neutral-300">- Teresa May</p>
                     </div>
                     <div class="relative float-left -mr-[100%] hidden w-full text-center transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item style="backface-visibility: hidden">
                         <p class="mx-auto max-w-4xl text-xl italic text-neutral-700 dark:text-neutral-300">
-                            "Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur est laborum neque
-                            cupiditate assumenda in maiores."
+                            "Yuhuu akhirnya yaa kewong jugaaa wkwk
+                            Udah gak di introgasi anak beskem lagi hahaha 😁
+                            Samawa till jannah pokoknya, peluukkkkk ❤️❤️❤️"
                         </p>
                         <div class="mt-12 mb-6 flex justify-center">
-                            <img src="https://tecdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
+                            <img src="{{ asset('/images/photo-blank.png') }}" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
                         </div>
                         <p class="text-neutral-500 dark:text-neutral-300">- Kate Allise</p>
                     </div>
@@ -506,6 +546,24 @@
             </div>
         </footer>
     </main>
+    <div class="toast-end toast" id="toggle-music">
+        <label class="swap rounded-full bg-stone-200 p-2">
+            <!-- this hidden checkbox controls the state -->
+            <input type="checkbox" class="hidden" />
+            <!-- volume on icon -->
+            <svg class="swap-off fill-current text-stone-500" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                <path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" />
+            </svg>
+            <!-- volume off icon -->
+            <svg class="swap-on fill-current text-stone-500" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                <path d="M3,9H7L12,4V20L7,15H3V9M16.59,12L14,9.41L15.41,8L18,10.59L20.59,8L22,9.41L19.41,12L22,14.59L20.59,16L18,13.41L15.41,16L14,14.59L16.59,12Z" />
+            </svg>
+        </label>
+    </div>
+
+    <audio id="music-background" src="{{ asset('/audios/My Heart Will Go On - Sexaphone.mp3') }}"></audio>
+
+    @include('demo.partials.modal')
 @endsection
 
 @push('scripts')
@@ -649,34 +707,72 @@
         });
     </script>
     <script type="module">
-        // atur tanggal target
-        // var targetDate = new Date('2023-01-31T00:00:00Z');
+        var date = new Date('2023-04-25 08:00');
+        var now = new Date();
 
-        // // fungsi untuk menghitung selisih waktu antara sekarang dan tanggal target
-        // function countdown() {
-        // var now = new Date().getTime();
-        // var timeRemaining = targetDate - now;
+        $("body").css("overflow", "hidden");
+
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+
+        // Memperbarui countdown setiap detik
+        var timer = setInterval(function() {
+            // Mengambil tanggal saat ini
+            var now = new Date();
+            // Menghitung selisih waktu dalam milidetik
+            var timeDiff = date.getTime() - now.getTime();
+            // Menghentikan countdown jika waktu sudah habis
+            if (timeDiff <= 0) {
+                clearInterval(timer);
+                $('#countdown').hide();
+                $('#countdown-done').show();
+                return;
+            }
+            // Mengonversi milidetik menjadi detik, menit, jam, dan hari
+            var seconds = Math.floor(timeDiff / 1000);
+            var minutes = Math.floor(seconds / 60);
+            var hours = Math.floor(minutes / 60);
+            var days = Math.floor(hours / 24);
+
+            // Menghitung sisa jam, menit, dan detik
+            var remainingHours = hours % 24;
+            var remainingMinutes = minutes % 60;
+            var remainingSeconds = seconds % 60;
+
+            $('#countdown').show();
+            $('#countdown-done').hide();
+            // Menampilkan hasil countdown
+            $('#day').html(days);
+            $('#hour').html(remainingHours);
+            $('#minute').html(remainingMinutes);
+            $('#second').html(remainingSeconds);
+
+            // countdown.innerHTML = "Countdown: " + days + " hari, " + remainingHours + " jam, " + remainingMinutes + " menit, " + remainingSeconds + " detik";
+        }, 1000);
         
-        // // hitung waktu tersisa dalam hari, jam, menit, dan detik
-        // var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        // var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        // var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        // var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-        
-        // // tampilkan waktu tersisa dalam format "DD HH MM SS"
-        // var countdownStr = days.toString().padStart(2, '0') + ' ' +
-        //                     hours.toString().padStart(2, '0') + ' ' +
-        //                     minutes.toString().padStart(2, '0') + ' ' +
-        //                     seconds.toString().padStart(2, '0');
-                            
-        // // tampilkan waktu tersisa di console
-        // console.log(countdownStr);
-        // }
+        $(document).on('click', '.btn-open-modal', function(){
+            $('#modal-hadiah').addClass('modal-open');
+        })
 
-        // // update countdown setiap detik
-        // setInterval(countdown, 1000);
+        $(document).on('click', '.btn-close-modal', function(){
+            $('#modal-hadiah').removeClass('modal-open');
+        })        
 
+        $(document).on('change', '#toggle-music', function(){
+            var audio = $('#music-background')[0];
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        })
 
-        
+        $(document).on('click', '#open-undangan', function(){
+            $('#opening').hide('slow')
+            $("#body").css("overflow", "auto");
+            var audio = $('#music-background')[0];
+            audio.play();
+        })
     </script>
 @endpush

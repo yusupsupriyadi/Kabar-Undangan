@@ -36,25 +36,32 @@
                     </tbody>
                 </table>
             </section>
-            <section class="text-md mt-4 flex items-center justify-center gap-6 rounded-xl bg-stone-600 p-3 font-sans uppercase text-gray-200">
-                <div>
-                    <h3>12</h3>
-                    <h4>Hari</h4>
+            <section class="text-md mt-4 rounded-xl bg-stone-600 p-3 font-sans text-gray-200">
+                <div class="hidden uppercase" id="countdown">
+                    <div  class="flex items-center justify-center gap-6">
+                        <div>
+                            <h3 id="day">-</h3>
+                            <h4>Hari</h4>
+                        </div>
+                        <div>:</div>
+                        <div>
+                            <h3 id="hour">-</h3>
+                            <h4>jam</h4>
+                        </div>
+                        <div>:</div>
+                        <div>
+                            <h3 id="minute">-</h3>
+                            <h4>menit</h4>
+                        </div>
+                        <div>:</div>
+                        <div>
+                            <h3 id="second">-</h3>
+                            <h4>detik</h4>
+                        </div>
+                    </div>
                 </div>
-                <div>:</div>
-                <div>
-                    <h3>12</h3>
-                    <h4>jam</h4>
-                </div>
-                <div>:</div>
-                <div>
-                    <h3>12</h3>
-                    <h4>menit</h4>
-                </div>
-                <div>:</div>
-                <div>
-                    <h3>12</h3>
-                    <h4>detik</h4>
+                <div class="hidden" id="countdown-done">
+                    <h3 class="text-3xl font-tangerine font-bold">Kami Sudah Menikah 💍</h3>
                 </div>
             </section>
         </div>
@@ -76,7 +83,7 @@
                 <p class="mt-6 text-[10px] text-gray-500">Anak dari Keluarga</p>
                 <p class="mt-1 text-[10px] text-gray-500">Bapak Andi Sulistyono (Alm.) & Ibu A. Riza Kusnawati</p>
             </div>
-            <a href="#" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
+            <a href="https://www.instagram.com/kabarundangan/" target="blank" ass="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
                 <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <rect x="4" y="4" width="16" height="16" rx="4" />
