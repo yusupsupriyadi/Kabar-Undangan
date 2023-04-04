@@ -1,35 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.undangan')
 @section('title')
-    {{ $data->settingUndanganApi->judul_undangan }}
+    {{ $data['mempelai_pria_api']['nama_panggilan'] }} dan {{ $data['mempelai_wanita_api']['nama_panggilan'] }} | Undangan Pernikahan Online
 @endsection
 
 @section('styles')
-    <style>
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-gap: 10px;
-        }
-
-        .photo {
-            overflow: hidden;
-        }
-
-        .photo img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-    </style>
 @endsection
 
 @section('content')
+    
     @include('undangan.template.basic')
+
+    <audio id="music-background" src="{{ asset('/audios/My Heart Will Go On - Sexaphone.mp3') }}"></audio>
+
+    @include('undangan._modal')
 @endsection
 
 @push('scripts')
     <script>
-        particlesJS("particles-js", {
+        particlesJS('particles-js', {
             "particles": {
                 "number": {
                     "value": 200,
@@ -141,37 +129,82 @@
             },
             "retina_detect": true
         });
-        var count_particles, stats, update;
-        stats = new Stats;
-        stats.setMode(0);
-        stats.domElement.style.display = 'none';
-        stats.domElement.style.position = 'absolute';
-        stats.domElement.style.left = '0px';
-        stats.domElement.style.top = '0px';
-        document.body.appendChild(stats.domElement);
-        count_particles = document.querySelector('.js-count-particles');
-        update = function() {
-            stats.begin();
-            stats.end();
-            if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {}
-            requestAnimationFrame(update);
-        };
-        requestAnimationFrame(update);
-        timezz('#countdown-row', {
-            date: new Date('2024-03-30 11:00'),
-            stop: false,
-            canContinue: false,
-            withYears: false,
-            beforeCreate() {},
-            beforeDestroy() {},
-            update(event) {},
-        });
     </script>
     <script type="module">
-        let data = @json($data);
+        var date = new Date('2023-04-25 08:00');
+        var now = new Date();
 
-        function setupValueIndex(){
-        }
+        $("#body").css("overflow", "hidden");
+        
+        // Memperbarui countdown setiap detik
+        var timer = setInterval(function() {
+            // Mengambil tanggal saat ini
+            var now = new Date();
+            // Menghitung selisih waktu dalam milidetik
+            var timeDiff = date.getTime() - now.getTime();
+            // Menghentikan countdown jika waktu sudah habis
+            if (timeDiff <= 0) {
+                clearInterval(timer);
+                $('#countdown').hide();
+                $('#countdown-done').show();
+                return;
+            }
+            // Mengonversi milidetik menjadi detik, menit, jam, dan hari
+            var seconds = Math.floor(timeDiff / 1000);
+            var minutes = Math.floor(seconds / 60);
+            var hours = Math.floor(minutes / 60);
+            var days = Math.floor(hours / 24);
 
+            // Menghitung sisa jam, menit, dan detik
+            var remainingHours = hours % 24;
+            var remainingMinutes = minutes % 60;
+            var remainingSeconds = seconds % 60;
+
+            $('#countdown').show();
+            $('#countdown-done').hide();
+            // Menampilkan hasil countdown
+            $('#day').html(days);
+            $('#hour').html(remainingHours);
+            $('#minute').html(remainingMinutes);
+            $('#second').html(remainingSeconds);
+
+            // countdown.innerHTML = "Countdown: " + days + " hari, " + remainingHours + " jam, " + remainingMinutes + " menit, " + remainingSeconds + " detik";
+        }, 1000);
+        
+        $(document).on('click', '.btn-open-modal', function(){
+            $('#modal-hadiah').addClass('modal-open');
+        })
+
+        $(document).on('click', '.btn-close-modal', function(){
+            $('#modal-hadiah').removeClass('modal-open');
+        })        
+
+        $(document).on('change', '#toggle-music', function(){
+            var audio = $('#music-background')[0];
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        })
+
+        $(document).on('click', '#open-undangan', function(){
+            $('#opening').hide('slow')
+            $("#body").css("overflow", "auto");
+            var audio = $('#music-background')[0];
+            audio.play();
+
+            var elem = document.documentElement;
+            if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
+            }
+
+        })
     </script>
 @endpush

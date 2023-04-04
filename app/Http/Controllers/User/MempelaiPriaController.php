@@ -67,9 +67,9 @@ class MempelaiPriaController extends Controller
 
         if ($file !== null) {
             $file->store('/images');
-            $dataMempelaiPria->foto !== 'null' ? unlink($image_path) : null;
+            $dataMempelaiPria->foto !== 'null' ? unlink($image_path) : '';
         }else{
-            $dataMempelaiPria->foto !== 'null' || $dataMempelaiPria->foto !== null ? unlink($image_path) : null;
+            $dataMempelaiPria->foto !== "null" && $dataMempelaiPria->foto !== null ? unlink($image_path) : '';
         }
 
         return response()->json([

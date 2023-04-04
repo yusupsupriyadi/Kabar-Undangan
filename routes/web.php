@@ -25,6 +25,12 @@ Route::get('/demo', function () {
     return view('demo.index');
 });
 
+Route::controller(UndanganController::class)->group(function () {
+    Route::get('/pernikahan/{name}', 'index');
+    // Route::get('/undangan/{id}', 'index');
+});
+
+
 Route::domain('blog.' . env('APP_URL'))->group(function () {
     Route::get('/', function () {
         return 'Second subdomain landing page';
@@ -40,10 +46,6 @@ Route::prefix('auth')->group(function () {
 Route::controller(HomeController::class)->group(function () {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
 })->middleware(['auth', 'verified']);
-
-Route::controller(UndanganController::class)->group(function () {
-    Route::get('/undangan/{id}', 'index');
-});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

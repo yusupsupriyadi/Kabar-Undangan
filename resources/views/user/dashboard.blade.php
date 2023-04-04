@@ -122,7 +122,7 @@
                             </x-app.card-menu>
                         </a>
 
-                        <a href="/photo-background">
+                        {{-- <a href="/photo-background">
                             <x-app.card-menu id="photo-background" paint="indicator">
                                 <x-slot name='icon'>
                                     <svg class="h-10 w-10" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -137,7 +137,7 @@
                                     <p class="mt-2 text-center text-sm">Photo <br> Background</p>
                                 </x-slot>
                             </x-app.card-menu>
-                        </a>
+                        </a> --}}
 
                         <a href="/music-background">
                             <x-app.card-menu id="music-background" paint="indicator">

@@ -18,6 +18,7 @@ class SettingAkad extends Model
         'tanggal',
         'waktu_mulai',
         'waktu_selesai',
+        'tempat',
         'alamat',
         'google_maps',
     ];

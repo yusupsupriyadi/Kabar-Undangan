@@ -126,19 +126,12 @@
                             </div>
 
                             <div class="form-control mt-4">
-                                <label class="label flex items-center justify-start gap-2">
-                                    <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" />
-                                        <line x1="18" y1="6" x2="18" y2="6.01" />
-                                        <path d="M18 13l-3.5 -5a4 4 0 1 1 7 0l-3.5 5" />
-                                        <polyline points="10.5 4.75 9 4 3 7 3 20 9 17 15 20 21 17 21 15" />
-                                        <line x1="9" y1="4" x2="9" y2="17" />
-                                        <line x1="15" y1="15" x2="15" y2="20" />
-                                    </svg>
-                                    <span class="form-label text-sm font-normal">Tempat dan Alamat akad</span>
+                                <label class="label flex items-center justify-start gap-1">
+                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />  <line x1="13" y1="7" x2="13" y2="7.01" />  <line x1="17" y1="7" x2="17" y2="7.01" />  <line x1="17" y1="11" x2="17" y2="11.01" />  <line x1="17" y1="15" x2="17" y2="15.01" /></svg>
+                                    <span class="form-label text-sm font-normal">Tempat</span>
                                 </label>
-                                <textarea class="input-primary" id="alamat-akad" rows="3" placeholder="Tuliskan alamat dan tempat akad nikah"></textarea>
-                                <label-validate id="alamat-akad-validate">Wajib disi</label-validate>
+                                <input id="tempat-akad" type="text" name="tempat-akad" class="input-primary" placeholder="Masukan tempat pelaksanaan akad nikah" required />
+                                <label-validate id="tempat-akad-validate">Wajib disi</label-validate>
                             </div>
 
                             <div class="form-control mt-4">
@@ -151,9 +144,9 @@
                                         <line x1="9" y1="4" x2="9" y2="17" />
                                         <line x1="15" y1="15" x2="15" y2="20" />
                                     </svg>
-                                    <span class="form-label text-sm font-normal">Tempat dan Alamat akad</span>
+                                    <span class="form-label text-sm font-normal">Alamat Lengkap Akad</span>
                                 </label>
-                                <textarea class="input-primary" id="alamat-akad" rows="3" placeholder="Tuliskan alamat dan tempat akad nikah"></textarea>
+                                <textarea class="input-primary" id="alamat-akad" rows="3" placeholder="Tuliskan alamat lengkap akad nikah"></textarea>
                                 <label-validate id="alamat-akad-validate">Wajib disi</label-validate>
                             </div>
 
@@ -166,7 +159,7 @@
                                     </svg>
                                     <span class="form-label text-sm font-normal">Link Google Map Akad</span>
                                 </label>
-                                <input type="text" class="input-primary" id="link-google-map-akad" placeholder="Masukan URL Google Maps alamat kamu telah kamu salin" />
+                                <input type="text" class="input-primary" id="link-google-map-akad" placeholder="Masukan URL Google Maps alamat akad." />
                                 <label-validate id="link-google-map-akad-validate">Wajib disi</label-validate>
                             </div>
 
@@ -233,6 +226,15 @@
                             </div>
 
                             <div class="form-control mt-4">
+                                <label class="label flex items-center justify-start gap-1">
+                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />  <line x1="13" y1="7" x2="13" y2="7.01" />  <line x1="17" y1="7" x2="17" y2="7.01" />  <line x1="17" y1="11" x2="17" y2="11.01" />  <line x1="17" y1="15" x2="17" y2="15.01" /></svg>
+                                    <span class="form-label text-sm font-normal">Tempat</span>
+                                </label>
+                                <input id="tempat-resepsi" type="text" name="tempat-resepsi" class="input-primary" placeholder="Masukan tempat pelaksanaan resepsi" required />
+                                <label-validate id="tempat-resepsi-validate">Wajib disi</label-validate>
+                            </div>
+                            
+                            <div class="form-control mt-4">
                                 <label class="label flex items-center justify-start gap-2">
                                     <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" />
@@ -242,9 +244,9 @@
                                         <line x1="9" y1="4" x2="9" y2="17" />
                                         <line x1="15" y1="15" x2="15" y2="20" />
                                     </svg>
-                                    <span class="form-label text-sm font-normal">Tempat dan Alamat Resepsi</span>
+                                    <span class="form-label text-sm font-normal">Alamat Lengkap Resepsi</span>
                                 </label>
-                                <textarea class="input-primary" id="alamat-resepsi" rows="3" placeholder="Tuliskan alamat dan tempat akad nikah"></textarea>
+                                <textarea class="input-primary" id="alamat-resepsi" rows="3" placeholder="Tuliskan alamat lengkap resepsi nikah"></textarea>
                                 <label-validate id="alamat-resepsi-validate">Wajib disi</label-validate>
                             </div>
 
@@ -257,7 +259,7 @@
                                     </svg>
                                     <span class="form-label text-sm font-normal">Link Google Map Resepsi</span>
                                 </label>
-                                <input id="link-google-map-resepsi" type="text" name="google-maps-resepsi" class="input-primary" placeholder="Masukan URL Google Maps alamat kamu telah kamu salin" required />
+                                <input id="link-google-map-resepsi" type="text" name="google-maps-resepsi" class="input-primary" placeholder="Masukan URL Google Maps alamat resepsi." required />
                                 <label-validate id="link-google-map-resepsi-validate">Wajib disi</label-validate>
                             </div>
                         </section>
@@ -353,14 +355,16 @@
             $('#waktu-mulai-resepsi').val() === '' ? $('#waktu-mulai-resepsi-validate').show() : $('#waktu-mulai-resepsi-validate').hide()
             $('#waktu-selesai-resepsi').val() === '' ? $('#waktu-selesai-resepsi-validate').show() : $('#waktu-selesai-resepsi-validate').hide()
             $('#tanggal-resepsi').val() === '' ? $('#tanggal-resepsi-validate').show() : $('#tanggal-resepsi-validate').hide()
+            $('#tempat-resepsi').val() === '' ? $('#tempat-resepsi-validate').show() : $('#tempat-resepsi-validate').hide()
 
             $('#link-google-map-akad').val() === '' ? $('#link-google-map-akad-validate').show() : $('#link-google-map-akad-validate').hide()
             $('#alamat-akad').val() === '' ? $('#alamat-akad-validate').show() : $('#alamat-akad-validate').hide()
             $('#waktu-mulai-akad').val() === '' ? $('#waktu-mulai-akad-validate').show() : $('#waktu-mulai-akad-validate').hide()
             $('#waktu-selesai-akad').val() === '' ? $('#waktu-selesai-akad-validate').show() : $('#waktu-selesai-akad-validate').hide()
             $('#tanggal-akad').val() === '' ? $('#tanggal-akad-validate').show() : $('#tanggal-akad-validate').hide()
+            $('#tempat-akad').val() === '' ? $('#tempat-akad-validate').show() : $('#tempat-akad-validate').hide()
 
-            if($('#link-google-map-resepsi').val() === '' || $('#alamat-resepsi').val() === '' || $('#waktu-mulai-resepsi').val() === '' || $('#waktu-selesai-resepsi').val() === '' || $('#tanggal-resepsi').val() === '' || $('#link-google-map-akad').val() === '' || $('#alamat-akad').val() === '' || $('#waktu-mulai-akad').val() === '' || $('#waktu-selesai-akad').val() === '' || $('#tanggal-akad').val() === ''){
+            if($('#link-google-map-resepsi').val() === '' && $('#alamat-resepsi').val() === '' && $('#waktu-mulai-resepsi').val() === '' && $('#waktu-selesai-resepsi').val() === '' && $('#tanggal-resepsi').val() === '' && $('#link-google-map-akad').val() === '' && $('#alamat-akad').val() === '' && $('#waktu-mulai-akad').val() === '' && $('#waktu-selesai-akad').val() === '' && $('#tanggal-akad').val() === '' && $('#tempat-akad').val() === '' && $('#tempat-resepsi').val() === ''){
                 $('#toast-validate').show()
                 setTimeout(function(){
                     $('#toast-validate').fadeOut('past')
@@ -383,6 +387,7 @@
                 $('#waktu-selesai-akad').val(data.dataAkadNikah.waktu_selesai)
                 $('#alamat-akad').val(data.dataAkadNikah.alamat)
                 $('#link-google-map-akad').val(data.dataAkadNikah.google_maps)
+                $('#tempat-akad').val(data.dataAkadNikah.tempat)
 
                 data.dataResepsi.tampilkan === 'true' ? $('#tampilkan-true-resepsi').prop('checked', true) : $('#tampilkan-false-resepsi').prop('checked', true)
                 $('#tanggal-resepsi').val(data.dataResepsi.tanggal)
@@ -390,6 +395,7 @@
                 $('#waktu-selesai-resepsi').val(data.dataResepsi.waktu_selesai)
                 $('#alamat-resepsi').val(data.dataResepsi.alamat)
                 $('#link-google-map-resepsi').val(data.dataResepsi.google_maps)
+                $('#tempat-resepsi').val(data.dataResepsi.tempat)
             }
         }
 
@@ -408,6 +414,7 @@
                 'waktu_selesai' : $('#waktu-selesai-akad').val(),
                 'alamat' : $('#alamat-akad').val(),
                 'google_maps' : $('#link-google-map-akad').val(),
+                'tempat' : $('#tempat-akad').val(),
             }
 
             var dataResepsi = {
@@ -418,7 +425,14 @@
                 'waktu_selesai' : $('#waktu-selesai-resepsi').val(),
                 'alamat' : $('#alamat-resepsi').val(),
                 'google_maps' : $('#link-google-map-resepsi').val(),
+                'tempat' : $('#tempat-resepsi').val(),
             }
+
+            console.log({
+                dataInformasiAcara,
+                dataAkadNikah,
+                dataResepsi,
+            });
 
             $.ajax({
                 url: "/setting-acara/store",

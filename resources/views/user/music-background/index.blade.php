@@ -114,7 +114,7 @@
         ];
         var data = @json($data);
 
-        indexTable(data.music)
+        indexTable(data !== null ? data.music : null);
         function indexTable(index = null){
             var html = ``;
             $.each(dataAudio, function(key, val){

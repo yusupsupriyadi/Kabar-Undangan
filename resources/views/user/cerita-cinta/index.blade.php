@@ -81,7 +81,6 @@
             locale: "id",
             dateFormat: "d/m/Y",
         });
-        moment.locale('id');
     </script>
     <script type="module">
         var keyList = data.length;
@@ -121,14 +120,18 @@
                 $('#form-story-edit').hide()
                 var html = ``
                 $.each(data, function(key, value){
-                    var tanggal = moment(value.tanggal).format('dddd, D MMMM YYYY')
+                    var tanggalArray = value.tanggal.split("/");
+                    var tanggal = new Date(tanggalArray[2], tanggalArray[1] - 1, tanggalArray[0]);
+                    var options = {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'};
+                    var tanggalFormatted = tanggal.toLocaleDateString('id-ID', options);
+
                     html += `
                     <div class="items-end justify-between rounded-lg bg-pink-200/40 shadow-md backdrop-blur-md md:flex ${key !== 0 ? 'mt-4' : ''}">
                         <section class="gap-4 md:flex">
                             <section class="p-6">
-                                <h1>${value.judul}</h1>
-                                <h6 class="mt-2 text-xs text-gray-500">${tanggal}</h6>
-                                <p class="mt-3 max-w-md text-xs text-gray-500">${value.cerita}</p>
+                                <h1 class="font-sans text-xl font-semibold">${value.judul}</h1>
+                                <h6 class="mt-2 text-xs text-gray-500">${tanggalFormatted}</h6>
+                                <p class="mt-3 max-w-md text-sm text-gray-600">${value.cerita}</p>
                             </section>
                         </section>
                         <section class="p-6 pt-0">
@@ -371,7 +374,6 @@
                 error: function(error) {
                 },
                 success: function(response) {
-                    console.log(response)
                     data = response
                     setupIndex()
                 }

@@ -70,7 +70,7 @@
                 </a>
             </li>
             <p class="py-2 pt-4 pl-4 text-base font-bold text-gray-700 lg:pl-0">Fitur Premium</p>
-            <li class="py-2 hover:bg-purple-100 md:my-0 lg:hover:bg-transparent">
+            {{-- <li class="py-2 hover:bg-purple-100 md:my-0 lg:hover:bg-transparent">
                 <a href="/photo-background" class="{{ $active === 'photo-background' ? 'hover:text-purple-500 border-purple-500 lg:hover:border-purple-500' : 'hover:text-purple-500 lg:hover:border-gray-400' }} flex items-center gap-2 border-l-4 border-transparent pl-4 align-middle text-gray-700 no-underline">
                     <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" />
@@ -81,7 +81,7 @@
                     </svg>
                     <p class="pb-1 text-sm md:pb-0">Photo Background</p>
                 </a>
-            </li>
+            </li> --}}
             <li class="py-2 hover:bg-purple-100 md:my-0 lg:hover:bg-transparent">
                 <a href="/music-background" class="{{ $active === 'music-background' ? 'hover:text-purple-500 border-purple-500 lg:hover:border-purple-500' : 'hover:text-purple-500 lg:hover:border-gray-400' }} flex items-center gap-2 border-l-4 border-transparent pl-4 align-middle text-gray-700 no-underline">
                     <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -119,7 +119,7 @@
         </ul>
     </div>
     <div class="md:hidden flex justify-end">
-        <a class="btn-pilih  mt-4 flex  items-center gap-2 rounded bg-green-600 px-3 py-2 text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-green-800 hover:shadow-lg" href="/undangan/{{ Auth::user()->id }}">
+        <a class="btn-pilih  mt-4 flex  items-center gap-2 rounded bg-green-600 px-3 py-2 text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-green-800 hover:shadow-lg" href="/pernikahan/{{ Auth::user()->name }}">
             <svg class="h-5 w-5 text-white"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>

@@ -154,7 +154,7 @@
                 type: 'POST',
                 dataType: 'json',
                 data: {
-                    name: $('#nama-pria').val()+$('#nama-wanita').val(),
+                    name: $('#nama-wanita').val()+"-dan-"+$('#nama-pria').val(),
                     email: $('#email').val(),
                     phone: $('#phone').val(),
                     password: $('#password').val(),

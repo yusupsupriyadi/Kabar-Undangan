@@ -69,7 +69,7 @@ class MempelaiWanitaController extends Controller
             $file->store('/images');
             $dataMempelaiWanita->foto !== 'null' ? unlink($image_path) : null;
         }else{
-            $dataMempelaiWanita->foto !== 'null' || $dataMempelaiWanita->foto !== null ? unlink($image_path) : null;
+            $dataMempelaiWanita->foto !== 'null' && $dataMempelaiWanita->foto !== null ? unlink($image_path) : null;
         }
 
         return response()->json([

@@ -23,7 +23,7 @@
                     <x-app.card-premium />
                 </section>
 
-                <x-app.title title="Photo Gallery" desc="Fasilitas ini digunakan untuk menyampaikan foto pra pernikahan atau photo pernikahan kamu." />
+                <x-app.title title="Photo Gallery" desc="Fasilitas ini digunakan untuk menyampaikan foto pra pernikahan atau photo pernikahan kamu. Dan foto gallery di limit maximal 6 untuk kepentingan estetika dalam website undangan kamu." />
 
                 <main class="py-5">
                     <div id="main-page" class="hidden">
@@ -149,8 +149,8 @@
                         <section class="gap-4 md:flex">
                             <img src="${value.gambar !== 'null' ? `${imageUrl}${value.gambar}` : `${imagePublic}image-empty.webp`}" alt="" class="h-auto max-w-full object-cover rounded-lg md:!w-[200px] md:rounded-none md:rounded-tl-lg md:rounded-bl-lg">
                             <section class="p-6">
-                                <h1>${value.judul}</h1>
-                                <p class="mt-3 max-w-md text-xs text-gray-500">${value.keterangan}</p>
+                                <h1 class="text-xl font-sans font-semibold">${value.judul}</h1>
+                                <p class="mt-3 max-w-md text-sm text-gray-500">${value.keterangan}</p>
                             </section>
                         </section>
                         <section class="p-6 pt-0">
@@ -165,8 +165,8 @@
                     `
                 })
                 html += `
-                <div class="mt-6">
-                    <button type="button" class="btn-add-photo btn-primary !bg-pink-300 !p-2 !px-3 !text-sm !capitalize !text-gray-800">
+                <div class="mt-6 btn-add-value">
+                    <button type="button" class="btn-add-photo btn-primary !bg-pink-600 !p-2 !px-3 !text-sm !uppercase !text-white">
                         Tambah Photo
                     </button>
                 </div>`
@@ -197,6 +197,11 @@
                     data = response;
                     setDataIndex()
 
+                    if(data.length === 6){
+                        $('.btn-add-value').hide()
+                    }else{
+                        $('.btn-add-value').show()
+                    }
                     return;
                 }
             });

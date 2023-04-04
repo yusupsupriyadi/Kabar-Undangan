@@ -190,7 +190,7 @@
                     </form>
 
                     <div class="mt-6">
-                        <button id="btn-simpan" type="button" name="google-maps-resepsi" class="btn-primary">
+                        <button id="btn-simpan" type="button" name="google-maps-resepsi" class="btn-primary !bg-green-600 !text-white">
                             Simpan
                         </button>
                     </div>

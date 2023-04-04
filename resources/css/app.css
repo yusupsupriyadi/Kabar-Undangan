@@ -366,7 +366,10 @@ input[type='file'] {
 	top: 0;
 	bottom: 0;
 	z-index: 9999;
-	background: white
+	background-size: cover,cover;
+    background-repeat: no-repeat;
+    background-position: center,center;
+    min-height: 100vh;
 }
 
 .gallery {

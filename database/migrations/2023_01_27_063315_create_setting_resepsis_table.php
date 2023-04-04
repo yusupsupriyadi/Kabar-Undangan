@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('tanggal');
             $table->string('waktu_mulai');
             $table->string('waktu_selesai');
+            $table->string('tempat');
             $table->string('alamat');
             $table->string('google_maps');
             $table->timestamps();

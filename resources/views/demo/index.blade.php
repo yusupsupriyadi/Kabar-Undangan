@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.undangan')
 @section('title')
     Kevin & Salsa
 @endsection
@@ -12,9 +12,7 @@
         <section class="header opening" id="opening">
             <div class="container mx-auto max-w-xl text-center">
                 <h1 class="pb-6 font-sans text-xl uppercase">We Are Getting Married</h1>
-                <section class="font-masthina" data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine">
+                <section class="font-masthina">
                     <h1 class="text-8xl">Kevin</h1>
                     <h2 class="text-5xl">&</h2>
                     <h1 class="text-8xl">Salsa</h1>
@@ -52,7 +50,7 @@
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                         <polyline points="22,6 12,13 2,6" />
                     </svg>
-                    <div class="text-md font-alkatra font-bold text-gray-200 pt-0.5">
+                    <div class="text-md pt-0.5 font-alkatra font-bold text-gray-200">
                         BUKA UNDANGAN
                     </div>
                 </section>
@@ -126,7 +124,7 @@
             </div>
         </section>
 
-        <section class="container mx-auto mt-24 max-w-4xl text-center">
+        <section class="container mx-auto mt-16 max-w-4xl text-center">
             <h2 class="mb-4 font-tangerine text-4xl font-semibold md:text-5xl">Bismillahirrahmanirrahim</h2>
             <p class="text-md font-serif md:text-2xl">Dengan Memohon Rahmat dan Ridho Allah SWT, Kami Bermaksud Menyelenggarakan Pernikahan Kami :</p>
         </section>
@@ -568,7 +566,7 @@
 
 @push('scripts')
     <script>
-        particlesJS("particles-js", {
+        particlesJS('particles-js', {
             "particles": {
                 "number": {
                     "value": 200,
@@ -680,42 +678,19 @@
             },
             "retina_detect": true
         });
-        var count_particles, stats, update;
-        stats = new Stats;
+
+        const stats = new Stats();
         stats.setMode(0);
         stats.domElement.style.display = 'none';
         stats.domElement.style.position = 'absolute';
-        stats.domElement.style.left = '0px';
-        stats.domElement.style.top = '0px';
-        document.body.appendChild(stats.domElement);
-        count_particles = document.querySelector('.js-count-particles');
-        update = function() {
-            stats.begin();
-            stats.end();
-            if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {}
-            requestAnimationFrame(update);
-        };
-        requestAnimationFrame(update);
-        timezz('#countdown-row', {
-            date: new Date('2024-03-30 11:00'),
-            stop: false,
-            canContinue: false,
-            withYears: false,
-            beforeCreate() {},
-            beforeDestroy() {},
-            update(event) {},
-        });
+        stats.domElement.style.left
     </script>
     <script type="module">
         var date = new Date('2023-04-25 08:00');
         var now = new Date();
 
-        $("body").css("overflow", "hidden");
-
-        $('html, body').animate({
-            scrollTop: 0
-        }, 500);
-
+        $("#body").css("overflow", "hidden");
+        
         // Memperbarui countdown setiap detik
         var timer = setInterval(function() {
             // Mengambil tanggal saat ini
@@ -773,6 +748,18 @@
             $("#body").css("overflow", "auto");
             var audio = $('#music-background')[0];
             audio.play();
+
+            var elem = document.documentElement;
+            if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
+            }
+
         })
     </script>
 @endpush
