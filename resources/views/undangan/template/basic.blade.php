@@ -19,18 +19,18 @@
                         </tr>
                         <tr class="font-serif text-sm font-bold uppercase">
                             <td>
-                                <div class="w-20 border-y border-black py-1">SABTU</div>
+                                <div class="w-20 border-y border-black py-1">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('dddd') }}</div>
                             </td>
-                            <td class="px-2 text-6xl font-thin">25</td>
+                            <td class="px-2 text-6xl font-thin">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('d') }}</td>
                             <td>
                                 <div class="w-20 border-y border-black py-1">
-                                    Jam 08:00</span>
+                                    Jam {{ $data['setting_akad_api']['waktu_mulai'] }}</span>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3" class="pt-1 font-serif text-2xl font-semibold uppercase">
-                                2023
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('y') }}
                             </td>
                         </tr>
                     </tbody>
@@ -52,9 +52,9 @@
         <div class="container mx-auto max-w-xl text-center">
             <h1 class="pb-6 font-sans text-xl uppercase">We Are Getting Married</h1>
             <section class="font-masthina">
-                <h1 class="text-8xl">Kevin</h1>
+                <h1 class="text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
                 <h2 class="text-5xl">&</h2>
-                <h1 class="text-8xl">Salsa</h1>
+                <h1 class="text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
             </section>
             <h5 class="mt-4 text-xl">Save the date :</h5>
             <section class="mt-4 flex justify-center">
@@ -67,18 +67,18 @@
                         </tr>
                         <tr class="font-serif text-sm font-bold uppercase">
                             <td>
-                                <div class="w-20 border-y border-black py-1">SABTU</div>
+                                <div class="w-20 border-y border-black py-1">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('dddd') }}</div>
                             </td>
-                            <td class="px-2 text-6xl font-thin">25</td>
+                            <td class="px-2 text-6xl font-thin">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('d') }}</td>
                             <td>
                                 <div class="w-20 border-y border-black py-1">
-                                    Jam 08:00</span>
+                                    Jam {{ $data['setting_akad_api']['waktu_mulai'] }}</span>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3" class="pt-1 font-serif text-2xl font-semibold uppercase">
-                                2023
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('y') }}
                             </td>
                         </tr>
                     </tbody>
@@ -126,12 +126,12 @@
                 <img src="/images/foto-wanita.png" />
             </div>
             <div class="text-center">
-                <h1 class="mt-4 font-tangerine text-5xl font-extrabold">Salsa</h1>
-                <p class="mt-1 text-sm font-thin text-gray-600">Salsa Disa Anisa Sulistyowati</p>
+                <h1 class="mt-4 font-tangerine text-5xl font-extrabold">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
+                <p class="mt-1 text-sm font-thin text-gray-600">{{ $data['mempelai_wanita_api']['nama_lengkap'] }}</p>
                 <p class="mt-6 text-[10px] text-gray-500">Anak dari Keluarga</p>
-                <p class="mt-1 text-[10px] text-gray-500">Bapak Andi Sulistyono (Alm.) & Ibu A. Riza Kusnawati</p>
+                <p class="mt-1 text-[10px] text-gray-500">Bapak {{ $data['mempelai_wanita_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_wanita_api']['nama_ibu'] }}</p>
             </div>
-            <a href="https://www.instagram.com/kabarundangan/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
+            <a href="https://www.instagram.com/{{ $data['mempelai_wanita_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
                 <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <rect x="4" y="4" width="16" height="16" rx="4" />
@@ -146,12 +146,12 @@
                 <img src="/images/foto-pria.png" />
             </div>
             <div class="text-center">
-                <h1 class="mt-4 text-center font-tangerine text-5xl font-extrabold">Kevin</h1>
-                <p class="mt-1 text-sm font-thin text-gray-600">Kevin Abdul Rahman Azzqy</p>
+                <h1 class="mt-4 text-center font-tangerine text-5xl font-extrabold">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
+                <p class="mt-1 text-sm font-thin text-gray-600">{{ $data['mempelai_pria_api']['nama_lengkap'] }}</p>
                 <p class="mt-6 text-[10px] text-gray-500">Anak dari Keluarga</p>
-                <p class="mt-1 text-[10px] text-gray-500">Bapak Andi Sulistyono (Alm.) & Ibu A. Riza Kusnawati</p>
+                <p class="mt-1 text-[10px] text-gray-500">Bapak {{ $data['mempelai_pria_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_pria_api']['nama_ibu'] }}</p>
             </div>
-            <a href="https://www.instagram.com/kabarundangan/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
+            <a href="https://www.instagram.com/{{ $data['mempelai_pria_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
                 <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <rect x="4" y="4" width="16" height="16" rx="4" />
@@ -180,14 +180,14 @@
                             <line x1="4" y1="11" x2="20" y2="11" />
                             <rect x="8" y="15" width="2" height="2" />
                         </svg>
-                        <h3 class="text-lg font-semibold text-stone-600">Jumat, 07 April 2023</h3>
+                        <h3 class="text-lg font-semibold text-stone-600">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('dddd, DD MMMM YYYY') }}</h3>
                     </div>
                     <div class="mt-6 flex items-center gap-2">
                         <svg class="h-7 w-7 text-stone-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
 
-                        <h3 class="text-lg font-semibold text-stone-600">08:00 - 11:00</h3>
+                        <h3 class="text-lg font-semibold text-stone-600">{{ $data['setting_akad_api']['waktu_mulai'] }} - {{ $data['setting_akad_api']['waktu_selesai'] }}</h3>
                     </div>
                     <div class="mt-6 flex items-start gap-2">
                         <svg class="h-7 w-7 text-stone-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -195,12 +195,12 @@
                             <circle cx="12" cy="10" r="3" />
                         </svg>
                         <div>
-                            <h3 class="text-lg font-semibold text-stone-600">Hotel Kenangan</h3>
-                            <p class="max-w-xs">Jl. Jend. Sudirman, Gowongan, Kec. Jetis, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55233</p>
+                            <h3 class="text-lg font-semibold text-stone-600">{{ $data['setting_akad_api']['tempat'] }}</h3>
+                            <p class="max-w-xs">{{ $data['setting_akad_api']['alamat'] }}</p>
                         </div>
 
                     </div>
-                    <a href="https://goo.gl/maps/uPzjuEvzsccbkzD88" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-stone-500 p-3">
+                    <a href="{{ $data['setting_akad_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-stone-500 p-3">
                         <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
                             <line x1="18" y1="6" x2="18" y2="6.01" />
@@ -228,14 +228,14 @@
                             <line x1="4" y1="11" x2="20" y2="11" />
                             <rect x="8" y="15" width="2" height="2" />
                         </svg>
-                        <h3 class="text-lg font-semibold text-stone-600">Jumat, 07 April 2023</h3>
+                        <h3 class="text-lg font-semibold text-stone-600">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('dddd, DD MMMM YYYY') }}</h3>
                     </div>
                     <div class="mt-6 flex items-center gap-2">
                         <svg class="h-7 w-7 text-stone-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
 
-                        <h3 class="text-lg font-semibold text-stone-600">08:00 - 11:00</h3>
+                        <h3 class="text-lg font-semibold text-stone-600">{{ $data['setting_resepsi_api']['waktu_mulai'] }} - {{ $data['setting_resepsi_api']['waktu_selesai'] }}</h3>
                     </div>
                     <div class="mt-6 flex items-start gap-2">
                         <svg class="h-7 w-7 text-stone-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -243,12 +243,12 @@
                             <circle cx="12" cy="10" r="3" />
                         </svg>
                         <div>
-                            <h3 class="text-lg font-semibold text-stone-600">Hotel Kenangan</h3>
-                            <p class="max-w-xs">Jl. Jend. Sudirman, Gowongan, Kec. Jetis, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55233</p>
+                            <h3 class="text-lg font-semibold text-stone-600">{{ $data['setting_resepsi_api']['tempat'] }}</h3>
+                            <p class="max-w-xs">{{ $data['setting_resepsi_api']['alamat'] }}</p>
                         </div>
-                    </div>
 
-                    <a href="https://goo.gl/maps/uPzjuEvzsccbkzD88" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-stone-500 p-3">
+                    </div>
+                    <a href="{{ $data['setting_resepsi_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-stone-500 p-3">
                         <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
                             <line x1="18" y1="6" x2="18" y2="6.01" />
@@ -263,7 +263,7 @@
             </div>
         </div>
 
-        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Acara+Pernikahan+Kevin+sanjaya+dan+Salsa+bila&dates=20230405T030000Z/20230405T050000Z&details=Deskripsi+Acara&location=Hotel+Kenangan&sprop=name:Organizer&sprop=website:https://www.kabarundangan.com" target="_blank" class="mx-auto mt-12 flex max-w-[15rem] items-center gap-2 rounded-lg bg-stone-600 p-4 shadow-md">
+        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Acara+Pernikahan+{{ $data['mempelai_wanita_api']['nama_panggilan'] }}+dan+{{ $data['mempelai_pria_api']['nama_panggilan'] }}&dates=20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('ymd') }}/20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('ymd') }}&details=Deskripsi+Acara&location={{ $data['setting_resepsi_api']['tempat'] }}, {{ $data['setting_resepsi_api']['alamat'] }}&sprop=name:Organizer&sprop=website:https://www.kabarundangan.com" target="_blank" class="mx-auto mt-12 flex max-w-[15rem] items-center gap-2 rounded-lg bg-stone-600 p-4 shadow-md">
             <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" />
                 <rect x="4" y="5" width="16" height="16" rx="2" />
@@ -286,132 +286,92 @@
         </div>
     </section>
 
-    <section class="container mx-auto mt-24 max-w-4xl">
-        <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl">Story</h1>
-        <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600">Dua jiwa namun satu pikiran, dua hati namun satu perasaan</p>
-
-        <div class="mt-10">
-            <div class="mx-auto flex grid-cols-9 flex-col p-2 text-blue-50 md:grid">
-                <!-- left -->
-                <div class="flex flex-row-reverse md:contents">
-                    <div class="col-start-1 col-end-5 my-4 ml-auto rounded-xl bg-stone-600 p-4 shadow-md">
-                        <div class="flex items-center gap-1">
-                            <svg class="h-5 w-5 text-gray-200" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <rect x="4" y="5" width="16" height="16" rx="2" />
-                                <line x1="16" y1="3" x2="16" y2="7" />
-                                <line x1="8" y1="3" x2="8" y2="7" />
-                                <line x1="4" y1="11" x2="20" y2="11" />
-                                <rect x="8" y="15" width="2" height="2" />
-                            </svg>
-                            <h3 class="text-lg font-semibold leading-none">April 2021</h3>
-                        </div>
-                        <h4 class="text-md font-sans font-semibold">Pertama Jumpa</h4>
-                        <p class="mt-1 font-sans text-sm font-thin">
-                            Kampus adalah tempat pertama kali kami bertemu. Kami mengenal satu sama lain hanya sebagai teman satu kelas dan jurusan saja. Interaksi di antara kami berdua hanya seputar dunia perkuliahan atau organisasi. Ya, kami hanya sebatas teman biasa, tidak lebih dari itu.
-                        </p>
-                    </div>
-                    <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
-                        <div class="flex h-full w-6 items-center justify-center">
-                            <div class="pointer-events-none h-full w-1 bg-stone-600"></div>
-                        </div>
-                        <div class="absolute top-1/2 -mt-3 h-6 w-6 rounded-full bg-stone-600 shadow"></div>
-                    </div>
-                </div>
-                <!-- right -->
-                <div class="flex md:contents">
-                    <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
-                        <div class="flex h-full w-6 items-center justify-center">
-                            <div class="pointer-events-none h-full w-1 bg-stone-600"></div>
-                        </div>
-                        <div class="absolute top-1/2 -mt-3 h-6 w-6 rounded-full bg-stone-600 shadow"></div>
-                    </div>
-                    <div class="col-start-6 col-end-10 my-4 mr-auto rounded-xl bg-stone-600 p-4 shadow-md">
-                        <div class="flex items-center gap-1">
-                            <svg class="h-5 w-5 text-gray-200" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <rect x="4" y="5" width="16" height="16" rx="2" />
-                                <line x1="16" y1="3" x2="16" y2="7" />
-                                <line x1="8" y1="3" x2="8" y2="7" />
-                                <line x1="4" y1="11" x2="20" y2="11" />
-                                <rect x="8" y="15" width="2" height="2" />
-                            </svg>
-                            <h3 class="text-lg font-semibold leading-none">Desember 2022</h3>
-                        </div>
-                        <h4 class="text-md font-sans font-semibold">Mulai PDKT</h4>
-                        <p class="mt-1 font-sans text-sm font-thin">
-                            Di hari ujian skripsi. Tepat setelah perayaan ujian sidang, Dia menyatakan keinginannya untuk lebih serius dalam menjalani hubungan. Sudah tentu diterima, banyak hal baik yang saya dapatkan darinya. Sehingga saya yakin bahwa ia adalah orang yang tepat.
-                        </p>
-                    </div>
-                </div>
-                <!-- left -->
-                <div class="flex flex-row-reverse md:contents">
-                    <div class="col-start-1 col-end-5 my-4 ml-auto rounded-xl bg-stone-600 p-4 shadow-md">
-                        <div class="flex items-center gap-1">
-                            <svg class="h-5 w-5 text-gray-200" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <rect x="4" y="5" width="16" height="16" rx="2" />
-                                <line x1="16" y1="3" x2="16" y2="7" />
-                                <line x1="8" y1="3" x2="8" y2="7" />
-                                <line x1="4" y1="11" x2="20" y2="11" />
-                                <rect x="8" y="15" width="2" height="2" />
-                            </svg>
-                            <h3 class="text-lg font-semibold leading-none">Januari 2023</h3>
-                        </div>
-                        <h4 class="text-md font-sans font-semibold">Tunangan</h4>
-                        <p class="mt-1 font-sans text-sm font-thin">
-                            Satu bulan setelah wisuda. Ia datang ke rumah menemui keluarga dan menyatakan komitmennya melalui cincin pertunangan. Di situlah harapan untuk kehidupan di masa depan
-                        </p>
-                    </div>
-                    <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
-                        <div class="flex h-full w-6 items-center justify-center">
-                            <div class="pointer-events-none h-full w-1 bg-stone-600"></div>
-                        </div>
-                        <div class="absolute top-1/2 -mt-3 h-6 w-6 rounded-full bg-stone-600 shadow"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container mx-auto mt-24 max-w-4xl">
-        <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl">Gallery</h1>
-        <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
-        <section class="mt-8 overflow-hidden text-neutral-700">
-            <div class="mx-auto">
-                <div class="-m-1 flex flex-wrap md:-m-2">
-                    <div class="flex w-1/2 flex-wrap">
-                        <div class="w-1/2 p-1 md:p-2">
-                            <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center" src="https://source.unsplash.com/random/800x600/?wedding" />
-                        </div>
-                        <div class="w-1/2 p-1 md:p-2">
-                            <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center" src="https://source.unsplash.com/random/500x400/?wedding" />
-                        </div>
-                        <div class="w-full p-1 md:p-2">
-                            <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center" src="https://source.unsplash.com/random/1000x600/?wedding" />
-                        </div>
-                    </div>
-                    <div class="flex w-1/2 flex-wrap">
-                        <div class="w-full p-1 md:p-2">
-                            <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center" src="https://source.unsplash.com/random/800x1000/?wedding" />
-                        </div>
-                        <div class="w-1/2 p-1 md:p-2">
-                            <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center" src="https://source.unsplash.com/random/800x800/?wedding" />
-                        </div>
-                        <div class="w-1/2 p-1 md:p-2">
-                            <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center" src="https://source.unsplash.com/random/400x600/?wedding" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+    @if (count($data['cerita_cinta_api']) > 0)
         <section class="container mx-auto mt-24 max-w-4xl">
-            <h3 class="text-center font-alkatra text-xl text-stone-500/90 antialiased md:text-2xl">Bila wujud cinta harus dibuktikan, maka pernikahan adalah bukti cinta lahir batin yang paling baik dan diridhoi-Nya, karena dengan begitu cinta tidak akan rusak karenanya, justru cintalah yang menjaganya</h3>
+            <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl">Story</h1>
+            <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600">Dua jiwa namun satu pikiran, dua hati namun satu perasaan</p>
+
+            <div class="mt-10">
+                <div class="mx-auto flex grid-cols-9 flex-col p-2 text-blue-50 md:grid">
+                    @foreach ($data['cerita_cinta_api'] as $key => $val)
+                        @if ($key % 2 !== 0)
+                            <div class="flex md:contents">
+                                <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
+                                    <div class="flex h-full w-6 items-center justify-center">
+                                        <div class="pointer-events-none h-full w-1 bg-stone-600"></div>
+                                    </div>
+                                    <div class="absolute top-1/2 -mt-3 h-6 w-6 rounded-full bg-stone-600 shadow"></div>
+                                </div>
+                                <div class="col-start-6 col-end-10 my-4 mr-auto rounded-xl bg-stone-600 p-4 shadow-md">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="h-5 w-5 text-gray-200" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" />
+                                            <rect x="4" y="5" width="16" height="16" rx="2" />
+                                            <line x1="16" y1="3" x2="16" y2="7" />
+                                            <line x1="8" y1="3" x2="8" y2="7" />
+                                            <line x1="4" y1="11" x2="20" y2="11" />
+                                            <rect x="8" y="15" width="2" height="2" />
+                                        </svg>
+                                        <h3 class="text-lg font-semibold leading-none">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $val['tanggal'])->locale('id')->isoFormat('MMMM YYYY') }}</h3>
+                                    </div>
+                                    <h4 class="text-md font-sans font-semibold">{{ $val['judul'] }}</h4>
+                                    <p class="mt-1 font-sans text-sm font-thin">
+                                        {{ $val['cerita'] }}
+                                    </p>
+                                </div>
+                            </div>
+                        @else
+                            <div class="flex flex-row-reverse md:contents">
+                                <div class="col-start-1 col-end-5 my-4 ml-auto rounded-xl bg-stone-600 p-4 shadow-md">
+                                    <div class="flex items-center gap-1">
+                                        <svg class="h-5 w-5 text-gray-200" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" />
+                                            <rect x="4" y="5" width="16" height="16" rx="2" />
+                                            <line x1="16" y1="3" x2="16" y2="7" />
+                                            <line x1="8" y1="3" x2="8" y2="7" />
+                                            <line x1="4" y1="11" x2="20" y2="11" />
+                                            <rect x="8" y="15" width="2" height="2" />
+                                        </svg>
+                                        <h3 class="text-lg font-semibold leading-none">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $val['tanggal'])->locale('id')->isoFormat('MMMM YYYY') }}</h3>
+                                    </div>
+                                    <h4 class="text-md font-sans font-semibold">{{ $val['judul'] }}</h4>
+                                    <p class="mt-1 font-sans text-sm font-thin">
+                                        {{ $val['cerita'] }}
+                                    </p>
+                                </div>
+                                <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
+                                    <div class="flex h-full w-6 items-center justify-center">
+                                        <div class="pointer-events-none h-full w-1 bg-stone-600"></div>
+                                    </div>
+                                    <div class="absolute top-1/2 -mt-3 h-6 w-6 rounded-full bg-stone-600 shadow"></div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
         </section>
-    </section>
+    @endif
 
+    @if (count($data['gallery_api']) > 0)
+        <section class="container mx-auto mt-24 max-w-4xl">
+            <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl">Gallery</h1>
+            <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
+            <section class="mt-8">
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    @foreach ($data['gallery_api'] as $key => $val)
+                        <div class="relative">
+                            <img src="{{ asset('/storage/images/' . $val['gambar']) }}" alt="{{ $val['judul'] }}" class="h-64 w-full rounded-xl object-cover">
+                        </div>
+                    @endforeach
+                </div>
+            </section>
 
+            <section class="container mx-auto mt-24 max-w-4xl">
+                <h3 class="text-center font-alkatra text-xl text-stone-500/90 antialiased md:text-2xl">Bila wujud cinta harus dibuktikan, maka pernikahan adalah bukti cinta lahir batin yang paling baik dan diridhoi-Nya, karena dengan begitu cinta tidak akan rusak karenanya, justru cintalah yang menjaganya</h3>
+            </section>
+        </section>
+    @endif
 
     <section class="container mx-auto mt-32 max-w-6xl">
         <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Hadiah Untuk Kami</h1>
@@ -436,80 +396,75 @@
         <div class="mx-auto mt-6 mb-0 max-w-xl space-y-4 rounded-lg bg-stone-600 p-12 shadow-md">
             <div>
                 <div class="relative">
-                    <input type="text" name="name" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Nama" />
+                    <input id="nama" type="text" name="name" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Nama" />
+                    <p class="mt-1 hidden text-sm text-red-500" id="nama-validation">wajib diisi</p>
                 </div>
             </div>
 
             <div>
                 <div class="relative">
-                    <input type="text" name="instagram" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Instagram *optional" />
+                    <input id="instagram" type="text" name="instagram" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Instagram *optional" />
                 </div>
             </div>
 
             <div>
                 <div class="relative">
-                    <textarea type="text" name="name" autocomplete="off" class="h-32 w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Tuliskan ucapan dan doa untuk mempelai pengantin"></textarea>
+                    <textarea id="pesan" type="text" name="name" autocomplete="off" class="h-32 w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Tuliskan ucapan dan doa untuk mempelai pengantin"></textarea>
+                    <p class="mt-1 hidden text-sm text-red-500" id="pesan-validation">wajib diisi</p>
                 </div>
             </div>
 
-            <button class="block w-full rounded-lg bg-stone-500 px-5 py-3 font-sans text-lg font-medium text-white">
+            <div>
+                <div class="relative flex items-center gap-4">
+                    <div class="">
+                        <img id="output" src="{{ asset('/images/photo-blank.png') }}" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
+                    </div>
+                    <label class="inline-block w-[150px] rounded-sm bg-yellow-500 px-4 py-2 text-center text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD FOTO
+                        <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" type="file" multiple>
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn-send block w-full rounded-lg bg-stone-500 px-5 py-3 font-sans text-lg font-medium text-white">
                 Kirim Ucapan
             </button>
     </section>
 
-    <section class="container mx-auto mt-24 max-w-4xl">
-        <div id="carouselExampleCaptions" class="relative" data-te-carousel-init data-te-carousel-slide data-te-interval="2000">
-            <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-                <div class="relative float-left -mr-[100%] hidden w-full text-center transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-active data-te-carousel-item style="backface-visibility: hidden">
-                    <p class="mx-auto max-w-4xl text-xl italic text-neutral-700 dark:text-neutral-300">
-                        "Angguuuuun. Selamat yaaa, semoga dilancarkan semua rencana baiknya.
-                        Buat bg rangga, titip anggun kami ya bg 😁😁"
-                    </p>
-                    <div class="mt-12 mb-6 flex justify-center">
-                        <img src="{{ asset('/images/photo-blank.png') }}" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
-                    </div>
-                    <p class="text-neutral-500 dark:text-neutral-300">- Anna Morian</p>
+    @if (count($data['ucapan_api']) !== 0)
+        <section class="container mx-auto mt-24 max-w-4xl">
+            <div id="carouselExampleCaptions" class="relative" data-te-carousel-init data-te-carousel-slide data-te-interval="2000">
+                <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+                    @foreach ($data['ucapan_api'] as $key => $val)
+                        <div class="relative float-left -mr-[100%] hidden w-full text-center transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item {{ $key === 0 ? 'data-te-carousel-active' : '' }} style="backface-visibility: hidden">
+                            <p class="mx-auto max-w-4xl text-xl italic text-neutral-700 dark:text-neutral-300">
+                                "{{ $val['pesan'] }}"
+                            </p>
+                            <div class="mt-12 mb-6 flex justify-center">
+                                <img src="{{ $val['foto'] !== 'null' ? asset('/storage/images/' . $val['foto']) : asset('/images/photo-blank.png') }}" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
+                            </div>
+                            <p class="text-neutral-500 dark:text-neutral-300">{{ $val['nama'] }}</p>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="relative float-left -mr-[100%] hidden w-full text-center transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item style="backface-visibility: hidden">
-                    <p class="mx-auto max-w-4xl text-xl italic text-neutral-700 dark:text-neutral-300">
-                        "Ga nyangka sih kalian berdua sampe ke tahap ini, tapi ikut bahagia!
-                        Semoga kalian berdua terus tetep jadi sahabat selain suami dan istri dalam pernikahan kalian. 🙏 ❤️"
-                    </p>
-                    <div class="mt-12 mb-6 flex justify-center">
-                        <img src="{{ asset('/images/photo-blank.png') }}" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
-                    </div>
-                    <p class="text-neutral-500 dark:text-neutral-300">- Teresa May</p>
-                </div>
-                <div class="relative float-left -mr-[100%] hidden w-full text-center transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item style="backface-visibility: hidden">
-                    <p class="mx-auto max-w-4xl text-xl italic text-neutral-700 dark:text-neutral-300">
-                        "Yuhuu akhirnya yaa kewong jugaaa wkwk
-                        Udah gak di introgasi anak beskem lagi hahaha 😁
-                        Samawa till jannah pokoknya, peluukkkkk ❤️❤️❤️"
-                    </p>
-                    <div class="mt-12 mb-6 flex justify-center">
-                        <img src="{{ asset('/images/photo-blank.png') }}" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
-                    </div>
-                    <p class="text-neutral-500 dark:text-neutral-300">- Kate Allise</p>
-                </div>
+                <button class="absolute top-0 bottom-0 left-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-black hover:no-underline hover:opacity-90 hover:outline-none focus:text-black focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none dark:text-white dark:opacity-50 dark:hover:text-white dark:focus:text-white" type="button" data-te-target="#carouselExampleCaptions" data-te-slide="prev">
+                    <span class="inline-block h-8 w-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                        </svg>
+                    </span>
+                    <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
+                </button>
+                <button class="absolute top-0 bottom-0 right-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-black hover:no-underline hover:opacity-90 hover:outline-none focus:text-black focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none dark:text-white dark:opacity-50 dark:hover:text-white dark:focus:text-white" type="button" data-te-target="#carouselExampleCaptions" data-te-slide="next">
+                    <span class="inline-block h-8 w-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </span>
+                    <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
+                </button>
             </div>
-            <button class="absolute top-0 bottom-0 left-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-black hover:no-underline hover:opacity-90 hover:outline-none focus:text-black focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none dark:text-white dark:opacity-50 dark:hover:text-white dark:focus:text-white" type="button" data-te-target="#carouselExampleCaptions" data-te-slide="prev">
-                <span class="inline-block h-8 w-8">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                    </svg>
-                </span>
-                <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
-            </button>
-            <button class="absolute top-0 bottom-0 right-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-black hover:no-underline hover:opacity-90 hover:outline-none focus:text-black focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none dark:text-white dark:opacity-50 dark:hover:text-white dark:focus:text-white" type="button" data-te-target="#carouselExampleCaptions" data-te-slide="next">
-                <span class="inline-block h-8 w-8">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                    </svg>
-                </span>
-                <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
-            </button>
-        </div>
-    </section>
+        </section>
+    @endif
 
     <footer class="mt-24 bg-stone-700 text-center text-white">
         <div class="container px-6 pt-6">
@@ -535,17 +490,20 @@
         </div>
     </footer>
 </main>
-<div class="toast-end toast" id="toggle-music">
-    <label class="swap rounded-full bg-stone-200 p-2">
-        <!-- this hidden checkbox controls the state -->
-        <input type="checkbox" class="hidden" />
-        <!-- volume on icon -->
-        <svg class="swap-off fill-current text-stone-500" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-            <path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" />
-        </svg>
-        <!-- volume off icon -->
-        <svg class="swap-on fill-current text-stone-500" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-            <path d="M3,9H7L12,4V20L7,15H3V9M16.59,12L14,9.41L15.41,8L18,10.59L20.59,8L22,9.41L19.41,12L22,14.59L20.59,16L18,13.41L15.41,16L14,14.59L16.59,12Z" />
-        </svg>
-    </label>
-</div>
+
+@if ($data['vip'] === 1)
+    <div class="toast-end toast" id="toggle-music">
+        <label class="swap rounded-full bg-stone-200 p-2">
+            <!-- this hidden checkbox controls the state -->
+            <input type="checkbox" class="hidden" />
+            <!-- volume on icon -->
+            <svg class="swap-off fill-current text-stone-500" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                <path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" />
+            </svg>
+            <!-- volume off icon -->
+            <svg class="swap-on fill-current text-stone-500" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                <path d="M3,9H7L12,4V20L7,15H3V9M16.59,12L14,9.41L15.41,8L18,10.59L20.59,8L22,9.41L19.41,12L22,14.59L20.59,16L18,13.41L15.41,16L14,14.59L16.59,12Z" />
+            </svg>
+        </label>
+    </div>
+@endif

@@ -15,6 +15,7 @@ use App\Models\User\SettingAcara;
 use App\Models\User\SettingAkad;
 use App\Models\User\SettingResepsi;
 use App\Models\User\SettingUndangan;
+use App\Models\User\Ucapan;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -110,5 +111,10 @@ class User extends Authenticatable
     public function kadoNikahApi()
     {
         return $this->hasMany(KadoNikah::class);
+    }
+
+    public function ucapanApi()
+    {
+        return $this->hasMany(Ucapan::class);
     }
 }

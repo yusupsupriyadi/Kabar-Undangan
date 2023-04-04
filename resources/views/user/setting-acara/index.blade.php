@@ -67,7 +67,7 @@
                         <section class="mt-4">
                             <p class="text-lg font-bold">Akad nikah <span class="text-red-500">*</span></p>
 
-                            <div class="form-control mt-4">
+                            <div class="form-control mt-4 hidden">
                                 <label class="label">
                                     <span class="form-label text-sm font-normal">Munculkan di Website</span>
                                 </label>
@@ -167,7 +167,7 @@
                         <section class="mt-4">
                             <p class="text-lg font-bold">Resepsi pernikahan<span class="text-red-500">*</span></p>
 
-                            <div class="form-control mt-4">
+                            <div class="form-control mt-4 hidden">
                                 <label class="label">
                                     <span class="form-label text-sm font-normal">Munculkan di Website</span>
                                 </label>

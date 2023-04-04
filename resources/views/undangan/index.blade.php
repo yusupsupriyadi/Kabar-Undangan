@@ -10,9 +10,13 @@
     
     @include('undangan.template.basic')
 
-    <audio id="music-background" src="{{ asset('/audios/My Heart Will Go On - Sexaphone.mp3') }}"></audio>
+    @if($data['vip'] === 1)
+        <audio id="music-background" src="{{ asset('/audios/My Heart Will Go On - Sexaphone.mp3') }}"></audio>
+    @endif
 
     @include('undangan._modal')
+    <x-toast-alert id="toast-loading" type="loading" message="Sedang proses" />
+    <x-toast-alert id="toast-validate" type="failed" message="Periksa kembali yang wajib diisi." />
 @endsection
 
 @push('scripts')
@@ -131,10 +135,15 @@
         });
     </script>
     <script type="module">
-        var date = new Date('2023-04-25 08:00');
+        let data = @json($data);
+        var tanggalResepsi = data['setting_akad_api']['tanggal'].split("/");
+        var tanggalFormatted = tanggalResepsi[2] + "-" + tanggalResepsi[1] + "-" + tanggalResepsi[0];
+        var date = new Date(`${tanggalFormatted} ${data['setting_akad_api']['waktu_mulai']}`);
         var now = new Date();
+        const imageUrl = '{{ asset("storage/images") }}/'
+        const imagePublic = '{{ asset("/images") }}/'
 
-        $("#body").css("overflow", "hidden");
+        // $("#body").css("overflow", "hidden");
         
         // Memperbarui countdown setiap detik
         var timer = setInterval(function() {
@@ -170,6 +179,15 @@
 
             // countdown.innerHTML = "Countdown: " + days + " hari, " + remainingHours + " jam, " + remainingMinutes + " menit, " + remainingSeconds + " detik";
         }, 1000);
+
+        $('#image-file').on('change', (e) => {
+            var reader = new FileReader();
+            reader.readAsDataURL(e.target.files[0]);
+            reader.onload = function(){
+                var output = document.getElementById('output');
+                output.src = reader.result;
+            }
+        })
         
         $(document).on('click', '.btn-open-modal', function(){
             $('#modal-hadiah').addClass('modal-open');
@@ -192,7 +210,9 @@
             $('#opening').hide('slow')
             $("#body").css("overflow", "auto");
             var audio = $('#music-background')[0];
-            audio.play();
+            if(data['vip'] === 1){
+                audio.play();
+            }
 
             var elem = document.documentElement;
             if (elem.requestFullscreen) {
@@ -204,7 +224,54 @@
             } else if (elem.msRequestFullscreen) { /* IE/Edge */
             elem.msRequestFullscreen();
             }
-
         })
+
+        $(document).on('click', '.btn-send', function(){
+            validateForm();
+        })
+
+        function validateForm(){
+            $('#nama').val() == '' ? $('#nama-validation').show() : $('#nama-validation').hide();
+            $('#pesan').val() == '' ? $('#pesan-validation').show() : $('#pesan-validation').hide();
+
+            if ($('#nama').val() != '' && $('#pesan').val() != '') {
+                sendPesan();
+            }else{
+                $('#toast-validate').fadeIn('past')
+                setTimeout(function(){
+                    $('#toast-validate').fadeOut('past')
+                }, 5000)
+            }
+        }
+
+        function sendPesan(){
+            const imageFile = document.getElementById('image-file');
+            var myformData = new FormData();
+            myformData.append('nama', $('#nama').val());
+            myformData.append('instagram', $('#instagram').val());
+            myformData.append('pesan', $('#pesan').val());
+            myformData.append('id', data['id']);
+            myformData.append('imageFile', imageFile.files[0]);
+
+            $.ajax({
+                method: 'post',
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: myformData,
+                enctype: 'multipart/form-data',
+                url: `/undangan/send-pesan`,
+                beforeSend: function() {
+                    $('#toast-loading').show()
+                    $('#toast-validate').hide()
+                },
+                error: function(error) {
+                },
+                success: function(response) {
+                    window.location.reload();
+                }
+            });
+        }
+
     </script>
 @endpush

@@ -27,7 +27,7 @@ Route::get('/demo', function () {
 
 Route::controller(UndanganController::class)->group(function () {
     Route::get('/pernikahan/{name}', 'index');
-    // Route::get('/undangan/{id}', 'index');
+    Route::post('/undangan/send-pesan', 'sendPesan');
 });
 
 
