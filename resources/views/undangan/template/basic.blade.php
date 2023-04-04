@@ -373,21 +373,23 @@
         </section>
     @endif
 
-    <section class="container mx-auto mt-32 max-w-6xl">
-        <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Hadiah Untuk Kami</h1>
-        <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500">Kehadiran Bapak/Ibu/Saudara/i merupakan hadiah terbaik bagi kami. Tetapi jika memberi merupakan tanda kasih, kami dengan senang hati menerimanya. Semoga kebaikan, keberkahan dan kesehatan selalu diberikan kepada kita semua. Aamiin...</p>
+    @if ($data['vip'] === 1)
+        <section class="container mx-auto mt-32 max-w-6xl">
+            <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Hadiah Untuk Kami</h1>
+            <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500">Kehadiran Bapak/Ibu/Saudara/i merupakan hadiah terbaik bagi kami. Tetapi jika memberi merupakan tanda kasih, kami dengan senang hati menerimanya. Semoga kebaikan, keberkahan dan kesehatan selalu diberikan kepada kita semua. Aamiin...</p>
 
-        <div class="btn-open-modal mx-auto mt-8 flex max-w-[12.5rem] cursor-pointer items-center gap-2 rounded-lg bg-stone-600 p-4 shadow-md">
-            <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <rect x="3" y="8" width="18" height="4" rx="1" />
-                <line x1="12" y1="8" x2="12" y2="21" />
-                <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7" />
-                <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5" />
-            </svg>
-            <h3 class="font-sans text-lg font-semibold uppercase text-white">Kirim Hadiah</h3>
-        </div>
-    </section>
+            <div class="btn-open-modal mx-auto mt-8 flex max-w-[12.5rem] cursor-pointer items-center gap-2 rounded-lg bg-stone-600 p-4 shadow-md">
+                <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <rect x="3" y="8" width="18" height="4" rx="1" />
+                    <line x1="12" y1="8" x2="12" y2="21" />
+                    <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7" />
+                    <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5" />
+                </svg>
+                <h3 class="font-sans text-lg font-semibold uppercase text-white">Kirim Hadiah</h3>
+            </div>
+        </section>
+    @endif
 
     <section class="container mx-auto mt-36 max-w-4xl">
         <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Ucapan Selamat & Do'a</h1>
