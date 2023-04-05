@@ -3,25 +3,25 @@
     <section class="header opening bg-white" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
             <h1 class="pb-6 font-sans text-lg uppercase text-stone-600 md:text-xl">We Are Getting Married</h1>
-            <section class="flex scale-90 items-center justify-center gap-4 text-center font-masthina text-stone-600 md:scale-100">
-                <h1 class="nama-pria-opening text-7xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
-                <h2 class="text-6xl">&</h2>
-                <h1 class="text-7xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
+            <section class="flex items-center justify-center gap-4 text-center font-masthina text-stone-600 mt-2">
+                <h1 class="nama-pria-opening text-6xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
+                <h2 class="text-5xl px-2">&</h2>
+                <h1 class="text-6xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
             </section>
-            <h5 class="mt-16 text-xl text-stone-600">Save the date :</h5>
-            <section class="mt-4 flex scale-95 justify-center text-stone-600 md:scale-100">
+            <h5 class="mt-16 md:text-xl text-stone-600">Save the date :</h5>
+            <section class="mt-4 flex justify-center text-stone-600">
                 <table>
-                    <tbody>
+                    <tbody class="scale-90 md:scale-100">
                         <tr>
-                            <td colspan="3" class="font-serif text-xl font-semibold uppercase">
-                                Maret
+                            <td colspan="3" class="font-serif text-lg md:text-xl font-semibold uppercase">
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('MMMM') }}
                             </td>
                         </tr>
                         <tr class="font-serif text-sm font-bold uppercase">
                             <td>
                                 <div class="w-20 border-y border-black py-1">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('dddd') }}</div>
                             </td>
-                            <td class="px-2 text-6xl font-thin">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('d') }}</td>
+                            <td class="px-2 text-5xl md:text-6xl font-thin">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('d') }}</td>
                             <td>
                                 <div class="w-20 border-y border-black py-1">
                                     Jam {{ $data['setting_akad_api']['waktu_mulai'] }}</span>
@@ -29,7 +29,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3" class="pt-1 font-serif text-2xl font-semibold uppercase">
+                            <td colspan="3" class="pt-1 font-serif text-xl md:text-2xl font-semibold uppercase">
                                 {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('y') }}
                             </td>
                         </tr>
@@ -38,9 +38,9 @@
             </section>
             @if ($data['vip'] == 1)
                 @if (request()->query('untuk') != null)
-                    <section class="mt-4 scale-95 text-stone-600 md:scale-100">
-                        <h5 class="font-tangerine text-3xl font-bold text-stone-600">Dear :</h5>
-                        <h5 class="mt-1 font-greatVibes text-2xl font-extrabold text-stone-600">{{ request()->query('untuk') }}</h5>
+                    <section class="mt-6 text-stone-600">
+                        <h5 class="font-tangerine text-2xl font-bold text-stone-600">Dear :</h5>
+                        <h5 class="font-greatVibes text-3xl font-extrabold text-stone-600">{{ request()->query('untuk') }}</h5>
                     </section>
                 @endif
             @endif
@@ -70,7 +70,7 @@
                     <tbody>
                         <tr>
                             <td colspan="3" class="font-serif text-xl font-semibold uppercase">
-                                Maret
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('MMMM') }}
                             </td>
                         </tr>
                         <tr class="font-serif text-sm font-bold uppercase">
@@ -132,10 +132,10 @@
         <div class="w-auto">
             <section data-aos="fade-right" data-aos-duration="2000">
                 <div class="mx-auto w-52">
-                    @if ($data['mempelai_wanita_api'] !== 'null')
+                    @if ($data['mempelai_wanita_api']['foto'] !== 'null' && $data['mempelai_wanita_api']['foto'] !== null)
                         <img src="{{ asset('/storage/images/' . $data['mempelai_wanita_api']['foto']) }}" class="mt-8 rounded-full" />
                     @else
-                        <img src="/images/foto-wanita.png" />
+                        <img src="{{ asset('/images/foto-wanita.png') }}" />
                     @endif
                 </div>
                 <div class="text-center">
