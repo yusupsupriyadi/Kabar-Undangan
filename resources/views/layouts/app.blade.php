@@ -39,6 +39,16 @@
         @yield('content')
     </main>
 
+    <div class="toast cursor-pointer md:block">
+        <a class="alert alert-success rounded-full px-4 py-2" href="https://api.whatsapp.com/send?phone=085155305665&text=">
+            <div>
+                <span class="text-sm">butuh bantuan?</span>
+                <img src="{{ asset('/svg/whatsapp.svg') }}" />
+            </div>
+        </a>
+    </div>
+    
+
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/id.js"></script>

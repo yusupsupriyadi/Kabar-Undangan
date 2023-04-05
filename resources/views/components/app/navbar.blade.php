@@ -171,7 +171,7 @@
     <div class="bg-indigo-600 px-4 py-2 text-white">
         <p class="md:text-md text-center text-xs">
             <span class="animate-pulse">hanya 80rb</span> <span class="text-red-500/50 line-through">100rb</span>
-            <a href="#" class="inline-block uppercase underline">Ambil Premium Sekarang!</a>
+            <a href="https://api.whatsapp.com/send?phone=085155305665&text=" class="inline-block uppercase underline">Ambil Premium Sekarang!</a>
         </p>
     </div>
 </nav>

@@ -36,7 +36,7 @@
                     </div>
                 </section>
 
-                <main class="py-5">
+                <main class="py-5 {{ $user['vip'] === 1 ? '' : 'hidden' }}">
                     <form class="md:flex md:gap-4">
                         <div class="form-control w-full">
                             <section class="wallet-index">
