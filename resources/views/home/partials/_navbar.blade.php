@@ -1,7 +1,8 @@
 <main class="md:container absolute top-0 w-full py-2">
     <div class="navbar">
-        <div class="flex-1">
-            <a href="/" class="btn-ghost btn text-2xl font-bold normal-case">KabarUndangan</a>
+        <div class="flex-1 items-center">
+            <img src="{{ asset('images/logo.png') }}" width="50" alt="">
+            <a href="/" class="btn-ghost btn text-2xl font-bold normal-case">Kabar Undangan</a>
         </div>
         <div class="flex-none">
             <ul class="text-md menu menu-horizontal hidden px-1 font-semibold lg:flex">

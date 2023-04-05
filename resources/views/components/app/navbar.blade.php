@@ -1,10 +1,8 @@
 <nav id="header" class="fixed top-0 z-10 w-full border-b border-gray-400 bg-white md:relative">
     <div class="mx-auto mt-0 flex flex-wrap items-center justify-between py-3 md:container">
         <div class="flex items-center pl-4">
-            <svg class="h-5 fill-current pr-3 text-purple-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M0 2C0 .9.9 0 2 0h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm14 12h4V2H2v12h4c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2zM5 9l2-2 2 2 4-4 2 2-6 6-4-4z" />
-            </svg>
-            <a class="text-xl font-extrabold text-gray-900 no-underline hover:no-underline" href="/">
+            <img src="{{ asset('images/logo.png') }}" width="50" alt="">
+            <a  href="/" class="text-xl ml-4 font-extrabold text-gray-900 no-underline hover:no-underline">
                 Kabar Undangan
             </a>
         </div>
