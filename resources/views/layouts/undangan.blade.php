@@ -25,12 +25,12 @@
     <!-- Scripts -->
 
     @yield('styles')
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
     <!-- Build -->
-    {{-- <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
+    <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
     <link rel="stylesheet" href="{{ asset('/build/assets/app.3a729528.css') }}">
-    <script src="{{ asset('/build/assets/app.f41402fc.js') }}"></script> --}}
+    <script src="{{ asset('/build/assets/app.f41402fc.js') }}"></script>
 </head>
 
 <body id="body">
