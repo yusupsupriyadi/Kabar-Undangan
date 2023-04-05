@@ -15,6 +15,7 @@ use App\Models\User\SettingAcara;
 use App\Models\User\SettingAkad;
 use App\Models\User\SettingResepsi;
 use App\Models\User\SettingUndangan;
+use App\Models\User\Tema;
 use App\Models\User\Ucapan;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -116,5 +117,10 @@ class User extends Authenticatable
     public function ucapanApi()
     {
         return $this->hasMany(Ucapan::class);
+    }
+
+    public function temaApi()
+    {
+        return $this->hasOne(Tema::class);
     }
 }

@@ -171,6 +171,19 @@
                             </x-app.card-menu>
                         </a>
 
+                        <a href="/kirim-undangan">
+                            <x-app.card-menu id="kado-nikah" paint="indicator">
+                                <x-slot name='icon'>
+                                    <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </x-slot>
+                                <x-slot name="slot">
+                                    <p class="mt-2 text-center text-sm">Kirim <br> Undangan</p>
+                                </x-slot>
+                            </x-app.card-menu>
+                        </a>
+
                         <a href="/ganti-tema" class="hidden">
                             <x-app.card-menu id="ganti-tema" paint="indicator">
                                 <x-slot name='icon'>

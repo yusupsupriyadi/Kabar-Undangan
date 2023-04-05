@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\User\MusicBackground;
+use App\Models\User\Tema;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -46,6 +47,11 @@ class RegisteredUserController extends Controller
         MusicBackground::create([
             'user_id' => $user->id,
             'music' => 'My Heart Will Go On - Sexaphone.mp3'
+        ]);
+
+        Tema::create([
+            'user_id' => $user->id,
+            'tema' => 'basic'
         ]);
 
         Auth::login($user);

@@ -7,6 +7,7 @@ use App\Http\Controllers\UndanganController;
 use App\Http\Controllers\User\CeritaCintaController;
 use App\Http\Controllers\User\GalleryController;
 use App\Http\Controllers\User\KadoNikahController;
+use App\Http\Controllers\User\KirimUndangan;
 use App\Http\Controllers\User\MempelaiController;
 use App\Http\Controllers\User\MempelaiPriaController;
 use App\Http\Controllers\User\MempelaiWanitaController;
@@ -23,6 +24,10 @@ Route::get('/', function () {
 
 Route::get('/demo', function () {
     return view('demo.index');
+});
+
+Route::controller(KirimUndangan::class)->group(function () {
+    Route::get('/kirim-undangan', 'index');
 });
 
 Route::controller(UndanganController::class)->group(function () {

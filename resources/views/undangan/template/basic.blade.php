@@ -1,15 +1,15 @@
 <div id="particles-js" class="absolute h-full w-full bg-cover bg-repeat" style="background-position: 50% 50%"></div>
 <main class="m-auto">
     <section class="header opening bg-white" id="opening">
-        <div class="container mx-auto max-w-xl text-center">
-            <h1 class="pb-6 font-sans text-xl uppercase">We Are Getting Married</h1>
-            <section class="font-masthina">
-                <h1 class="text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
-                <h2 class="text-5xl">&</h2>
-                <h1 class="text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
+        <div class="container mx-auto max-w-4xl text-center">
+            <h1 class="pb-6 font-sans text-lg uppercase text-stone-600 md:text-xl">We Are Getting Married</h1>
+            <section class="flex scale-90 items-center justify-center gap-4 text-center font-masthina text-stone-600 md:scale-100">
+                <h1 class="nama-pria-opening text-7xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
+                <h2 class="text-6xl">&</h2>
+                <h1 class="text-7xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
             </section>
-            <h5 class="mt-4 text-xl">Save the date :</h5>
-            <section class="mt-4 flex justify-center">
+            <h5 class="mt-16 text-xl text-stone-600">Save the date :</h5>
+            <section class="mt-4 flex scale-95 justify-center text-stone-600 md:scale-100">
                 <table>
                     <tbody>
                         <tr>
@@ -36,7 +36,15 @@
                     </tbody>
                 </table>
             </section>
-            <section class="mt-4 flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-stone-600 p-3" id="open-undangan">
+            @if ($data['vip'] == 1)
+                @if (request()->query('untuk') != null)
+                    <section class="mt-4 scale-95 text-stone-600 md:scale-100">
+                        <h5 class="font-tangerine text-3xl font-bold text-stone-600">Dear :</h5>
+                        <h5 class="mt-1 font-greatVibes text-2xl font-extrabold text-stone-600">{{ request()->query('untuk') }}</h5>
+                    </section>
+                @endif
+            @endif
+            <section class="mt-8 flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-stone-600 p-3" id="open-undangan">
                 <svg class="h-6 w-6 text-gray-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                     <polyline points="22,6 12,13 2,6" />
@@ -50,14 +58,14 @@
 
     <section class="header">
         <div class="container mx-auto max-w-xl text-center">
-            <h1 class="pb-6 font-sans text-xl uppercase">We Are Getting Married</h1>
-            <section class="font-masthina">
-                <h1 class="text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
-                <h2 class="text-5xl">&</h2>
-                <h1 class="text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
+            <h1 class="pb-6 font-sans text-lg uppercase text-stone-600 md:text-xl">We Are Getting Married</h1>
+            <section class="font-masthina text-stone-600">
+                <h1 class="text-6xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
+                <h2 class="py-2 text-4xl md:text-5xl">&</h2>
+                <h1 class="text-6xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
             </section>
-            <h5 class="mt-4 text-xl">Save the date :</h5>
-            <section class="mt-4 flex justify-center">
+            <h5 class="mt-6 text-lg text-stone-600 md:text-xl">Save the date :</h5>
+            <section class="mt-2 flex scale-90 justify-center text-stone-600 md:scale-100">
                 <table>
                     <tbody>
                         <tr>
@@ -84,26 +92,26 @@
                     </tbody>
                 </table>
             </section>
-            <section class="text-md mt-4 rounded-xl bg-stone-600 p-3 font-sans text-gray-200">
+            <section class="text-md mt-4 scale-90 rounded-xl bg-stone-600 p-3 font-sans text-gray-200 md:scale-100">
                 <div class="hidden uppercase" id="countdown">
                     <div class="flex items-center justify-center gap-6">
                         <div>
-                            <h3 id="day">-</h3>
+                            <h3 class="font-bold" id="day">-</h3>
                             <h4>Hari</h4>
                         </div>
                         <div>:</div>
                         <div>
-                            <h3 id="hour">-</h3>
+                            <h3 class="font-bold" id="hour">-</h3>
                             <h4>jam</h4>
                         </div>
                         <div>:</div>
                         <div>
-                            <h3 id="minute">-</h3>
+                            <h3 class="font-bold" id="minute">-</h3>
                             <h4>menit</h4>
                         </div>
                         <div>:</div>
                         <div>
-                            <h3 id="second">-</h3>
+                            <h3 class="font-bold" id="second">-</h3>
                             <h4>detik</h4>
                         </div>
                     </div>
@@ -115,23 +123,29 @@
         </div>
     </section>
 
-    <section class="container mx-auto mt-16 max-w-4xl text-center">
+    <section class="container mx-auto mt-16 max-w-4xl text-center" data-aos="fade-up" data-aos-duration="2000">
         <h2 class="mb-4 font-tangerine text-4xl font-semibold md:text-5xl">Bismillahirrahmanirrahim</h2>
         <p class="text-md font-serif md:text-2xl">Dengan Memohon Rahmat dan Ridho Allah SWT, Kami Bermaksud Menyelenggarakan Pernikahan Kami :</p>
     </section>
 
     <section class="mt-4 items-center justify-evenly md:flex">
         <div class="w-auto">
-            <div class="mx-auto w-52">
-                <img src="/images/foto-wanita.png" />
-            </div>
-            <div class="text-center">
-                <h1 class="mt-4 font-tangerine text-5xl font-extrabold">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
-                <p class="mt-1 text-sm font-thin text-gray-600">{{ $data['mempelai_wanita_api']['nama_lengkap'] }}</p>
-                <p class="mt-6 text-[10px] text-gray-500">Anak dari Keluarga</p>
-                <p class="mt-1 text-[10px] text-gray-500">Bapak {{ $data['mempelai_wanita_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_wanita_api']['nama_ibu'] }}</p>
-            </div>
-            <a href="https://www.instagram.com/{{ $data['mempelai_wanita_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
+            <section data-aos="fade-right" data-aos-duration="2000">
+                <div class="mx-auto w-52">
+                    @if ($data['mempelai_wanita_api'] !== 'null')
+                        <img src="{{ asset('/storage/images/' . $data['mempelai_wanita_api']['foto']) }}" class="mt-8 rounded-full" />
+                    @else
+                        <img src="/images/foto-wanita.png" />
+                    @endif
+                </div>
+                <div class="text-center">
+                    <h1 class="mt-4 font-tangerine text-5xl font-extrabold">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
+                    <p class="mt-1 text-sm font-thin text-gray-600">{{ $data['mempelai_wanita_api']['nama_lengkap'] }}</p>
+                    <p class="mt-6 text-[10px] text-gray-500">Anak dari Keluarga</p>
+                    <p class="mt-1 text-[10px] text-gray-500">Bapak {{ $data['mempelai_wanita_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_wanita_api']['nama_ibu'] }}</p>
+                </div>
+            </section>
+            <a data-aos="fade-right" data-aos-duration="2000" href="https://www.instagram.com/{{ $data['mempelai_wanita_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
                 <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <rect x="4" y="4" width="16" height="16" rx="4" />
@@ -142,16 +156,22 @@
             </a>
         </div>
         <div class="mt-12 w-auto md:mt-0">
-            <div class="mx-auto w-52">
-                <img src="/images/foto-pria.png" />
-            </div>
-            <div class="text-center">
-                <h1 class="mt-4 text-center font-tangerine text-5xl font-extrabold">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
-                <p class="mt-1 text-sm font-thin text-gray-600">{{ $data['mempelai_pria_api']['nama_lengkap'] }}</p>
-                <p class="mt-6 text-[10px] text-gray-500">Anak dari Keluarga</p>
-                <p class="mt-1 text-[10px] text-gray-500">Bapak {{ $data['mempelai_pria_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_pria_api']['nama_ibu'] }}</p>
-            </div>
-            <a href="https://www.instagram.com/{{ $data['mempelai_pria_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
+            <section data-aos="fade-left" data-aos-duration="2000">
+                <div class="mx-auto w-52">
+                    @if ($data['mempelai_pria_api'] !== 'null')
+                        <img src="{{ asset('/storage/images/' . $data['mempelai_pria_api']['foto']) }}" class="mt-8 rounded-full" />
+                    @else
+                        <img src="/images/foto-pria.png" />
+                    @endif
+                </div>
+                <div class="text-center">
+                    <h1 class="mt-4 text-center font-tangerine text-5xl font-extrabold">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
+                    <p class="mt-1 text-sm font-thin text-gray-600">{{ $data['mempelai_pria_api']['nama_lengkap'] }}</p>
+                    <p class="mt-6 text-[10px] text-gray-500">Anak dari Keluarga</p>
+                    <p class="mt-1 text-[10px] text-gray-500">Bapak {{ $data['mempelai_pria_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_pria_api']['nama_ibu'] }}</p>
+                </div>
+            </section>
+            <a data-aos="fade-left" data-aos-duration="2000" href="https://www.instagram.com/{{ $data['mempelai_pria_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
                 <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <rect x="4" y="4" width="16" height="16" rx="4" />
@@ -164,9 +184,9 @@
     </section>
 
     <section class="container mx-auto mt-28 max-w-4xl">
-        <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Save The Date</h1>
+        <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1000">Save The Date</h1>
         <div class="mt-12 justify-center gap-6 md:flex">
-            <div class="relative mt-6 flex items-start justify-between rounded-xl border-2 border-b-4 border-stone-500 p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
+            <div data-aos="zoom-in" data-aos-duration="1000" class="relative mt-6 flex items-start justify-between rounded-xl border-2 border-b-4 border-stone-500 p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
                 <div class="mx-auto text-gray-500">
                     <h3 class="text-center font-tangerine text-4xl font-bold text-gray-900">
                         Akad
@@ -214,7 +234,7 @@
                 </div>
             </div>
 
-            <div class="relative mt-8 flex items-start justify-between rounded-xl border-2 border-b-4 border-stone-500 p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
+            <div data-aos="zoom-in" data-aos-duration="1000" class="relative mt-8 flex items-start justify-between rounded-xl border-2 border-b-4 border-stone-500 p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
                 <div class="mx-auto text-gray-500">
                     <h3 class="text-center font-tangerine text-4xl font-bold text-gray-900">
                         Resepsi
@@ -263,7 +283,7 @@
             </div>
         </div>
 
-        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Acara+Pernikahan+{{ $data['mempelai_wanita_api']['nama_panggilan'] }}+dan+{{ $data['mempelai_pria_api']['nama_panggilan'] }}&dates=20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('ymd') }}/20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('ymd') }}&details=Deskripsi+Acara&location={{ $data['setting_resepsi_api']['tempat'] }}, {{ $data['setting_resepsi_api']['alamat'] }}&sprop=name:Organizer&sprop=website:https://www.kabarundangan.com" target="_blank" class="mx-auto mt-12 flex max-w-[15rem] items-center gap-2 rounded-lg bg-stone-600 p-4 shadow-md">
+        <a data-aos="zoom-in-up" data-aos-duration="1000" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Acara+Pernikahan+{{ $data['mempelai_wanita_api']['nama_panggilan'] }}+dan+{{ $data['mempelai_pria_api']['nama_panggilan'] }}&dates=20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('ymd') }}/20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('ymd') }}&details=Deskripsi+Acara&location={{ $data['setting_resepsi_api']['tempat'] }}, {{ $data['setting_resepsi_api']['alamat'] }}&sprop=name:Organizer&sprop=website:https://www.kabarundangan.com" target="_blank" class="mx-auto mt-12 flex max-w-[15rem] items-center gap-2 rounded-lg bg-stone-600 p-4 shadow-md">
             <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" />
                 <rect x="4" y="5" width="16" height="16" rx="2" />
@@ -288,8 +308,8 @@
 
     @if (count($data['cerita_cinta_api']) > 0)
         <section class="container mx-auto mt-24 max-w-4xl">
-            <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl">Story</h1>
-            <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600">Dua jiwa namun satu pikiran, dua hati namun satu perasaan</p>
+            <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl" data-aos="fade-up" data-aos-duration="1000">Story</h1>
+            <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600" data-aos="fade-up" data-aos-duration="1000">Dua jiwa namun satu pikiran, dua hati namun satu perasaan</p>
 
             <div class="mt-10">
                 <div class="mx-auto flex grid-cols-9 flex-col p-2 text-blue-50 md:grid">
@@ -302,7 +322,7 @@
                                     </div>
                                     <div class="absolute top-1/2 -mt-3 h-6 w-6 rounded-full bg-stone-600 shadow"></div>
                                 </div>
-                                <div class="col-start-6 col-end-10 my-4 mr-auto rounded-xl bg-stone-600 p-4 shadow-md">
+                                <div class="col-start-6 col-end-10 my-4 mr-auto rounded-xl bg-stone-600 p-4 shadow-md" data-aos="fade-left" data-aos-duration="2000">
                                     <div class="flex items-center gap-1">
                                         <svg class="h-5 w-5 text-gray-200" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" />
@@ -314,7 +334,7 @@
                                         </svg>
                                         <h3 class="text-lg font-semibold leading-none">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $val['tanggal'])->locale('id')->isoFormat('MMMM YYYY') }}</h3>
                                     </div>
-                                    <h4 class="text-md font-sans font-semibold">{{ $val['judul'] }}</h4>
+                                    <h4 class="mt-1 font-tangerine text-3xl font-bold">{{ $val['judul'] }}</h4>
                                     <p class="mt-1 font-sans text-sm font-thin">
                                         {{ $val['cerita'] }}
                                     </p>
@@ -322,7 +342,7 @@
                             </div>
                         @else
                             <div class="flex flex-row-reverse md:contents">
-                                <div class="col-start-1 col-end-5 my-4 ml-auto rounded-xl bg-stone-600 p-4 shadow-md">
+                                <div class="col-start-1 col-end-5 my-4 ml-auto rounded-xl bg-stone-600 p-4 shadow-md" data-aos="fade-right" data-aos-duration="2000">
                                     <div class="flex items-center gap-1">
                                         <svg class="h-5 w-5 text-gray-200" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" />
@@ -334,7 +354,7 @@
                                         </svg>
                                         <h3 class="text-lg font-semibold leading-none">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $val['tanggal'])->locale('id')->isoFormat('MMMM YYYY') }}</h3>
                                     </div>
-                                    <h4 class="text-md font-sans font-semibold">{{ $val['judul'] }}</h4>
+                                    <h4 class="mt-1 font-tangerine text-3xl font-bold">{{ $val['judul'] }}</h4>
                                     <p class="mt-1 font-sans text-sm font-thin">
                                         {{ $val['cerita'] }}
                                     </p>
@@ -354,27 +374,27 @@
     @endif
 
     @if (count($data['gallery_api']) > 0)
-        <section class="container mx-auto mt-24 max-w-4xl">
-            <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl">Gallery</h1>
-            <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
+        <section class="container mx-auto mt-24 max-w-5xl">
+            <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl" data-aos="fade-up" data-aos-duration="2000">Gallery</h1>
+            <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600" data-aos="fade-up" data-aos-duration="2000">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
             <section class="mt-8">
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                     @foreach ($data['gallery_api'] as $key => $val)
-                        <div class="relative">
-                            <img src="{{ asset('/storage/images/' . $val['gambar']) }}" alt="{{ $val['judul'] }}" class="h-64 w-full rounded-xl object-cover">
+                        <div class="relative" data-aos="zoom-in" data-aos-duration="3000">
+                            <img src="{{ asset('/storage/images/' . $val['gambar']) }}" alt="{{ $val['judul'] }}" class="h-72 w-full rounded-xl object-cover md:h-64">
                         </div>
                     @endforeach
                 </div>
             </section>
 
             <section class="container mx-auto mt-24 max-w-4xl">
-                <h3 class="text-center font-alkatra text-xl text-stone-500/90 antialiased md:text-2xl">Bila wujud cinta harus dibuktikan, maka pernikahan adalah bukti cinta lahir batin yang paling baik dan diridhoi-Nya, karena dengan begitu cinta tidak akan rusak karenanya, justru cintalah yang menjaganya</h3>
+                <h3 class="text-center font-alkatra text-xl text-stone-500/90 antialiased md:text-2xl" data-aos="zoom-out" data-aos-duration="2000">Bila wujud cinta harus dibuktikan, maka pernikahan adalah bukti cinta lahir batin yang paling baik dan diridhoi-Nya, karena dengan begitu cinta tidak akan rusak karenanya, justru cintalah yang menjaganya</h3>
             </section>
         </section>
     @endif
 
     @if ($data['vip'] === 1)
-        <section class="container mx-auto mt-32 max-w-6xl">
+        <section class="container mx-auto mt-32 max-w-6xl" data-aos="fade-up" data-aos-duration="2000">
             <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Hadiah Untuk Kami</h1>
             <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500">Kehadiran Bapak/Ibu/Saudara/i merupakan hadiah terbaik bagi kami. Tetapi jika memberi merupakan tanda kasih, kami dengan senang hati menerimanya. Semoga kebaikan, keberkahan dan kesehatan selalu diberikan kepada kita semua. Aamiin...</p>
 
@@ -392,10 +412,10 @@
     @endif
 
     <section class="container mx-auto mt-36 max-w-4xl">
-        <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Ucapan Selamat & Do'a</h1>
-        <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500">Kami mengharapkan kehadiran Anda.</p>
+        <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600" data-aos="fade-right" data-aos-duration="2000">Ucapan Selamat & Do'a</h1>
+        <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500" data-aos="fade-left" data-aos-duration="2000">Kami mengharapkan kehadiran Anda.</p>
 
-        <div class="mx-auto mt-6 mb-0 max-w-xl space-y-4 rounded-lg bg-stone-600 p-12 shadow-md">
+        <div class="mx-auto mt-6 mb-0 max-w-xl space-y-4 rounded-lg bg-stone-600 p-12 shadow-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
             <div>
                 <div class="relative">
                     <input id="nama" type="text" name="name" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Nama" />
@@ -438,13 +458,20 @@
                 <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
                     @foreach ($data['ucapan_api'] as $key => $val)
                         <div class="relative float-left -mr-[100%] hidden w-full text-center transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item {{ $key === 0 ? 'data-te-carousel-active' : '' }} style="backface-visibility: hidden">
-                            <p class="mx-auto max-w-4xl text-xl italic text-neutral-700 dark:text-neutral-300">
+                            <p class="text-md mx-auto max-w-4xl italic text-neutral-700 dark:text-neutral-300 md:text-lg">
                                 "{{ $val['pesan'] }}"
                             </p>
                             <div class="mt-12 mb-6 flex justify-center">
                                 <img src="{{ $val['foto'] !== 'null' ? asset('/storage/images/' . $val['foto']) : asset('/images/photo-blank.png') }}" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
                             </div>
-                            <p class="text-neutral-500 dark:text-neutral-300">{{ $val['nama'] }}</p>
+                            <p class="text-xl text-neutral-500 dark:text-neutral-300">{{ $val['nama'] }}</p>
+                            @if ($val['instagram'] !== 'null')
+                                <a href="https://www.instagram.com/{{ $val['instagram'] }}" target="_blank" type="button" class="m-1 h-8 w-8 rounded-full border-2 border-stone-600 uppercase leading-normal text-stone-600 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" data-te-ripple-init data-te-ripple-color="light">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                    </svg>
+                                </a>
+                            @endif
                         </div>
                     @endforeach
                 </div>
@@ -472,7 +499,7 @@
         <div class="container px-6 pt-6">
             <div class="mb-6 flex justify-center">
 
-                <a href="#!" type="button" class="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" data-te-ripple-init data-te-ripple-color="light">
+                <a href="https://www.instagram.com/kabarundangan/" target="_blank" type="button" class="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" data-te-ripple-init data-te-ripple-color="light">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                     </svg>

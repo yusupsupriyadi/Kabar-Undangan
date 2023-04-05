@@ -197,7 +197,7 @@
                     data = response;
                     setDataIndex()
 
-                    if(data.length === 6){
+                    if(data.length === 9){
                         $('.btn-add-value').hide()
                     }else{
                         $('.btn-add-value').show()

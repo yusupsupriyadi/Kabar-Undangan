@@ -7,11 +7,10 @@
 @endsection
 
 @section('content')
-    
     @include('undangan.template.basic')
 
-    @if($data['vip'] === 1)
-        <audio id="music-background" src="{{ asset('/audios/My Heart Will Go On - Sexaphone.mp3') }}"></audio>
+    @if ($data['vip'] === 1)
+        <audio id="music-background" loop src="{{ asset('/audios/'.$data['music_background_api']['music']) }}"></audio>
     @endif
 
     @include('undangan._modal')
@@ -135,6 +134,7 @@
         });
     </script>
     <script type="module">
+         AOS.init();
         let data = @json($data);
         var tanggalResepsi = data['setting_akad_api']['tanggal'].split("/");
         var tanggalFormatted = tanggalResepsi[2] + "-" + tanggalResepsi[1] + "-" + tanggalResepsi[0];
@@ -143,8 +143,8 @@
         const imageUrl = '{{ asset("storage/images") }}/'
         const imagePublic = '{{ asset("/images") }}/'
 
-        // $("#body").css("overflow", "hidden");
-        
+        $("#body").css("overflow", "hidden");
+
         // Memperbarui countdown setiap detik
         var timer = setInterval(function() {
             // Mengambil tanggal saat ini
@@ -188,6 +188,25 @@
                 output.src = reader.result;
             }
         })
+
+        $(document).ready(function() {
+            const btnCopy = $('.btn-copy');
+
+            btnCopy.click(function() {
+                const walletNo = $(this).attr('data-wallet');
+                const key = $(this).attr('data-key');
+                const tempInput = $('<input>');
+                $('body').append(tempInput);
+                tempInput.val(walletNo).select();
+                document.execCommand('copy');
+                tempInput.remove();
+                $(`.copy-${key}`).show('past')
+                setTimeout(function(){
+                    $(`.copy-${key}`).hide('past')
+                }, 2000)
+            });
+        });
+
         
         $(document).on('click', '.btn-open-modal', function(){
             $('#modal-hadiah').addClass('modal-open');
