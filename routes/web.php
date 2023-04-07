@@ -16,10 +16,21 @@ use App\Http\Controllers\User\PhotoBackgroundController;
 use App\Http\Controllers\User\SettingAcaraController;
 use App\Http\Controllers\User\SettingUndanganController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home.welcome');
+});
+
+Route::get('/storage-link', function () {
+    $targetFolder = storage_path('app/public');
+    $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
+    symlink($targetFolder, $linkFolder);
+});
+
+Route::get('/foo', function () {
+    Artisan::call('storage:link');
 });
 
 Route::get('/demo', function () {
@@ -33,13 +44,6 @@ Route::controller(KirimUndangan::class)->group(function () {
 Route::controller(UndanganController::class)->group(function () {
     Route::get('/pernikahan/{name}', 'index');
     Route::post('/undangan/send-pesan', 'sendPesan');
-});
-
-
-Route::domain('blog.' . env('APP_URL'))->group(function () {
-    Route::get('/', function () {
-        return 'Second subdomain landing page';
-    });
 });
 
 Route::prefix('auth')->group(function () {
