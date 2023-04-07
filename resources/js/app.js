@@ -1,4 +1,5 @@
 import './bootstrap';
+import './plugins/aos.js';
 
 import jQuery from 'jquery';
 window.$ = jQuery;

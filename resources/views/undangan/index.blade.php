@@ -134,7 +134,6 @@
         });
     </script>
     <script type="module">
-         AOS.init();
 
         $.ajaxSetup({
             headers: {

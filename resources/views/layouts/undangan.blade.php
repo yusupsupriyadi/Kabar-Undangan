@@ -14,8 +14,6 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/masthina" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,12 +21,12 @@
     <!-- Scripts -->
 
     @yield('styles')
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Build -->
-    <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
+    {{-- <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
     <link rel="stylesheet" href="{{ asset('/build/assets/app.c0f349a8.css') }}">
-    <script src="{{ asset('/build/assets/app.f41402fc.js') }}"></script>
+    <script src="{{ asset('/build/assets/app.f41402fc.js') }}"></script> --}}
 </head>
 
 <body id="body">

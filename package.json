@@ -17,6 +17,7 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
+        "aos": "^2.3.4",
         "daisyui": "^2.43.0",
         "jquery": "^3.6.1",
         "prettier": "^2.8.1",
