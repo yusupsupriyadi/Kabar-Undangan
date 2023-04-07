@@ -27,7 +27,6 @@
     <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
     <link rel="stylesheet" href="{{ asset('/build/assets/app.282c43f8.css') }}">
     <link rel="stylesheet" href="{{ asset('/build/assets/app.c0f349a8.css') }}">
-    <script src="{{ asset('/build/assets/app.014ce5ac.js') }}"></script>
 </head>
 
 <body id="body">
@@ -37,6 +36,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{{ asset('/build/assets/app.014ce5ac.js') }}"></script>
     @stack('scripts')
 </body>
 
