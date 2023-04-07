@@ -289,7 +289,7 @@
 @endsection
 
 @push('scripts')
-    <script>
+    <script type="module">
         var data = @json($data);
         var userId = @json($user->id);
 
@@ -336,9 +336,7 @@
             time_24hr: true,
             defaultDate: data !== null ? data.dataResepsi.waktu_selesai : null
         });
-    </script>
 
-    <script type="module">
         $(document).on('click', '#btn-simpan', function(){
             var typeAction = 'create';
             if(data !== null){

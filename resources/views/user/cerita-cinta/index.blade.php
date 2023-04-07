@@ -70,7 +70,7 @@
 @endsection
 
 @push('scripts')
-    <script>
+    <script type="module">
         var data = @json($data);
         flatpickr("#tanggal", {
             locale: "id",
@@ -81,8 +81,7 @@
             locale: "id",
             dateFormat: "d/m/Y",
         });
-    </script>
-    <script type="module">
+
         var keyList = data.length;
         const imageUrl = '{{ asset("storage/images") }}/'
         const imagePublic = '{{ asset("/images") }}/'

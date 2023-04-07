@@ -211,7 +211,7 @@
 @endsection
 
 @push('scripts')
-    <script>
+    <script type="module">
         var data = @json($dataMempelaiPria);
 
         flatpickr("#tanggal-lahir", {
@@ -219,9 +219,7 @@
             dateFormat: "d/m/Y",
             defaultDate: data !== null ? data.tanggal_lahir : null
         });
-    </script>
-    <script type="module">
-
+        
         if(data !== null){
             setupValue()
         }

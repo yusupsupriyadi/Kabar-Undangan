@@ -60,7 +60,7 @@
     <x-toast-alert id="toast-success" type="success" message="Berhasil." />
 @endsection
 @push('scripts')
-    <script>
+    <script type="module">
         flatpickr("#tanggal-lahir-pria", {
             locale: "id",
             dateFormat: "d/m/Y",
@@ -70,8 +70,7 @@
             locale: "id",
             dateFormat: "d/m/Y",
         });
-    </script>
-    <script type="module">
+
         // Variabel
         $('#footer').addClass('hidden')
         var dataMempelaiPria = @json($dataMempelaiPria);
