@@ -10,7 +10,7 @@
     @include('undangan.template.basic')
 
     @if ($data['vip'] === 1)
-        <audio id="music-background" loop src="{{ asset('/audios/'.$data['music_background_api']['music']) }}"></audio>
+        <audio id="music-background" loop src="{{ asset('/audios' . '/' . $data['music_background_api']['music']) }}"></audio>
     @endif
 
     @include('undangan._modal')
@@ -135,6 +135,13 @@
     </script>
     <script type="module">
          AOS.init();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        
         let data = @json($data);
         var tanggalResepsi = data['setting_akad_api']['tanggal'].split("/");
         var tanggalFormatted = tanggalResepsi[2] + "-" + tanggalResepsi[1] + "-" + tanggalResepsi[0];
@@ -145,39 +152,31 @@
 
         $("#body").css("overflow", "hidden");
 
-        // Memperbarui countdown setiap detik
         var timer = setInterval(function() {
-            // Mengambil tanggal saat ini
             var now = new Date();
-            // Menghitung selisih waktu dalam milidetik
             var timeDiff = date.getTime() - now.getTime();
-            // Menghentikan countdown jika waktu sudah habis
             if (timeDiff <= 0) {
                 clearInterval(timer);
                 $('#countdown').hide();
                 $('#countdown-done').show();
                 return;
             }
-            // Mengonversi milidetik menjadi detik, menit, jam, dan hari
+
             var seconds = Math.floor(timeDiff / 1000);
             var minutes = Math.floor(seconds / 60);
             var hours = Math.floor(minutes / 60);
             var days = Math.floor(hours / 24);
 
-            // Menghitung sisa jam, menit, dan detik
             var remainingHours = hours % 24;
             var remainingMinutes = minutes % 60;
             var remainingSeconds = seconds % 60;
 
             $('#countdown').show();
             $('#countdown-done').hide();
-            // Menampilkan hasil countdown
             $('#day').html(days);
             $('#hour').html(remainingHours);
             $('#minute').html(remainingMinutes);
             $('#second').html(remainingSeconds);
-
-            // countdown.innerHTML = "Countdown: " + days + " hari, " + remainingHours + " jam, " + remainingMinutes + " menit, " + remainingSeconds + " detik";
         }, 1000);
 
         $('#image-file').on('change', (e) => {
@@ -206,7 +205,6 @@
                 }, 2000)
             });
         });
-
         
         $(document).on('click', '.btn-open-modal', function(){
             $('#modal-hadiah').addClass('modal-open');

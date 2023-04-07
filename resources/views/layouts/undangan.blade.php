@@ -14,8 +14,6 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/masthina" rel="stylesheet">
@@ -29,7 +27,7 @@
 
     <!-- Build -->
     <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
-    <link rel="stylesheet" href="{{ asset('/build/assets/app.3a729528.css') }}">
+    <link rel="stylesheet" href="{{ asset('/build/assets/app.c0f349a8.css') }}">
     <script src="{{ asset('/build/assets/app.f41402fc.js') }}"></script>
 </head>
 
@@ -42,13 +40,6 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/id.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script type="module">
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-    </script>
     @stack('scripts')
 </body>
 
