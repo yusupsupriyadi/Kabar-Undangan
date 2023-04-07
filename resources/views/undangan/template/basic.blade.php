@@ -158,7 +158,7 @@
         <div class="mt-12 w-auto md:mt-0">
             <section data-aos="fade-left" data-aos-duration="2000">
                 <div class="mx-auto w-52">
-                    @if ($data['mempelai_pria_api'] !== 'null')
+                    @if ($data['mempelai_pria_api']['foto'] !== 'null' && $data['mempelai_pria_api']['foto'] !== null)
                         <img src="{{ asset('/storage/images/' . $data['mempelai_pria_api']['foto']) }}" class="mt-8 rounded-full" />
                     @else
                         <img src="/images/foto-pria.png" />
