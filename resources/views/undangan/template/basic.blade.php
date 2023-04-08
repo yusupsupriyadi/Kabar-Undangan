@@ -1,19 +1,19 @@
 <div id="particles-js" class="absolute h-full w-full bg-cover bg-repeat" style="background-position: 50% 50%"></div>
 <main class="m-auto">
-    <section class="header opening bg-white" id="opening">
+    <section class="header opening mx-auto bg-white" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
             <h1 class="pb-6 font-sans text-lg uppercase text-stone-600 md:text-xl">We Are Getting Married</h1>
-            <section class="flex items-center justify-center gap-4 text-center font-masthina text-stone-600 mt-2">
+            <section class="mt-2 flex items-center justify-center gap-4 text-center font-masthina text-stone-600">
                 <h1 class="nama-pria-opening text-6xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
-                <h2 class="text-5xl px-2">&</h2>
+                <h2 class="px-2 text-5xl">&</h2>
                 <h1 class="text-6xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
             </section>
-            <h5 class="mt-16 md:text-xl text-stone-600">Save the date :</h5>
+            <h5 class="mt-16 text-stone-600 md:text-xl">Save the date :</h5>
             <section class="mt-4 flex justify-center text-stone-600">
                 <table>
                     <tbody class="scale-90 md:scale-100">
                         <tr>
-                            <td colspan="3" class="font-serif text-lg md:text-xl font-semibold uppercase">
+                            <td colspan="3" class="font-serif text-lg font-semibold uppercase md:text-xl">
                                 {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('MMMM') }}
                             </td>
                         </tr>
@@ -21,7 +21,7 @@
                             <td>
                                 <div class="w-20 border-y border-black py-1">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('dddd') }}</div>
                             </td>
-                            <td class="px-2 text-5xl md:text-6xl font-thin">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('d') }}</td>
+                            <td class="px-2 text-5xl font-thin md:text-6xl">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('d') }}</td>
                             <td>
                                 <div class="w-20 border-y border-black py-1">
                                     Jam {{ $data['setting_akad_api']['waktu_mulai'] }}</span>
@@ -29,7 +29,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3" class="pt-1 font-serif text-xl md:text-2xl font-semibold uppercase">
+                            <td colspan="3" class="pt-1 font-serif text-xl font-semibold uppercase md:text-2xl">
                                 {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('y') }}
                             </td>
                         </tr>
@@ -133,9 +133,9 @@
             <section data-aos="fade-right" data-aos-duration="2000">
                 <div class="mx-auto w-52">
                     @if ($data['mempelai_wanita_api']['foto'] !== 'null' && $data['mempelai_wanita_api']['foto'] !== null)
-                        <img src="{{ asset('/storage/images/' . $data['mempelai_wanita_api']['foto']) }}" class="mt-8 rounded-full" />
+                        <img src="{{ asset('/storage/images/' . $data['mempelai_wanita_api']['foto']) }}" class="mt-8 rounded-full" width="208" height="208" alt="{{ $data['mempelai_wanita_api']['nama_lengkap'] }}" />
                     @else
-                        <img src="{{ asset('/images/foto-wanita.png') }}" />
+                        <img src="{{ asset('/images/foto-wanita.png') }}" width="208" height="208" alt="{{ $data['mempelai_wanita_api']['nama_lengkap'] }}" />
                     @endif
                 </div>
                 <div class="text-center">
@@ -145,23 +145,25 @@
                     <p class="mt-1 text-[10px] text-gray-500">Bapak {{ $data['mempelai_wanita_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_wanita_api']['nama_ibu'] }}</p>
                 </div>
             </section>
-            <a data-aos="fade-right" data-aos-duration="2000" href="https://www.instagram.com/{{ $data['mempelai_wanita_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
-                <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" />
-                    <rect x="4" y="4" width="16" height="16" rx="4" />
-                    <circle cx="12" cy="12" r="3" />
-                    <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
-                </svg>
-                <h6 class="text-xs text-white">Instagram</h6>
-            </a>
+            @if ($data['mempelai_wanita_api']['instagram'] !== 'null' && $data['mempelai_wanita_api']['instagram'] !== null)
+                <a data-aos="fade-right" data-aos-duration="2000" title="instagram mempelai wanita" href="https://www.instagram.com/{{ $data['mempelai_wanita_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
+                    <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <rect x="4" y="4" width="16" height="16" rx="4" />
+                        <circle cx="12" cy="12" r="3" />
+                        <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+                    </svg>
+                    <h6 class="text-xs text-white">Instagram</h6>
+                </a>
+            @endif
         </div>
         <div class="mt-12 w-auto md:mt-0">
             <section data-aos="fade-left" data-aos-duration="2000">
                 <div class="mx-auto w-52">
                     @if ($data['mempelai_pria_api']['foto'] !== 'null' && $data['mempelai_pria_api']['foto'] !== null)
-                        <img src="{{ asset('/storage/images/' . $data['mempelai_pria_api']['foto']) }}" class="mt-8 rounded-full" />
+                        <img src="{{ asset('/storage/images/' . $data['mempelai_pria_api']['foto']) }}" class="mt-8 rounded-full" width="208" height="208" alt="{{ $data['mempelai_pria_api']['nama_lengkap'] }}" />
                     @else
-                        <img src="/images/foto-pria.png" />
+                        <img src="/images/foto-pria.png" width="208" height="208" alt="{{ $data['mempelai_pria_api']['nama_lengkap'] }}" />
                     @endif
                 </div>
                 <div class="text-center">
@@ -171,7 +173,8 @@
                     <p class="mt-1 text-[10px] text-gray-500">Bapak {{ $data['mempelai_pria_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_pria_api']['nama_ibu'] }}</p>
                 </div>
             </section>
-            <a data-aos="fade-left" data-aos-duration="2000" href="https://www.instagram.com/{{ $data['mempelai_pria_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
+            @if($data['mempelai_pria_api']['instagram'] !== 'null' && $data['mempelai_pria_api']['instagram'] !== null)
+            <a title="instagram mempelai pria" data-aos="fade-left" data-aos-duration="2000" href="https://www.instagram.com/{{ $data['mempelai_pria_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
                 <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <rect x="4" y="4" width="16" height="16" rx="4" />
@@ -180,6 +183,7 @@
                 </svg>
                 <h6 class="text-xs text-white">Instagram</h6>
             </a>
+            @endif
         </div>
     </section>
 
@@ -220,7 +224,7 @@
                         </div>
 
                     </div>
-                    <a href="{{ $data['setting_akad_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-stone-500 p-3">
+                    <a title="google maps lokasi akad" href="{{ $data['setting_akad_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-stone-500 p-3">
                         <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
                             <line x1="18" y1="6" x2="18" y2="6.01" />
@@ -268,7 +272,7 @@
                         </div>
 
                     </div>
-                    <a href="{{ $data['setting_resepsi_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-stone-500 p-3">
+                    <a title="google maps lokasi resepsi" href="{{ $data['setting_resepsi_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-stone-500 p-3">
                         <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
                             <line x1="18" y1="6" x2="18" y2="6.01" />
@@ -283,7 +287,7 @@
             </div>
         </div>
 
-        <a data-aos="zoom-in-up" data-aos-duration="1000" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Acara+Pernikahan+{{ $data['mempelai_wanita_api']['nama_panggilan'] }}+dan+{{ $data['mempelai_pria_api']['nama_panggilan'] }}&dates=20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('ymd') }}/20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('ymd') }}&details=Deskripsi+Acara&location={{ $data['setting_resepsi_api']['tempat'] }}, {{ $data['setting_resepsi_api']['alamat'] }}&sprop=name:Organizer&sprop=website:https://www.kabarundangan.com" target="_blank" class="mx-auto mt-12 flex max-w-[15rem] items-center gap-2 rounded-lg bg-stone-600 p-4 shadow-md">
+        <a title="add calendar" data-aos="zoom-in-up" data-aos-duration="1000" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Acara+Pernikahan+{{ $data['mempelai_wanita_api']['nama_panggilan'] }}+dan+{{ $data['mempelai_pria_api']['nama_panggilan'] }}&dates=20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('ymd') }}/20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('ymd') }}&details=Deskripsi+Acara&location={{ $data['setting_resepsi_api']['tempat'] }}, {{ $data['setting_resepsi_api']['alamat'] }}&sprop=name:Organizer&sprop=website:https://www.kabarundangan.com" target="_blank" class="mx-auto mt-12 flex max-w-[15rem] items-center gap-2 rounded-lg bg-stone-600 p-4 shadow-md">
             <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" />
                 <rect x="4" y="5" width="16" height="16" rx="2" />
@@ -393,7 +397,7 @@
         </section>
     @endif
 
-    @if ($data['vip'] === 1)
+    @if ($data['vip'] === 1 || $data['vip'] === '1')
         <section class="container mx-auto mt-32 max-w-6xl" data-aos="fade-up" data-aos-duration="2000">
             <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Hadiah Untuk Kami</h1>
             <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500">Kehadiran Bapak/Ibu/Saudara/i merupakan hadiah terbaik bagi kami. Tetapi jika memberi merupakan tanda kasih, kami dengan senang hati menerimanya. Semoga kebaikan, keberkahan dan kesehatan selalu diberikan kepada kita semua. Aamiin...</p>
@@ -439,9 +443,9 @@
             <div>
                 <div class="relative flex items-center gap-4">
                     <div class="">
-                        <img id="output" src="{{ asset('/images/photo-blank.png') }}" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
+                        <img id="output" src="{{ asset('/images/photo-blank.png') }}" alt="pesan" width="96" height="96" class="rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
                     </div>
-                    <label class="inline-block w-[150px] rounded-sm bg-yellow-500 px-4 py-2 text-center text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD FOTO
+                    <label class="inline-block w-[150px] rounded-sm bg-yellow-600 px-4 py-2 text-center text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD FOTO
                         <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" type="file" multiple>
                     </label>
                 </div>
@@ -462,11 +466,11 @@
                                 "{{ $val['pesan'] }}"
                             </p>
                             <div class="mt-12 mb-6 flex justify-center">
-                                <img src="{{ $val['foto'] !== 'null' ? asset('/storage/images/' . $val['foto']) : asset('/images/photo-blank.png') }}" class="h-24 w-24 rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
+                                <img src="{{ $val['foto'] !== 'null' ? asset('/storage/images/' . $val['foto']) : asset('/images/photo-blank.png') }}" width="96" height="96" class="rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
                             </div>
                             <p class="text-xl text-neutral-500 dark:text-neutral-300">{{ $val['nama'] }}</p>
                             @if ($val['instagram'] !== 'null')
-                                <a href="https://www.instagram.com/{{ $val['instagram'] }}" target="_blank" type="button" class="m-1 h-8 w-8 rounded-full border-2 border-stone-600 uppercase leading-normal text-stone-600 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" data-te-ripple-init data-te-ripple-color="light">
+                                <a title="instagram pengguna" href="https://www.instagram.com/{{ $val['instagram'] }}" target="_blank" type="button" class="m-1 h-8 w-8 rounded-full border-2 border-stone-600 uppercase leading-normal text-stone-600 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" data-te-ripple-init data-te-ripple-color="light">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                                     </svg>
@@ -499,13 +503,13 @@
         <div class="container px-6 pt-6">
             <div class="mb-6 flex justify-center">
 
-                <a href="https://www.instagram.com/kabarundangan/" target="_blank" type="button" class="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" data-te-ripple-init data-te-ripple-color="light">
+                <a title="instagram kabarundangan.com" href="https://www.instagram.com/kabarundangan/" target="_blank" type="button" class="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" data-te-ripple-init data-te-ripple-color="light">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                     </svg>
                 </a>
 
-                <a class="m-1" href="/register">
+                <a title="register" class="m-1" href="/register">
                     <button type="button" class="inline-block rounded-full border-2 border-neutral-50 px-6 pt-2 pb-[6px] text-xs font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10" data-te-ripple-init data-te-ripple-color="light">
                         Daftar!
                     </button>
@@ -515,12 +519,12 @@
 
         <div class="p-4 text-center" style="background-color: rgba(0, 0, 0, 0.2)">
             © 2023 Copyright:
-            <a class="text-whitehite" href="https://kabarundangan.com/">Kabar Undangan</a>
+            <a title="Instagram official kabarundangan.com" class="text-whitehite" href="https://kabarundangan.com/">Kabar Undangan</a>
         </div>
     </footer>
 </main>
 
-@if ($data['vip'] === 1)
+@if ($data['vip'] === 1 || $data['vip'] === '1')
     <div class="toast-end toast" id="toggle-music">
         <label class="swap rounded-full bg-stone-200 p-2">
             <!-- this hidden checkbox controls the state -->

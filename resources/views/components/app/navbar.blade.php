@@ -2,19 +2,11 @@
     <div class="mx-auto mt-0 flex flex-wrap items-center justify-between py-3 md:container">
         <div class="flex items-center pl-4">
             <img src="{{ asset('images/logo.png') }}" width="50" alt="">
-            <a  href="/" class="text-xl ml-4 font-extrabold text-gray-900 no-underline hover:no-underline">
+            <a href="/" class="ml-4 text-xl font-extrabold text-gray-900 no-underline hover:no-underline">
                 Kabar Undangan
             </a>
         </div>
-        {{-- <div class="hidden pr-4">
-            <button id="nav-toggle" class="flex appearance-none items-center rounded border border-gray-600 px-3 py-2 text-gray-500 hover:border-purple-500 hover:text-gray-900 focus:outline-none">
-                <svg class="h-3 w-3 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                </svg>
-            </button>
-        </div> --}}
-        <div class="dropdown-end dropdown pr-2 block md:hidden">
+        <div class="dropdown-end dropdown block pr-2 md:hidden">
             <label tabindex="0" class="btn-ghost btn-circle avatar btn">
                 <div class="w-100 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-7 w-7">
@@ -80,11 +72,6 @@
                 @endif
             </ul>
         </div>
-        {{-- <div class="content-center py-4 lg:py-0">
-            <a href="#" class=" mx-6 flex items-center justify-center rounded-xl border-2 border-black bg-pink-100 px-4 py-2 font-bold shadow-[5px_5px_0_0_#000] transition hover:shadow-none focus:outline-none focus:ring active:bg-pink-50 md:mx-0">
-                Premium⭐
-            </a>
-        </div> --}}
         <div class="hidden md:block" id="nav-content">
             <ul class="list-reset flex items-center justify-end">
                 <li class="mr-3 py-2 lg:py-0">
@@ -169,7 +156,7 @@
     <div class="bg-indigo-600 px-4 py-2 text-white">
         <p class="md:text-md text-center text-xs">
             <span class="animate-pulse">hanya 80rb</span> <span class="text-red-500/50 line-through">100rb</span>
-            <a href="https://api.whatsapp.com/send?phone=085155305665&text=" class="inline-block uppercase underline">Ambil Premium Sekarang!</a>
+            <a href="https://api.whatsapp.com/send?phone=6285155305665&text=" class="inline-block uppercase underline">Ambil Premium Sekarang!</a>
         </p>
     </div>
 </nav>

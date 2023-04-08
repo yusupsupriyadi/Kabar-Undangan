@@ -24,7 +24,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9VVW3GCJ1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'G-F9VVW3GCJ1');
@@ -46,14 +49,14 @@
     </main>
 
     <div class="toast cursor-pointer md:block">
-        <a class="alert alert-success rounded-full px-4 py-2" href="https://api.whatsapp.com/send?phone=085155305665&text=">
+        <a class="alert alert-success rounded-full px-4 py-2" href="https://api.whatsapp.com/send?phone=6285155305665&text=">
             <div>
                 <span class="text-sm">butuh bantuan?</span>
                 <img src="{{ asset('/svg/whatsapp.svg') }}" />
             </div>
         </a>
     </div>
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <script src="{{ asset('/build/assets/app.014ce5ac.js') }}"></script>

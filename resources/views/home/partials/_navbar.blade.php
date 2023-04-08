@@ -1,7 +1,7 @@
 <main class="md:container absolute top-0 w-full py-2">
     <div class="navbar">
         <div class="flex-1 items-center">
-            <img src="{{ asset('images/logo.png') }}" width="50" alt="">
+            <img src="{{ asset('images/logo.png') }}" width="50" height="50" alt="logo kabar undangan">
             <a href="/" class="btn-ghost btn text-2xl font-bold normal-case">Kabar Undangan</a>
         </div>
         <div class="flex-none">
