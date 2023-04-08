@@ -9,7 +9,7 @@
 @section('content')
     @include('undangan.template.basic')
 
-    @if ($data['vip'] === 1 || $data['vip'] === '1')
+    @if ($data['vip'] === true)
         <audio id="music-background" loop src="{{ asset('/audios' . '/' . $data['music_background_api']['music']) }}"></audio>
     @endif
 
@@ -226,7 +226,7 @@
             $('#opening').hide('slow')
             $("#body").css("overflow", "auto");
             var audio = $('#music-background')[0];
-            if(data['vip'] === 1 || data['vip'] === "1"){
+            if(data['vip'] === true ){
                 audio.play();
             }
 

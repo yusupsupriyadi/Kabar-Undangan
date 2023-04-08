@@ -40,7 +40,7 @@
 </head>
 
 <body id="body">
-    <main class="body">
+    <main class="body overflow-x-hidden m-auto">
         @yield('content')
     </main>
 

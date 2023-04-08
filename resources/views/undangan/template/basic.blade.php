@@ -128,7 +128,7 @@
         <p class="text-md font-serif md:text-2xl">Dengan Memohon Rahmat dan Ridho Allah SWT, Kami Bermaksud Menyelenggarakan Pernikahan Kami :</p>
     </section>
 
-    <section class="mt-4 items-center justify-evenly md:flex">
+    <section class="container mt-4 items-center justify-evenly md:flex">
         <div class="w-auto">
             <section data-aos="fade-right" data-aos-duration="2000">
                 <div class="mx-auto w-52">
@@ -173,16 +173,16 @@
                     <p class="mt-1 text-[10px] text-gray-500">Bapak {{ $data['mempelai_pria_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_pria_api']['nama_ibu'] }}</p>
                 </div>
             </section>
-            @if($data['mempelai_pria_api']['instagram'] !== 'null' && $data['mempelai_pria_api']['instagram'] !== null)
-            <a title="instagram mempelai pria" data-aos="fade-left" data-aos-duration="2000" href="https://www.instagram.com/{{ $data['mempelai_pria_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
-                <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" />
-                    <rect x="4" y="4" width="16" height="16" rx="4" />
-                    <circle cx="12" cy="12" r="3" />
-                    <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
-                </svg>
-                <h6 class="text-xs text-white">Instagram</h6>
-            </a>
+            @if ($data['mempelai_pria_api']['instagram'] !== 'null' && $data['mempelai_pria_api']['instagram'] !== null)
+                <a title="instagram mempelai pria" data-aos="fade-left" data-aos-duration="2000" href="https://www.instagram.com/{{ $data['mempelai_pria_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-stone-600 py-2">
+                    <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <rect x="4" y="4" width="16" height="16" rx="4" />
+                        <circle cx="12" cy="12" r="3" />
+                        <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+                    </svg>
+                    <h6 class="text-xs text-white">Instagram</h6>
+                </a>
             @endif
         </div>
     </section>
@@ -397,7 +397,7 @@
         </section>
     @endif
 
-    @if ($data['vip'] === 1 || $data['vip'] === '1')
+    @if ($data['vip'] === true)
         <section class="container mx-auto mt-32 max-w-6xl" data-aos="fade-up" data-aos-duration="2000">
             <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Hadiah Untuk Kami</h1>
             <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500">Kehadiran Bapak/Ibu/Saudara/i merupakan hadiah terbaik bagi kami. Tetapi jika memberi merupakan tanda kasih, kami dengan senang hati menerimanya. Semoga kebaikan, keberkahan dan kesehatan selalu diberikan kepada kita semua. Aamiin...</p>
@@ -524,7 +524,7 @@
     </footer>
 </main>
 
-@if ($data['vip'] === 1 || $data['vip'] === '1')
+@if ($data['vip'] === true)
     <div class="toast-end toast" id="toggle-music">
         <label class="swap rounded-full bg-stone-200 p-2">
             <!-- this hidden checkbox controls the state -->
