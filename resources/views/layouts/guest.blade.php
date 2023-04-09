@@ -15,7 +15,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9VVW3GCJ1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'G-F9VVW3GCJ1');
@@ -26,7 +29,7 @@
     <!-- Build -->
     <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
     <link rel="stylesheet" href="{{ asset('/build/assets/app.282c43f8.css') }}">
-    <link rel="stylesheet" href="{{ asset('/build/assets/app.c0f349a8.css') }}">
+    <link rel="stylesheet" href="{{ asset('/build/assets/app.02e8755c.css') }}">
 </head>
 
 <body>
