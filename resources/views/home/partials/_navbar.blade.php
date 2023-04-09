@@ -6,8 +6,7 @@
         </div>
         <div class="flex-none">
             <ul class="text-md menu menu-horizontal hidden px-1 font-semibold lg:flex">
-                <li id="home" cla><a href="/">Home</a></li>
-                <li><a href="/contact">Kontak</a></li>
+                {{-- <li><a href="/contact">Kontak</a></li> --}}
             </ul>
             <div class="dropdown-end dropdown">
                 <label tabindex="0" class="btn-ghost btn-circle avatar btn">

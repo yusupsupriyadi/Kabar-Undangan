@@ -23,13 +23,6 @@ Route::get('/', function () {
     return view('home.welcome');
 });
 
-Route::group(['domain' => 'blog.kabarundangan.com'], function () {
-    Route::get('/', function () {
-        return 'Ini halaman untuk subdomain';
-    });
-});
-
-
 Route::get('/storage-link', function () {
     $targetFolder = storage_path('app/public');
     $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
