@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('libraries')
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+@endsection
+
 @section('content')
     <main class="bg-gray-100">
         <x-app.navbar />
@@ -19,13 +23,13 @@
             <!--Main Content-->
             <div class="border-rounded mt-6 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0 lg:w-4/5">
 
-                <section class="{{ intval($user['vip']) === 1  ? 'hidden' : '' }} mb-6">
+                <section class="{{ intval($user['vip']) === 1 ? 'hidden' : '' }} mb-6">
                     <x-app.card-premium />
                 </section>
 
                 <x-app.title title="Kirim Undangan" desc="Fasilitas ini dapat anda gunakan untuk mengirimkan undangan khusus ke teman-teman anda dengan mencantumkan nama teman atau saudara anda. " />
 
-                <section class="{{ intval($user['vip']) === 1  ? 'hidden' : '' }} mt-2">
+                <section class="{{ intval($user['vip']) === 1 ? 'hidden' : '' }} mt-2">
                     <div class="alert alert-error animate-pulse shadow-lg">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 stroke-current text-white" fill="none" viewBox="0 0 24 24">
@@ -36,7 +40,7 @@
                     </div>
                 </section>
 
-                <main class="py-5 {{ intval($user['vip']) === 1  ? '' : 'hidden' }}">
+                <main class="{{ intval($user['vip']) === 1 ? '' : 'hidden' }} py-5">
                     <form class="md:flex md:gap-4">
                         <div class="form-control w-full">
                             <section class="wallet-index">
@@ -44,20 +48,20 @@
                                     <label class="label flex items-center justify-start gap-1">
                                         <span class="form-label text-md font-semibold">Penerima</span>
                                     </label>
-                                    <div class="flex items-center !max-w-md gap-4">
-                                        <input id="nama1" type="text" placeholder="Masukan nama" value="" class="input-primary " />
+                                    <div class="flex !max-w-md items-center gap-4">
+                                        <input id="nama1" type="text" placeholder="Masukan nama" value="" class="input-primary" />
                                         <h1>&</h1>
                                         <input id="nama2" type="text" placeholder="Masukan nama partner" value="" class="input-primary" />
                                     </div>
-                                    <small class="!max-w-md mt-2 text-sm">Form ini untuk mengirim undangan kamu khusus ke orang yang kamu ingin undangan. <br> Contoh: <span class="font-bold">kevin & partner</span></small>
+                                    <small class="mt-2 !max-w-md text-sm">Form ini untuk mengirim undangan kamu khusus ke orang yang kamu ingin undangan. <br> Contoh: <span class="font-bold">kevin & partner</span></small>
                                 </div>
-                                <h1 class="mt-3 text-sm">link: <span id="link" class="text-blue-500 cursor-pointer hover:underline"></span></h1>
+                                <h1 class="mt-3 text-sm">link: <span data-clipboard-target=".link" class="copy-link cursor-pointer text-blue-500 hover:underline"><span class="link"></span></span></h1>
                                 <div class="form-control mt-4 w-full">
                                     <label class="label flex items-center justify-start gap-1">
                                         <span class="form-label text-md font-bold">Template pesan wa</span>
-                                        <button id="copy-template-wa" type="button" class="rounded-full font-bold ml-2 p-1 text-sm border-2 border-black">Copy</button>
+                                        <button id="copy-template-wa" data-clipboard-target="#template-wa" type="button" class="ml-2 rounded-full border-2 border-black p-1 text-sm font-bold">Copy</button>
                                     </label>
-                                    <textarea id="template-wa" type="text" class="input-primary h-[32rem] md:h-[30rem] !max-w-md !text-white" style="background-color: darkgreen" readonly></textarea>
+                                    <textarea id="template-wa" type="text" class="input-primary h-[32rem] !max-w-md !text-white md:h-[30rem]" style="background-color: darkgreen" readonly></textarea>
                                 </div>
                             </section>
                         </div>
@@ -78,7 +82,7 @@
         let user = @json($user);
         let nama1 = $('#nama1').val();
         let nama2 = $('#nama2').val();
-        $('#link').text(`https://kabarundangan.com/pernikahan/${user['name']}`);
+        $('.link').text(`https://kabarundangan.com/pernikahan/${user['name']}`);
         let template = `Assalamu'alaikum Wr. Wb,\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :\n\n "${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}" \n\nBerikut link undangan kami untuk info lengkap dari acara bisa kunjungi :\n\nhttps://kabarundangan.com/pernikahan/${user['name']} \n\nMerupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.\n\nWassalamu'alaikum Wr. Wb.\nTerima kasih🌹 \n\nWith Love,\n${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}`;
         $(document).ready(function() {
             let nama = $('#nama').val();
@@ -89,26 +93,38 @@
             nama1 = $(this).val();
             template = `Assalamu'alaikum Wr. Wb,\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :\n\n "${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}" \n\nBerikut link undangan kami untuk info lengkap dari acara bisa kunjungi :\n\nhttps://kabarundangan.com/pernikahan/${user['name']}${nama1 !==  '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2} \n\nMerupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.\n\nWassalamu'alaikum Wr. Wb.\nTerima kasih🌹 \n\nWith Love,\n${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}`;
             $('#template-wa').val(template);
-            $('#link').text(`https://kabarundangan.com/pernikahan/${user['name']}${nama1 !== '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2}`);
+            $('.link').text(`https://kabarundangan.com/pernikahan/${user['name']}${nama1 !== '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2}`);
         })  
 
         $(document).on('keyup', '#nama2', function() {
             nama2 = $(this).val();
             template = `Assalamu'alaikum Wr. Wb,\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :\n\n "${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}" \n\nBerikut link undangan kami untuk info lengkap dari acara bisa kunjungi :\n\nhttps://kabarundangan.com/pernikahan/${user['name']}${nama1 !==  '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2} \n\nMerupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.\n\nWassalamu'alaikum Wr. Wb.\nTerima kasih🌹 \n\nWith Love,\n${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}`;
             $('#template-wa').val(template);
-            $('#link').text(`https://kabarundangan.com/pernikahan/${user['name']}${nama1 !==  '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2}`);
+            $('.link').text(`https://kabarundangan.com/pernikahan/${user['name']}${nama1 !==  '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2}`);
         })  
 
-        $(document).on('click', '#link', function() {
-            let link = $(this).text();
-            navigator.clipboard.writeText(link);
-            alert('Link berhasil disalin');
-        })
+        var clipboardLink = new ClipboardJS('.copy-link');
 
-        $(document).on('click', '#copy-template-wa', function() {
-            let template = $('#template-wa').val();
-            navigator.clipboard.writeText(template);
-            alert('Template berhasil disalin');
-        })
+        $(document).ready(function() {
+            clipboardLink.on('success', function(e) {
+                alert('Link berhasil disalin');
+            });
+
+            clipboardLink.on('error', function(e) {
+                alert('Gagal menyalin');
+            });
+        });
+
+        var clipboardTemplateWa = new ClipboardJS('#copy-template-wa');
+
+        $(document).ready(function() {
+            clipboardTemplateWa.on('success', function(e) {
+                alert('Template Wa berhasil disalin');
+            });
+
+            clipboardTemplateWa.on('error', function(e) {
+                alert('Gagal menyalin');
+            });
+        });
     </script>
 @endpush
