@@ -19,7 +19,7 @@
             <!--Main Content-->
             <div class="border-rounded mt-6 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0 lg:w-4/5">
 
-                <section class="{{ $user['vip'] === 1 ? 'hidden' : '' }} mb-6">
+                <section class="{{ intval($user['vip']) === 1 ? 'hidden' : '' }} mb-6">
                     <x-app.card-premium />
                 </section>
 
@@ -127,7 +127,14 @@
 
                             <div class="form-control mt-4">
                                 <label class="label flex items-center justify-start gap-1">
-                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />  <line x1="13" y1="7" x2="13" y2="7.01" />  <line x1="17" y1="7" x2="17" y2="7.01" />  <line x1="17" y1="11" x2="17" y2="11.01" />  <line x1="17" y1="15" x2="17" y2="15.01" /></svg>
+                                    <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />
+                                        <line x1="13" y1="7" x2="13" y2="7.01" />
+                                        <line x1="17" y1="7" x2="17" y2="7.01" />
+                                        <line x1="17" y1="11" x2="17" y2="11.01" />
+                                        <line x1="17" y1="15" x2="17" y2="15.01" />
+                                    </svg>
                                     <span class="form-label text-sm font-normal">Tempat</span>
                                 </label>
                                 <input id="tempat-akad" type="text" name="tempat-akad" class="input-primary" placeholder="Masukan tempat pelaksanaan akad nikah" required />
@@ -227,13 +234,20 @@
 
                             <div class="form-control mt-4">
                                 <label class="label flex items-center justify-start gap-1">
-                                    <svg class="h-5 w-5 text-black"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />  <line x1="13" y1="7" x2="13" y2="7.01" />  <line x1="17" y1="7" x2="17" y2="7.01" />  <line x1="17" y1="11" x2="17" y2="11.01" />  <line x1="17" y1="15" x2="17" y2="15.01" /></svg>
+                                    <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />
+                                        <line x1="13" y1="7" x2="13" y2="7.01" />
+                                        <line x1="17" y1="7" x2="17" y2="7.01" />
+                                        <line x1="17" y1="11" x2="17" y2="11.01" />
+                                        <line x1="17" y1="15" x2="17" y2="15.01" />
+                                    </svg>
                                     <span class="form-label text-sm font-normal">Tempat</span>
                                 </label>
                                 <input id="tempat-resepsi" type="text" name="tempat-resepsi" class="input-primary" placeholder="Masukan tempat pelaksanaan resepsi" required />
                                 <label-validate id="tempat-resepsi-validate">Wajib disi</label-validate>
                             </div>
-                            
+
                             <div class="form-control mt-4">
                                 <label class="label flex items-center justify-start gap-2">
                                     <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

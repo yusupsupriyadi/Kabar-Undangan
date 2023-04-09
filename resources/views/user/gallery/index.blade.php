@@ -19,7 +19,7 @@
             <!--Main Content-->
             <div class="border-rounded mt-6 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0 lg:w-4/5">
 
-                <section class="{{ $user['vip'] === 1 ? 'hidden' : '' }} mb-6">
+                <section class="{{ intval($user['vip']) === 1 ? 'hidden' : '' }} mb-6">
                     <x-app.card-premium />
                 </section>
 

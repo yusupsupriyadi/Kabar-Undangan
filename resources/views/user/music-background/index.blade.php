@@ -19,13 +19,13 @@
             <!--Main Content-->
             <div class="border-rounded mt-6 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0 lg:w-4/5">
 
-                <section class="{{ $user['vip'] === 1 ? 'hidden' : '' }} mb-6">
+                <section class="{{ intval($user['vip']) === 1 ? 'hidden' : '' }} mb-6">
                     <x-app.card-premium />
                 </section>
 
                 <x-app.title title="Musik Background" desc="Kamu bisa menambahkan audio atau musik selama website pernikahan kamu dibuka, silahkan pilih audio/musik pilihan kamu." />
 
-                <section class="{{ $user['vip'] === 1 ? 'hidden' : '' }} mt-2">
+                <section class="{{ intval($user['vip']) === 1 ? 'hidden' : '' }} mt-2">
                     <div class="alert alert-error animate-pulse shadow-lg">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 stroke-current text-white" fill="none" viewBox="0 0 24 24">
