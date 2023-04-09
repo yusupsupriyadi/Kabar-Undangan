@@ -1,4 +1,4 @@
-<div class="w-full pt-20 text-xl leading-normal text-gray-800 md:pt-4 lg:w-1/5 lg:px-6">
+<div class="w-full pt-8 text-xl leading-normal text-gray-800 md:pt-4 lg:w-1/5 lg:px-6">
     <p class="py-2 text-base font-bold text-gray-700">Menu</p>
     <div class="block lg:hidden">
         <button id="menu-toggle" class="flex w-full appearance-none justify-between rounded border border-gray-600 bg-white px-3 py-3 hover:border-purple-500 focus:outline-none lg:bg-transparent">

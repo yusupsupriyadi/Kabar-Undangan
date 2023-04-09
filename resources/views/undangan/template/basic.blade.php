@@ -123,7 +123,7 @@
         </div>
     </section>
 
-    <section class="container mx-auto mt-16 max-w-4xl text-center" data-aos="fade-up" data-aos-duration="2000">
+    <section class="container mx-auto mt-0 md:mt-12 max-w-4xl text-center" data-aos="fade-up" data-aos-duration="2000">
         <h2 class="mb-4 font-tangerine text-4xl font-semibold md:text-5xl">Bismillahirrahmanirrahim</h2>
         <p class="text-md font-serif md:text-2xl">Dengan Memohon Rahmat dan Ridho Allah SWT, Kami Bermaksud Menyelenggarakan Pernikahan Kami :</p>
     </section>
@@ -311,7 +311,7 @@
     </section>
 
     @if (count($data['cerita_cinta_api']) > 0)
-        <section class="container mx-auto mt-24 max-w-4xl">
+        <section class="container mx-auto mt-40 max-w-4xl">
             <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl" data-aos="fade-up" data-aos-duration="1000">Story</h1>
             <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600" data-aos="fade-up" data-aos-duration="1000">Dua jiwa namun satu pikiran, dua hati namun satu perasaan</p>
 
@@ -378,7 +378,7 @@
     @endif
 
     @if (count($data['gallery_api']) > 0)
-        <section class="container mx-auto mt-24 max-w-5xl">
+        <section class="container mx-auto mt-40 max-w-5xl">
             <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl" data-aos="fade-up" data-aos-duration="2000">Gallery</h1>
             <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600" data-aos="fade-up" data-aos-duration="2000">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
             <section class="mt-8">
@@ -398,7 +398,7 @@
     @endif
 
     @if ($data['vip'] === true || $data['vip'] === "true")
-        <section class="container mx-auto mt-32 max-w-6xl" data-aos="fade-up" data-aos-duration="2000">
+        <section class="container mx-auto mt-28 max-w-6xl" data-aos="fade-up" data-aos-duration="2000">
             <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Hadiah Untuk Kami</h1>
             <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500">Kehadiran Bapak/Ibu/Saudara/i merupakan hadiah terbaik bagi kami. Tetapi jika memberi merupakan tanda kasih, kami dengan senang hati menerimanya. Semoga kebaikan, keberkahan dan kesehatan selalu diberikan kepada kita semua. Aamiin...</p>
 
@@ -415,7 +415,7 @@
         </section>
     @endif
 
-    <section class="container mx-auto mt-36 max-w-4xl">
+    <section class="container mx-auto mt-40 max-w-4xl">
         <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600" data-aos="fade-right" data-aos-duration="2000">Ucapan Selamat & Do'a</h1>
         <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500" data-aos="fade-left" data-aos-duration="2000">Kami mengharapkan kehadiran Anda.</p>
 
