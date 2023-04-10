@@ -2,7 +2,13 @@
 
 @section('content')
     <main>
-        <div class="overflow-x-auto">
+        <div class="form-control w-full max-w-xs">
+            <label class="label">
+                <span class="label-text"><span class="font-bold">Cari: </span> nama/email/telp</span>
+            </label>
+            <input type="text" id="search-email" placeholder="Type here" class="input-bordered input w-full max-w-xs" />
+        </div>
+        <div class="overflow-x-auto mt-2">
             <table class="table w-full shadow-lg">
                 <thead>
                     <tr>
@@ -97,6 +103,13 @@
                     }
                 }
             });
+        })
+
+        $('#search-email').on('keyup', function() {
+            let value = $(this).val().toLowerCase()
+            $('#data-body tr').filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            })
         })
     </script>
 @endpush
