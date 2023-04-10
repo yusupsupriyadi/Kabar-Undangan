@@ -41,7 +41,7 @@
     <!-- Build -->
     <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
     <link rel="stylesheet" href="{{ asset('/build/assets/app.282c43f8.css') }}">
-    <link rel="stylesheet" href="{{ asset('/build/assets/app.02e8755c.css') }}">
+    <link rel="stylesheet" href="{{ asset('/build/assets/app.ad8970ab.css') }}">
 </head>
 
 <body id="body">
@@ -49,7 +49,7 @@
         @yield('content')
     </main>
 
-    <div class="toast cursor-pointer md:block">
+    <div class="toast cursor-pointer md:block" id="toast-wa">
         <a class="alert alert-success rounded-full px-4 py-2" href="https://api.whatsapp.com/send?phone=6285155305665&text=">
             <div>
                 <span class="text-sm">butuh bantuan?</span>

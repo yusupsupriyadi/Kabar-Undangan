@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function dashboard(Request $request){
+
+        if($request->user()->role === 'admin'){
+            return redirect()->route('admin.dashboard');
+        }
+
         $dataMempelaiWanita = $request->user()->mempelaiWanitaApi;
         if($dataMempelaiWanita === null){
             return redirect()->route('complete-register');

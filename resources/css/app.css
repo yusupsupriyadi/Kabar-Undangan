@@ -387,3 +387,7 @@ input[type='file'] {
 	height: auto;
 	object-fit: cover;
 }
+
+.drawer-item-active {
+	@apply font-bold text-gray-600 shadow-md bg-gray-100;
+}

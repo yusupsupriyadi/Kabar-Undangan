@@ -39,7 +39,7 @@
     <!-- Build -->
     <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
     <link rel="stylesheet" href="{{ asset('/build/assets/app.282c43f8.css') }}">
-    <link rel="stylesheet" href="{{ asset('/build/assets/app.02e8755c.css') }}">
+    <link rel="stylesheet" href="{{ asset('/build/assets/app.ad8970ab.css') }}">
 </head>
 
 <body id="body">

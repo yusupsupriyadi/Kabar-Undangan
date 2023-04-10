@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -35,6 +36,15 @@ Route::get('/foo', function () {
 
 Route::get('/demo', function () {
     return view('demo.index');
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/admin/dashboard', 'dashboard')->name('admin.dashboard');
+        Route::get('/admin/users', 'users');
+        Route::get('/admin/get-users', 'getUsers')->name('admin.get-users');
+        Route::post('/admin/update-user', 'updateUser')->name('admin.update-user');
+    });
 });
 
 Route::controller(KirimUndangan::class)->group(function () {
