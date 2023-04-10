@@ -36,7 +36,7 @@
                     </tbody>
                 </table>
             </section>
-            @if ($data['vip'] === true || $data['vip'] === "true")
+            @if ($data['vip'] === true || $data['vip'] === 'true')
                 @if (request()->query('untuk') != null)
                     <section class="mt-6 text-stone-600">
                         <h5 class="font-tangerine text-2xl font-bold text-stone-600">Dear :</h5>
@@ -123,7 +123,7 @@
         </div>
     </section>
 
-    <section class="container mx-auto mt-0 md:mt-12 max-w-4xl text-center" data-aos="fade-up" data-aos-duration="2000">
+    <section class="container mx-auto mt-0 max-w-4xl text-center md:mt-12" data-aos="fade-up" data-aos-duration="2000">
         <h2 class="mb-4 font-tangerine text-4xl font-semibold md:text-5xl">Bismillahirrahmanirrahim</h2>
         <p class="text-md font-serif md:text-2xl">Dengan Memohon Rahmat dan Ridho Allah SWT, Kami Bermaksud Menyelenggarakan Pernikahan Kami :</p>
     </section>
@@ -397,7 +397,7 @@
         </section>
     @endif
 
-    @if ($data['vip'] === true || $data['vip'] === "true")
+    @if ($data['vip'] === true || $data['vip'] === 'true')
         <section class="container mx-auto mt-28 max-w-6xl" data-aos="fade-up" data-aos-duration="2000">
             <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600">Hadiah Untuk Kami</h1>
             <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500">Kehadiran Bapak/Ibu/Saudara/i merupakan hadiah terbaik bagi kami. Tetapi jika memberi merupakan tanda kasih, kami dengan senang hati menerimanya. Semoga kebaikan, keberkahan dan kesehatan selalu diberikan kepada kita semua. Aamiin...</p>
@@ -451,7 +451,7 @@
                 </div>
             </div>
 
-            <button class="btn-send block w-full rounded-lg bg-stone-500 px-5 py-3 font-sans text-lg font-medium text-white">
+            <button class="{{ $data['name'] === 'Emily-dan-david' ? '' : 'btn-send' }} block w-full rounded-lg bg-stone-500 px-5 py-3 font-sans text-lg font-medium text-white">
                 Kirim Ucapan
             </button>
     </section>
@@ -524,7 +524,7 @@
     </footer>
 </main>
 
-@if ($data['vip'] === true || $data['vip'] === "true")
+@if ($data['vip'] === true || $data['vip'] === 'true')
     <div class="toast-end toast" id="toggle-music">
         <label class="swap rounded-full bg-stone-200 p-2">
             <!-- this hidden checkbox controls the state -->
