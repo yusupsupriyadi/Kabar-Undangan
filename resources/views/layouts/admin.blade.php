@@ -19,13 +19,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,500&family=Great+Vibes&family=Open+Sans&family=Poppins:wght@400;500;600;700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 
     @yield('styles')
-    {{-- Develop --}}
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-
-    <!-- Build -->
-    <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
-    <link rel="stylesheet" href="{{ asset('/build/assets/app.282c43f8.css') }}">
-    <link rel="stylesheet" href="{{ asset('/build/assets/app.ad8970ab.css') }}">
+    
+    @include('layouts._library', ['library' => 'css'])
 </head>
 
 <body id="body" class="bg-gray-100">
@@ -138,7 +133,7 @@
 
     </main>
 
-    <script src="{{ asset('/build/assets/app.014ce5ac.js') }}"></script>
+    @include('layouts._library', ['library' => 'js'])
     <script type="module">
         $.ajaxSetup({
             headers: {
