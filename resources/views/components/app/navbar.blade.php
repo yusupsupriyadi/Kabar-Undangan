@@ -18,7 +18,7 @@
                 @if (Route::has('login'))
                     @auth
                         <li>
-                            <a href="{{ route('profile.edit') }}" class="text-lg font-bold">{{ Auth::user()->name }}</a>
+                            <a href="javascript:void(0)" class="text-md font-bold">{{ Auth::user()->name }}</a>
                         </li>
                         <hr class="mx-4">
                         <li>
@@ -95,7 +95,7 @@
                             @if (Route::has('login'))
                                 @auth
                                     <li>
-                                        <a href="{{ route('profile.edit') }}" class="text-lg font-bold">{{ Auth::user()->name }}</a>
+                                        <a href="javascript:void(0)" class="text-md font-bold">{{ Auth::user()->name }}</a>
                                     </li>
                                     <hr class="mx-4">
                                     <li>
@@ -153,7 +153,7 @@
             </ul>
         </div>
     </div>
-    <div class="bg-indigo-600 px-4 py-2 text-white">
+    <div id="promo-panel" class="bg-indigo-600 px-4 py-2 text-white hidden">
         <p class="md:text-md text-center text-xs">
             <span class="animate-pulse">hanya 80rb</span> <span class="text-red-500/50 line-through">100rb</span>
             <a href="https://api.whatsapp.com/send?phone=6285155305665&text=" class="inline-block uppercase underline">Ambil Premium Sekarang!</a>

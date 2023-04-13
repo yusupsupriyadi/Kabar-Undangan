@@ -221,6 +221,17 @@
             defaultDate: data !== null ? data.tanggal_lahir : null
         });
         
+        var vip = @json($user['vip']);
+        if(vip){
+            $('#promo-panel').hide()
+            $('#menu-navigation').removeClass('pt-20')
+            $('#menu-navigation').addClass('pt-16')
+        }else{
+            $('#promo-panel').show()
+            $('#menu-navigation').removeClass('pt-16')
+            $('#menu-navigation').addClass('pt-20')
+        }
+        
         if(data !== null){
             setupValue()
         }

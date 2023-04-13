@@ -88,6 +88,17 @@
         var data = [];
         var idData = '';
 
+        var vip = @json($user['vip']);
+        if(vip){
+            $('#promo-panel').hide()
+            $('#menu-navigation').removeClass('pt-20')
+            $('#menu-navigation').addClass('pt-16')
+        }else{
+            $('#promo-panel').show()
+            $('#menu-navigation').removeClass('pt-16')
+            $('#menu-navigation').addClass('pt-20')
+        }
+
         $('#image-file').on('change', (e) => {
             var reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);

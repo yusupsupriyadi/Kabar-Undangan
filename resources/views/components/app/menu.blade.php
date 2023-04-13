@@ -1,7 +1,7 @@
-<div class="w-full pt-8 text-xl leading-normal text-gray-800 md:pt-4 lg:w-1/5 lg:px-6">
+<div id="menu-navigation" class="w-full pt-16 text-xl leading-normal text-gray-800 md:pt-4 lg:w-1/5 lg:px-6">
     <p class="py-2 text-base font-bold text-gray-700">Menu</p>
     <div class="block lg:hidden">
-        <button id="menu-toggle" class="flex w-full appearance-none justify-between rounded border border-gray-600 bg-white px-3 py-3 hover:border-purple-500 focus:outline-none lg:bg-transparent">
+        <button id="menu-toggle" class="flex w-full appearance-none justify-between rounded border border-b-4 border-gray-600 bg-white px-3 py-3 hover:border-purple-500 focus:outline-none lg:bg-transparent">
             {{ $activeDisplay }}
             <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" />
