@@ -17,11 +17,12 @@ use App\Http\Controllers\User\PhotoBackgroundController;
 use App\Http\Controllers\User\SettingAcaraController;
 use App\Http\Controllers\User\SettingUndanganController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home.welcome');
+Route::controller(WelcomeController::class)->group(function () {
+    Route::get('/', 'index');
 });
 
 Route::get('/storage-link', function () {
