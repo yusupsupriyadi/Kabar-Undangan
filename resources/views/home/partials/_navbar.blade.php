@@ -21,7 +21,7 @@
                     @if (Route::has('login'))
                         @auth
                             <li>
-                                <a href="{{ route('profile.edit') }}" class="text-lg font-bold">{{ Auth::user()->name }}</a>
+                                <div class="text-lg font-bold">{{ Auth::user()->name }}</div>
                             </li>
                             <hr class="mx-4">
                             <li>

@@ -18,7 +18,7 @@
                 @if (Route::has('login'))
                     @auth
                         <li>
-                            <a href="javascript:void(0)" class="text-md font-bold">{{ Auth::user()->name }}</a>
+                            <div class="text-md font-bold">{{ Auth::user()->name }}</div>
                         </li>
                         <hr class="mx-4">
                         <li>
@@ -95,7 +95,7 @@
                             @if (Route::has('login'))
                                 @auth
                                     <li>
-                                        <a href="javascript:void(0)" class="text-md font-bold">{{ Auth::user()->name }}</a>
+                                        <div class="text-md font-bold">{{ Auth::user()->name }}</div>
                                     </li>
                                     <hr class="mx-4">
                                     <li>
