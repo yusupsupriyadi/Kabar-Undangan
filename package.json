@@ -25,6 +25,7 @@
         "jquery": "^3.6.1",
         "prettier": "^2.8.1",
         "prettier-plugin-tailwindcss": "^0.2.1",
-        "shufflejs": "^6.1.0"
+        "shufflejs": "^6.1.0",
+        "vite-plugin-minify": "^1.5.2"
     }
 }

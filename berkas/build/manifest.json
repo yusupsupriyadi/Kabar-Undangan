@@ -1,11 +1,11 @@
 {
-  "public/images/bg-image-wedding.webp": {
-    "file": "assets/bg-image-wedding.f6cfdf5b.webp",
-    "src": "public/images/bg-image-wedding.webp"
-  },
   "public/images/bg-image-login.webp": {
     "file": "assets/bg-image-login.1187aa94.webp",
     "src": "public/images/bg-image-login.webp"
+  },
+  "public/images/bg-image-wedding.webp": {
+    "file": "assets/bg-image-wedding.f6cfdf5b.webp",
+    "src": "public/images/bg-image-wedding.webp"
   },
   "resources/js/app.js": {
     "file": "assets/app.014ce5ac.js",
@@ -20,7 +20,7 @@
     "src": "resources/js/app.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app.cbbbb3c0.css",
+    "file": "assets/app.3050e0e1.css",
     "src": "resources/css/app.css",
     "isEntry": true
   }
