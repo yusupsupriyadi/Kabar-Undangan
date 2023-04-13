@@ -21,8 +21,8 @@ use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
-Route::controller(WelcomeController::class)->group(function () {
-    Route::get('/', 'index');
+Route::domain('kabarundangan.com')->group(function () {
+    Route::get('/', [WelcomeController::class, 'index']);
 });
 
 Route::domain('{subdomain}.kabarundangan.com')->group(function () {
