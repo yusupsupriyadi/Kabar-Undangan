@@ -26,7 +26,7 @@ Route::domain(env('APP_URL'))->group(function () {
 });
 
 Route::domain('{subdomain}.kabarundangan.com')->group(function () {
-    Route::get('/', [WelcomeController::class, 'undangan']);
+    Route::get('/', [WelcomeController::class, 'undangan'])->name('subdomain');
 });
 
 Route::get('/foo', function () {
