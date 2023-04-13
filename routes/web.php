@@ -25,14 +25,8 @@ Route::controller(WelcomeController::class)->group(function () {
     Route::get('/', 'index');
 });
 
-Route::domain('{subdomain}.'.config('app.short_url'))->group(function () {
-    return "Subdomain";
-});
-
-Route::get('/storage-link', function () {
-    $targetFolder = storage_path('app/public');
-    $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
-    symlink($targetFolder, $linkFolder);
+Route::domain('{subdomain}.kabarundangan.com')->group(function () {
+    Route::get('/undangan', [WelcomeController::class, 'undangan']);
 });
 
 Route::get('/foo', function () {
