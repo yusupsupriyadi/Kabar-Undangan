@@ -25,6 +25,12 @@ Route::controller(WelcomeController::class)->group(function () {
     Route::get('/', 'index');
 });
 
+Route::domain('{subdomain}.kabarundangan.com')->group(function () {
+    Route::get('/', function ($subdomain) {
+        return 'Subdomain is '.$subdomain;
+    });
+});
+
 Route::get('/storage-link', function () {
     $targetFolder = storage_path('app/public');
     $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
