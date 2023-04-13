@@ -93,8 +93,8 @@
             $('#menu-navigation').addClass('pt-20')
         }
         
-        $('.link').text(`https://kabarundangan.com/pernikahan/${user['name']}`);
-        let template = `Assalamu'alaikum Wr. Wb,\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :\n\n "${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}" \n\nBerikut link undangan kami untuk info lengkap dari acara bisa kunjungi :\n\nhttps://kabarundangan.com/pernikahan/${user['name']} \n\nMerupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.\n\nWassalamu'alaikum Wr. Wb.\nTerima kasih🌹 \n\nWith Love,\n${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}`;
+        $('.link').text(`https://${user['name']}.kabarundangan.com`);
+        let template = `Assalamu'alaikum Wr. Wb,\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :\n\n "${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}" \n\nBerikut link undangan kami untuk info lengkap dari acara bisa kunjungi :\n\nhttps://${user['name']}.kabarundangan.com \n\nMerupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.\n\nWassalamu'alaikum Wr. Wb.\nTerima kasih🌹 \n\nWith Love,\n${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}`;
         $(document).ready(function() {
             let nama = $('#nama').val();
             $('#template-wa').val(template);
@@ -102,16 +102,16 @@
 
         $(document).on('keyup', '#nama1', function() {
             nama1 = $(this).val();
-            template = `Assalamu'alaikum Wr. Wb,\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :\n\n "${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}" \n\nBerikut link undangan kami untuk info lengkap dari acara bisa kunjungi :\n\nhttps://kabarundangan.com/pernikahan/${user['name']}${nama1 !==  '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2} \n\nMerupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.\n\nWassalamu'alaikum Wr. Wb.\nTerima kasih🌹 \n\nWith Love,\n${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}`;
+            template = `Assalamu'alaikum Wr. Wb,\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :\n\n "${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}" \n\nBerikut link undangan kami untuk info lengkap dari acara bisa kunjungi :\n\nhttps://${user['name']}.kabarundangan.com/${nama1 !==  '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2} \n\nMerupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.\n\nWassalamu'alaikum Wr. Wb.\nTerima kasih🌹 \n\nWith Love,\n${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}`;
             $('#template-wa').val(template);
-            $('.link').text(`https://kabarundangan.com/pernikahan/${user['name']}${nama1 !== '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2}`);
+            $('.link').text(`https://${user['name']}.kabarundangan.com/${nama1 !== '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2}`);
         })  
 
         $(document).on('keyup', '#nama2', function() {
             nama2 = $(this).val();
-            template = `Assalamu'alaikum Wr. Wb,\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :\n\n "${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}" \n\nBerikut link undangan kami untuk info lengkap dari acara bisa kunjungi :\n\nhttps://kabarundangan.com/pernikahan/${user['name']}${nama1 !==  '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2} \n\nMerupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.\n\nWassalamu'alaikum Wr. Wb.\nTerima kasih🌹 \n\nWith Love,\n${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}`;
+            template = `Assalamu'alaikum Wr. Wb,\n\nTanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i, teman sekaligus sahabat, untuk menghadiri acara pernikahan kami :\n\n "${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}" \n\nBerikut link undangan kami untuk info lengkap dari acara bisa kunjungi :\n\nhttps://${user['name']}.kabarundangan.com/${nama1 !==  '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2} \n\nMerupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.\n\nWassalamu'alaikum Wr. Wb.\nTerima kasih🌹 \n\nWith Love,\n${mempelaiWanita['nama_panggilan']} & ${mempelaiPria['nama_panggilan']}`;
             $('#template-wa').val(template);
-            $('.link').text(`https://kabarundangan.com/pernikahan/${user['name']}${nama1 !==  '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2}`);
+            $('.link').text(`https://${user['name']}.kabarundangan.com/${nama1 !==  '' ? '?untuk=' : ''}${nama1}${nama2 !== '' ? '%20%26%20' : ''}${nama2}`);
         })  
 
         var clipboardLink = new ClipboardJS('.copy-link');
