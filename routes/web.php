@@ -21,12 +21,12 @@ use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
-Route::domain('kabarundangan.com')->group(function () {
+Route::domain(env('APP_URL'))->group(function () {
     Route::get('/', [WelcomeController::class, 'index']);
 });
 
 Route::domain('{subdomain}.kabarundangan.com')->group(function () {
-    Route::get('/undangan', [WelcomeController::class, 'undangan']);
+    Route::get('/', [WelcomeController::class, 'undangan']);
 });
 
 Route::get('/foo', function () {
