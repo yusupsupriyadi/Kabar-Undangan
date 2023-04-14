@@ -8,3 +8,4 @@ fs.copySync('public/build', 'berkas/build');
 fs.copySync('public/sitemap.xml', 'berkas/sitemap.xml');
 fs.copySync('public/images', 'berkas/images');
 fs.copySync('public/audios', 'berkas/audios');
+fs.copySync('public/robots.txt', 'berkas/robots.txt');
