@@ -33,14 +33,6 @@ Route::domain('{subdomain}.' . env('APP_URL'))->group(function () {
     Route::get('/', [WelcomeController::class, 'undangan'])->name('subdomain');
 });
 
-Route::get('/foo', function () {
-    Artisan::call('storage:link');
-});
-
-Route::get('/demo', function () {
-    return view('demo.index');
-});
-
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/dashboard', 'dashboard')->name('admin.dashboard');
