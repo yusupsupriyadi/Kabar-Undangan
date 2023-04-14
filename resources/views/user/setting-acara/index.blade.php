@@ -308,7 +308,7 @@
         var userId = @json($user->id);
 
         var vip = @json($user['vip']);
-        if(vip){
+        if(parseInt(vip)){
             $('#promo-panel').hide()
             $('#menu-navigation').removeClass('pt-20')
             $('#menu-navigation').addClass('pt-16')

@@ -83,7 +83,7 @@
         let nama1 = $('#nama1').val();
         let nama2 = $('#nama2').val();
         var vip = @json($user['vip']);
-        if(vip){
+        if(parseInt(vip)){
             $('#promo-panel').hide()
             $('#menu-navigation').removeClass('pt-20')
             $('#menu-navigation').addClass('pt-16')
