@@ -213,7 +213,6 @@
         <x-app.footer />
     </main>
 @endsection
-
 @push('scripts')
     <script type="module">
         var vip = @json($user['vip']);
@@ -225,6 +224,9 @@
             $('#promo-panel').show()
             $('#menu-navigation').removeClass('pt-16')
             $('#menu-navigation').addClass('pt-20')
+            setTimeout(() => {
+                $('#modal-promo').show()
+            }, 2000);
         }
     </script>
 @endpush

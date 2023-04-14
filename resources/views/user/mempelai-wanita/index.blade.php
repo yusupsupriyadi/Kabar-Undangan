@@ -230,6 +230,9 @@
             $('#promo-panel').show()
             $('#menu-navigation').removeClass('pt-16')
             $('#menu-navigation').addClass('pt-20')
+            setTimeout(() => {
+                $('#modal-promo').show()
+            }, 2000);
         }
         
         if(data !== null){

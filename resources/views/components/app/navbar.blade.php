@@ -74,14 +74,18 @@
         </div>
         <div class="hidden md:block" id="nav-content">
             <ul class="list-reset flex items-center justify-end">
-                <li class="mr-3 py-2 lg:py-0">
-                    <a class="btn-pilih flex items-center gap-2 rounded bg-green-600 px-3 py-2 text-xs font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-green-800 hover:shadow-lg" href="{{ route('subdomain', ['subdomain' => Auth::user()->name]) }}" target="_blank">
-                        <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                        <div>Lihat Undangan</div>
-                    </a>
-                </li>
+                @if (Route::has('login'))
+                    @auth
+                        <li class="mr-3 py-2 lg:py-0">
+                            <a class="btn-pilih flex items-center gap-2 rounded bg-green-600 px-3 py-2 text-xs font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-green-800 hover:shadow-lg" href="{{ route('subdomain', ['subdomain' => Auth::user()->name]) }}" target="_blank">
+                                <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                <div>Lihat Undangan</div>
+                            </a>
+                        </li>
+                    @endauth
+                @endif
                 <li class="mr-3 py-2 text-left lg:py-0">
                     <div class="dropdown-end dropdown">
                         <label tabindex="0" class="btn-ghost btn-circle avatar btn">
@@ -153,10 +157,10 @@
             </ul>
         </div>
     </div>
-    <div id="promo-panel" class="bg-indigo-600 px-4 py-2 text-white hidden">
+    <div id="promo-panel" class="hidden bg-indigo-600 px-4 py-2 text-white">
         <p class="md:text-md text-center text-xs">
-            <span class="animate-pulse">hanya 80rb</span> <span class="text-red-500/50 line-through">100rb</span>
-            <a href="https://api.whatsapp.com/send?phone=6285155305665&text=" class="inline-block uppercase underline">Ambil Premium Sekarang!</a>
+            <span class="animate-pulse">hanya 50rb</span> <span class="text-red-500/50 line-through">100rb</span>
+            <a href="https://api.whatsapp.com/send?phone=6285155305665&text=Halo%0AAku%20tertarik%20mengambil%20paket%20premium" class="inline-block uppercase underline">Ambil Premium Sekarang!</a>
         </p>
     </div>
 </nav>

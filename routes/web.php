@@ -21,6 +21,10 @@ use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/FAQ', function () {
+    return view('FAQ.index');
+});
+
 Route::domain(env('APP_URL'))->group(function () {
     Route::get('/', [WelcomeController::class, 'index']);
 });
