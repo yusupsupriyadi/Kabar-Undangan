@@ -2,7 +2,7 @@
     <div class="navbar">
         <div class="flex-1 items-center">
             <img src="{{ asset('images/logo.png') }}" width="50" height="50" alt="logo kabar undangan">
-            <a href="/" class="btn-ghost btn text-2xl font-bold normal-case">Kabar Undangan</a>
+            <a href="/" title="kabar undangan" class="btn-ghost btn text-2xl font-bold normal-case">Kabar Undangan</a>
         </div>
         <div class="flex-none">
             <ul class="text-md menu menu-horizontal hidden px-1 font-semibold lg:flex">

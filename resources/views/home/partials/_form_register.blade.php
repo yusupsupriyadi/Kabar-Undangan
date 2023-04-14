@@ -5,13 +5,13 @@
             <label class="label">
                 <span class="label-text font-sans text-md font-semibold">Email</span>
             </label>
-            <input id="email" type="email" placeholder="Email" class="input-bordered input" />
+            <input id="email" name="email" type="email" placeholder="Email" class="input-bordered input" />
         </div>
         <div class="form-control">
             <label class="label">
                 <span class="label-text font-sans text-md font-semibold">No Telepon</span>
             </label>
-            <input id="phone" type="text" placeholder="No Telepon" class="input-bordered input" />
+            <input id="phone" name="phone" type="text" placeholder="No Telepon" class="input-bordered input" />
             <a href="/login" class="link-hover label-text-alt link mt-4 text-right text-blue-600 text-sm">Sudah mendaftar?</a>
         </div>
         <div class="form-control mt-6" x-data>

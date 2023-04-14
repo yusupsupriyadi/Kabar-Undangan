@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.home')
 
 @section('content')
     <div class="hero relative min-h-screen bg-[url('/public/images/bg-image-wedding.webp')]">
@@ -11,7 +11,7 @@
 
                 <div class="gap-4 lg:flex">
                     <div>
-                        <a title="demo" class="group relative inline-block focus:outline-none focus:ring" href="{{ route('subdomain', ['subdomain' => 'emily-dan-david']) }}">
+                        <a title="demo" class="group relative inline-block focus:outline-none focus:ring" href="{{ route('subdomain', ['subdomain' => 'demo']) }}">
                             <span class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-yellow-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"></span>
                             <span class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75">
                                 <span class="">DEMO</span>
@@ -22,7 +22,7 @@
                             <a title="kontak bantuan" class="alert alert-success w-[180px] rounded-full px-4 py-2 text-center" href="https://api.whatsapp.com/send?phone=6285155305665&text=">
                                 <div>
                                     <span class="text-sm font-semibold">Butuh bantuan?</span>
-                                    <img src="{{ asset('/svg/whatsapp.svg') }}" width="25" height="25" alt="whatsapp icon"/>
+                                    <img src="{{ asset('/svg/whatsapp.svg') }}" width="25" height="25" alt="whatsapp icon" />
                                 </div>
                             </a>
                         </div>
