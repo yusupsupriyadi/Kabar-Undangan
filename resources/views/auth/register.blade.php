@@ -155,6 +155,8 @@
                 dataType: 'json',
                 data: {
                     name: $('#nama-wanita').val()+"-dan-"+$('#nama-pria').val(),
+                    nama_pria: $('#nama-pria').val(),
+                    nama_wanita: $('#nama-wanita').val(),
                     email: $('#email').val(),
                     phone: $('#phone').val(),
                     password: $('#password').val(),

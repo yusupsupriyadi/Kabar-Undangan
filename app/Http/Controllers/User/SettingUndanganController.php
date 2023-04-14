@@ -19,27 +19,34 @@ class SettingUndanganController extends Controller
     public function store(Request $request)
     {
         $user = auth()->user();
-        $dataSettingUndangan = $request->user()->settingUndanganApi;
         $action = $request->action;
         $domain = $request->domain;
         $judulUndangan = $request->judul_undangan;
 
-        if($action == 'update'){
+        if ($action == 'update') {
             try {
                 $user->settingUndanganApi()->update([
                     'user_id' => $user->id,
-                    'domain' => $domain,
+                    'domain' => strtolower($domain),
                     'judul_undangan' => $judulUndangan
+                ]);
+
+                $user->update([
+                    'name' => strtolower($domain)
                 ]);
             } catch (\Throwable $th) {
                 return abort(500, 'Gagal mengupdate data');
             }
-        }else {
+        } else {
             try {
                 $user->settingUndanganApi()->create([
                     'user_id' => $user->id,
-                    'domain' => $domain,
+                    'domain' => strtolower($domain),
                     'judul_undangan' => $judulUndangan
+                ]);
+
+                $user->update([
+                    'name' => strtolower($domain)
                 ]);
             } catch (\Throwable $th) {
                 return abort(500, 'Gagal menyimpan data');

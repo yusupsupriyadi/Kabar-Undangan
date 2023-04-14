@@ -39,7 +39,7 @@
                 <main class="py-12">
                     <section class="grid grid-cols-3 gap-8 lg:grid-cols-5">
 
-                        <a href="/setting-undangan" class="hidden">
+                        <a href="/setting-undangan">
                             <x-app.card-menu id="pengaturan-undangan" paint="">
                                 <x-slot name='icon'>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8 md:h-10 md:w-10">

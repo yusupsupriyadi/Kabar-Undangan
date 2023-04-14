@@ -1,6 +1,6 @@
 @extends('layouts.undangan')
 @section('title')
-    {{ $data['mempelai_pria_api']['nama_panggilan'] }} dan {{ $data['mempelai_wanita_api']['nama_panggilan'] }} | Undangan Pernikahan Online
+    {{ $data['setting_undangan_api']['judul_undangan'] }}
 @endsection
 
 @section('styles')

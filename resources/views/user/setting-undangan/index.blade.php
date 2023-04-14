@@ -32,12 +32,12 @@
                             <span class="form-label font-bold">Nama Domain</span>
                         </label>
                         <label class="input-group">
-                            <input id="domain" type="text" placeholder="masukan domain" class="input-primary h-[2rem]" style="border-radius: 0.2rem 0 0 0.25rem !important" value="{{ $dataSettingUndangan === null ? '' : $dataSettingUndangan['domain'] }}" />
+                            <input id="domain" type="text" placeholder="masukan domain" class="input-primary h-[2rem] lowercase" style="border-radius: 0.2rem 0 0 0.25rem !important" value="{{ $user['name'] }}" />
                             <span class="text-sm" style="0 0.25rem 0.25rem 0 !important">.kabarundangan.com</span>
                         </label>
                         <x-label-validate id="domain-validate" />
                         <label class="label">
-                            <span class="label-text-alt text-xs text-gray-600">ini untuk nama link undangan digital kamu</span>
+                            <span class="label-text-alt text-xs text-gray-600">ini untuk nama link undangan digital kamu <span class="text-red-300">tidak boleh menggunakan spasi dan symbol lain selain tanda hubung(-)</span></span>
                         </label>
                     </div>
 
@@ -100,6 +100,16 @@
             });
         });
 
+        $(document).on('keyup', '#domain', function(){
+            var domain = $(this).val();
+            var filteredDomain = domain.replace(/[\s~`!@#$%\^&*+=\[\]\\';,/{}|\\":<>\?()\._]/g, '');
+            // validasi domain
+            if (/[\s~`!@#$%\^&*+=\[\]\\';,/{}|\\":<>\?()\._]/g.test(domain)) {
+                alert("Domain tidak boleh mengandung spasi atau simbol selain tanda hubung (-)");
+                $(this).val(filteredDomain);
+            }
+        })
+
         function validateForm(){
             $('#domain').val() === '' ? $('#domain-validate').show() : $('#domain-validate').hide();
             $('#judul_undangan').val() === '' ? $('#judul-undangan-validate').show() : $('#judul-undangan-v alidate').hide();
@@ -142,6 +152,7 @@
                     }, 4000)
                 },
                 success: function(response) {
+                    action = 'update';
                     setTimeout(function(){
                         $('#toast-loading').hide()
                         $('#toast-success').fadeIn('past')

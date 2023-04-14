@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\User\MusicBackground;
+use App\Models\User\SettingUndangan;
 use App\Models\User\Tema;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -36,7 +37,7 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $user = User::create([
-            'name' => $request->name,
+            'name' => strtolower($request->name),
             'phone' => $request->phone,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -52,6 +53,12 @@ class RegisteredUserController extends Controller
         Tema::create([
             'user_id' => $user->id,
             'tema' => 'basic'
+        ]);
+
+        SettingUndangan::create([
+            'user_id' => $user->id,
+            'domain' => strtolower($request->name),
+            'judul_undangan' => ucwords($request->nama_wanita.' & '.$request->nama_pria)
         ]);
 
         Auth::login($user);
