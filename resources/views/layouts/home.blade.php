@@ -10,7 +10,7 @@
     <title>
         @yield('title', 'Kabar Undangan')
     </title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/png/ico" href="{{ asset('images/favicon.ico') }}">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
