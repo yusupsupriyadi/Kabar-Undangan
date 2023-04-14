@@ -11,7 +11,7 @@
     <title>
         @yield('title', 'Kabar Undangan')
     </title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon-logo.png') }}">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <link href="https://fonts.cdnfonts.com/css/masthina" rel="stylesheet">

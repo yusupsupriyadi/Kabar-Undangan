@@ -5,7 +5,7 @@
     <!-- Production -->
     <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
     <link rel="stylesheet" href="{{ asset('/build/assets/app.282c43f8.css') }}">
-    <link rel="stylesheet" href="{{ asset('/build/assets/app.5c0d55e6.css') }}">
+    <link rel="stylesheet" href="{{ asset('/build/assets/app.9a58aba1.css') }}">
 @else
     <script src="{{ asset('/build/assets/app.014ce5ac.js') }}"></script>
 @endif

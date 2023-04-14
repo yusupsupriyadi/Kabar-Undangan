@@ -11,7 +11,7 @@
     <title>
         @yield('title', 'Kabar Undangan')
     </title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon-logo.png') }}">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <link href="https://fonts.cdnfonts.com/css/masthina" rel="stylesheet">
@@ -54,7 +54,7 @@
     </div>
 
     <div id="modal-promo" class="toast-center toast toast-top z-50 hidden transform duration-1000">
-        <div class="alert bg-white shadow-xl border-2 border-black border-b-4">
+        <div class="alert border-2 border-b-4 border-black bg-white shadow-xl">
             <div class="flex items-start gap-2">
                 <span class="text-green-600">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">

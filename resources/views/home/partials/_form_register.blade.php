@@ -1,5 +1,5 @@
 <div class="card indicator mt-4 w-full max-w-sm flex-shrink-0 bg-base-100 shadow-2xl lg:mt-0">
-    <span class="indicator-item translate-x-[15%] lg:translate-x-[50%] rounded-tr-2xl rounded-br-2xl rounded-tl-2xl border-4 border-black bg-secondary p-2 text-sm font-bold text-white shadow-xl lg:p-3 lg:text-lg">GRATIS!</span>
+    <span class="indicator-item translate-x-[15%] lg:translate-x-[50%] rounded-tr-2xl rounded-br-2xl rounded-tl-2xl border-4 border-black bg-pink-600 p-2 text-sm font-bold text-gray-100 shadow-xl lg:p-3 lg:text-lg">GRATIS!</span>
     <div class="card-body">
         <div class="form-control">
             <label class="label">

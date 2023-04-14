@@ -1,7 +1,7 @@
 <nav id="header" class="fixed top-0 z-10 w-full border-b border-gray-400 bg-white md:relative">
     <div class="mx-auto mt-0 flex flex-wrap items-center justify-between py-3 md:container">
         <div class="flex items-center pl-4">
-            <img src="{{ asset('images/logo.png') }}" width="50" alt="">
+            <img src="{{ asset('images/favicon-logo.png') }}" width="50" alt="">
             <a href="/" class="ml-4 text-xl font-extrabold text-gray-900 no-underline hover:no-underline">
                 Kabar Undangan
             </a>
