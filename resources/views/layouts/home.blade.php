@@ -6,10 +6,10 @@
     <meta http-equiv="content-language" content="id">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Kabarundangan.com adalah platform layanan website undangan online yang memudahkan Anda dalam membuat dan mengirim undangan pernikahan secara digital. Dapatkan berbagai pilihan desain undangan yang menarik dan personalisasi sesuai dengan tema pernikahan Anda. Nikmati juga berbagai fitur lengkap seperti informasi acara pernikahan dan galeri foto pernikahan. Gunakan Kabarundangan.com untuk menghemat waktu dan biaya dalam mengundang tamu undangan pernikahan Anda.">
-    <title>
-        @yield('title', 'Kabar Undangan')
-    </title>
+    {!! SEOMeta::generate() !!}
+    {!! OpenGraph::generate() !!}
+    {!! Twitter::generate() !!}
+    {!! JsonLd::generate() !!}
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon-logo.png') }}">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
