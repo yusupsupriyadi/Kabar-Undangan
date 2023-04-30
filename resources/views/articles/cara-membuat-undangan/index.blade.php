@@ -36,6 +36,10 @@
                 <img src="{{ asset('/images/team-success.png') }}" alt="">
             </div>
             <p class="text-center mt-6 text-lg">Mudah bukan membuat undangan digital/online di<br><a href="/" class="text-primary-200 font-semibold">KabarUndangan.com</a></p>
+
+            <div class="flex justify-center">
+                <a href="/register" class="mt-6 bg-gradient-to-r from-primary-200 to-primary-300 text-white font-semibold px-4 py-2 rounded-xl hover:scale-105 duration-300">Buat Undangan</a>
+            </div>
         </section>
     </main>
 @endsection
