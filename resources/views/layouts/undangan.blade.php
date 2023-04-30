@@ -42,8 +42,8 @@
         @yield('content')
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     @include('layouts._library', ['library' => 'js'])
     @stack('scripts')
 </body>

@@ -45,9 +45,11 @@ Route::controller(KirimUndangan::class)->group(function () {
 });
 
 Route::controller(UndanganController::class)->group(function () {
-    Route::get('/pernikahan/{name}', 'index');
     Route::post('/undangan/send-pesan', 'sendPesan');
 });
+
+Route::get('/pernikahan/{name}', [WelcomeController::class, 'undangan']);
+
 
 Route::prefix('auth')->group(function () {
     Route::controller(RegisteredUserController::class)->group(function () {
