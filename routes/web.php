@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UndanganController;
@@ -18,12 +20,7 @@ use App\Http\Controllers\User\SettingAcaraController;
 use App\Http\Controllers\User\SettingUndanganController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/FAQ', function () {
-    return view('FAQ.index');
-});
 
 Route::domain(env('APP_URL'))->group(function () {
     Route::get('/', [WelcomeController::class, 'index']);
@@ -39,6 +36,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/admin/users', 'users');
         Route::get('/admin/get-users', 'getUsers')->name('admin.get-users');
         Route::post('/admin/update-user', 'updateUser')->name('admin.update-user');
+        Route::post('/admin/delete-user', 'deleteUser')->name('admin.delete-user');
     });
 });
 
@@ -60,6 +58,10 @@ Route::prefix('auth')->group(function () {
 Route::controller(HomeController::class)->group(function () {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
 })->middleware(['auth', 'verified']);
+
+Route::controller(BlogController::class)->group(function () {
+    Route::get('/blog', 'index');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -141,6 +143,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/kado-nikah/update', 'update');
         Route::get('/kado-nikah/delete', 'destroy');
     });
+});
+
+Route::controller(ArticlesController::class)->group(function(){
+    Route::get('/cara-membuat-undangan', 'caraMembuatUndangan');
+    Route::get('/FAQ', 'faq');
 });
 
 require __DIR__ . '/auth.php';

@@ -7,6 +7,8 @@
         <div class="flex-none">
             <ul class="text-md menu menu-horizontal hidden px-1 font-semibold lg:flex">
                 {{-- <li><a href="/contact">Kontak</a></li> --}}
+                <li><a href="/cara-membuat-undangan">Cara Buat?</a></li>
+                <li><a href="/cara-membuat-undangan" class="hidden">Blog</a></li>
                 <li><a href="/FAQ">FAQ</a></li>
             </ul>
             <div class="dropdown-end dropdown">

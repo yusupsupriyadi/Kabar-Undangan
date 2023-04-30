@@ -8,7 +8,7 @@
             </label>
             <input type="text" id="search-email" placeholder="Type here" class="input-bordered input w-full max-w-xs" />
         </div>
-        <div class="overflow-x-auto mt-2">
+        <div class="mt-2 overflow-x-auto">
             <table class="table w-full shadow-lg">
                 <thead>
                     <tr>
@@ -16,6 +16,7 @@
                         <th class="!bg-sky-200">Name</th>
                         <th class="!bg-sky-200">No.Telp</th>
                         <th class="!bg-sky-200">Email</th>
+                        <th class="!bg-sky-200">Tanggal</th>
                         <th class="!bg-sky-200">PREMIUM</th>
                     </tr>
                 </thead>
@@ -58,12 +59,15 @@
         function renderDataUser(data) {
             let html = ''
             data.forEach((item, index) => {
+                var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                var tanggal = new Date(item.created_at).toLocaleDateString('id-ID', options);
                 html += `
                     <tr class="hover">
                         <th>${index + 1}</th>
                         <td>${item.name}</td>
                         <td>${item.phone}</td>
                         <td>${item.email}</td>
+                        <td>${tanggal}</td>
                         <td>
                             <input type="checkbox" class="toggle toggle-success !bg-none btn-premium" data-id="${item.id}" ${parseInt(item.vip) === 1 ? 'checked' : ''} />
                         </td>
@@ -110,6 +114,36 @@
             $('#data-body tr').filter(function() {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             })
+        })
+
+        $(document).on('click', '.btn-delete', function(){
+            let id = $(this).data('id')
+            $.ajax({
+                url: "{{ route('admin.delete-user') }}",
+                type: "POST",
+                data: {
+                    id: id
+                },
+                dataType: "json",
+                berforeSend: function() {
+                    $('#toast-loading').fadeIn('past')
+                },
+                success: function(data) {
+                    $('#toast-loading').fadeOut('past')
+                    if (data.status === 'success') {
+                        $('#toast-success-delete').fadeIn('past')
+                        setTimeout(() => {
+                            $('#toast-success-delete').fadeOut('past')
+                        }, 2000);
+                        getData()
+                    } else {
+                        $('#toast-failed-delete').fadeIn('past')
+                        setTimeout(() => {
+                            $('#toast-failed-delete').fadeOut('past')
+                        }, 2000);
+                    }
+                }
+            });
         })
     </script>
 @endpush

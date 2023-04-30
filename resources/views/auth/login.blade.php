@@ -1,4 +1,16 @@
 <x-guest-layout>
+    @section('meta')
+    <meta name="description" content="Masuk ke halaman dashboard admin anda untuk mengelola informasi undangan pernikahanmu.">
+    <link rel="canonical" href="https://kabarundangan.com">
+    <meta property="og:description" content="Masuk ke halaman dashboard admin anda untuk mengelola informasi undangan pernikahanmu.">
+    <meta property="og:title" content="Masuk">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kabarundangan.com">
+    <meta property="og:image" content="http://127.0.0.1/storage/images/favicon-logo.png">
+
+    <meta name="twitter:title" content="Cara Membuat Undangan Digital/Online - Kabar Undangan">
+    <meta name="twitter:site" content="@KabarUndangan">
+    @endsection
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -36,7 +48,7 @@
                 </label>
             </div>
 
-            <div class="mt-6 flex items-center justify-center">
+            <div class="mt-6 flex items-center justify-center gap-2">
                 {{-- <section class="hidden">
                     @if (Route::has('password.request'))
                         <a class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" href="{{ route('password.request') }}">
@@ -48,6 +60,10 @@
                 <x-primary-button class="w-full text-center">
                     {{ __('Masuk') }}
                 </x-primary-button>
+            </div>
+            <div class="text-center mt-3 text-sm">
+                <p>Belum mempunyai akun?</p>
+                <a href="/register" class="text-primary-300 font-bold">Daftar Disini</a>
             </div>
         </form>
     </x-auth-card>

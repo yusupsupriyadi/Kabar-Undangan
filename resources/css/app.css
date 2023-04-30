@@ -19,7 +19,7 @@ label-validate {
 }
 
 .btn-primary {
-	@apply inline-block rounded bg-[#fbbd23] px-6 py-2.5 text-sm font-bold uppercase leading-tight text-black shadow-md transition duration-150 ease-in-out hover:bg-[#b58714] hover:shadow-lg focus:bg-[#b58714] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#b58714] active:shadow-lg;
+	@apply inline-block rounded bg-[#fbbd23] px-6 py-2.5 text-sm font-bold uppercase leading-tight text-black shadow-md transition duration-150 ease-in-out hover:bg-[#b58714] hover:shadow-lg hover:scale-105 active:scale-95 focus:bg-[#b58714] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#b58714] active:shadow-lg;
 }
 
 .select-primary {

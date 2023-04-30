@@ -19,6 +19,14 @@ module.exports = {
                 greatVibes: ["Great Vibes", ...defaultTheme.fontFamily.serif],
                 alkatra: ["Alkatra", ...defaultTheme.fontFamily.serif],
             },
+            colors: {
+                primary: {
+                    100: "#AFD3E2",
+                    200: "#19A7CE",
+                    300: "#146C94",
+                },
+                base: "#f8f8fc",
+            }
         },
         container: {
             center: true,

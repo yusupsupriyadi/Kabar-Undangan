@@ -2,7 +2,7 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build && yarn copy-assets",
+        "build": "vite build && yarn copy-assets && php artisan sitemap:generate",
         "copy-assets": "node copy-files.js"
     },
     "devDependencies": {

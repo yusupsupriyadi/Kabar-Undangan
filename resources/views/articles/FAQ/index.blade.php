@@ -1,21 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.blog')
 
 @section('content')
     <main class="bg-gray-100">
-        <x-app.navbar />
         <div class="mx-auto flex flex-wrap px-2 mt-12 md:mt-0 pt-4 md:px-12 lg:pt-4">
             <!--Main Content-->
-
-            <a href="/" class="mb-2 mt-6 md:mt-0 cursor-pointer border-2 border-b-4 border-black bg-white p-2 font-bold uppercase flex items-center gap-1">
-                <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" />
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <line x1="5" y1="12" x2="9" y2="16" />
-                    <line x1="5" y1="12" x2="9" y2="8" />
-                </svg>
-                Kembali
-            </a>
-            
             <div class="border-rounded mt-4 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0">
                 
                 <div class="font-sans">
@@ -106,10 +94,6 @@
 
 
         </div>
-
-        
-
-        <x-app.footer />
     </main>
 @endsection
 
