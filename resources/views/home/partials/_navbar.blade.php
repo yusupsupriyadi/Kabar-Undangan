@@ -5,12 +5,7 @@
             <a href="/" title="kabar undangan" class="btn-ghost btn text-2xl font-bold normal-case">Kabar Undangan</a>
         </div>
         <div class="flex-none">
-            <ul class="text-md menu menu-horizontal hidden px-1 font-semibold lg:flex">
-                {{-- <li><a href="/contact">Kontak</a></li> --}}
-                <li><a href="/cara-membuat-undangan">Cara Buat?</a></li>
-                <li><a href="/cara-membuat-undangan" class="">Blog</a></li>
-                <li><a href="/FAQ">FAQ</a></li>
-            </ul>
+
             <div class="flex items-center gap-2 md:hidden">
                 <div class="dropdown-end dropdown block md:hidden">
                     <label tabindex="0" class="btn-ghost btn-circle avatar btn">
