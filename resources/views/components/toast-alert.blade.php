@@ -1,5 +1,5 @@
 @if ($type === 'success')
-    <div class="toast-center toast toast-top right-1/4 top-[4.5rem] hidden min-w-max max-w-[20px] transform duration-100" id="{{ $id }}">
+    <div class="toast-center toast toast-top right-1/4 top-24 hidden min-w-max max-w-[20px] transform duration-100 md:toast-bottom" id="{{ $id }}">
         <div class="alert alert-success items-center rounded-xl bg-gray-700 p-4 shadow-md">
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-shrink-0 stroke-current text-green-600" fill="none" viewBox="0 0 24 24">
@@ -10,7 +10,7 @@
         </div>
     </div>
 @elseif($type === 'failed')
-    <div class="toast-center toast toast-top right-1/4 top-[4.5rem] hidden min-w-max max-w-[20px] transform duration-100" id="{{ $id }}">
+    <div class="toast-center toast toast-top right-1/4 top-24 hidden min-w-max max-w-[20px] transform duration-100 md:toast-bottom" id="{{ $id }}">
         <div class="alert alert-error rounded-xl bg-gray-700 p-4 shadow-md">
             <div>
                 <svg class="h-6 w-6 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -23,7 +23,7 @@
         </div>
     </div>
 @elseif($type === 'loading')
-    <div class="toast-center toast toast-top right-1/4 top-[4.5rem] hidden min-w-max max-w-[20px] transform duration-100" id="{{ $id }}">
+    <div class="toast-center toast toast-top right-1/4 top-24 hidden min-w-max max-w-[20px] transform duration-100 md:toast-bottom" id="{{ $id }}">
         <div class="alert alert-error rounded-xl bg-gray-700 p-4 shadow-md">
             <div class="flex items-start justify-start gap-1">
                 <div class="lds-ring">
