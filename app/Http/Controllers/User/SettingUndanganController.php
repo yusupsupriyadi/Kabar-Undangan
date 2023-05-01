@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SettingUndanganController extends Controller
@@ -20,8 +21,17 @@ class SettingUndanganController extends Controller
     {
         $user = auth()->user();
         $action = $request->action;
-        $domain = $request->domain;
+        $domain = strtolower($request->domain);
         $judulUndangan = $request->judul_undangan;
+        $domainDefaultUser = $user->name;
+        if($domain !== $domainDefaultUser){
+            if (User::where('name', $domain)->exists() === true) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Domain sudah digunakan',
+                ], 500);
+            }
+        }
 
         if ($action == 'update') {
             try {

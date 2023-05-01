@@ -70,6 +70,7 @@
 
     <x-toast-alert id="toast-success" type="success" message="Berhasil menyimpan" />
     <x-toast-alert id="toast-failed" type="failed" message="Gagal menyimpan" />
+    <x-toast-alert id="toast-failed-domain" type="failed" message="Domain sudah digunakan. coba yang lain" />
     <x-toast-alert id="toast-loading" type="loading" message="Sedang memproses" />
     <x-toast-alert id="toast-validate" type="failed" message="Periksa kembali yang wajib diisi." />
 @endsection
@@ -145,14 +146,25 @@
                     $('#toast-loading').show()
                     $('#toast-validate').hide()
                 },
-                error: function(response) {
-                    setTimeout(function(){
-                        $('#toast-loading').hide()
-                        $('#toast-failed').fadeIn('past')
-                    }, 1000)
-                    setTimeout(function(){
-                        $('#toast-failed').fadeOut('past')
-                    }, 4000)
+                error: function(jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.responseJSON && jqXHR.responseJSON.message) {
+                        setTimeout(function(){
+                            $('#toast-loading').hide()
+                            $('#toast-failed-domain').fadeIn('past')
+                        }, 1000)
+                        setTimeout(function(){
+                            $('#toast-failed-domain').fadeOut('past')
+                        }, 4000)
+                    } else {
+                        setTimeout(function(){
+                            $('#toast-loading').hide()
+                            $('#toast-failed').fadeIn('past')
+                        }, 1000)
+                        setTimeout(function(){
+                            $('#toast-failed').fadeOut('past')
+                        }, 4000)
+                    }
+                    
                 },
                 success: function(response) {
                     action = 'update';

@@ -35,6 +35,7 @@
 </head>
 
 <body id="body">
+    <x-app.navbar-blog />
     @yield('content')
 
     <section id="footer">
