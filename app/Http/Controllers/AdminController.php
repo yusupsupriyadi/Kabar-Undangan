@@ -17,6 +17,11 @@ class AdminController extends Controller
         return view('admin.users.index');
     }
 
+    public function blog()
+    {
+        return view('admin.blog.index');
+    }
+
     public function getUsers()
     {
         $data = collect(User::all())->sortBy('vip')->reverse()->values()->toArray();

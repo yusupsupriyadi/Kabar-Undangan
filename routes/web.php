@@ -34,6 +34,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/dashboard', 'dashboard')->name('admin.dashboard');
         Route::get('/admin/users', 'users');
+        Route::get('/admin/blog', 'blog');
         Route::get('/admin/get-users', 'getUsers')->name('admin.get-users');
         Route::post('/admin/update-user', 'updateUser')->name('admin.update-user');
         Route::post('/admin/delete-user', 'deleteUser')->name('admin.delete-user');
