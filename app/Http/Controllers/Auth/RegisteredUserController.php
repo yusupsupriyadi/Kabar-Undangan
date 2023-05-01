@@ -94,7 +94,7 @@ class RegisteredUserController extends Controller
 
         SettingUndangan::create([
             'user_id' => $user->id,
-            'domain' => $,
+            'domain' => $username,
             'judul_undangan' => ucwords($request->nama_wanita . ' & ' . $request->nama_pria)
         ]);
 
