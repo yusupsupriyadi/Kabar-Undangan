@@ -2,7 +2,7 @@
 
 @section('content')
     <main>
-        <h1 class="text-2xl text-gray-300 font-semibold">COMING SOON</h1>
+        <h1 class="text-2xl font-semibold text-gray-300">COMING SOON</h1>
     </main>
 
     <x-toast-alert id="toast-success" type="success" message="Berhasil menyimpan cerita" />
@@ -14,7 +14,7 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
+    <script>
         $('#dashboard-link').addClass('drawer-item-active');
         $(document).ready(function() {
             $('#open-drawer').click(function() {

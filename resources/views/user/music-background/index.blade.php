@@ -83,43 +83,42 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
-        const storage = '{{ asset("storage/audios") }}/'
-        const asset = '{{ asset("/audios/") }}/'
-        const dataAudio = [
-            {
-                'judul' : 'My Heart Will Go On',
-                'audio' : 'My Heart Will Go On - Sexaphone.mp3'
+    <script>
+        const storage = '{{ asset('storage/audios') }}/'
+        const asset = '{{ asset('/audios/') }}/'
+        const dataAudio = [{
+                'judul': 'My Heart Will Go On',
+                'audio': 'My Heart Will Go On - Sexaphone.mp3'
             },
             {
-                'judul' : 'Cant Help Falling In Love',
-                'audio' : 'Elvis Presley - Cant Help Falling In Love.mp3'
+                'judul': 'Cant Help Falling In Love',
+                'audio': 'Elvis Presley - Cant Help Falling In Love.mp3'
             },
             {
-                'judul' : 'All of Me',
-                'audio' : 'John Legend - All of Me.mp3'
+                'judul': 'All of Me',
+                'audio': 'John Legend - All of Me.mp3'
             },
             {
-                'judul' : 'Perfect',
-                'audio' : 'Perfect - Ed Sheeran.mp3'
+                'judul': 'Perfect',
+                'audio': 'Perfect - Ed Sheeran.mp3'
             },
             {
-                'judul' : 'A Thousand Years',
-                'audio' : 'Christina Perri - A Thousand Years.mp3'
+                'judul': 'A Thousand Years',
+                'audio': 'Christina Perri - A Thousand Years.mp3'
             },
             {
-                'judul' : 'I Will Always Love You',
-                'audio' : 'Whitney Houston - I Will Always Love You.mp3'
+                'judul': 'I Will Always Love You',
+                'audio': 'Whitney Houston - I Will Always Love You.mp3'
             },
         ];
         var data = @json($data);
 
         var vip = @json($user['vip']);
-        if(parseInt(vip)){
+        if (parseInt(vip)) {
             $('#promo-panel').hide()
             $('#menu-navigation').removeClass('pt-20')
             $('#menu-navigation').addClass('pt-16')
-        }else{
+        } else {
             $('#promo-panel').show()
             $('#menu-navigation').removeClass('pt-16')
             $('#menu-navigation').addClass('pt-20')
@@ -129,9 +128,10 @@
         }
 
         indexTable(data !== null ? data.music : null);
-        function indexTable(index = null){
+
+        function indexTable(index = null) {
             var html = ``;
-            $.each(dataAudio, function(key, val){
+            $.each(dataAudio, function(key, val) {
                 html += `
                 <tr>
                     <td class="whitespace-nowrap p-2">
@@ -157,7 +157,7 @@
                 </tr>
                 `
 
-                $(document).on('click', `.btn-play-${key}`, function(){
+                $(document).on('click', `.btn-play-${key}`, function() {
                     const id = $(this).data('id');
                     const audio = $(`#audio-${id}`)[0];
                     if (audio.paused) {
@@ -176,12 +176,12 @@
             $('#table-audio').html(html)
         }
 
-        $(document).on('click', '.btn-pilih', function(){
+        $(document).on('click', '.btn-pilih', function() {
             var id = $(this).data('id');
             updateMusicBackground(id)
         })
 
-        function updateMusicBackground(id){
+        function updateMusicBackground(id) {
             const value = dataAudio[id].audio;
             const dataExist = data.music;
             $.ajax({
@@ -197,21 +197,21 @@
                     $('#toast-validate').hide()
                 },
                 error: function(error) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-failed').fadeIn('past')
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-failed').fadeOut('past')
                     }, 4000)
                 },
                 success: function(response) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-success').fadeIn('past')
                         indexTable(value)
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-success').fadeOut('past')
                     }, 4000)
                 }

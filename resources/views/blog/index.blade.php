@@ -31,10 +31,10 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
+    <script>
         window.addEventListener('scroll', () => {
             const scrollValue = window.scrollY;
-            if(scrollValue === 0) {
+            if (scrollValue === 0) {
                 document.getElementById('sidebar').classList.add('pt-10');
             } else {
                 document.getElementById('sidebar').classList.remove('pt-10');

@@ -18,14 +18,10 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
-        "aos": "^2.3.4",
         "daisyui": "^2.43.0",
-        "flatpickr": "^4.6.13",
         "fs-extra": "^11.1.1",
-        "jquery": "^3.6.1",
         "prettier": "^2.8.1",
         "prettier-plugin-tailwindcss": "^0.2.1",
-        "shufflejs": "^6.1.0",
         "vite-plugin-minify": "^1.5.2"
     }
 }

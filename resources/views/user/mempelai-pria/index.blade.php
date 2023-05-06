@@ -211,7 +211,7 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
+    <script>
         var data = @json($dataMempelaiPria);
 
         flatpickr("#tanggal-lahir", {
@@ -220,11 +220,11 @@
             defaultDate: data !== null ? data.tanggal_lahir : null
         });
         var vip = @json($user['vip']);
-        if(parseInt(vip)){
+        if (parseInt(vip)) {
             $('#promo-panel').hide()
             $('#menu-navigation').removeClass('pt-20')
             $('#menu-navigation').addClass('pt-16')
-        }else{
+        } else {
             $('#promo-panel').show()
             $('#menu-navigation').removeClass('pt-16')
             $('#menu-navigation').addClass('pt-20')
@@ -232,47 +232,47 @@
                 $('#modal-promo').show()
             }, 2000);
         }
-        
-        if(data !== null){
+
+        if (data !== null) {
             setupValue()
         }
 
-        const imageUrl = '{{ asset("storage/images") }}/'
-        const imagePublic = '{{ asset("/images") }}/'
+        const imageUrl = '{{ asset('storage/images') }}/'
+        const imagePublic = '{{ asset('/images') }}/'
 
-        if(data.foto === 'null' || data.foto === null){
+        if (data.foto === 'null' || data.foto === null) {
             $('.btn-delete-image').hide();
-            $('#output').attr('src', imagePublic+'foto-pria.png');
-        }else{
+            $('#output').attr('src', imagePublic + 'foto-pria.png');
+        } else {
             $('.btn-delete-image').show();
-            $('#output').attr('src', imageUrl+data.foto);
+            $('#output').attr('src', imageUrl + data.foto);
         }
 
-        $(document).on('click', '.btn-delete-image', function(){
-            $('#output').attr('src', imagePublic+'foto-pria.png');
+        $(document).on('click', '.btn-delete-image', function() {
+            $('#output').attr('src', imagePublic + 'foto-pria.png');
             $('image-file').val('');
             $('.btn-delete-image').hide();
         })
 
-        $(document).on('change', '#image-file', function(){
+        $(document).on('change', '#image-file', function() {
             $('.btn-delete-image').show();
         })
 
-        function setupValue(){
+        function setupValue() {
             $('#nama-lengkap').val(data.nama_lengkap);
             $('#nama-panggilan').val(data.nama_panggilan);
             $('#tempat-lahir').val(data.tempat_lahir);
             $('#nama-ayah').val(data.nama_ayah);
             $('#nama-ibu').val(data.nama_ibu);
-            $('#instagram').val(data.instagram === 'null' ? '' : data.instagram) ;
+            $('#instagram').val(data.instagram === 'null' ? '' : data.instagram);
             $('#foto').val(data.foto)
-            $('#facebook').val(data.facebook === 'null' ? '' : data.facebook) ;
-            $('#twitter').val(data.twitter === 'null' ? '' : data.twitter) ;
+            $('#facebook').val(data.facebook === 'null' ? '' : data.facebook);
+            $('#twitter').val(data.twitter === 'null' ? '' : data.twitter);
             data.tampilkan_foto === 'true' ? $('#tampilkan-true-foto').prop('checked', true) : $('#tampilkan-false-foto').prop('checked', true)
         }
 
-        $(document).ready(function(){
-            $('#btn-simpan').click(function(){
+        $(document).ready(function() {
+            $('#btn-simpan').click(function() {
                 validateValue()
             });
         })
@@ -282,13 +282,13 @@
 
             var reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);
-            reader.onload = function(){
+            reader.onload = function() {
                 var output = document.getElementById('output');
                 output.src = reader.result;
             }
         })
 
-        function validateValue(){
+        function validateValue() {
             $('#nama-lengkap').val() === '' ? $('#nama-lengkap-validate').show() : $('#nama-lengkap-validate').hide()
             $('#nama-panggilan').val() === '' ? $('#nama-panggilan-validate').show() : $('#nama-panggilan-validate').hide()
             $('#tempat-lahir').val() === '' ? $('#tempat-lahir-validate').show() : $('#tempat-lahir-validate').hide()
@@ -296,17 +296,17 @@
             $('#nama-ayah').val() === '' ? $('#nama-ayah-validate').show() : $('#nama-ayah-validate').hide()
             $('#nama-ibu').val() === '' ? $('#nama-ibu-validate').show() : $('#nama-ibu-validate').hide()
 
-            if($('#nama-lengkap').val() !== '' && $('#nama-panggilan').val() !== '' && $('#tempat-lahir').val() !== '' && $('#nama-ayah').val() !== '' && $('#nama-ibu').val() !== ''){
+            if ($('#nama-lengkap').val() !== '' && $('#nama-panggilan').val() !== '' && $('#tempat-lahir').val() !== '' && $('#nama-ayah').val() !== '' && $('#nama-ibu').val() !== '') {
                 storeData()
-            }else{
+            } else {
                 $('#toast-validate').fadeIn('past')
-                setTimeout(function(){
+                setTimeout(function() {
                     $('#toast-validate').fadeOut('past')
                 }, 5000)
             }
         }
 
-        function storeData(){
+        function storeData() {
             const imageFile = document.getElementById('image-file');
             var myformData = new FormData();
             myformData.append('imageFile', imageFile.files[0]);
@@ -334,20 +334,20 @@
                     $('#toast-validate').hide()
                 },
                 error: function(error) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-failed').fadeIn('past')
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-failed').fadeOut('past')
                     }, 4000)
                 },
                 success: function(response) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-success').fadeIn('past')
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-success').fadeOut('past')
                     }, 4000)
                 }

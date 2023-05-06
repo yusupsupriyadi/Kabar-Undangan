@@ -93,18 +93,18 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
-        const imageUrl = '{{ asset("storage/images") }}/'
-        const imagePublic = '{{ asset("/images") }}/'
+    <script>
+        const imageUrl = '{{ asset('storage/images') }}/'
+        const imagePublic = '{{ asset('/images') }}/'
         var data = [];
         var idData = '';
-        
+
         var vip = @json($user['vip']);
-        if(parseInt(vip)){
+        if (parseInt(vip)) {
             $('#promo-panel').hide()
             $('#menu-navigation').removeClass('pt-20')
             $('#menu-navigation').addClass('pt-16')
-        }else{
+        } else {
             $('#promo-panel').show()
             $('#menu-navigation').removeClass('pt-16')
             $('#menu-navigation').addClass('pt-20')
@@ -116,7 +116,7 @@
         $('#image-file').on('change', (e) => {
             var reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);
-            reader.onload = function(){
+            reader.onload = function() {
                 var output = document.getElementById('output');
                 output.src = reader.result;
             }
@@ -124,7 +124,7 @@
 
         getData()
 
-        $(document).on('click', '.btn-add-photo', function(){
+        $(document).on('click', '.btn-add-photo', function() {
             $('#blank-page').hide()
             $('#form-add').show()
             $('#index-data').hide()
@@ -136,39 +136,39 @@
             $('#btn-action').addClass('btn-save')
         })
 
-        $(document).on('click', '.btn-cancel', function(){
+        $(document).on('click', '.btn-cancel', function() {
             setDataIndex()
         })
 
-        $(document).on('click', '.btn-save', function(){
+        $(document).on('click', '.btn-save', function() {
             validateForm()
         })
 
-        $(document).on('click', '.btn-edit', function(){
+        $(document).on('click', '.btn-edit', function() {
             $('#index-data').hide()
             $('#form-add').show()
             $('#judul').val($(this).data('judul'))
             $('#keterangan').val($(this).data('keterangan'))
             $('#image-file').val('')
-            $('#output').attr('src', imageUrl+$(this).data('gambar'));
+            $('#output').attr('src', imageUrl + $(this).data('gambar'));
             $('#id-data').val($(this).data('id'));
             $('#btn-action').addClass('btn-update')
             $('#btn-action').removeClass('btn-save')
         })
 
-        function setDataIndex(){
-            if(data.length === 0){
+        function setDataIndex() {
+            if (data.length === 0) {
                 $('#blank-page').show()
                 $('#index-data').hide()
                 $('#form-add').hide()
                 $('#form-edit').hide()
-            }else{
+            } else {
                 $('#blank-page').hide()
                 $('#index-data').show()
                 $('#form-add').hide()
                 $('#form-edit').hide()
                 var html = ``
-                $.each(data, function(key, value){
+                $.each(data, function(key, value) {
                     html += `
                     <div class="items-end justify-between rounded-lg bg-pink-200/40 shadow-md backdrop-blur-md md:flex ${key !== 0 ? 'mt-4' : ''}">
                         <section class="gap-4 md:flex">
@@ -200,7 +200,7 @@
             }
         }
 
-        function getData(){
+        function getData() {
             $.ajax({
                 url: `photo-background/get-data`,
                 type: 'GET',
@@ -227,35 +227,35 @@
             });
         }
 
-        function validateForm(save = true){
+        function validateForm(save = true) {
             const image = $('#image-file').val()
             $('#judul').val() === '' ? $('#judul-validate').show() : $('#judul-validate').hide()
             $('#keterangan').val() === '' ? $('#keterangan-validate').show() : $('#keterangan-validate').hide()
 
-            if(save === true){
+            if (save === true) {
                 image === '' ? $('#gambar-validate').show() : $('#gambar-validate').hide()
-                if($('#keterangan').val() !== '' && $('#judul').val() !== '' && image !== ''){
-                        saveData()
-                }else{
+                if ($('#keterangan').val() !== '' && $('#judul').val() !== '' && image !== '') {
+                    saveData()
+                } else {
                     $('#toast-validate').fadeIn('past')
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-validate').fadeOut('past')
                     }, 5000)
                 }
-            }else{
-                if($('#keterangan').val() !== '' && $('#judul').val() !== '' ){
-                        updateData()
-                }else{
+            } else {
+                if ($('#keterangan').val() !== '' && $('#judul').val() !== '') {
+                    updateData()
+                } else {
                     $('#toast-validate').fadeIn('past')
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-validate').fadeOut('past')
                     }, 5000)
                 }
             }
-            
+
         }
 
-        function saveData(){
+        function saveData() {
             const imageFile = document.getElementById('image-file');
             var myformData = new FormData();
             myformData.append('judul', $('#judul').val());
@@ -275,16 +275,16 @@
                     $('#toast-validate').hide()
                 },
                 error: function(error) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-failed').fadeIn('past')
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-failed').fadeOut('past')
                     }, 4000)
                 },
                 success: function(response) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-success').fadeIn('past')
                         getData()
@@ -293,19 +293,19 @@
                         $('#image-file').val('')
                         $('#image-index').html(`<img id="output" width="300">`)
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-success').fadeOut('past')
                     }, 4000)
-                    
+
                 }
             });
         }
 
-        $(document).on('click', '.btn-update', function(){
+        $(document).on('click', '.btn-update', function() {
             validateForm(false)
         })
 
-        function updateData(){
+        function updateData() {
             const imageFile = document.getElementById('image-file');
             var myformData = new FormData();
             myformData.append('judul', $('#judul').val());
@@ -326,16 +326,16 @@
                     $('#toast-validate').hide()
                 },
                 error: function(error) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-failed').fadeIn('past')
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-failed').fadeOut('past')
                     }, 4000)
                 },
                 success: function(response) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-success').fadeIn('past')
                         getData()
@@ -344,29 +344,29 @@
                         $('#image-file').val('')
                         $('#image-index').html(`<img id="output" width="300">`)
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-success').fadeOut('past')
                     }, 4000)
                 }
             });
         }
 
-        $(document).on('click', '.btn-delete', function(){
+        $(document).on('click', '.btn-delete', function() {
             $('#modal-confirm').addClass('modal-open')
             const id = $(this).data('id')
             idData = id;
         })
-        
-        $(document).on('click', '.btn-close-modal', function(){
+
+        $(document).on('click', '.btn-close-modal', function() {
             $('#modal-confirm').removeClass('modal-open')
         })
 
-        $(document).on('click', '.btn-confirm-delete', function(){
+        $(document).on('click', '.btn-confirm-delete', function() {
             $('#modal-confirm').removeClass('modal-open')
             deleteData()
         })
 
-        function deleteData(){
+        function deleteData() {
             $.ajax({
                 url: `photo-background/destroy`,
                 type: 'GET',
@@ -378,26 +378,25 @@
                     $('#toast-loading').show()
                 },
                 error: function(error) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-failed-delete').fadeIn('past')
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-failed-delete').fadeOut('past')
                     }, 4000)
                 },
                 success: function(response) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-success-delete').fadeIn('past')
                         getData()
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-success-delete').fadeOut('past')
                     }, 4000)
                 }
             });
         }
-        
     </script>
 @endpush

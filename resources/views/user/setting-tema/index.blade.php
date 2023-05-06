@@ -46,13 +46,13 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
-    var vip = @json($user['vip']);
-        if(parseInt(vip)){
+    <script>
+        var vip = @json($user['vip']);
+        if (parseInt(vip)) {
             $('#promo-panel').hide()
             $('#menu-navigation').removeClass('pt-20')
             $('#menu-navigation').addClass('pt-16')
-        }else{
+        } else {
             $('#promo-panel').show()
             $('#menu-navigation').removeClass('pt-16')
             $('#menu-navigation').addClass('pt-20')
@@ -60,5 +60,5 @@
                 $('#modal-promo').show()
             }, 2000);
         }
-</script>
+    </script>
 @endpush

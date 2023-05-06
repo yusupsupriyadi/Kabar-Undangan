@@ -41,6 +41,18 @@ Route::middleware(['auth', 'admin'])->group(function () {
     });
 });
 
+Route::controller(BlogController::class)->group(function () {
+    Route::get('/blog', 'index');
+    Route::middleware(['auth', 'admin'])->group(function () {
+        Route::get('/get-article', 'getArticle')->name('get-article');
+        Route::post('/create-article', 'createArticle')->name('create-article');
+        Route::post('/create-category', 'createCategory')->name('create-category');
+        Route::get('/get-category', 'getCategory')->name('get-category');
+        Route::post('/create-tag', 'createTag')->name('create-tag');
+        Route::get('/get-tag', 'getTag')->name('get-tag');
+    });
+});
+
 Route::controller(KirimUndangan::class)->group(function () {
     Route::get('/kirim-undangan', 'index');
 });
@@ -61,10 +73,6 @@ Route::prefix('auth')->group(function () {
 Route::controller(HomeController::class)->group(function () {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
 })->middleware(['auth', 'verified']);
-
-Route::controller(BlogController::class)->group(function () {
-    Route::get('/blog', 'index');
-});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -148,7 +156,7 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::controller(ArticlesController::class)->group(function(){
+Route::controller(ArticlesController::class)->group(function () {
     Route::get('/cara-membuat-undangan', 'caraMembuatUndangan');
     Route::get('/FAQ', 'faq');
 });

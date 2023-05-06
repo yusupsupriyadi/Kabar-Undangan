@@ -156,7 +156,7 @@
             document.querySelector('.loading-screen').classList.remove('hidden')
         }
     </script>
-    <script type="module">
+    <script>
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

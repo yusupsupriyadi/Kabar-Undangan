@@ -685,12 +685,12 @@
         stats.domElement.style.position = 'absolute';
         stats.domElement.style.left
     </script>
-    <script type="module">
+    <script>
         var date = new Date('2023-04-25 08:00');
         var now = new Date();
 
         $("#body").css("overflow", "hidden");
-        
+
         // Memperbarui countdown setiap detik
         var timer = setInterval(function() {
             // Mengambil tanggal saat ini
@@ -725,16 +725,16 @@
 
             // countdown.innerHTML = "Countdown: " + days + " hari, " + remainingHours + " jam, " + remainingMinutes + " menit, " + remainingSeconds + " detik";
         }, 1000);
-        
-        $(document).on('click', '.btn-open-modal', function(){
+
+        $(document).on('click', '.btn-open-modal', function() {
             $('#modal-hadiah').addClass('modal-open');
         })
 
-        $(document).on('click', '.btn-close-modal', function(){
+        $(document).on('click', '.btn-close-modal', function() {
             $('#modal-hadiah').removeClass('modal-open');
-        })        
+        })
 
-        $(document).on('change', '#toggle-music', function(){
+        $(document).on('change', '#toggle-music', function() {
             var audio = $('#music-background')[0];
             if (audio.paused) {
                 audio.play();
@@ -743,7 +743,7 @@
             }
         })
 
-        $(document).on('click', '#open-undangan', function(){
+        $(document).on('click', '#open-undangan', function() {
             $('#opening').hide('slow')
             $("#body").css("overflow", "auto");
             var audio = $('#music-background')[0];
@@ -751,13 +751,16 @@
 
             var elem = document.documentElement;
             if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-            } else if (elem.mozRequestFullScreen) { /* Firefox */
-            elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-            elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE/Edge */
-            elem.msRequestFullscreen();
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+                /* Firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+                /* Chrome, Safari & Opera */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                /* IE/Edge */
+                elem.msRequestFullscreen();
             }
 
         })

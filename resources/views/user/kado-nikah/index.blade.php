@@ -95,184 +95,184 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
-    var data = [];
+    <script>
+        var data = [];
 
-    var vip = @json($user['vip']);
-    if(vip){
-        $('#promo-panel').hide()
-        $('#menu-navigation').removeClass('pt-20')
-        $('#menu-navigation').addClass('pt-16')
-    }else{
-        $('#promo-panel').show()
-        $('#menu-navigation').removeClass('pt-16')
-        $('#menu-navigation').addClass('pt-20')
-    }
+        var vip = @json($user['vip']);
+        if (vip) {
+            $('#promo-panel').hide()
+            $('#menu-navigation').removeClass('pt-20')
+            $('#menu-navigation').addClass('pt-16')
+        } else {
+            $('#promo-panel').show()
+            $('#menu-navigation').removeClass('pt-16')
+            $('#menu-navigation').addClass('pt-20')
+        }
 
-    function uppercaseFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
+        function uppercaseFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
 
-    $('input[name=wallet]').change(function() {
-        if($(this).val() === 'bank'){
-            $('#type-wallet').val('bank')
-            $('.wallet-index').show()
+        $('input[name=wallet]').change(function() {
+            if ($(this).val() === 'bank') {
+                $('#type-wallet').val('bank')
+                $('.wallet-index').show()
+                $('#wallet').val('')
+                $('#no-wallet').val('')
+                $('#wallet-user').val('')
+                $('.bank-index').show()
+                $('.label-no-wallet').text('No Rekening')
+                $('.label-user-wallet').text('Nama Pemegang Rekening')
+                $('#no-wallet').attr('placeholder', 'Masukan no rekening ');
+                $('#wallet-name').attr('placeholder', 'Masukan pemegang rekening');
+            } else {
+                $('#type-wallet').val('e-money')
+                $('.wallet-index').show()
+                $('#wallet').val($(this).val())
+                $('#no-wallet').val('')
+                $('#wallet-user').val('')
+                $('.bank-index').hide()
+                $('.label-no-wallet').text('No Handphone ' + uppercaseFirstLetter($(this).val()))
+                $('.label-user-wallet').text('Nama pemegang ' + uppercaseFirstLetter($(this).val()))
+                $('#no-wallet').attr('placeholder', 'Masukan no handphone ' + uppercaseFirstLetter($(this).val()));
+                $('#wallet-name').attr('placeholder', 'Masukan pemegang ' + uppercaseFirstLetter($(this).val()));
+            }
+        });
+
+        $(document).on('click', '.btn-add', function() {
+            $('input[name="wallet"]').prop('checked', false);
+            $('#blank-page').hide()
+            $('#form').show()
+            $('#index-data').hide()
             $('#wallet').val('')
             $('#no-wallet').val('')
             $('#wallet-user').val('')
-            $('.bank-index').show()
-            $('.label-no-wallet').text('No Rekening')
-            $('.label-user-wallet').text('Nama Pemegang Rekening')
-            $('#no-wallet').attr('placeholder', 'Masukan no rekening ');
-            $('#wallet-name').attr('placeholder', 'Masukan pemegang rekening');
-        }else{
-            $('#type-wallet').val('e-money')
-            $('.wallet-index').show()
-            $('#wallet').val($(this).val())
-            $('#no-wallet').val('')
-            $('#wallet-user').val('')
-            $('.bank-index').hide()
-            $('.label-no-wallet').text('No Handphone '+ uppercaseFirstLetter($(this).val()))
-            $('.label-user-wallet').text('Nama pemegang ' + uppercaseFirstLetter($(this).val()))
-            $('#no-wallet').attr('placeholder', 'Masukan no handphone ' + uppercaseFirstLetter($(this).val()));
-            $('#wallet-name').attr('placeholder', 'Masukan pemegang '+ uppercaseFirstLetter($(this).val()));
-        }
-    });
+            $('#btn-action').removeClass('btn-update')
+            $('#btn-action').addClass('btn-save')
+        })
 
-    $(document).on('click', '.btn-add', function(){
-        $('input[name="wallet"]').prop('checked', false);
-        $('#blank-page').hide()
-        $('#form').show()
-        $('#index-data').hide()
-        $('#wallet').val('')
-        $('#no-wallet').val('')
-        $('#wallet-user').val('')
-        $('#btn-action').removeClass('btn-update')
-        $('#btn-action').addClass('btn-save')
-    })
+        $(document).on('click', '.btn-cancel', function() {
+            $('.wallet-index').hide()
+            var unchecked = false;
+            $('input[name="wallet"]').prop('checked', false);
+            setDataIndex()
+        })
 
-    $(document).on('click', '.btn-cancel', function(){
-        $('.wallet-index').hide()
-        var unchecked = false;
-        $('input[name="wallet"]').prop('checked', false);
-        setDataIndex()
-    })
+        $(document).on('click', '.btn-save', function() {
+            validateForm()
+        })
 
-    $(document).on('click', '.btn-save', function(){
-        validateForm()
-    })
+        function validateForm(update = false) {
+            $('#wallet').val() === '' ? $('#wallet-validate').show() : $('#wallet-validate').hide()
+            $('#no-wallet').val() === '' ? $('#no-wallet-validate').show() : $('#no-wallet-validate').hide()
+            $('#wallet-user').val() === '' ? $('#wallet-user-validate').show() : $('#wallet-user-validate').hide()
 
-    function validateForm(update = false){
-        $('#wallet').val() === '' ? $('#wallet-validate').show() : $('#wallet-validate').hide()
-        $('#no-wallet').val() === '' ? $('#no-wallet-validate').show() : $('#no-wallet-validate').hide()
-        $('#wallet-user').val() === '' ? $('#wallet-user-validate').show() : $('#wallet-user-validate').hide()
-
-        if($('#wallet').val() !== '' && $('#no-wallet').val() !== '' && $('#wallet-user').val() !== ''){
-            if(update){
-                updateData()
+            if ($('#wallet').val() !== '' && $('#no-wallet').val() !== '' && $('#wallet-user').val() !== '') {
+                if (update) {
+                    updateData()
+                } else {
+                    saveData()
+                }
             } else {
-                saveData()
+                $('#toast-validate').fadeIn('past')
+                setTimeout(function() {
+                    $('#toast-validate').fadeOut('past')
+                }, 5000)
             }
-        }else{
-            $('#toast-validate').fadeIn('past')
-            setTimeout(function(){
-                $('#toast-validate').fadeOut('past')
-            }, 5000)
         }
-    }
 
-    $(document).on('click', '.btn-edit', function(){
-        $('#blank-page').hide()
-        $('#form').show()
-        $('#index-data').hide()
-        $('#id-data').val($(this).data('id'));
-        $('#type-wallet').val($(this).data('type-wallet'))
-        $('.wallet-index').show()
-        if($(this).data('type-wallet') === 'bank'){
-            $('.bank-index').show()
-            $('.label-no-wallet').text('No Rekening')
-            $('.label-user-wallet').text('Nama Pemegang Rekening')
-            $('#no-wallet').attr('placeholder', 'Masukan no rekening ');
-            $('#wallet-user').attr('placeholder', 'Masukan pemegang rekening');
-        }else{
-            $('.bank-index').hide()
-            $('.label-no-wallet').text('No Handphone '+ uppercaseFirstLetter($(this).data('wallet')))
-            $('.label-user-wallet').text('Nama pemegang ' + uppercaseFirstLetter($(this).data('wallet')))
-            $('#no-wallet').attr('placeholder', 'Masukan no handphone ' + uppercaseFirstLetter($(this).data('wallet')));
-            $('#wallet-user').attr('placeholder', 'Masukan pemegang '+ uppercaseFirstLetter($(this).data('wallet')));
+        $(document).on('click', '.btn-edit', function() {
+            $('#blank-page').hide()
+            $('#form').show()
+            $('#index-data').hide()
+            $('#id-data').val($(this).data('id'));
+            $('#type-wallet').val($(this).data('type-wallet'))
+            $('.wallet-index').show()
+            if ($(this).data('type-wallet') === 'bank') {
+                $('.bank-index').show()
+                $('.label-no-wallet').text('No Rekening')
+                $('.label-user-wallet').text('Nama Pemegang Rekening')
+                $('#no-wallet').attr('placeholder', 'Masukan no rekening ');
+                $('#wallet-user').attr('placeholder', 'Masukan pemegang rekening');
+            } else {
+                $('.bank-index').hide()
+                $('.label-no-wallet').text('No Handphone ' + uppercaseFirstLetter($(this).data('wallet')))
+                $('.label-user-wallet').text('Nama pemegang ' + uppercaseFirstLetter($(this).data('wallet')))
+                $('#no-wallet').attr('placeholder', 'Masukan no handphone ' + uppercaseFirstLetter($(this).data('wallet')));
+                $('#wallet-user').attr('placeholder', 'Masukan pemegang ' + uppercaseFirstLetter($(this).data('wallet')));
+            }
+            $('input[name="wallet"][value="' + $(this).data('wallet') + '"]').prop('checked', true);
+            $('#wallet').val($(this).data('wallet'))
+            $('#no-wallet').val($(this).data('no-wallet'))
+            $('#wallet-user').val($(this).data('wallet-user'))
+            $('#btn-action').addClass('btn-update')
+            $('#btn-action').removeClass('btn-save')
+        })
+
+        $(document).on('click', '.btn-update', function() {
+            validateForm(true)
+        })
+
+        $(document).on('click', '.btn-delete', function() {
+            $('#id-data').val($(this).data('id'));
+            $('#modal-delete').addClass('modal-open')
+        })
+
+        $(document).on('click', '.btn-close-modal', function() {
+            $('#modal-delete').removeClass('modal-open')
+        })
+
+        $(document).on('click', '.btn-confirm-delete', function() {
+            $('#modal-delete').removeClass('modal-open')
+            deleteData($('#id-data').val())
+        })
+
+        getData()
+
+        function getData() {
+            $.ajax({
+                url: `kado-nikah/get-data`,
+                type: 'GET',
+                dataType: 'json',
+                data: {},
+                beforeSend: function() {
+                    $('#loading-page').show()
+                    $('#blank-page').hide()
+                    $('#index-data').hide()
+                    $('#form').hide()
+                },
+                error: function(error) {
+                    $('#loading-page').hide()
+                },
+                success: function(response) {
+                    $('#loading-page').hide()
+                    data = response;
+                    setDataIndex()
+                    return;
+                }
+            });
         }
-        $('input[name="wallet"][value="'+$(this).data('wallet')+'"]').prop('checked', true);
-        $('#wallet').val($(this).data('wallet'))
-        $('#no-wallet').val($(this).data('no-wallet'))
-        $('#wallet-user').val($(this).data('wallet-user'))
-        $('#btn-action').addClass('btn-update')
-        $('#btn-action').removeClass('btn-save')
-    })
 
-    $(document).on('click', '.btn-update', function(){
-        validateForm(true)
-    })
-
-    $(document).on('click', '.btn-delete', function(){
-        $('#id-data').val($(this).data('id'));
-        $('#modal-delete').addClass('modal-open')
-    })
-
-    $(document).on('click', '.btn-close-modal', function(){
-        $('#modal-delete').removeClass('modal-open')
-    })
-
-    $(document).on('click', '.btn-confirm-delete', function(){
-        $('#modal-delete').removeClass('modal-open')
-        deleteData($('#id-data').val())
-    })
-
-    getData()
-
-    function getData(){
-        $.ajax({
-            url: `kado-nikah/get-data`,
-            type: 'GET',
-            dataType: 'json',
-            data: {},
-            beforeSend: function() {
-                $('#loading-page').show()
-                $('#blank-page').hide()
+        function setDataIndex() {
+            var html = ``;
+            if (data.length === 0) {
+                $('#blank-page').show()
                 $('#index-data').hide()
                 $('#form').hide()
-            },
-            error: function(error) {
-                $('#loading-page').hide()
-            },
-            success: function(response) {
-                $('#loading-page').hide()
-                data = response;
-                setDataIndex()
-                return;
-            }
-        });
-    }
+            } else {
+                $('#blank-page').hide()
+                $('#index-data').show()
+                $('#form').hide()
 
-    function setDataIndex(){
-        var html = ``;
-        if(data.length === 0){
-            $('#blank-page').show()
-            $('#index-data').hide()
-            $('#form').hide()
-        }else{
-            $('#blank-page').hide()
-            $('#index-data').show()
-            $('#form').hide()
+                html += `<section class="grid md:grid-cols-2 lg:grid-cols-4 md:gap-4">`
+                $.each(data, function(key, val) {
+                    let color = val.wallet === "gopay" ? "green-300" :
+                        val.wallet === "dana" ? "blue-300" :
+                        val.wallet === "ovo" ? "purple-300" :
+                        val.wallet === "shopeepay" ? "orange-200" :
+                        "gray-200";
 
-            html += `<section class="grid md:grid-cols-2 lg:grid-cols-4 md:gap-4">`
-            $.each(data, function(key, val){
-                let color = val.wallet === "gopay" ? "green-300" :
-                            val.wallet === "dana" ? "blue-300" :
-                            val.wallet === "ovo" ? "purple-300" :
-                            val.wallet === "shopeepay" ? "orange-200" :
-                            "gray-200";
-
-                html += `
+                    html += `
                 <div class="w-full rounded-md bg-${color} p-2 shadow-md mt-3 md:mt-0">
                     <div class="flex flex-col">
                         <div class="flex flex-row items-center justify-between px-4 py-4">
@@ -302,133 +302,133 @@
                     </div>
                 </div>
                 `
-            })
-            html += `</section>`
-            html += `<div class="mt-4">
+                })
+                html += `</section>`
+                html += `<div class="mt-4">
                 <button type="button" id="btn-action" class="btn-add inline-block rounded bg-yellow-600 px-6 py-3 text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-green-800 hover:shadow-lg">
                     Tambah Rekening
                 </button>
                     </div>`
 
-            $('#index-data').html(html)
+                $('#index-data').html(html)
+            }
         }
-    }
 
-    function saveData(){
-        const id = $('#id-data').val();
-        const type = $('#type-wallet').val();
-        const wallet = $('#wallet').val();
-        const no_wallet = $('#no-wallet').val();
-        const user_wallet = $('#wallet-user').val();
+        function saveData() {
+            const id = $('#id-data').val();
+            const type = $('#type-wallet').val();
+            const wallet = $('#wallet').val();
+            const no_wallet = $('#no-wallet').val();
+            const user_wallet = $('#wallet-user').val();
 
-        $.ajax({
-            url: "/kado-nikah/store",
-            type: "GET",
-            data: {
-                type,
-                wallet,
-                no_wallet,
-                user_wallet
-            },
-            beforeSend: function() {
-                $('#toast-loading').show()
-                $('#toast-validate').hide()
-            },
-            error: function(error) {
-                setTimeout(function(){
-                    $('#toast-loading').hide()
-                    $('#toast-failed').fadeIn('past')
-                }, 1000)
-                setTimeout(function(){
-                    $('#toast-failed').fadeOut('past')
-                }, 4000)
-            },
-            success: function(response) {
-                setTimeout(function(){
-                    $('#toast-loading').hide()
-                    $('#toast-success').fadeIn('past')
-                    getData()
-                }, 1000)
-                setTimeout(function(){
-                    $('#toast-success').fadeOut('past')
-                }, 4000)
-            }
-        })
-    }
+            $.ajax({
+                url: "/kado-nikah/store",
+                type: "GET",
+                data: {
+                    type,
+                    wallet,
+                    no_wallet,
+                    user_wallet
+                },
+                beforeSend: function() {
+                    $('#toast-loading').show()
+                    $('#toast-validate').hide()
+                },
+                error: function(error) {
+                    setTimeout(function() {
+                        $('#toast-loading').hide()
+                        $('#toast-failed').fadeIn('past')
+                    }, 1000)
+                    setTimeout(function() {
+                        $('#toast-failed').fadeOut('past')
+                    }, 4000)
+                },
+                success: function(response) {
+                    setTimeout(function() {
+                        $('#toast-loading').hide()
+                        $('#toast-success').fadeIn('past')
+                        getData()
+                    }, 1000)
+                    setTimeout(function() {
+                        $('#toast-success').fadeOut('past')
+                    }, 4000)
+                }
+            })
+        }
 
-    function updateData(){
-        const id = $('#id-data').val();
-        const type = $('#type-wallet').val();
-        const wallet = $('#wallet').val();
-        const no_wallet = $('#no-wallet').val();
-        const user_wallet = $('#wallet-user').val();
+        function updateData() {
+            const id = $('#id-data').val();
+            const type = $('#type-wallet').val();
+            const wallet = $('#wallet').val();
+            const no_wallet = $('#no-wallet').val();
+            const user_wallet = $('#wallet-user').val();
 
-        $.ajax({
-            url: "/kado-nikah/update",
-            type: "GET",
-            data: {
-                id,
-                type,
-                wallet,
-                no_wallet,
-                user_wallet
-            },
-            beforeSend: function() {
-                $('#toast-loading').show()
-                $('#toast-validate').hide()
-            },
-            error: function(error) {
-                setTimeout(function(){
-                    $('#toast-loading').hide()
-                    $('#toast-failed').fadeIn('past')
-                }, 1000)
-                setTimeout(function(){
-                    $('#toast-failed').fadeOut('past')
-                }, 4000)
-            },
-            success: function(response) {
-                setTimeout(function(){
-                    $('#toast-loading').hide()
-                    $('#toast-success').fadeIn('past')
-                    getData()
-                }, 1000)
-                setTimeout(function(){
-                    $('#toast-success').fadeOut('past')
-                }, 4000)
-            }
-        })
-    }
+            $.ajax({
+                url: "/kado-nikah/update",
+                type: "GET",
+                data: {
+                    id,
+                    type,
+                    wallet,
+                    no_wallet,
+                    user_wallet
+                },
+                beforeSend: function() {
+                    $('#toast-loading').show()
+                    $('#toast-validate').hide()
+                },
+                error: function(error) {
+                    setTimeout(function() {
+                        $('#toast-loading').hide()
+                        $('#toast-failed').fadeIn('past')
+                    }, 1000)
+                    setTimeout(function() {
+                        $('#toast-failed').fadeOut('past')
+                    }, 4000)
+                },
+                success: function(response) {
+                    setTimeout(function() {
+                        $('#toast-loading').hide()
+                        $('#toast-success').fadeIn('past')
+                        getData()
+                    }, 1000)
+                    setTimeout(function() {
+                        $('#toast-success').fadeOut('past')
+                    }, 4000)
+                }
+            })
+        }
 
-    function deleteData(id){
-        $.ajax({
-            url: "/kado-nikah/delete",
-            type: "GET",
-            data: {
-                id
-            },
-            beforeSend: function() {
-                $('#toast-loading').show()
-            },
-            error: function(error) {
-                setTimeout(function(){
-                    $('#toast-loading').hide()
-                    $('#toast-failed-delete').fadeIn('past')
-                }, 1000)
-                setTimeout(function(){
-                    $('#toast-failed-delete').fadeOut('past')
-                }, 4000)
-            },
-            success: function(response) {
-                setTimeout(function(){
-                    $('#toast-loading').hide()
-                    $('#toast-success-delete').fadeIn('past')
-                    getData()
-                }, 1000)
-                setTimeout(function(){
-                    $('#toast-success-delete').fadeOut('past')
-                }, 4000)
-            }
-        })
-    }
-</script>
+        function deleteData(id) {
+            $.ajax({
+                url: "/kado-nikah/delete",
+                type: "GET",
+                data: {
+                    id
+                },
+                beforeSend: function() {
+                    $('#toast-loading').show()
+                },
+                error: function(error) {
+                    setTimeout(function() {
+                        $('#toast-loading').hide()
+                        $('#toast-failed-delete').fadeIn('past')
+                    }, 1000)
+                    setTimeout(function() {
+                        $('#toast-failed-delete').fadeOut('past')
+                    }, 4000)
+                },
+                success: function(response) {
+                    setTimeout(function() {
+                        $('#toast-loading').hide()
+                        $('#toast-success-delete').fadeIn('past')
+                        getData()
+                    }, 1000)
+                    setTimeout(function() {
+                        $('#toast-success-delete').fadeOut('past')
+                    }, 4000)
+                }
+            })
+        }
+    </script>
 @endpush

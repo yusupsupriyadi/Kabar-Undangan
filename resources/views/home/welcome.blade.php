@@ -38,10 +38,10 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
+    <script>
         $('#footer').addClass('hidden')
         $('#home').addClass('hidden')
-        $(document).on('click', '#handleRegister', function (){
+        $(document).on('click', '#handleRegister', function() {
             localStorage.setItem('email', document.getElementById('email').value);
             localStorage.setItem('phone', document.getElementById('phone').value);
             window.location.href = '/register'

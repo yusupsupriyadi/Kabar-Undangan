@@ -35,7 +35,7 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
+    <script>
         $('#users-link').addClass('drawer-item-active');
 
         $(document).ready(function() {
@@ -45,6 +45,7 @@
         });
 
         getData()
+
         function getData() {
             $.ajax({
                 url: "{{ route('admin.get-users') }}",
@@ -59,7 +60,11 @@
         function renderDataUser(data) {
             let html = ''
             data.forEach((item, index) => {
-                var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                var options = {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                };
                 var tanggal = new Date(item.created_at).toLocaleDateString('id-ID', options);
                 html += `
                     <tr class="hover">
@@ -116,7 +121,7 @@
             })
         })
 
-        $(document).on('click', '.btn-delete', function(){
+        $(document).on('click', '.btn-delete', function() {
             let id = $(this).data('id')
             $.ajax({
                 url: "{{ route('admin.delete-user') }}",

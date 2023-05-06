@@ -60,7 +60,7 @@
     <x-toast-alert id="toast-success" type="success" message="Berhasil." />
 @endsection
 @push('scripts')
-    <script type="module">
+    <script>
         flatpickr("#tanggal-lahir-pria", {
             locale: "id",
             dateFormat: "d/m/Y",
@@ -75,30 +75,30 @@
         $('#footer').addClass('hidden')
         var dataMempelaiPria = @json($dataMempelaiPria);
         var dataMempelaiWanita = @json($dataMempelaiWanita);
- 
+
         var dataNull = {
-            'dataMempelaiPria' : dataMempelaiPria !== null ? false : true,
-            'dataMempelaiWanita' : dataMempelaiWanita !== null ? false : true,
+            'dataMempelaiPria': dataMempelaiPria !== null ? false : true,
+            'dataMempelaiWanita': dataMempelaiWanita !== null ? false : true,
         }
- 
-        if(dataMempelaiPria === null){
+
+        if (dataMempelaiPria === null) {
             $('html, body').animate({
                 scrollTop: $("#section-mempelai-pria").offset().top
             }, 1000);
-        } else if(dataMempelaiWanita === null){
+        } else if (dataMempelaiWanita === null) {
             $('html, body').animate({
                 scrollTop: $("#section-mempelai-wanita").offset().top
             }, 1000);
         }
- 
-        $('#handleStoreDataMempelaiPria').click(function(){
+
+        $('#handleStoreDataMempelaiPria').click(function() {
             storeDataMempelaiPria()
         })
- 
-        $('#handleStoreDataMempelaiwanita').click(function(){
+
+        $('#handleStoreDataMempelaiwanita').click(function() {
             storeDataMempelaiWanita()
         })
- 
+
         function storeDataMempelaiPria() {
             var dataMempelaiPria = {
                 id: $('#id-pria').val(),
@@ -129,7 +129,7 @@
                     $('#toast-success').removeClass('hidden');
                     $('.btn-handle').html('Lanjutkan').removeClass('opacity-50 cursor-not-allowed');
                     setTimeout(() => {
-                       $('#toast-success').addClass('hidden')
+                        $('#toast-success').addClass('hidden')
                     }, 3000);
                     $('#section-mempelai-wanita').removeClass('hidden').addClass('pb-6')
                     $('#section-mempelai-pria').removeClass('pb-6')
@@ -142,8 +142,8 @@
                 }
             });
         }
- 
-        function storeDataMempelaiWanita(){
+
+        function storeDataMempelaiWanita() {
             var dataMempelaiWanita = {
                 id: $('#id-wanita').val(),
                 nama_lengkap: $('#nama-lengkap-wanita').val(),
@@ -154,7 +154,7 @@
                 nama_ibu: $('#nama-ibu-wanita').val(),
                 instagram: $('#instagram-wanita').val(),
             }
- 
+
             $.ajax({
                 url: `${dataNull.dataMempelaiWanita === false ? '/mempelai/update-data-mempelai-wanita' : '/mempelai/store-data-mempelai-wanita'}`,
                 type: 'GET',
@@ -173,7 +173,7 @@
                     $('#toast-success').removeClass('hidden');
                     $('.btn-handle').html('Lanjutkan').removeClass('opacity-50 cursor-not-allowed');
                     setTimeout(() => {
-                       $('#toast-success').addClass('hidden')
+                        $('#toast-success').addClass('hidden')
                     }, 3000);
 
                     setTimeout(() => {
@@ -187,5 +187,5 @@
                 }
             });
         }
-</script>
+    </script>
 @endpush

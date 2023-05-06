@@ -133,21 +133,20 @@
             "retina_detect": true
         });
     </script>
-    <script type="module">
-
+    <script>
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        
+
         let data = @json($data);
         var tanggalResepsi = data['setting_akad_api']['tanggal'].split("/");
         var tanggalFormatted = tanggalResepsi[2] + "-" + tanggalResepsi[1] + "-" + tanggalResepsi[0];
         var date = new Date(`${tanggalFormatted} ${data['setting_akad_api']['waktu_mulai']}`);
         var now = new Date();
-        const imageUrl = '{{ asset("storage/images") }}/'
-        const imagePublic = '{{ asset("/images") }}/'
+        const imageUrl = '{{ asset('storage/images') }}/'
+        const imagePublic = '{{ asset('/images') }}/'
 
         $("#body").css("overflow", "hidden");
 
@@ -181,7 +180,7 @@
         $('#image-file').on('change', (e) => {
             var reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);
-            reader.onload = function(){
+            reader.onload = function() {
                 var output = document.getElementById('output');
                 output.src = reader.result;
             }
@@ -199,21 +198,21 @@
                 document.execCommand('copy');
                 tempInput.remove();
                 $(`.copy-${key}`).show('past')
-                setTimeout(function(){
+                setTimeout(function() {
                     $(`.copy-${key}`).hide('past')
                 }, 2000)
             });
         });
-        
-        $(document).on('click', '.btn-open-modal', function(){
+
+        $(document).on('click', '.btn-open-modal', function() {
             $('#modal-hadiah').addClass('modal-open');
         })
 
-        $(document).on('click', '.btn-close-modal', function(){
+        $(document).on('click', '.btn-close-modal', function() {
             $('#modal-hadiah').removeClass('modal-open');
-        })        
+        })
 
-        $(document).on('change', '#toggle-music', function(){
+        $(document).on('change', '#toggle-music', function() {
             var audio = $('#music-background')[0];
             if (audio.paused) {
                 audio.play();
@@ -222,45 +221,48 @@
             }
         })
 
-        $(document).on('click', '#open-undangan', function(){
+        $(document).on('click', '#open-undangan', function() {
             $('#opening').hide('slow')
             $("#body").css("overflow", "auto");
             var audio = $('#music-background')[0];
-            if(data['vip'] === true || data['vip'] === "true" ){
+            if (data['vip'] === true || data['vip'] === "true") {
                 audio.play();
             }
 
             var elem = document.documentElement;
             if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-            } else if (elem.mozRequestFullScreen) { /* Firefox */
-            elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-            elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { /* IE/Edge */
-            elem.msRequestFullscreen();
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+                /* Firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+                /* Chrome, Safari & Opera */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                /* IE/Edge */
+                elem.msRequestFullscreen();
             }
         })
 
-        $(document).on('click', '.btn-send', function(){
+        $(document).on('click', '.btn-send', function() {
             validateForm();
         })
 
-        function validateForm(){
+        function validateForm() {
             $('#nama').val() == '' ? $('#nama-validation').show() : $('#nama-validation').hide();
             $('#pesan').val() == '' ? $('#pesan-validation').show() : $('#pesan-validation').hide();
 
             if ($('#nama').val() != '' && $('#pesan').val() != '') {
                 sendPesan();
-            }else{
+            } else {
                 $('#toast-validate').fadeIn('past')
-                setTimeout(function(){
+                setTimeout(function() {
                     $('#toast-validate').fadeOut('past')
                 }, 5000)
             }
         }
 
-        function sendPesan(){
+        function sendPesan() {
             const imageFile = document.getElementById('image-file');
             var myformData = new FormData();
             myformData.append('nama', $('#nama').val());
@@ -281,13 +283,11 @@
                     $('#toast-loading').show()
                     $('#toast-validate').hide()
                 },
-                error: function(error) {
-                },
+                error: function(error) {},
                 success: function(response) {
                     window.location.reload();
                 }
             });
         }
-
     </script>
 @endpush

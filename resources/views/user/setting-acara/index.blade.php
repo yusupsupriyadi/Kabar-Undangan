@@ -303,7 +303,7 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
+    <script>
         var data = @json($data);
         var userId = @json($user->id);
 

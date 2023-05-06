@@ -76,20 +76,20 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
+    <script>
         var id = @json($dataSettingUndangan === null ? '' : $dataSettingUndangan['id']);
         var dataSettingUndangan = @json($dataSettingUndangan);
         var action = 'create';
-        if(dataSettingUndangan !== null){
+        if (dataSettingUndangan !== null) {
             action = 'update';
         }
 
         var vip = @json($user['vip']);
-        if(parseInt(vip)){
+        if (parseInt(vip)) {
             $('#promo-panel').hide()
             $('#menu-navigation').removeClass('pt-20')
             $('#menu-navigation').addClass('pt-16')
-        }else{
+        } else {
             $('#promo-panel').show()
             $('#menu-navigation').removeClass('pt-16')
             $('#menu-navigation').addClass('pt-20')
@@ -104,31 +104,31 @@
             });
         });
 
-        $(document).on('keyup', '#domain', function(){
+        $(document).on('keyup', '#domain', function() {
             var domain = $(this).val();
             var filteredDomain = domain.replace(/[\s~`!@#$%\^&*+=\[\]\\';,/{}|\\":<>\?()\._]/g, '');
-            // validasi domain
-            if (/[\s~`!@#$%\^&*+=\[\]\\';,/{}|\\":<>\?()\._]/g.test(domain)) {
+        // validasi domain
+        if (/[\s~`!@#$%\^&*+=\[\]\\';,/{}|\\":<>\?()\._]/g.test(domain)) {
                 alert("Domain tidak boleh mengandung spasi atau simbol selain tanda hubung (-)");
                 $(this).val(filteredDomain);
             }
         })
 
-        function validateForm(){
+        function validateForm() {
             $('#domain').val() === '' ? $('#domain-validate').show() : $('#domain-validate').hide();
             $('#judul_undangan').val() === '' ? $('#judul-undangan-validate').show() : $('#judul-undangan-v alidate').hide();
 
-            if($('#domain').val() === '' || $('#judul_undangan').val() === ''){
+            if ($('#domain').val() === '' || $('#judul_undangan').val() === '') {
                 $('#toast-validate').fadeIn('past')
-                setTimeout(function(){
+                setTimeout(function() {
                     $('#toast-validate').fadeOut('past')
                 }, 5000)
-            }else{
+            } else {
                 storeData()
             }
         }
 
-        function storeData(){
+        function storeData() {
             var domain = $('#domain').val();
             var judul_undangan = $('#judul_undangan').val();
 
@@ -148,31 +148,31 @@
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     if (jqXHR.responseJSON && jqXHR.responseJSON.message) {
-                        setTimeout(function(){
+                        setTimeout(function() {
                             $('#toast-loading').hide()
                             $('#toast-failed-domain').fadeIn('past')
                         }, 1000)
-                        setTimeout(function(){
+                        setTimeout(function() {
                             $('#toast-failed-domain').fadeOut('past')
                         }, 4000)
                     } else {
-                        setTimeout(function(){
+                        setTimeout(function() {
                             $('#toast-loading').hide()
                             $('#toast-failed').fadeIn('past')
                         }, 1000)
-                        setTimeout(function(){
+                        setTimeout(function() {
                             $('#toast-failed').fadeOut('past')
                         }, 4000)
                     }
-                    
+
                 },
                 success: function(response) {
                     action = 'update';
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-success').fadeIn('past')
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-success').fadeOut('past')
                     }, 4000)
                 },

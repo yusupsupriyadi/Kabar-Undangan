@@ -70,7 +70,7 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
+    <script>
         var data = @json($data);
         flatpickr("#tanggal", {
             locale: "id",
@@ -83,11 +83,11 @@
         });
 
         var vip = @json($user['vip']);
-        if(parseInt(vip)){
+        if (parseInt(vip)) {
             $('#promo-panel').hide()
             $('#menu-navigation').removeClass('pt-20')
             $('#menu-navigation').addClass('pt-16')
-        }else{
+        } else {
             $('#promo-panel').show()
             $('#menu-navigation').removeClass('pt-16')
             $('#menu-navigation').addClass('pt-20')
@@ -97,15 +97,15 @@
         }
 
         var keyList = data.length;
-        const imageUrl = '{{ asset("storage/images") }}/'
-        const imagePublic = '{{ asset("/images") }}/'
+        const imageUrl = '{{ asset('storage/images') }}/'
+        const imagePublic = '{{ asset('/images') }}/'
 
         setupIndex();
 
         $('#image-file').on('change', (e) => {
             var reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);
-            reader.onload = function(){
+            reader.onload = function() {
                 var output = document.getElementById('output');
                 output.src = reader.result;
             }
@@ -114,28 +114,33 @@
         $('#image-file-update').on('change', (e) => {
             var reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);
-            reader.onload = function(){
+            reader.onload = function() {
                 var output = document.getElementById('output-update');
                 output.src = reader.result;
             }
         })
 
-        function setupIndex(){
-            if(data.length === 0){
+        function setupIndex() {
+            if (data.length === 0) {
                 $('#blank-story').show();
                 $('#form-story').hide();
                 $('#list-story').hide()
                 $('#form-story-edit').hide()
-            }else{
+            } else {
                 $('#blank-story').hide();
                 $('#form-story').hide();
                 $('#list-story').show()
                 $('#form-story-edit').hide()
                 var html = ``
-                $.each(data, function(key, value){
+                $.each(data, function(key, value) {
                     var tanggalArray = value.tanggal.split("/");
                     var tanggal = new Date(tanggalArray[2], tanggalArray[1] - 1, tanggalArray[0]);
-                    var options = {weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'};
+                    var options = {
+                        weekday: 'long',
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric'
+                    };
                     var tanggalFormatted = tanggal.toLocaleDateString('id-ID', options);
 
                     html += `
@@ -167,7 +172,7 @@
             }
         }
 
-        $(document).on('click', '.btn-add-story' , function(){
+        $(document).on('click', '.btn-add-story', function() {
             const form = document.querySelector('#form-story');
             const inputs = form.querySelectorAll('input, textarea, select');
 
@@ -175,37 +180,37 @@
                 inputs[i].value = '';
             }
 
-            $('#output').attr('src', imagePublic+'image-empty.webp');
-            
+            $('#output').attr('src', imagePublic + 'image-empty.webp');
+
             $('#form-story').show();
             $('#blank-story').hide();
             $('#list-story').hide()
         })
 
-        $(document).on('click', '.btn-cancel-story' , function(){
+        $(document).on('click', '.btn-cancel-story', function() {
             setupIndex()
         })
 
-        $(document).on('click', '.btn-store-story' , function(){
+        $(document).on('click', '.btn-store-story', function() {
             validateValue()
         })
         var idForDelete = null;
 
-        $(document).on('click', '.btn-delete', function(){
+        $(document).on('click', '.btn-delete', function() {
             $('#modal-delete').addClass('modal-open')
             idForDelete = $(this).data('id');
         })
 
-        $(document).on('click', '.btn-confirm-delete', function(){
+        $(document).on('click', '.btn-confirm-delete', function() {
             $('#modal-delete').removeClass('modal-open')
             deleteData(idForDelete);
         })
 
-        $(document).on('click', '.btn-close-modal', function(){
+        $(document).on('click', '.btn-close-modal', function() {
             $('#modal-delete').removeClass('modal-open')
         })
 
-        $(document).on('click', '.btn-edit', function(){
+        $(document).on('click', '.btn-edit', function() {
             const id = $(this).data('id');
             const tanggal = $(this).data('tanggal');
             const judul = $(this).data('judul');
@@ -227,65 +232,65 @@
             $('#tanggal-update').val(tanggal);
             $('#judul-update').val(judul);
             $('#cerita-update').val(cerita);
-            if(image === null){
+            if (image === null) {
                 $('.btn-delete-image').hide();
-                $('#output-update').attr('src', imagePublic+'image-empty.webp');
-            }else{
+                $('#output-update').attr('src', imagePublic + 'image-empty.webp');
+            } else {
                 $('.btn-delete-image').show();
-                $('#output-update').attr('src', imageUrl+image);
+                $('#output-update').attr('src', imageUrl + image);
             }
         })
 
-        $(document).on('click', '.btn-cancel-story-update', function(){
+        $(document).on('click', '.btn-cancel-story-update', function() {
             setupIndex()
         })
 
-        $('#output').attr('src', imagePublic+'image-empty.webp');
+        $('#output').attr('src', imagePublic + 'image-empty.webp');
 
-        $(document).on('click', '.btn-delete-image', function(){
-            $('#output-update').attr('src', imagePublic+'image-empty.webp');
+        $(document).on('click', '.btn-delete-image', function() {
+            $('#output-update').attr('src', imagePublic + 'image-empty.webp');
             $('.btn-delete-image').hide();
         })
 
-        $(document).on('change', '#image-file-update', function(){
+        $(document).on('change', '#image-file-update', function() {
             $('.btn-delete-image').show();
         })
 
-        $(document).on('click', '.btn-store-story-update' , function(){
+        $(document).on('click', '.btn-store-story-update', function() {
             validateValueUpdate()
         })
 
-        function validateValue(){
+        function validateValue() {
             $('#judul').val() === '' ? $('#judul-validate').show() : $('#judul-validate').hide()
             $('#tanggal').val() === '' ? $('#tanggal-validate').show() : $('#tanggal-validate').hide()
             $('#cerita').val() === '' ? $('#cerita-validate').show() : $('#cerita-validate').hide()
 
-            if($('#tanggal').val() !== '' && $('#judul').val() !== '' && $('#cerita') !== ''){
+            if ($('#tanggal').val() !== '' && $('#judul').val() !== '' && $('#cerita') !== '') {
                 storeStory()
-            }else{
+            } else {
                 $('#toast-validate').fadeIn('past')
-                setTimeout(function(){
+                setTimeout(function() {
                     $('#toast-validate').fadeOut('past')
                 }, 5000)
             }
         }
 
-        function validateValueUpdate(){
+        function validateValueUpdate() {
             $('#judul-update').val() === '' ? $('#judul-update-validate').show() : $('#judul-update-validate').hide()
             $('#tanggal-update').val() === '' ? $('#tanggal-update-validate').show() : $('#tanggal-update-validate').hide()
             $('#cerita-update').val() === '' ? $('#cerita-update-validate').show() : $('#cerita-update-validate').hide()
 
-            if($('#tanggal-update').val() !== '' && $('#judul-update').val() !== '' && $('#cerita-update') !== ''){
+            if ($('#tanggal-update').val() !== '' && $('#judul-update').val() !== '' && $('#cerita-update') !== '') {
                 updateStory()
-            }else{
+            } else {
                 $('#toast-validate').fadeIn('past')
-                setTimeout(function(){
+                setTimeout(function() {
                     $('#toast-validate').fadeOut('past')
                 }, 5000)
             }
         }
 
-        function storeStory(){
+        function storeStory() {
             const imageFile = document.getElementById('image-file');
             var myformData = new FormData();
             myformData.append('imageFile', imageFile.files[0]);
@@ -306,28 +311,28 @@
                     $('#toast-validate').hide()
                 },
                 error: function(error) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-failed').fadeIn('past')
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-failed').fadeOut('past')
                     }, 4000)
                 },
                 success: function(response) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-success').fadeIn('past')
                         getData()
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-success').fadeOut('past')
                     }, 4000)
                 }
             });
         }
 
-        function updateStory(){
+        function updateStory() {
             const imageFile = document.getElementById('image-file-update');
             var myformData = new FormData();
             myformData.append('id', $('#id-cerita').val());
@@ -335,9 +340,9 @@
             myformData.append('judul', $('#judul-update').val());
             myformData.append('cerita', $('#cerita-update').val());
             var image = $('#output-update').attr('src').split('/').pop();
-            if(image === "image-empty.webp"){
+            if (image === "image-empty.webp") {
                 myformData.append('imageFile', 'null');
-            }else{
+            } else {
                 myformData.append('imageFile', imageFile.files[0]);
             }
 
@@ -354,38 +359,36 @@
                     $('#toast-validate').hide()
                 },
                 error: function(error) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-failed').fadeIn('past')
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-failed').fadeOut('past')
                     }, 4000)
                 },
                 success: function(response) {
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-success').fadeIn('past')
                         getData()
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-success').fadeOut('past')
                     }, 4000)
                 }
             });
         }
 
-        function getData(){
+        function getData() {
             $.ajax({
                 method: 'get',
                 processData: false,
                 contentType: false,
                 cache: false,
                 url: `/cerita-cinta/get-data`,
-                beforeSend: function() {
-                },
-                error: function(error) {
-                },
+                beforeSend: function() {},
+                error: function(error) {},
                 success: function(response) {
                     data = response
                     setupIndex()
@@ -393,7 +396,7 @@
             });
         }
 
-        function deleteData(id){
+        function deleteData(id) {
             $.ajax({
                 url: `/cerita-cinta/delete`,
                 type: "post",
@@ -401,26 +404,26 @@
                 data: {
                     id
                 },
-                beforeSend: function () {
+                beforeSend: function() {
                     $('#toast-loading').show()
                     $('#toast-validate').hide()
                 },
-                error: function (error) {
-                    setTimeout(function(){
+                error: function(error) {
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-failed-delete').fadeIn('past')
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-failed-delete').fadeOut('past')
                     }, 4000)
                 },
-                success: function (response) {
-                    setTimeout(function(){
+                success: function(response) {
+                    setTimeout(function() {
                         $('#toast-loading').hide()
                         $('#toast-success-delete').fadeIn('past')
                         getData()
                     }, 1000)
-                    setTimeout(function(){
+                    setTimeout(function() {
                         $('#toast-success-delete').fadeOut('past')
                     }, 4000)
                 },

@@ -94,7 +94,7 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
+    <script>
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -103,7 +103,7 @@
         let phone = localStorage.getItem('phone');
         let email = localStorage.getItem('email');
 
-        $(document).on('click', '.togglePasswordVisibility', function(){
+        $(document).on('click', '.togglePasswordVisibility', function() {
             const passwordInput = document.getElementById("password");
             if (passwordInput.type === "password") {
                 passwordInput.type = "text";
@@ -123,7 +123,7 @@
             validation();
         })
 
-        function validation(){
+        function validation() {
             let namaPria = $('#nama-pria').val();
             let namaWanita = $('#nama-wanita').val();
             let email = $('#email').val();
@@ -142,19 +142,19 @@
             phone === '' ? $('#validation-phone').show() : $('#validation-phone').hide();
             password === '' ? $('#validation-password').show() : $('#validation-password').hide();
 
-            if(namaPria !== '' && namaWanita !== '' && email !== '' && phone !== '' && password !== ''){
+            if (namaPria !== '' && namaWanita !== '' && email !== '' && phone !== '' && password !== '') {
                 register();
             }
-            
+
         }
 
-        function register(){
+        function register() {
             $.ajax({
                 url: `/auth/register`,
                 type: 'POST',
                 dataType: 'json',
                 data: {
-                    name: $('#nama-wanita').val()+"-dan-"+$('#nama-pria').val(),
+                    name: $('#nama-wanita').val() + "-dan-" + $('#nama-pria').val(),
                     nama_pria: $('#nama-pria').val(),
                     nama_wanita: $('#nama-wanita').val(),
                     email: $('#email').val(),
@@ -165,7 +165,7 @@
                     $('#handleRegister').html('Loading...').addClass('opacity-50');
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    
+
                     if (jqXHR.responseJSON && jqXHR.responseJSON.message) {
                         $('#handleRegister').html('Coba Lagi').removeClass('opacity-50');
                         $('#toast-failed-email').removeClass('hidden');
@@ -176,7 +176,7 @@
                         $('#handleRegister').html('Coba Lagi').removeClass('opacity-50');
                         $('#toast-failed').removeClass('hidden');
                         setTimeout(() => {
-                        $('#toast-failed').addClass('hidden')
+                            $('#toast-failed').addClass('hidden')
                         }, 3000);
                     }
                 },
@@ -184,7 +184,7 @@
                     $('#handleRegister').html('Berhasil').removeClass('opacity-50');
                     $('#toast-success').removeClass('hidden');
                     setTimeout(() => {
-                       $('#toast-success').addClass('hidden')
+                        $('#toast-success').addClass('hidden')
                     }, 3000);
 
                     window.location.href = '/complete-register'

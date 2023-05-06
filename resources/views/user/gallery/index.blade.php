@@ -82,7 +82,7 @@
 @endsection
 
 @push('scripts')
-    <script type="module">
+    <script>
         const imageUrl = '{{ asset("storage/images") }}/'
         const imagePublic = '{{ asset("/images") }}/'
         var data = [];
