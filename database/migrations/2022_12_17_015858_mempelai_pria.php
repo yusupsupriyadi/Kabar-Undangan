@@ -24,13 +24,12 @@ return new class extends Migration
             $table->string('nama_ibu');
             $table->string('instagram');
             $table->string('foto');
-            $table->string('riwayat_hidup');
             $table->string('tampilkan_foto');
             $table->string('facebook');
             $table->string('twitter');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

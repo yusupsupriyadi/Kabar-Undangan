@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('setting_akads', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('tampilkan');
             $table->string('tanggal');
             $table->string('waktu_mulai');
@@ -24,8 +25,6 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('google_maps');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

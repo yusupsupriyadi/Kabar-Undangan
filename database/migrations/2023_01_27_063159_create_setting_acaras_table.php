@@ -16,11 +16,10 @@ return new class extends Migration
         Schema::create('setting_acaras', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('zona_waktu');
             $table->string('agama');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -57,7 +57,8 @@ class AdminController extends Controller
         $mempelaiWanita = $user->MempelaiWanitaApi ? $user->MempelaiWanitaApi->toArray() : $user->MempelaiWanitaApi;
         $this->deleteImage($mempelaiWanita['foto']);
 
-        // $user->delete();
+        $user->delete();
+
         return response()->json([
             'status' => 'success',
             'message' => 'User berhasil dihapus'

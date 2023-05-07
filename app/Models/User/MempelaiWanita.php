@@ -20,6 +20,7 @@ class MempelaiWanita extends Model
         'tanggal_lahir',
         'nama_ayah',
         'nama_ibu',
+        'foto',
         'instagram',
         'tampilkan_foto',
         'facebook',

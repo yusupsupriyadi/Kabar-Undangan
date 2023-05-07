@@ -13,7 +13,7 @@
     </title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon-logo.png') }}">
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+
     <link href="https://fonts.cdnfonts.com/css/masthina" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +43,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+
     @include('layouts._library', ['library' => 'js'])
     @stack('scripts')
 </body>

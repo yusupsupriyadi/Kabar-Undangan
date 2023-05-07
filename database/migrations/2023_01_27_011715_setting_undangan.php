@@ -16,11 +16,10 @@ return new class extends Migration
         Schema::create('setting_undangan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('domain');
             $table->string('judul_undangan');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

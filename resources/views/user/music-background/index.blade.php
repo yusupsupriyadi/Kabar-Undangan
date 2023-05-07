@@ -183,7 +183,7 @@
 
         function updateMusicBackground(id) {
             const value = dataAudio[id].audio;
-            const dataExist = data.music;
+            const dataExist = data !== null ? data.music : null;
             $.ajax({
                 url: `/music-background/update`,
                 type: 'post',

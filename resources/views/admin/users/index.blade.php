@@ -18,6 +18,7 @@
                         <th class="!bg-sky-200">Email</th>
                         <th class="!bg-sky-200">Tanggal</th>
                         <th class="!bg-sky-200">PREMIUM</th>
+                        <th class="!bg-sky-200">AKSI</th>
                     </tr>
                 </thead>
                 <tbody id="data-body">
@@ -75,6 +76,9 @@
                         <td>${tanggal}</td>
                         <td>
                             <input type="checkbox" class="toggle toggle-success !bg-none btn-premium" data-id="${item.id}" ${parseInt(item.vip) === 1 ? 'checked' : ''} />
+                        </td>
+                        <td>
+                            <button data-id="${item.id}" class="bg-red-500 text-white font-semibold px-4 py-2 rounded-lg text-xs btn-delete">DELETE</button>
                         </td>
                     </tr>
                 `

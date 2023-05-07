@@ -72,7 +72,7 @@
                     <p class="pb-1 text-sm md:pb-0">Photo Gallery</p>
                 </a>
             </li>
-            <p class="py-2 pt-4 pl-4 text-base font-bold text-gray-700 lg:pl-0">Fitur Premium</p>
+            <p class="py-2 pt-4 pl-4 text-base font-bold !text-gray-700 lg:pl-0">Fitur Premium</p>
             {{-- <li class="py-2 hover:bg-purple-100 md:my-0 lg:hover:bg-transparent">
                 <a href="/photo-background" class="{{ $active === 'photo-background' ? 'hover:text-purple-500 border-purple-500 lg:hover:border-purple-500' : 'hover:text-purple-500 lg:hover:border-gray-400' }} flex items-center gap-2 border-l-4 border-transparent pl-4 align-middle text-gray-700 no-underline">
                     <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
