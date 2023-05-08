@@ -132,8 +132,7 @@
             },
             "retina_detect": true
         });
-    </script>
-    <script>
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -145,8 +144,8 @@
         var tanggalFormatted = tanggalResepsi[2] + "-" + tanggalResepsi[1] + "-" + tanggalResepsi[0];
         var date = new Date(`${tanggalFormatted} ${data['setting_akad_api']['waktu_mulai']}`);
         var now = new Date();
-        const imageUrl = '{{ asset('storage/images') }}/'
-        const imagePublic = '{{ asset('/images') }}/'
+        const imageUrl = '{{ asset('storage/images') }}';
+        const imagePublic = '{{ asset('/images') }}';
 
         $("#body").css("overflow", "hidden");
 

@@ -468,7 +468,7 @@
                             <div class="mt-12 mb-6 flex justify-center">
                                 <img src="{{ $val['foto'] !== 'null' ? asset('/storage/images/' . $val['foto']) : asset('/images/photo-blank.png') }}" width="96" height="96" class="rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
                             </div>
-                            <p class="text-xl text-neutral-500 dark:text-neutral-300">{{ $val['nama'] }}</p>
+                            <p class="text-lg text-neutral-500 dark:text-neutral-300">{{ $val['nama'] }}</p>
                             @if ($val['instagram'] !== 'null')
                                 <a title="instagram pengguna" href="https://www.instagram.com/{{ $val['instagram'] }}" target="_blank" type="button" class="m-1 h-8 w-8 rounded-full border-2 border-stone-600 uppercase leading-normal text-stone-600 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" data-te-ripple-init data-te-ripple-color="light">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
