@@ -1,17 +1,17 @@
 @if ($library == 'css')
-    <!-- DEVELOP -->
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-
-    <!-- PRODUCTION -->
-    <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
-    <link rel="stylesheet" href="{{ asset('/build/assets/app.8acee152.css') }}">
-
     <!-- LIBRARY -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/confetti.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+    <!-- DEVELOP -->
+    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+
+    <!-- PRODUCTION -->
+    <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
+    <link rel="stylesheet" href="{{ asset('/build/assets/app.8acee152.css') }}">
 @else
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
