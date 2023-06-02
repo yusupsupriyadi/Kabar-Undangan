@@ -391,3 +391,23 @@ input[type='file'] {
 .drawer-item-active {
 	@apply font-bold text-gray-600 shadow-md bg-gray-100;
 }
+
+.gopay-color{
+	background-color: #86efac;
+}
+
+.ovo-color{
+	background-color: #d8b4fe;
+}
+
+.dana-color{
+	background-color: #93c5fd;
+}
+
+.shopeepay-color{
+	background-color: #fed7aa;
+}
+
+.rekening-color{
+	background-color: #e5e7eb;
+}

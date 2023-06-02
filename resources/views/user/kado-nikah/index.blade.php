@@ -266,14 +266,14 @@
 
                 html += `<section class="grid md:grid-cols-2 lg:grid-cols-4 md:gap-4">`
                 $.each(data, function(key, val) {
-                    let color = val.wallet === "gopay" ? "green-300" :
-                        val.wallet === "dana" ? "blue-300" :
-                        val.wallet === "ovo" ? "purple-300" :
-                        val.wallet === "shopeepay" ? "orange-200" :
-                        "gray-200";
+                    let color = val.wallet === "gopay" ? "gopay-color" :
+                        val.wallet === "dana" ? "dana-color" :
+                        val.wallet === "ovo" ? "ovo-color" :
+                        val.wallet === "shopeepay" ? "shopeepay-color" :
+                        "rekening-color";
 
                     html += `
-                <div class="w-full rounded-md bg-${color} p-2 shadow-md mt-3 md:mt-0">
+                <div class="w-full rounded-md ${color} p-2 shadow-md mt-3 md:mt-0">
                     <div class="flex flex-col">
                         <div class="flex flex-row items-center justify-between px-4 py-4">
                             <div class="flex text-md font-bold text-gray-700">${uppercaseFirstLetter(val.wallet)}</div>

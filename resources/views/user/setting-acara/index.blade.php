@@ -27,7 +27,7 @@
                 <x-app.title title="Informasi Acara" desc="Fasilitas ini digunakan untuk memberikan informasi yang lengkap tentang acara pernikahan kamu, silahkan masukan informasi yang lengkap tentang acara yang akan diselenggarakan." />
 
                 <main class="py-5">
-                    <section>
+                    <section class="hidden">
                         <p class="text-lg font-bold">Informasi Umum <span class="text-red-500">*</span></p>
 
                         <div class="form-control mt-4">
