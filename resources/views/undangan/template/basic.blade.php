@@ -451,7 +451,7 @@
                 </div>
             </div>
 
-            <button class="{{ $data['name'] === 'Emily-dan-david' ? '' : 'btn-send' }} block w-full rounded-lg bg-stone-500 px-5 py-3 font-sans text-lg font-medium text-white">
+            <button class="{{ $data['name'] === 'demo' ? 'btn-demo' : 'btn-send' }} block w-full rounded-lg bg-stone-500 px-5 py-3 font-sans text-lg font-medium text-white">
                 Kirim Ucapan
             </button>
     </section>
@@ -462,7 +462,7 @@
                 <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
                     @foreach ($data['ucapan_api'] as $key => $val)
                         <div class="relative float-left -mr-[100%] hidden w-full text-center transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item {{ $key === 0 ? 'data-te-carousel-active' : '' }} style="backface-visibility: hidden">
-                            <p class="text-md mx-auto max-w-4xl italic text-neutral-700 dark:text-neutral-300 md:text-lg">
+                            <p class="text-md max-w-2xl mx-auto italic text-neutral-700 dark:text-neutral-300 md:text-lg">
                                 "{{ $val['pesan'] }}"
                             </p>
                             <div class="mt-12 mb-6 flex justify-center">

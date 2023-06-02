@@ -247,6 +247,10 @@
             validateForm();
         })
 
+        $(document).on('click', '.btn-demo', function() {
+            alert('Maaf, ini hanya undangan demo/contoh.');
+        })
+
         function validateForm() {
             $('#nama').val() == '' ? $('#nama-validation').show() : $('#nama-validation').hide();
             $('#pesan').val() == '' ? $('#pesan-validation').show() : $('#pesan-validation').hide();
