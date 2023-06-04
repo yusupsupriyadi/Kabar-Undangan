@@ -7,11 +7,11 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
     <!-- DEVELOP -->
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- PRODUCTION -->
-    <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
-    <link rel="stylesheet" href="{{ asset('/build/assets/app.ca6ac534.css') }}">
+    {{-- <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
+    <link rel="stylesheet" href="{{ asset('/build/assets/app.ca6ac534.css') }}"> --}}
 @else
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -28,5 +28,5 @@
             });
         });
     </script>
-    <script src="{{ asset('/build/assets/app.cf55f35b.js') }}"></script>
+    {{-- <script src="{{ asset('/build/assets/app.cf55f35b.js') }}"></script> --}}
 @endif
