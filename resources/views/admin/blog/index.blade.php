@@ -112,6 +112,7 @@
                 // Menambahkan nilai checkbox yang dipilih ke dalam array
                 tag.push($(this).val());
             });
+            console.log(tag);
             const imageFile = document.getElementById('image-file');
             var myformData = new FormData();
             myformData.append('image', imageFile.files[0]);

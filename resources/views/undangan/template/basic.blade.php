@@ -14,23 +14,23 @@
                     <tbody class="scale-90 md:scale-100">
                         <tr>
                             <td colspan="3" class="font-serif text-lg font-semibold uppercase md:text-xl">
-                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('MMMM') }}
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('MMMM') }}
                             </td>
                         </tr>
                         <tr class="font-serif text-sm font-bold uppercase">
                             <td>
-                                <div class="w-20 border-y border-black py-1">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('dddd') }}</div>
+                                <div class="w-20 border-y border-black py-1">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('dddd') }}</div>
                             </td>
-                            <td class="px-2 text-5xl font-thin md:text-6xl">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('d') }}</td>
+                            <td class="px-2 text-5xl font-thin md:text-6xl">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('d') }}</td>
                             <td>
                                 <div class="w-20 border-y border-black py-1">
-                                    Jam {{ $data['setting_akad_api']['waktu_mulai'] }}</span>
+                                    Jam {{ $data['setting_resepsi_api']['waktu_mulai'] }}</span>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3" class="pt-1 font-serif text-xl font-semibold uppercase md:text-2xl">
-                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('y') }}
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('y') }}
                             </td>
                         </tr>
                     </tbody>
@@ -70,23 +70,23 @@
                     <tbody>
                         <tr>
                             <td colspan="3" class="font-serif text-xl font-semibold uppercase">
-                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('MMMM') }}
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('MMMM') }}
                             </td>
                         </tr>
                         <tr class="font-serif text-sm font-bold uppercase">
                             <td>
-                                <div class="w-20 border-y border-black py-1">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('dddd') }}</div>
+                                <div class="w-20 border-y border-black py-1">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('dddd') }}</div>
                             </td>
-                            <td class="px-2 text-6xl font-thin">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('d') }}</td>
+                            <td class="px-2 text-6xl font-thin">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('d') }}</td>
                             <td>
                                 <div class="w-20 border-y border-black py-1">
-                                    Jam {{ $data['setting_akad_api']['waktu_mulai'] }}</span>
+                                    Jam {{ $data['setting_resepsi_api']['waktu_mulai'] }}</span>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3" class="pt-1 font-serif text-2xl font-semibold uppercase">
-                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('y') }}
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('y') }}
                             </td>
                         </tr>
                     </tbody>
