@@ -8,7 +8,7 @@
         </div>
 
         <div class="flex items-center gap-2 md:hidden">
-            <div class="dropdown-end dropdown block md:hidden">
+            <div class="dropdown-end dropdown hidden md:block">
                 <label tabindex="0" class="btn-ghost btn-circle avatar btn">
                     <div class="w-100 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-7 w-7">
@@ -110,6 +110,56 @@
                         Demo
                     </a>
                 </li>
+
+                @if (Route::has('login'))
+                        @auth
+                            <li class="relative">
+                                <a href="{{ url('/dashboard') }}" class="flex h-12 cursor-pointer items-center gap-2 truncate rounded-[5px] px-6 py-4 text-[0.875rem] font-semibold text-gray-800 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10" data-te-sidenav-link-ref>
+                                    <svg class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                    </svg>
+                                    Dashboard
+                                </a>
+                            </li>
+
+                            <li class="relative">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="flex h-12 cursor-pointer items-center gap-2 truncate rounded-[5px] px-6 py-4 text-[0.875rem] font-semibold text-gray-800 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10" data-te-sidenav-link-ref>
+                                        <svg class="h-6 w-6 text-gray-700" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" />
+                                            <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                                            <path d="M7 12h14l-3 -3m0 6l3 -3" />
+                                        </svg>
+                                        {{ __('Keluar') }}
+                                    </a>
+                                </form>
+                            </li>
+                        @else
+                            <li class="relative">
+                                <a href="/register" class="flex h-12 cursor-pointer items-center gap-2 truncate rounded-[5px] px-6 py-4 text-[0.875rem] font-semibold text-gray-800 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10" data-te-sidenav-link-ref>
+                                    <svg class="h-6 w-6 text-gray-700" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
+                                        <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
+                                        <line x1="16" y1="5" x2="19" y2="8" />
+                                    </svg>
+                                    Daftar
+                                </a>
+                            </li>
+
+                            <li class="relative">
+                                <a href="/login" class="flex h-12 cursor-pointer items-center gap-2 truncate rounded-[5px] px-6 py-4 text-[0.875rem] font-semibold text-gray-800 outline-none transition duration-300 ease-linear hover:bg-slate-50 hover:text-inherit hover:outline-none focus:bg-slate-50 focus:text-inherit focus:outline-none active:bg-slate-50 active:text-inherit active:outline-none data-[te-sidenav-state-active]:text-inherit data-[te-sidenav-state-focus]:outline-none motion-reduce:transition-none dark:text-gray-300 dark:hover:bg-white/10 dark:focus:bg-white/10 dark:active:bg-white/10" data-te-sidenav-link-ref>
+                                    <svg class="h-6 w-6 text-gray-700" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                                        <path d="M20 12h-13l3 -3m0 6l-3 -3" />
+                                    </svg>
+                                    Masuk
+                                </a>
+                            </li>
+                        @endauth
+                    @endif
             </ul>
         </nav>
 

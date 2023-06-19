@@ -59,13 +59,6 @@ class RegisteredUserController extends Controller
                 'role' => 'user',
                 'vip' => false
             ]);
-
-            // jika berhasil membuat user
-            return response()->json([
-                'success' => true,
-                'message' => 'User created successfully',
-                'data' => $user
-            ], 201);
         } catch (QueryException $e) {
             // jika error karena duplicate email
             if ($e->errorInfo[1] === 1062) {

@@ -382,7 +382,7 @@
             <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl" data-aos="fade-up" data-aos-duration="2000">Gallery</h1>
             <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600" data-aos="fade-up" data-aos-duration="2000">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
             <section class="mt-8">
-                <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 place-items-center justify-items-center">
                     @foreach ($data['gallery_api'] as $key => $val)
                         <div class="relative" data-aos="zoom-in" data-aos-duration="3000">
                             <img src="{{ asset('/storage/images/' . $val['gambar']) }}" alt="{{ $val['judul'] }}" class="h-72 w-full rounded-xl object-cover md:h-64">

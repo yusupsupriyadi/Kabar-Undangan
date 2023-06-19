@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Pendaftaran')
 @section('content')
-    <x-navigation.navbar />
     <main class="hero min-h-screen bg-base-200">
         <div class="hero-content my-6">
             <section>
@@ -23,7 +22,7 @@
                             <div class="flex-start flex cursor-pointer items-center">
                                 <div class="-ml-2 mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-blue-600">
                                 </div>
-                                <h4 class="-mt-2 text-xl font-semibold text-gray-800">Profile Mempelai Pria</h4>
+                                <h4 class="-mt-2 text-xl font-semibold text-blue-500">Profile Mempelai Pria</h4>
                             </div>
                             <div class="{{ $dataMempelaiPria === null ? '' : 'hidden' }} ml-6" id="form-mempelai-pria">
                                 <p class="desc-timeline">Silahkan isi formulir dengan lengkap.</p>
@@ -39,7 +38,7 @@
                             <div class="flex-start flex cursor-pointer items-center">
                                 <div class="-ml-2 mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-blue-600">
                                 </div>
-                                <h4 class="-mt-2 text-xl font-semibold text-gray-800">Profile Mempelai Wanita </h4>
+                                <h4 class="-mt-2 text-xl font-semibold text-blue-500">Profile Mempelai Wanita </h4>
                             </div>
                             <div class="{{ $dataMempelaiWanita === null ? '' : 'hidden' }} ml-6" id="form-wanita">
                                 <p class="desc-timeline">Silahkan isi formulir dengan lengkap.</p>

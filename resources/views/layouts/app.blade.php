@@ -53,7 +53,7 @@
         </a>
     </div>
 
-    <div id="modal-promo" class="toast-center toast toast-top z-50 hidden transform duration-1000">
+    {{-- <div id="modal-promo" class="toast-center toast toast-top z-50 hidden transform duration-1000">
         <div class="alert border-2 border-b-4 border-black bg-white shadow-xl">
             <div class="flex items-start gap-2">
                 <span class="text-green-600">
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     @include('layouts._library', ['library' => 'js'])

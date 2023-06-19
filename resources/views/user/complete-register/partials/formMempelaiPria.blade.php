@@ -1,6 +1,15 @@
-<section class="card lg:w-96 bg-base-100 shadow-xl">
+<section class="card bg-base-100 shadow-xl lg:w-96">
     <div class="card-body">
         <input id="id-pria" type="hidden">
+        <div class="flex items-center gap-2">
+            <svg class="h-5 w-5 text-black" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <circle cx="12" cy="7" r="4" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+            </svg>
+            <h1 class="font-semibold">DATA MEMPELAI PRIA</h1>
+        </div>
+        <hr>
 
         <div class="form-group">
             <label for="nama-lengkap-pria" class="form-label mb-2 inline-block text-gray-700">Nama lengkap</label>

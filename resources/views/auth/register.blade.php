@@ -165,7 +165,6 @@
                     $('#handleRegister').html('Loading...').addClass('opacity-50');
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-
                     if (jqXHR.responseJSON && jqXHR.responseJSON.message) {
                         $('#handleRegister').html('Coba Lagi').removeClass('opacity-50');
                         $('#toast-failed-email').removeClass('hidden');
