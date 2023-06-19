@@ -32,34 +32,27 @@ class BlogController extends Controller
             'content' => 'required',
             'image' => 'required|image',
         ]);
-    
-        $tag = $request->tag;
-        $tag = explode(',', $tag);
-        
-        foreach ($tag as $key => $value) {
-            $tag[$key] = trim($value);
-            // Memeriksa apakah nilai tag_id valid
-            if (!is_numeric($tag[$key])) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Nilai tag_id tidak valid'
-                ], 400);
-            }
-        }
-    
+            
         $file = $request->file('image');
-    
-        $article = new Article();
-        $article->title = $request->title;
-        $article->description = $request->description;
-        $article->category_id = $request->category;
-        $article->tag_id = 1;
-        $article->content = $request->content;
-        $article->thumbnail = $file->hashName();
-        $article->save();
-    
-        // Menyimpan nilai tag_id ke dalam tabel pivot article_tag
-        $article->tag()->attach($tag);
+
+        $payload = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'category_id' => $request->category,
+            'content' => $request->content,
+            'thumbnail' => $file->hashName(),
+        ];
+        
+        // Menyimpan data ke dalam tabel article
+        $article = Article::create($payload);
+        
+        // Mendapatkan tag ID dari input request
+        $tagIds = explode(',', $request->tag);
+        
+        // Menyimpan nilai tag_id ke dalam tabel pivot article_tag jika tag ada
+        if ($request->has('tag')) {
+            $article->tags()->sync($tagIds);
+        }
     
         // Menyimpan file gambar ke dalam storage
         if ($file !== null) {

@@ -8,4 +8,4 @@ $.ajax({
     success: function (response) {},
 });
 
-// php artisan migrate --path=database/migrations/create_temas_table.php
+// php artisan migrate --path=database/migrations/2023_05_01_131350_create_articles_table.php

@@ -28,13 +28,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('categories')
                 ->onDelete('cascade');
-
-            // Menambahkan foreign key untuk tag_id
-            $table->foreign('tag_id')
-                ->references('id')
-                ->on('tags')
-                ->onDelete('cascade');
-                });
+        });
     }
 
     /**
@@ -46,6 +40,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('articles');
     }
-
-    
 };
