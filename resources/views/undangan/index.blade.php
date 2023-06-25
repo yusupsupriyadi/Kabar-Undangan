@@ -146,6 +146,7 @@
         var now = new Date();
         const imageUrl = '{{ asset('storage/images') }}';
         const imagePublic = '{{ asset('/images') }}';
+        const imageDefault = '{{ asset('/images/photo-blank.png') }}';
 
         $("#body").css("overflow", "hidden");
 
@@ -177,6 +178,25 @@
         }, 1000);
 
         $('#image-file').on('change', (e) => {
+            var fileName = e.target.files[0].name;
+            var file = e.target.files[0];
+            var fileSizeInMB = file.size / (1024 * 1024);
+
+            if (fileSizeInMB > 5) {
+                alert('Ukuran foto terlau besar, maksimal 5MB');
+                $('#image-file').val('');
+                $('#output').attr('src', imageDefault)
+                return
+            } else {
+                var fileType = file.type;
+                if (fileType !== "image/png" && fileType !== "image/jpeg" && fileType !== "image/jpg") {
+                    alert("Jenis file yang diunggah harus berupa PNG, JPEG, atau JPG.");
+                    $('#output').attr('src', imageDefault)
+                    $('#image-file').val('');
+                    return
+                }
+            }
+
             var reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);
             reader.onload = function() {

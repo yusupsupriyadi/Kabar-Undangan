@@ -449,7 +449,8 @@
                         <label class="inline-block w-[150px] rounded-sm bg-yellow-600 px-4 py-2 text-center text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD FOTO
                             <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" type="file" multiple>
                         </label>
-                        <p class="mt-2 text-xs text-gray-300">*optional <span class="text-red-500">foto wajib png/jpg/jpeg</span></p>
+                        <p class="mt-2 text-xs text-gray-300">*optional<p>
+                        <p class="text-xs text-red-500/80">foto wajib png/jpg/jpeg dan ukuran tidak melebihi 5mb</p>
                     </div>
                 </div>
             </div>
