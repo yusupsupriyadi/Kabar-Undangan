@@ -266,10 +266,12 @@
         }
 
         function sendPesan() {
+            var instagram = $('#instagram').val();
+            var usernameIg = instagram.replace(/@/g, "");
             const imageFile = document.getElementById('image-file');
             var myformData = new FormData();
             myformData.append('nama', $('#nama').val());
-            myformData.append('instagram', $('#instagram').val());
+            myformData.append('instagram', usernameIg);
             myformData.append('pesan', $('#pesan').val());
             myformData.append('id', data['id']);
             myformData.append('imageFile', imageFile.files[0]);

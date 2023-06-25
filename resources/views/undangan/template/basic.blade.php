@@ -382,7 +382,7 @@
             <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600 md:text-6xl" data-aos="fade-up" data-aos-duration="2000">Gallery</h1>
             <p class="mt-6 text-center font-serif text-2xl font-semibold text-stone-600" data-aos="fade-up" data-aos-duration="2000">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
             <section class="mt-8">
-                <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 place-items-center justify-items-center">
+                <div class="grid grid-cols-1 place-items-center justify-items-center gap-4 md:grid-cols-2 lg:grid-cols-3">
                     @foreach ($data['gallery_api'] as $key => $val)
                         <div class="relative" data-aos="zoom-in" data-aos-duration="3000">
                             <img src="{{ asset('/storage/images/' . $val['gambar']) }}" alt="{{ $val['judul'] }}" class="h-72 w-full rounded-xl object-cover md:h-64">
@@ -445,9 +445,12 @@
                     <div class="">
                         <img id="output" src="{{ asset('/images/photo-blank.png') }}" alt="pesan" width="96" height="96" class="rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
                     </div>
-                    <label class="inline-block w-[150px] rounded-sm bg-yellow-600 px-4 py-2 text-center text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD FOTO
-                        <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" type="file" multiple>
-                    </label>
+                    <div>
+                        <label class="inline-block w-[150px] rounded-sm bg-yellow-600 px-4 py-2 text-center text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD FOTO
+                            <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" type="file" multiple>
+                        </label>
+                        <p class="mt-2 text-xs text-gray-300">*optional <span class="text-red-500">foto wajib png/jpg/jpeg</span></p>
+                    </div>
                 </div>
             </div>
 
@@ -462,7 +465,7 @@
                 <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
                     @foreach ($data['ucapan_api'] as $key => $val)
                         <div class="relative float-left -mr-[100%] hidden w-full text-center transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item {{ $key === 0 ? 'data-te-carousel-active' : '' }} style="backface-visibility: hidden">
-                            <p class="text-md max-w-2xl mx-auto italic text-neutral-700 dark:text-neutral-300 md:text-lg">
+                            <p class="text-md mx-auto max-w-2xl italic text-neutral-700 dark:text-neutral-300 md:text-lg">
                                 "{{ $val['pesan'] }}"
                             </p>
                             <div class="mt-12 mb-6 flex justify-center">
