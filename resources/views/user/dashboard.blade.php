@@ -19,7 +19,7 @@
             <!--Main Content-->
             <div class="border-rounded mt-6 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0 lg:w-4/5">
 
-                @if(intval($user['vip']) !== 1)
+                @if (intval($user['vip']) !== 1)
                     <section class="mb-6">
                         <x-app.card-premium />
                     </section>
@@ -29,7 +29,7 @@
                     <h1 class="break-normal font-sans text-2xl font-semibold text-gray-900">Halaman Utama</h1>
                     <p class="my-2 pb-1 font-sans text-sm">Banyak fasilitas yang dapat kamu gunakan untuk mempercantik dan melengkapi informasi website pernikahan kamu, silahkan gunakan fasilitas dibawah ini.</p>
 
-                    <div class="alert alert-info my-4 items-start rounded-lg !bg-gray-500/20 py-3 px-4">
+                    <div class="alert alert-info my-4 items-start rounded-lg !bg-gray-500/20 px-4 py-3">
                         <div>
                             <span class="text-sm font-extralight">Bila kamu memiliki pertanyaan, mungkin kamu bisa menemukannya <a href="/FAQ" class="cursor-pointer font-bold">Disini.</a></span>
                         </div>
@@ -37,9 +37,14 @@
 
                     <hr class="border-b border-gray-400">
                 </div>
-
-                <main class="py-12">
-                    <section class="grid grid-cols-3 gap-8 lg:grid-cols-5">
+                <a class="btn-pilih text-md mt-4 flex items-center gap-2 rounded bg-green-600 px-6 py-4 font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-green-800 hover:shadow-lg" href="{{ route('subdomain', ['subdomain' => Auth::user()->name]) }}">
+                    <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <div>Lihat Undangan Anda✨</div>
+                </a>
+                <main class="py-4">
+                    <section class="mt-4 grid grid-cols-3 gap-8 lg:grid-cols-5">
 
                         <a href="/setting-undangan">
                             <x-app.card-menu id="pengaturan-undangan" paint="">
