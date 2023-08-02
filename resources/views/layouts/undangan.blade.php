@@ -6,7 +6,7 @@
     <meta http-equiv="content-language" content="id">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Platform pembuatan undangan digital gratis.">
+    @yield('meta')
     <link rel="icon" href="#" type="image/gif">
     <title>
         @yield('title', 'Kabar Undangan')

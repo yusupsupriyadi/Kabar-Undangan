@@ -3,6 +3,10 @@
     {{ $data['setting_undangan_api']['judul_undangan'] }}
 @endsection
 
+@section('meta')
+    <meta name="description" content="{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('dddd, DD MMMM YYYY') }}. Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Menghadiri Acara Pernikahan Kami.">
+@endsection
+
 @section('styles')
 @endsection
 
