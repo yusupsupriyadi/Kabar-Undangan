@@ -16,7 +16,7 @@ class WelcomeController extends Controller
         SEOMeta::setTitle('Kabar Undangan - Undangan Digital/Online');
         SEOMeta::setDescription('Kabar Undangan menyediakan platform layanan undangan digital/online yang praktis dan elegan.');
         SEOMeta::setCanonical('https://kabarundangan.com');
-        
+
         OpenGraph::setDescription('Kabar Undangan menyediakan platform layanan undangan digital/online yang praktis dan elegan.');
         OpenGraph::setTitle('Kabar Undangan - Undangan Digital/Online');
         OpenGraph::setUrl('https://kabarundangan.com');

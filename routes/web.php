@@ -18,6 +18,7 @@ use App\Http\Controllers\User\MusicBackgroundController;
 use App\Http\Controllers\User\PhotoBackgroundController;
 use App\Http\Controllers\User\SettingAcaraController;
 use App\Http\Controllers\User\SettingUndanganController;
+use App\Http\Controllers\User\TemaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -153,6 +154,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/kado-nikah/store', 'store');
         Route::get('/kado-nikah/update', 'update');
         Route::get('/kado-nikah/delete', 'destroy');
+    });
+
+    Route::controller(TemaController::class)->group(function () {
+        Route::get('/tema', 'index');
+        Route::get('/tema/get-data', 'getData');
+        Route::get('/tema/update', 'update');
     });
 });
 

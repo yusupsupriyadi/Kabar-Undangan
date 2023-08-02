@@ -9,3 +9,5 @@ $.ajax({
 });
 
 // php artisan migrate --path=database/migrations/2023_05_01_131350_create_articles_table.php
+
+// php artisan make:controller User/TemaController
