@@ -419,7 +419,7 @@
         <h1 class="text-center font-greatVibes text-5xl font-bold text-stone-600" data-aos="fade-right" data-aos-duration="2000">Ucapan Selamat & Do'a</h1>
         <p class="mt-6 text-center font-serif text-xl font-semibold text-stone-500" data-aos="fade-left" data-aos-duration="2000">Kami mengharapkan kehadiran Anda.</p>
 
-        <div class="mx-auto mt-6 mb-0 max-w-xl space-y-4 rounded-lg bg-stone-600 p-12 shadow-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+        <div class="mx-auto mb-0 mt-6 max-w-xl space-y-4 rounded-lg bg-stone-600 p-12 shadow-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
             <div>
                 <div class="relative">
                     <input id="nama" type="text" name="name" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Nama" />
@@ -449,7 +449,7 @@
                         <label class="inline-block w-[150px] rounded-sm bg-yellow-600 px-4 py-2 text-center text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD FOTO
                             <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" type="file" multiple>
                         </label>
-                        <p class="mt-2 text-xs text-gray-300">*optional<p>
+                        <p class="mt-2 text-xs text-gray-300">*optional</p>
                         <p class="text-xs text-red-500/80">foto wajib png/jpg/jpeg dan ukuran tidak melebihi 5mb</p>
                     </div>
                 </div>
@@ -460,51 +460,42 @@
             </button>
     </section>
 
+    <section class="mt-20 text-center">
+        <p class="text-2xl font-bold">Terimakasih</p>
+        <p class="text-3xl font-semibold">Ucapan & Do'anya</p>
+        <p class="mt-4 text-md">Semoga kebaikan atas do'a yang disampaikan dapat dikabulkan dan dirasakan orang yang mendoakannya juga, Amiinn.</p>
+    </section>
+
     @if (count($data['ucapan_api']) !== 0)
-        <section class="container mx-auto mt-24 max-w-4xl">
-            <div id="carouselExampleCaptions" class="relative" data-te-carousel-init data-te-carousel-slide data-te-interval="2000">
-                <div class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-                    @foreach ($data['ucapan_api'] as $key => $val)
-                        <div class="relative float-left -mr-[100%] hidden w-full text-center transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item {{ $key === 0 ? 'data-te-carousel-active' : '' }} style="backface-visibility: hidden">
-                            <p class="text-md mx-auto max-w-2xl italic text-neutral-700 dark:text-neutral-300 md:text-lg">
-                                "{{ $val['pesan'] }}"
-                            </p>
-                            <div class="mt-12 mb-6 flex justify-center">
-                                <img src="{{ $val['foto'] !== 'null' ? asset('/storage/images/' . $val['foto']) : asset('/images/photo-blank.png') }}" width="96" height="96" class="rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
-                            </div>
-                            <p class="text-lg text-neutral-500 dark:text-neutral-300">{{ $val['nama'] }}</p>
-                            @if ($val['instagram'] !== 'null')
-                                <a title="instagram pengguna" href="https://www.instagram.com/{{ $val['instagram'] }}" target="_blank" type="button" class="m-1 h-8 w-8 rounded-full border-2 border-stone-600 uppercase leading-normal text-stone-600 transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" data-te-ripple-init data-te-ripple-color="light">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                                    </svg>
-                                </a>
-                            @endif
+        <section class="mx-auto mt-9 max-w-4xl px-4">
+            @foreach ($data['ucapan_api'] as $key => $val)
+                <section data-aos="fade-up-right" data-aos-duration="2000" class="bg-image mt-4 rounded-lg bg-opacity-50 bg-[url('/public/images/background-card.jpg')] bg-cover bg-center shadow-lg">
+                    <div class="mb-6 flex justify-center pt-8">
+                        <img src="{{ $val['foto'] !== 'null' ? asset('/storage/images/' . $val['foto']) : asset('/images/photo-blank.png') }}" class="h-[90px] w-[90px] rounded-full shadow-lg" alt="smaple image" />
+                    </div>
+                    <p class="pt-4 text-center text-2xl font-semibold capitalize text-neutral-600">{{ $val['nama'] }}</p>
+                    <p class="text-md mx-auto max-w-2xl px-4 pt-6 text-center text-neutral-700">
+                        "{{ $val['pesan'] }}"
+                    </p>
+                    @if ($val['instagram'] !== 'null')
+                        <div class="flex justify-center pt-4">
+                            <a title="instagram pengguna" href="https://www.instagram.com/{{ $val['instagram'] }}" target="_blank" type="button" class="h-8 w-8 rounded-full border-2 border-stone-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
                         </div>
-                    @endforeach
-                </div>
-                <button class="absolute top-0 bottom-0 left-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-black hover:no-underline hover:opacity-90 hover:outline-none focus:text-black focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none dark:text-white dark:opacity-50 dark:hover:text-white dark:focus:text-white" type="button" data-te-target="#carouselExampleCaptions" data-te-slide="prev">
-                    <span class="inline-block h-8 w-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                        </svg>
-                    </span>
-                    <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
-                </button>
-                <button class="absolute top-0 bottom-0 right-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-black hover:no-underline hover:opacity-90 hover:outline-none focus:text-black focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none dark:text-white dark:opacity-50 dark:hover:text-white dark:focus:text-white" type="button" data-te-target="#carouselExampleCaptions" data-te-slide="next">
-                    <span class="inline-block h-8 w-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                        </svg>
-                    </span>
-                    <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
-                </button>
-            </div>
+                    @endif
+                    <div class="py-4 flex justify-center">
+                        <p class="text-center p-2 bg-white bg-opacity-50 backdrop-blur-sm text-xs w-[150px] rounded-2xl">{{ $val['created_at'] }}</p>
+                    </div>
+                </section>
+            @endforeach
         </section>
     @endif
 
     <footer class="mt-24 bg-stone-700 text-center text-white">
-        <div class="container px-6 pt-6 hidden">
+        <div class="container hidden px-6 pt-6">
             <div class="mb-6 flex justify-center">
                 <a title="instagram kabarundangan.com" href="https://www.instagram.com/kabarundangan/" target="_blank" type="button" class="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" data-te-ripple-init data-te-ripple-color="light">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -513,7 +504,7 @@
                 </a>
 
                 <a title="register" class="m-1" href="/register">
-                    <button type="button" class="inline-block rounded-full border-2 border-neutral-50 px-6 pt-2 pb-[6px] text-xs font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10" data-te-ripple-init data-te-ripple-color="light">
+                    <button type="button" class="inline-block rounded-full border-2 border-neutral-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10" data-te-ripple-init data-te-ripple-color="light">
                         Daftar!
                     </button>
                 </a>

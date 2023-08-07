@@ -7,6 +7,7 @@ use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
 use Artesaos\SEOTools\Facades\JsonLd;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class WelcomeController extends Controller
@@ -32,10 +33,18 @@ class WelcomeController extends Controller
         return view('home.welcome');
     }
 
-    public function undangan($subdomain){
+    public function undangan($subdomain)
+    {
         $data = User::with('mempelaiPriaApi', 'mempelaiWanitaApi', 'ceritaCintaApi', 'settingAcaraApi', 'settingAkadApi', 'settingResepsiApi', 'settingUndanganApi', 'musicBackgroundApi', 'photoBackgroundApi', 'galleryApi', 'kadoNikahApi', 'ucapanApi', 'temaApi')->where('name', $subdomain)->first()->toArray();
         $data['cerita_cinta_api'] = collect($data['cerita_cinta_api'])->sortBy('id')->toArray();
         $data['vip'] = intval($data['vip']) === 1 ? true : false;
+        $dateNow = Carbon::now();
+        foreach ($data['ucapan_api'] as $key => $value) {
+            $data['ucapan_api'][$key]['created_at'] = Carbon::parse($value['created_at'])->locale('id')->diffForHumans($dateNow, [
+                'syntax' => Carbon::DIFF_RELATIVE_TO_NOW,
+                'options' => Carbon::JUST_NOW | Carbon::ONE_DAY_WORDS | Carbon::TWO_DAY_WORDS,
+            ]);
+        }
         return view('undangan.index', compact('data'));
     }
 }
