@@ -7,13 +7,17 @@
     "file": "assets/bg-image-login.1187aa94.webp",
     "src": "public/images/bg-image-login.webp"
   },
+  "public/images/background-card.jpg": {
+    "file": "assets/background-card.cb44a2d4.jpg",
+    "src": "public/images/background-card.jpg"
+  },
   "resources/js/app.js": {
     "file": "assets/app.cf55f35b.js",
     "src": "resources/js/app.js",
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app.91649beb.css",
+    "file": "assets/app.7e4c7a5c.css",
     "src": "resources/css/app.css",
     "isEntry": true
   }
