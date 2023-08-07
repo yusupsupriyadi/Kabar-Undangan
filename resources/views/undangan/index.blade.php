@@ -11,7 +11,11 @@
 @endsection
 
 @section('content')
-    @include('undangan.template.basic')
+    @if ($data['vip'] === true || $data['vip'] === 'true')
+        @include('undangan.template.brown-premium')
+    @else
+        @include('undangan.template.basic')
+    @endif
 
     @if ($data['vip'] === true || $data['vip'] === 'true')
         <audio id="music-background" loop src="{{ asset('/audios' . '/' . $data['music_background_api']['music']) }}"></audio>
