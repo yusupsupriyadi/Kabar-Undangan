@@ -156,7 +156,18 @@
         const imagePublic = '{{ asset('/images') }}';
         const imageDefault = '{{ asset('/images/photo-blank.png') }}';
 
-        $("#body").css("overflow", "hidden");
+        // $("#body").css("overflow", "hidden");
+
+        // document.addEventListener("contextmenu", function(e) {
+        //     e.preventDefault();
+        // });
+
+        // // Mencegah akses ke DevTools
+        // document.addEventListener("keydown", function(e) {
+        //     if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+        //         e.preventDefault();
+        //     }
+        // });
 
         var timer = setInterval(function() {
             var now = new Date();

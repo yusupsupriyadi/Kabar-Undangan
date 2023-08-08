@@ -1,6 +1,6 @@
 <div id="particles-js" class="absolute h-full w-full bg-cover bg-repeat" style="background-position: 50% 50%"></div>
 <main class="m-auto bg-[#f5ebdf] text-[#332216]">
-    <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')] md:bg-[url('/public/images/bg/bg-brown.webp')]" id="opening">
+    {{-- <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')] md:bg-[url('/public/images/bg/bg-brown.webp')]" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
             <h1 class="pb-6 font-sans text-lg uppercase  md:text-xl">We Are Getting Married</h1>
             <section class="mt-2 flex items-center justify-center gap-4 text-center font-masthina ">
@@ -54,7 +54,7 @@
                 </div>
             </section>
         </div>
-    </section>
+    </section> --}}
 
     <section class="header bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')] md:bg-[url('/public/images/bg/bg-brown.webp')]">
         <div class="container mx-auto max-w-xl text-center">
@@ -123,6 +123,7 @@
         </div>
     </section>
 
+    <section></section>
 
     <div class="bg-contain md:bg-cover bg-[url('/public/images/bg/bg-6-brown.png')]">
         <section class="container mx-auto max-w-4xl text-center pt-10 " data-aos="fade-up" data-aos-duration="2000">
@@ -190,12 +191,12 @@
     </div>
 
     <div class="bg-cover bg-[url('/public/images/bg/bg-3-brown-mobile.webp')]">
-        <section class="container mx-auto mt-28 max-w-4xl">
+        <section class="container mx-auto mt-28 max-w-4xl pb-10">
             <h1 class="text-center font-greatVibes text-5xl font-bold " data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1000">Save The Date</h1>
             <div class="mt-12 justify-center gap-6 md:flex">
-                <div data-aos="zoom-in" data-aos-duration="1000" class="relative mt-6 flex items-start justify-between rounded-xl border-2 border-b-4 border-stone-500 p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
+                <div data-aos="zoom-in" data-aos-duration="1000" class="relative bg-[#C5AB88] mt-6 flex items-start justify-between rounded-xl border-2 border-b-4 border-[#332216] p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
                     <div class="mx-auto ">
-                        <h3 class="text-center font-tangerine text-4xl font-bold ">
+                        <h3 class="text-center font-masthina text-4xl font-bold ">
                             Akad
                         </h3>
                         <div class="mt-4 flex items-center gap-2">
@@ -241,9 +242,9 @@
                     </div>
                 </div>
 
-                <div data-aos="zoom-in" data-aos-duration="1000" class="relative mt-8 flex items-start justify-between rounded-xl border-2 border-b-4 border-stone-500 p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
+                <div data-aos="zoom-in" data-aos-duration="1000" class="relative bg-[#C5AB88] mt-8 flex items-start justify-between rounded-xl border-2 border-b-4 border-[#332216] p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
                     <div class="mx-auto ">
-                        <h3 class="text-center font-tangerine text-4xl font-bold ">
+                        <h3 class="text-center font-masthina text-4xl font-bold ">
                             Resepsi
                         </h3>
                         <div class="mt-4 flex items-center gap-2">
@@ -290,7 +291,7 @@
                 </div>
             </div>
 
-            <a title="add calendar" data-aos="zoom-in-up" data-aos-duration="1000" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Acara+Pernikahan+{{ $data['mempelai_wanita_api']['nama_panggilan'] }}+dan+{{ $data['mempelai_pria_api']['nama_panggilan'] }}&dates=20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('ymd') }}/20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('ymd') }}&details=Deskripsi+Acara&location={{ $data['setting_resepsi_api']['tempat'] }}, {{ $data['setting_resepsi_api']['alamat'] }}&sprop=name:Organizer&sprop=website:https://www.kabarundangan.com" target="_blank" class="mx-auto mt-12 flex max-w-[15rem] items-center gap-2 rounded-lg bg-[#332216] p-4 shadow-md">
+            <a class="mx-auto mt-14 flex max-w-[15rem] items-center gap-2 rounded-lg bg-[#332216] p-4 shadow-md" title="add calendar" data-aos="zoom-in-up" data-aos-duration="1000" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Acara+Pernikahan+{{ $data['mempelai_wanita_api']['nama_panggilan'] }}+dan+{{ $data['mempelai_pria_api']['nama_panggilan'] }}&dates=20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('ymd') }}/20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('ymd') }}&details=Deskripsi+Acara&location={{ $data['setting_resepsi_api']['tempat'] }}, {{ $data['setting_resepsi_api']['alamat'] }}&sprop=name:Organizer&sprop=website:https://www.kabarundangan.com" target="_blank">
                 <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <rect x="4" y="5" width="16" height="16" rx="2" />
@@ -316,7 +317,7 @@
 
     <div class="bg-cover bg-[url('/public/images/bg/bg-2-brown.webp')]">
         @if (count($data['cerita_cinta_api']) > 0)
-            <section class="container mx-auto mt-40 max-w-4xl">
+            <section class="container mx-auto mt-20 max-w-4xl">
                 <h1 class="text-center font-greatVibes text-5xl font-bold  md:text-6xl" data-aos="fade-up" data-aos-duration="1000">Story</h1>
                 <p class="mt-6 text-center font-serif text-2xl font-semibold " data-aos="fade-up" data-aos-duration="1000">Dua jiwa namun satu pikiran, dua hati namun satu perasaan</p>
 
@@ -384,7 +385,7 @@
     </div>
 
     @if (count($data['gallery_api']) > 0)
-        <section class="container mx-auto mt-40 max-w-5xl">
+        <section class="container mx-auto mt-20 max-w-5xl">
             <h1 class="text-center font-greatVibes text-5xl font-bold  md:text-6xl" data-aos="fade-up" data-aos-duration="2000">Gallery</h1>
             <p class="mt-6 text-center font-serif text-2xl font-semibold " data-aos="fade-up" data-aos-duration="2000">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
             <section class="mt-8">
@@ -461,7 +462,7 @@
                 </div>
             </div>
 
-            <button class="{{ $data['name'] === 'demo' ? 'btn-demo' : 'btn-send' }} block w-full rounded-lg bg-[#332216] px-5 py-3 font-sans text-lg font-medium text-white">
+            <button class="{{ $data['name'] === 'demo' ? 'btn-demo' : 'btn-send' }} block w-full rounded-lg bg-[#C5AB88] px-5 py-3 font-sans text-lg font-medium text-white">
                 Kirim Ucapan
             </button>
     </section>
@@ -502,25 +503,18 @@
         </section>
     @endif
 
-    <footer class="mt-24 bg-stone-700 text-center text-white">
-        <div class="container hidden px-6 pt-6">
-            <div class="mb-6 flex justify-center">
-                <a title="instagram kabarundangan.com" href="https://www.instagram.com/kabarundangan/" target="_blank" type="button" class="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" data-te-ripple-init data-te-ripple-color="light">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-full w-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                    </svg>
-                </a>
-
-                <a title="register" class="m-1" href="/register">
-                    <button type="button" class="inline-block rounded-full border-2 border-neutral-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10" data-te-ripple-init data-te-ripple-color="light">
-                        Daftar!
-                    </button>
-                </a>
-            </div>
+    <footer class="mt-20 bg-[#332216] pl-4 text-white text-left rounded-tr-full border-t-4 border-black">
+        <div class="pt-4 text-white font-masthina text-3xl">
+            <h1 class="text-lg font-sans mb-3">Design By:</h1>
+            <a title="Instagram official kabarundangan.com" href="https://kabarundangan.com/">Kabar Undangan</a>
         </div>
 
-        <div class="p-4 text-center" style="background-color: rgba(0, 0, 0, 0.2)">
-            <a title="Instagram official kabarundangan.com" class="text-whitehite" href="https://kabarundangan.com/">Kabarundangan.com</a>
+        <div class="py-4">
+            <a title="instagram kabarundangan.com" href="https://www.instagram.com/kabarundangan/" target="_blank" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+            </a>
         </div>
     </footer>
 </main>
