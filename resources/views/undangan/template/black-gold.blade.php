@@ -1,6 +1,11 @@
 <div id="particles-js" class="absolute h-full w-full bg-cover bg-repeat" style="background-position: 50% 50%"></div>
-<main class="m-auto bg-[#f5ebdf] text-[#332216]">
-    <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')] md:bg-[url('/public/images/bg/bg-brown.webp')]" id="opening">
+{{-- color list
+    text = ECB751
+    bg = 222222
+    bg2 = 171717
+--}}
+<main class="m-auto bg-[#222222] text-[#ECB751]">
+    <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-blackgold.webp')]" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
             <h1 class="pb-6 font-sans text-lg uppercase  md:text-xl">We Are Getting Married</h1>
             <section class="mt-2 flex items-center justify-center gap-4 text-center font-masthina ">
@@ -44,7 +49,7 @@
                     </section>
                 @endif
             @endif
-            <section class="mt-8 flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#332216] p-6 text-white" id="open-undangan">
+            <section class="mt-8 flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#ECB751] p-6 text-white" id="open-undangan">
                 <svg class="h-6 w-6 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                     <polyline points="22,6 12,13 2,6" />
@@ -56,7 +61,7 @@
         </div>
     </section>
 
-    <section class="header bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')] md:bg-[url('/public/images/bg/bg-brown.webp')]">
+    <section class="header bg-cover bg-[url('/public/images/bg/bg-blackgold.webp')]">
         <div class="container mx-auto max-w-xl text-center">
             <h1 class="pb-6 font-sans text-lg uppercase  md:text-xl">We Are Getting Married</h1>
             <section class="font-masthina ">
@@ -92,7 +97,7 @@
                     </tbody>
                 </table>
             </section>
-            <section class="text-md mt-4 scale-90 rounded-xl bg-[#332216] p-3 font-sans text-white md:scale-100">
+            <section class="text-md mt-4 scale-90 rounded-xl bg-[#ECB751] p-3 font-sans text-white md:scale-100">
                 <div class="hidden uppercase" id="countdown">
                     <div class="flex items-center justify-center gap-6">
                         <div>
@@ -123,9 +128,7 @@
         </div>
     </section>
 
-    <section></section>
-
-    <div class="bg-contain md:bg-cover bg-[url('/public/images/bg/bg-6-brown.png')]">
+    <div class="bg-contain md:bg-cover bg-[url('/public/images/bg/bg-2-blackgold.webp')]">
         <section class="container mx-auto max-w-4xl text-center pt-10 " data-aos="fade-up" data-aos-duration="2000">
             <h2 class="mb-4 font-tangerine text-4xl font-semibold md:text-5xl">Bismillahirrahmanirrahim</h2>
             <p class="text-md font-serif md:text-2xl">Dengan Memohon Rahmat dan Ridho Allah SWT, Kami Bermaksud Menyelenggarakan Pernikahan Kami :</p>
@@ -148,7 +151,7 @@
                     </div>
                 </section>
                 @if ($data['mempelai_wanita_api']['instagram'] !== 'null' && $data['mempelai_wanita_api']['instagram'] !== null)
-                    <a data-aos="fade-right" data-aos-duration="2000" title="instagram mempelai wanita" href="https://www.instagram.com/{{ $data['mempelai_wanita_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-[#332216] py-2">
+                    <a data-aos="fade-right" data-aos-duration="2000" title="instagram mempelai wanita" href="https://www.instagram.com/{{ $data['mempelai_wanita_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-[#ECB751] py-2">
                         <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
                             <rect x="4" y="4" width="16" height="16" rx="4" />
@@ -176,7 +179,7 @@
                     </div>
                 </section>
                 @if ($data['mempelai_pria_api']['instagram'] !== 'null' && $data['mempelai_pria_api']['instagram'] !== null)
-                    <a title="instagram mempelai pria" data-aos="fade-left" data-aos-duration="2000" href="https://www.instagram.com/{{ $data['mempelai_pria_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-[#332216] py-2">
+                    <a title="instagram mempelai pria" data-aos="fade-left" data-aos-duration="2000" href="https://www.instagram.com/{{ $data['mempelai_pria_api']['instagram'] }}/" target="blank" class="mx-auto mt-4 flex max-w-[8rem] items-center justify-center gap-1 rounded-xl bg-[#ECB751] py-2">
                         <svg class="h-4 w-4 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" />
                             <rect x="4" y="4" width="16" height="16" rx="4" />
@@ -190,11 +193,11 @@
         </section>
     </div>
 
-    <div class="bg-cover bg-[url('/public/images/bg/bg-3-brown-mobile.webp')]">
+    <div class="bg-cover bg-[url('/public/images/bg/bg-3-blackgold.webp')]">
         <section class="container mx-auto mt-28 max-w-4xl pb-10">
             <h1 class="text-center font-greatVibes text-5xl font-bold " data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1000">Save The Date</h1>
             <div class="mt-12 justify-center gap-6 md:flex">
-                <div data-aos="zoom-in" data-aos-duration="1000" class="relative bg-[#C5AB88] mt-6 flex items-start justify-between rounded-xl border-2 border-b-4 border-[#332216] p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
+                <div data-aos="zoom-in" data-aos-duration="1000" class="relative bg-[#171717] mt-6 flex items-start justify-between rounded-xl border-2 border-b-4 border-[#ECB751] p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
                     <div class="mx-auto ">
                         <h3 class="text-center font-masthina text-4xl font-bold ">
                             Akad
@@ -228,7 +231,7 @@
                             </div>
 
                         </div>
-                        <a title="google maps lokasi akad" href="{{ $data['setting_akad_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#332216] p-3">
+                        <a title="google maps lokasi akad" href="{{ $data['setting_akad_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#ECB751] p-3">
                             <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
                                 <line x1="18" y1="6" x2="18" y2="6.01" />
@@ -242,7 +245,7 @@
                     </div>
                 </div>
 
-                <div data-aos="zoom-in" data-aos-duration="1000" class="relative bg-[#C5AB88] mt-8 flex items-start justify-between rounded-xl border-2 border-b-4 border-[#332216] p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
+                <div data-aos="zoom-in" data-aos-duration="1000" class="relative bg-[#171717] mt-8 flex items-start justify-between rounded-xl border-2 border-b-4 border-[#ECB751] p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
                     <div class="mx-auto ">
                         <h3 class="text-center font-masthina text-4xl font-bold ">
                             Resepsi
@@ -276,7 +279,7 @@
                             </div>
 
                         </div>
-                        <a title="google maps lokasi resepsi" href="{{ $data['setting_resepsi_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#332216] p-3">
+                        <a title="google maps lokasi resepsi" href="{{ $data['setting_resepsi_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#ECB751] p-3">
                             <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
                                 <line x1="18" y1="6" x2="18" y2="6.01" />
@@ -291,7 +294,7 @@
                 </div>
             </div>
 
-            <a class="mx-auto mt-14 flex max-w-[15rem] items-center gap-2 rounded-lg bg-[#332216] p-4 shadow-md" title="add calendar" data-aos="zoom-in-up" data-aos-duration="1000" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Acara+Pernikahan+{{ $data['mempelai_wanita_api']['nama_panggilan'] }}+dan+{{ $data['mempelai_pria_api']['nama_panggilan'] }}&dates=20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('ymd') }}/20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('ymd') }}&details=Deskripsi+Acara&location={{ $data['setting_resepsi_api']['tempat'] }}, {{ $data['setting_resepsi_api']['alamat'] }}&sprop=name:Organizer&sprop=website:https://www.kabarundangan.com" target="_blank">
+            <a class="mx-auto mt-14 flex max-w-[15rem] items-center gap-2 rounded-lg bg-[#ECB751] p-4 shadow-md" title="add calendar" data-aos="zoom-in-up" data-aos-duration="1000" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Acara+Pernikahan+{{ $data['mempelai_wanita_api']['nama_panggilan'] }}+dan+{{ $data['mempelai_pria_api']['nama_panggilan'] }}&dates=20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->format('ymd') }}/20{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('ymd') }}&details=Deskripsi+Acara&location={{ $data['setting_resepsi_api']['tempat'] }}, {{ $data['setting_resepsi_api']['alamat'] }}&sprop=name:Organizer&sprop=website:https://www.kabarundangan.com" target="_blank">
                 <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <rect x="4" y="5" width="16" height="16" rx="2" />
@@ -304,18 +307,20 @@
                 <h3 class="font-sans text-lg font-semibold uppercase text-white">Add to Calendar</h3>
             </a>
         </section>
+
+        <section class="container mx-auto mt-20 hidden max-w-4xl transform animate-bounce cursor-pointer duration-1000">
+            <div class="flex justify-center">
+                <svg class="h-24 w-24 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <polygon points="10 8 16 12 10 16 10 8" />
+                </svg>
+            </div>
+        </section>
     </div>
 
-    <section class="container mx-auto mt-20 hidden max-w-4xl transform animate-bounce cursor-pointer duration-1000">
-        <div class="flex justify-center">
-            <svg class="h-24 w-24 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <polygon points="10 8 16 12 10 16 10 8" />
-            </svg>
-        </div>
-    </section>
 
-    <div class="bg-cover bg-[url('/public/images/bg/bg-2-brown.webp')]">
+
+    <div class="bg-cover bg-[url('/public/images/bg/bg-4-blackgold.webp')]">
         @if (count($data['cerita_cinta_api']) > 0)
             <section class="container mx-auto mt-20 max-w-4xl">
                 <h1 class="text-center font-greatVibes text-5xl font-bold  md:text-6xl" data-aos="fade-up" data-aos-duration="1000">Story</h1>
@@ -328,11 +333,11 @@
                                 <div class="flex md:contents">
                                     <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
                                         <div class="flex h-full w-6 items-center justify-center">
-                                            <div class="pointer-events-none h-full w-1 bg-[#332216]"></div>
+                                            <div class="pointer-events-none h-full w-1 bg-[#ECB751]"></div>
                                         </div>
-                                        <div class="absolute top-1/2 -mt-3 h-6 w-6 rounded-full bg-[#332216] shadow"></div>
+                                        <div class="absolute top-1/2 -mt-3 h-6 w-6 rounded-full bg-[#ECB751] shadow"></div>
                                     </div>
-                                    <div class="col-start-6 col-end-10 my-4 mr-auto rounded-xl bg-[#332216] p-4 shadow-md" data-aos="fade-left" data-aos-duration="2000">
+                                    <div class="col-start-6 col-end-10 my-4 mr-auto rounded-xl bg-[#ECB751] p-4 shadow-md" data-aos="fade-left" data-aos-duration="2000">
                                         <div class="flex items-center gap-1">
                                             <svg class="h-5 w-5 " width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -352,7 +357,7 @@
                                 </div>
                             @else
                                 <div class="flex flex-row-reverse md:contents">
-                                    <div class="col-start-1 col-end-5 my-4 ml-auto rounded-xl bg-[#332216] p-4 shadow-md" data-aos="fade-right" data-aos-duration="2000">
+                                    <div class="col-start-1 col-end-5 my-4 ml-auto rounded-xl bg-[#ECB751] p-4 shadow-md" data-aos="fade-right" data-aos-duration="2000">
                                         <div class="flex items-center gap-1">
                                             <svg class="h-5 w-5 " width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -371,9 +376,9 @@
                                     </div>
                                     <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
                                         <div class="flex h-full w-6 items-center justify-center">
-                                            <div class="pointer-events-none h-full w-1 bg-[#332216]"></div>
+                                            <div class="pointer-events-none h-full w-1 bg-[#ECB751]"></div>
                                         </div>
-                                        <div class="absolute top-1/2 -mt-3 h-6 w-6 rounded-full bg-[#332216] shadow"></div>
+                                        <div class="absolute top-1/2 -mt-3 h-6 w-6 rounded-full bg-[#ECB751] shadow"></div>
                                     </div>
                                 </div>
                             @endif
@@ -409,7 +414,7 @@
             <h1 class="text-center font-greatVibes text-5xl font-bold ">Hadiah Untuk Kami</h1>
             <p class="mt-6 text-center font-serif text-xl font-semibold ">Kehadiran Bapak/Ibu/Saudara/i merupakan hadiah terbaik bagi kami. Tetapi jika memberi merupakan tanda kasih, kami dengan senang hati menerimanya. Semoga kebaikan, keberkahan dan kesehatan selalu diberikan kepada kita semua. Aamiin...</p>
 
-            <div class="btn-open-modal mx-auto mt-8 flex max-w-[12.5rem] cursor-pointer items-center gap-2 rounded-lg bg-[#332216] p-4 shadow-md">
+            <div class="btn-open-modal mx-auto mt-8 flex max-w-[12.5rem] cursor-pointer items-center gap-2 rounded-lg bg-[#ECB751] p-4 shadow-md">
                 <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" />
                     <rect x="3" y="8" width="18" height="4" rx="1" />
@@ -422,58 +427,59 @@
         </section>
     @endif
 
-    <section class="container mx-auto mt-40 max-w-4xl">
-        <h1 class="text-center font-greatVibes text-5xl font-bold " data-aos="fade-right" data-aos-duration="2000">Ucapan Selamat & Do'a</h1>
-        <p class="mt-6 text-center font-serif text-xl font-semibold " data-aos="fade-left" data-aos-duration="2000">Kami mengharapkan kehadiran Anda.</p>
+    <div class="bg-cover bg-[url('/public/images/bg/bg-4-blackgold.webp')]">
+        <section class="container mx-auto mt-40 max-w-4xl">
+            <h1 class="text-center font-greatVibes text-5xl font-bold " data-aos="fade-right" data-aos-duration="2000">Ucapan Selamat & Do'a</h1>
+            <p class="mt-6 text-center font-serif text-xl font-semibold " data-aos="fade-left" data-aos-duration="2000">Kami mengharapkan kehadiran Anda.</p>
 
-        <div class="mx-auto mb-0 mt-6 max-w-xl space-y-4 rounded-lg bg-[#332216] p-12 shadow-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
-            <div>
-                <div class="relative">
-                    <input id="nama" type="text" name="name" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Nama" />
-                    <p class="mt-1 hidden text-sm text-red-500" id="nama-validation">wajib diisi</p>
-                </div>
-            </div>
-
-            <div>
-                <div class="relative">
-                    <input id="instagram" type="text" name="instagram" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Instagram *optional" />
-                </div>
-            </div>
-
-            <div>
-                <div class="relative">
-                    <textarea id="pesan" type="text" name="name" autocomplete="off" class="h-32 w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Tuliskan ucapan dan doa untuk mempelai pengantin"></textarea>
-                    <p class="mt-1 hidden text-sm text-red-500" id="pesan-validation">wajib diisi</p>
-                </div>
-            </div>
-
-            <div>
-                <div class="relative flex items-center gap-4">
-                    <div class="">
-                        <img id="output" src="{{ asset('/images/photo-blank.png') }}" alt="pesan" width="96" height="96" class="rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
-                    </div>
-                    <div>
-                        <label class="inline-block w-[150px] rounded-sm bg-yellow-600 px-4 py-2 text-center text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD FOTO
-                            <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" type="file" multiple>
-                        </label>
-                        <p class="mt-2 text-xs text-gray-300">*optional</p>
-                        <p class="text-xs text-red-500/80">foto wajib png/jpg/jpeg dan ukuran tidak melebihi 5mb</p>
+            <div class="mx-auto mb-0 mt-6 max-w-xl space-y-4 rounded-lg bg-[#ECB751] p-12 shadow-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+                <div>
+                    <div class="relative">
+                        <input id="nama" type="text" name="name" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Nama" />
+                        <p class="mt-1 hidden text-sm text-red-500" id="nama-validation">wajib diisi</p>
                     </div>
                 </div>
-            </div>
 
-            <button class="{{ $data['name'] === 'demo' ? 'btn-demo' : 'btn-send' }} block w-full rounded-lg bg-[#C5AB88] px-5 py-3 font-sans text-lg font-medium text-white">
-                Kirim Ucapan
-            </button>
-    </section>
+                <div>
+                    <div class="relative">
+                        <input id="instagram" type="text" name="instagram" autocomplete="off" class="w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Instagram *optional" />
+                    </div>
+                </div>
 
-    <div class="bg-cover bg-[url('/public/images/bg/bg-5-brown-mobile.webp')]">
+                <div>
+                    <div class="relative">
+                        <textarea id="pesan" type="text" name="name" autocomplete="off" class="h-32 w-full rounded-md border-gray-200 p-3 text-sm shadow-sm" placeholder="Tuliskan ucapan dan doa untuk mempelai pengantin"></textarea>
+                        <p class="mt-1 hidden text-sm text-red-500" id="pesan-validation">wajib diisi</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="relative flex items-center gap-4">
+                        <div class="">
+                            <img id="output" src="{{ asset('/images/photo-blank.png') }}" alt="pesan" width="96" height="96" class="rounded-full shadow-lg dark:shadow-black/30" alt="smaple image" />
+                        </div>
+                        <div>
+                            <label class="inline-block w-[150px] rounded-sm bg-yellow-600 px-4 py-2 text-center text-sm font-bold uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-yellow-800 hover:shadow-lg"> UPLOAD FOTO
+                                <input type="file" name="image_file" id="image-file" accept="image/jpeg, image/png" type="file" multiple>
+                            </label>
+                            <p class="mt-2 text-xs text-gray-300">*optional</p>
+                            <p class="text-xs text-red-500/80">foto wajib png/jpg/jpeg dan ukuran tidak melebihi 5mb</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="{{ $data['name'] === 'demo' ? 'btn-demo' : 'btn-send' }} block w-full rounded-lg bg-[#171717] px-5 py-3 font-sans text-lg font-medium text-white">
+                    Kirim Ucapan
+                </button>
+        </section>
+    </div>
+
     <section class="mt-20 text-center">
         <p class="text-2xl font-bold">Terimakasih</p>
         <p class="text-3xl font-semibold">Ucapan & Do'anya</p>
         <p class="text-md mt-4">Semoga kebaikan atas do'a yang disampaikan dapat dikabulkan dan dirasakan orang yang mendoakannya juga, Amiinn.</p>
     </section>
-    </div>
+
 
     @if (count($data['ucapan_api']) !== 0)
         <section class="mx-auto mt-9 max-w-4xl px-4">
@@ -503,7 +509,7 @@
         </section>
     @endif
 
-    <footer class="mt-20 bg-[#332216] pl-4 text-white text-left rounded-tr-full border-t-4 border-black">
+    <footer class="mt-20 bg-[#ECB751] pl-4 text-white text-left rounded-tr-full border-t-4 border-black">
         <div class="pt-4 text-white font-masthina text-3xl">
             <h1 class="text-lg font-sans mb-3">Design By:</h1>
             <a title="Instagram official kabarundangan.com" href="https://kabarundangan.com/">Kabar Undangan</a>
@@ -521,7 +527,7 @@
 
 @if ($data['vip'] === true || $data['vip'] === 'true')
     <div class="toast-end toast" id="toggle-music">
-        <label class="swap rounded-full bg-[#332216] p-2">
+        <label class="swap rounded-full bg-[#ECB751] p-2">
             <!-- this hidden checkbox controls the state -->
             <input type="checkbox" class="hidden" />
             <!-- volume on icon -->
