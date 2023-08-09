@@ -37,7 +37,7 @@
 @endsection
 
 @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.0.13/fontfaceobserver.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.3.0/fontfaceobserver.js" integrity="sha512-yGyu0Bs4Ktt2Wuws6CZIOe5XksY30AGXsqufHchKuDeuk6Twa3PiBbF1J8S0ddMJa260yY3P9AT/eV/sUKC/9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
         $.ajaxSetup({
@@ -329,16 +329,16 @@
 
         $("#body").css("overflow", "hidden");
 
-        // document.addEventListener("contextmenu", function(e) {
-        //     e.preventDefault();
-        // });
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
 
-        // // Mencegah akses ke DevTools
-        // document.addEventListener("keydown", function(e) {
-        //     if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-        //         e.preventDefault();
-        //     }
-        // });
+        // Mencegah akses ke DevTools
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+                e.preventDefault();
+            }
+        });
 
         var timer = setInterval(function() {
             var now = new Date();
