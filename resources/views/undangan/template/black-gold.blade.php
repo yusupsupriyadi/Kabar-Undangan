@@ -5,7 +5,7 @@
     bg2 = 171717
 --}}
 <main class="m-auto bg-[#222222] text-[#ECB751]">
-    <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-blackgold.webp')]" id="opening">
+    <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-blackgold-mobile.webp')]" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
             <h1 class="pb-6 font-sans text-lg uppercase  md:text-xl">We Are Getting Married</h1>
             <section class="mt-2 flex items-center justify-center gap-4 text-center font-masthina ">
@@ -61,7 +61,7 @@
         </div>
     </section>
 
-    <section class="header bg-cover bg-[url('/public/images/bg/bg-blackgold.webp')]">
+    <section class="header bg-cover bg-[url('/public/images/bg/bg-blackgold-mobile.webp')]">
         <div class="container mx-auto max-w-xl text-center">
             <h1 class="pb-6 font-sans text-lg uppercase  md:text-xl">We Are Getting Married</h1>
             <section class="font-masthina ">

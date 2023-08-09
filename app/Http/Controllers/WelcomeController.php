@@ -38,6 +38,7 @@ class WelcomeController extends Controller
         $data = User::with('mempelaiPriaApi', 'mempelaiWanitaApi', 'ceritaCintaApi', 'settingAcaraApi', 'settingAkadApi', 'settingResepsiApi', 'settingUndanganApi', 'musicBackgroundApi', 'photoBackgroundApi', 'galleryApi', 'kadoNikahApi', 'ucapanApi', 'temaApi')->where('name', $subdomain)->first()->toArray();
         $data['cerita_cinta_api'] = collect($data['cerita_cinta_api'])->sortBy('id')->toArray();
         $data['vip'] = intval($data['vip']) === 1 ? true : false;
+        $data['ucapan_api'] = collect($data['ucapan_api'])->sortByDesc('created_at')->toArray();
         $dateNow = Carbon::now();
         foreach ($data['ucapan_api'] as $key => $value) {
             $data['ucapan_api'][$key]['created_at'] = Carbon::parse($value['created_at'])->locale('id')->diffForHumans($dateNow, [
@@ -45,6 +46,13 @@ class WelcomeController extends Controller
                 'options' => Carbon::JUST_NOW | Carbon::ONE_DAY_WORDS | Carbon::TWO_DAY_WORDS,
             ]);
         }
+        $imageGallery = [];
+        if($data['gallery_api'] !== null){
+            foreach ($data['gallery_api'] as $key => $value) {
+                $imageGallery[] = $value['gambar'];
+            }
+        }
+        $data['image_gallery'] = $imageGallery;
         return view('undangan.index', compact('data'));
     }
 }

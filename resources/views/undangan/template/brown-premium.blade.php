@@ -1,6 +1,6 @@
 <div id="particles-js" class="absolute h-full w-full bg-cover bg-repeat" style="background-position: 50% 50%"></div>
 <main class="m-auto bg-[#f5ebdf] text-[#332216]">
-    <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')] md:bg-[url('/public/images/bg/bg-brown.webp')]" id="opening">
+    <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')]" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
             <h1 class="pb-6 font-sans text-lg uppercase  md:text-xl">We Are Getting Married</h1>
             <section class="mt-2 flex items-center justify-center gap-4 text-center font-masthina ">
@@ -56,7 +56,7 @@
         </div>
     </section>
 
-    <section class="header bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')] md:bg-[url('/public/images/bg/bg-brown.webp')]">
+    <section class="header bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')]">
         <div class="container mx-auto max-w-xl text-center">
             <h1 class="pb-6 font-sans text-lg uppercase  md:text-xl">We Are Getting Married</h1>
             <section class="font-masthina ">
@@ -190,7 +190,7 @@
         </section>
     </div>
 
-    <div class="bg-cover bg-[url('/public/images/bg/bg-3-brown-mobile.webp')]">
+    <div class="bg-cover bg-[url('/public/images/bg/bg-3-brown.webp')]">
         <section class="container mx-auto mt-28 max-w-4xl pb-10">
             <h1 class="text-center font-greatVibes text-5xl font-bold " data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1000">Save The Date</h1>
             <div class="mt-12 justify-center gap-6 md:flex">
@@ -467,7 +467,7 @@
             </button>
     </section>
 
-    <div class="bg-cover bg-[url('/public/images/bg/bg-5-brown-mobile.webp')]">
+    <div class="bg-cover bg-[url('/public/images/bg/bg-5-brown.webp')]">
     <section class="mt-20 text-center">
         <p class="text-2xl font-bold">Terimakasih</p>
         <p class="text-3xl font-semibold">Ucapan & Do'anya</p>

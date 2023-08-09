@@ -15,11 +15,11 @@ label-validate {
 }
 
 .label-checkbox-primary {
-	@apply inline-block text-sm text-gray-800 cursor-pointer;
+	@apply inline-block cursor-pointer text-sm text-gray-800;
 }
 
 .btn-primary {
-	@apply inline-block rounded bg-[#fbbd23] px-6 py-2.5 text-sm font-bold uppercase leading-tight text-black shadow-md transition duration-150 ease-in-out hover:bg-[#b58714] hover:shadow-lg hover:scale-105 active:scale-95 focus:bg-[#b58714] focus:shadow-lg focus:outline-none focus:ring-0 active:bg-[#b58714] active:shadow-lg;
+	@apply inline-block rounded bg-[#fbbd23] px-6 py-2.5 text-sm font-bold uppercase leading-tight text-black shadow-md transition duration-150 ease-in-out hover:scale-105 hover:bg-[#b58714] hover:shadow-lg focus:bg-[#b58714] focus:shadow-lg focus:outline-none focus:ring-0 active:scale-95 active:bg-[#b58714] active:shadow-lg;
 }
 
 .select-primary {
@@ -53,8 +53,8 @@ label-validate {
     border-solid
     border-gray-300
     bg-white bg-clip-padding
-    px-3 py-1.5 text-base
-    font-normal
+    px-3 py-1.5 font-normal
+    text-base
     text-gray-700
     transition
     ease-in-out
@@ -189,7 +189,7 @@ label-validate {
 }
 
 .loading-cube:before {
-	content: '';
+	content: "";
 	width: 48px;
 	height: 5px;
 	background: hsl(var(--p) / 0.2);
@@ -201,7 +201,7 @@ label-validate {
 }
 
 .loading-cube:after {
-	content: '';
+	content: "";
 	width: 100%;
 	height: 100%;
 	background: hsl(var(--p));
@@ -344,19 +344,19 @@ label-validate {
 	}
 }
 
-input[type='file'] {
+input[type="file"] {
 	display: none;
 }
 
 .header {
-	background-size: cover,cover;
-    background-repeat: no-repeat;
-    background-position: center,center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+	background-size: cover, cover;
+	background-repeat: no-repeat;
+	background-position: center, center;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .opening {
@@ -365,11 +365,11 @@ input[type='file'] {
 	left: 0;
 	top: 0;
 	bottom: 0;
-	z-index: 9999;
-	background-size: cover,cover;
-    background-repeat: no-repeat;
-    background-position: center,center;
-    min-height: 100vh;
+	z-index: 9;
+	background-size: cover, cover;
+	background-repeat: no-repeat;
+	background-position: center, center;
+	min-height: 100vh;
 }
 
 .gallery {
@@ -389,25 +389,44 @@ input[type='file'] {
 }
 
 .drawer-item-active {
-	@apply font-bold text-gray-600 shadow-md bg-gray-100;
+	@apply bg-gray-100 font-bold text-gray-600 shadow-md;
 }
 
-.gopay-color{
+.gopay-color {
 	background-color: #86efac;
 }
 
-.ovo-color{
+.ovo-color {
 	background-color: #d8b4fe;
 }
 
-.dana-color{
+.dana-color {
 	background-color: #93c5fd;
 }
 
-.shopeepay-color{
+.shopeepay-color {
 	background-color: #fed7aa;
 }
 
-.rekening-color{
+.rekening-color {
 	background-color: #e5e7eb;
+}
+
+.loader{
+    position:absolute;
+    top:50%;
+    margin:-240px;
+    left:50%;
+    width:480px;
+    height:480px;
+}
+
+.loader h1{
+    position: absolute;
+    top:0px;
+    left:0px;
+    text-align: center;
+    width:100%;
+    top:0px;
+    line-height:420px;
 }
