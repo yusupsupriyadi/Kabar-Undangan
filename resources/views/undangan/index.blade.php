@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-    <section id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-[url('/public/images/background-card.jpg')] bg-cover">
+    <section id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
         <div class="loader">
             <canvas width="480px" height="480px" id="loader"></canvas>
             <h1 class="pt-2 font-bold text-white">Sedang memuat...</h1>
