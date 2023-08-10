@@ -5,7 +5,7 @@
             <h1 class="pb-6 font-sans text-lg uppercase  md:text-xl">We Are Getting Married</h1>
             <section class="mt-2 flex items-center justify-center gap-4 text-center font-masthina ">
                 <h1 class="nama-pria-opening text-6xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
-                <h2 class="px-2 text-5xl">&</h2>
+                <h2 class="px-2 text-4xl">&</h2>
                 <h1 class="text-6xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
             </section>
             <h5 class="mt-16  md:text-xl">Save the date :</h5>
@@ -21,7 +21,7 @@
                             <td>
                                 <div class="w-20 border-y border-black py-1">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('dddd') }}</div>
                             </td>
-                            <td class="px-2 text-5xl font-thin md:text-6xl">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('d') }}</td>
+                            <td class="px-2 text-4xl font-thin md:text-6xl">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('d') }}</td>
                             <td>
                                 <div class="w-20 border-y border-black py-1">
                                     Jam {{ $data['setting_resepsi_api']['waktu_mulai'] }}</span>
@@ -56,15 +56,15 @@
         </div>
     </section>
 
-    <section class="header bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')]">
+    <section class="header bg-[url('/public/images/bg/bg-brown-mobile.webp')] bg-cover">
         <div class="container mx-auto max-w-xl text-center">
-            <h1 class="pb-6 font-sans text-lg uppercase  md:text-xl">We Are Getting Married</h1>
-            <section class="font-masthina ">
+            <h1 class="pb-6 font-sans text-lg uppercase md:text-xl">We Are Getting Married</h1>
+            <section class="font-masthina">
                 <h1 class="text-6xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
-                <h2 class="py-2 text-4xl md:text-5xl">&</h2>
+                <h2 class="py-2 text-4xl md:text-4xl">&</h2>
                 <h1 class="text-6xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
             </section>
-            <h5 class="mt-6 text-lg  md:text-xl">Save the date :</h5>
+            <h5 class="mt-6 text-lg md:text-xl">Save the date :</h5>
             <section class="mt-2 flex scale-90 justify-center md:scale-100">
                 <table>
                     <tbody>
@@ -125,9 +125,9 @@
 
     <section></section>
 
-    <div class="bg-contain md:bg-cover bg-[url('/public/images/bg/bg-6-brown.png')]">
-        <section class="container mx-auto max-w-4xl text-center pt-10 " data-aos="fade-up" data-aos-duration="2000">
-            <h2 class="mb-4 font-tangerine text-4xl font-semibold md:text-5xl">Bismillahirrahmanirrahim</h2>
+    <div class="bg-[url('/public/images/bg/bg-6-brown.png')] bg-contain md:bg-cover">
+        <section class="container mx-auto max-w-4xl pt-10 text-center" data-aos="fade-up" data-aos-duration="2000">
+            <h2 class="mb-4 font-tangerine text-4xl font-semibold md:text-4xl">Bismillahirrahmanirrahim</h2>
             <p class="text-md font-serif md:text-2xl">Dengan Memohon Rahmat dan Ridho Allah SWT, Kami Bermaksud Menyelenggarakan Pernikahan Kami :</p>
         </section>
         <section class="container mt-4 items-center justify-evenly md:flex">
@@ -141,10 +141,10 @@
                         @endif
                     </div>
                     <div class="text-center">
-                        <h1 class="mt-4 font-tangerine text-5xl font-extrabold">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
-                        <p class="mt-1 text-sm font-thin ">{{ $data['mempelai_wanita_api']['nama_lengkap'] }}</p>
-                        <p class="mt-6 text-[10px] ">Anak dari Keluarga</p>
-                        <p class="mt-1 text-[10px] ">Bapak {{ $data['mempelai_wanita_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_wanita_api']['nama_ibu'] }}</p>
+                        <h1 class="mt-4 font-tangerine text-4xl font-extrabold">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
+                        <p class="mt-1 text-sm font-thin">{{ $data['mempelai_wanita_api']['nama_lengkap'] }}</p>
+                        <p class="mt-6 text-[10px]">Anak dari Keluarga</p>
+                        <p class="mt-1 text-[10px]">Bapak {{ $data['mempelai_wanita_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_wanita_api']['nama_ibu'] }}</p>
                     </div>
                 </section>
                 @if ($data['mempelai_wanita_api']['instagram'] !== 'null' && $data['mempelai_wanita_api']['instagram'] !== null)
@@ -169,10 +169,10 @@
                         @endif
                     </div>
                     <div class="text-center">
-                        <h1 class="mt-4 text-center font-tangerine text-5xl font-extrabold">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
-                        <p class="mt-1 text-sm font-thin ">{{ $data['mempelai_pria_api']['nama_lengkap'] }}</p>
-                        <p class="mt-6 text-[10px] ">Anak dari Keluarga</p>
-                        <p class="mt-1 text-[10px] ">Bapak {{ $data['mempelai_pria_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_pria_api']['nama_ibu'] }}</p>
+                        <h1 class="mt-4 text-center font-tangerine text-4xl font-extrabold">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
+                        <p class="mt-1 text-sm font-thin">{{ $data['mempelai_pria_api']['nama_lengkap'] }}</p>
+                        <p class="mt-6 text-[10px]">Anak dari Keluarga</p>
+                        <p class="mt-1 text-[10px]">Bapak {{ $data['mempelai_pria_api']['nama_ayah'] }} & Ibu {{ $data['mempelai_pria_api']['nama_ibu'] }}</p>
                     </div>
                 </section>
                 @if ($data['mempelai_pria_api']['instagram'] !== 'null' && $data['mempelai_pria_api']['instagram'] !== null)
@@ -190,17 +190,17 @@
         </section>
     </div>
 
-    <div class="bg-cover bg-[url('/public/images/bg/bg-3-brown.webp')]">
+    <div class="bg-[url('/public/images/bg/bg-3-brown.webp')] bg-cover">
         <section class="container mx-auto mt-28 max-w-4xl pb-10">
-            <h1 class="text-center font-greatVibes text-5xl font-bold " data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1000">Save The Date</h1>
+            <h1 class="text-center font-greatVibes text-4xl font-bold" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1000">Save The Date</h1>
             <div class="mt-12 justify-center gap-6 md:flex">
-                <div data-aos="zoom-in" data-aos-duration="1000" class="relative bg-[#C5AB88] mt-6 flex items-start justify-between rounded-xl border-2 border-b-4 border-[#332216] p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
-                    <div class="mx-auto ">
-                        <h3 class="text-center font-masthina text-4xl font-bold ">
+                <div data-aos="zoom-in" data-aos-duration="1000" class="relative mt-6 flex items-start justify-between rounded-xl border-2 border-b-4 border-[#332216] bg-[#C5AB88] p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
+                    <div class="mx-auto">
+                        <h3 class="text-center font-masthina text-4xl font-bold">
                             Akad
                         </h3>
                         <div class="mt-4 flex items-center gap-2">
-                            <svg class="h-7 w-7 " width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
                                 <rect x="4" y="5" width="16" height="16" rx="2" />
                                 <line x1="16" y1="3" x2="16" y2="7" />
@@ -208,22 +208,22 @@
                                 <line x1="4" y1="11" x2="20" y2="11" />
                                 <rect x="8" y="15" width="2" height="2" />
                             </svg>
-                            <h3 class="text-lg font-semibold ">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('dddd, DD MMMM YYYY') }}</h3>
+                            <h3 class="text-lg font-semibold">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_akad_api']['tanggal'])->locale('id')->isoFormat('dddd, DD MMMM YYYY') }}</h3>
                         </div>
                         <div class="mt-6 flex items-center gap-2">
-                            <svg class="h-7 w-7 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
 
-                            <h3 class="text-lg font-semibold ">{{ $data['setting_akad_api']['waktu_mulai'] }} - {{ $data['setting_akad_api']['waktu_selesai'] }}</h3>
+                            <h3 class="text-lg font-semibold">{{ $data['setting_akad_api']['waktu_mulai'] }} - {{ $data['setting_akad_api']['waktu_selesai'] }}</h3>
                         </div>
                         <div class="mt-6 flex items-start gap-2">
-                            <svg class="h-7 w-7 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                                 <circle cx="12" cy="10" r="3" />
                             </svg>
                             <div>
-                                <h3 class="text-lg font-semibold ">{{ $data['setting_akad_api']['tempat'] }}</h3>
+                                <h3 class="text-lg font-semibold">{{ $data['setting_akad_api']['tempat'] }}</h3>
                                 <p class="max-w-xs">{{ $data['setting_akad_api']['alamat'] }}</p>
                             </div>
 
@@ -242,13 +242,13 @@
                     </div>
                 </div>
 
-                <div data-aos="zoom-in" data-aos-duration="1000" class="relative bg-[#C5AB88] mt-8 flex items-start justify-between rounded-xl border-2 border-b-4 border-[#332216] p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
-                    <div class="mx-auto ">
-                        <h3 class="text-center font-masthina text-4xl font-bold ">
+                <div data-aos="zoom-in" data-aos-duration="1000" class="relative mt-8 flex items-start justify-between rounded-xl border-2 border-b-4 border-[#332216] bg-[#C5AB88] p-4 sm:p-6 md:mt-0 lg:p-8" href="#">
+                    <div class="mx-auto">
+                        <h3 class="text-center font-masthina text-4xl font-bold">
                             Resepsi
                         </h3>
                         <div class="mt-4 flex items-center gap-2">
-                            <svg class="h-7 w-7 " width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="h-7 w-7" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
                                 <rect x="4" y="5" width="16" height="16" rx="2" />
                                 <line x1="16" y1="3" x2="16" y2="7" />
@@ -256,22 +256,22 @@
                                 <line x1="4" y1="11" x2="20" y2="11" />
                                 <rect x="8" y="15" width="2" height="2" />
                             </svg>
-                            <h3 class="text-lg font-semibold ">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('dddd, DD MMMM YYYY') }}</h3>
+                            <h3 class="text-lg font-semibold">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('dddd, DD MMMM YYYY') }}</h3>
                         </div>
                         <div class="mt-6 flex items-center gap-2">
-                            <svg class="h-7 w-7 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
 
-                            <h3 class="text-lg font-semibold ">{{ $data['setting_resepsi_api']['waktu_mulai'] }} - {{ $data['setting_resepsi_api']['waktu_selesai'] }}</h3>
+                            <h3 class="text-lg font-semibold">{{ $data['setting_resepsi_api']['waktu_mulai'] }} - {{ $data['setting_resepsi_api']['waktu_selesai'] }}</h3>
                         </div>
                         <div class="mt-6 flex items-start gap-2">
-                            <svg class="h-7 w-7 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                                 <circle cx="12" cy="10" r="3" />
                             </svg>
                             <div>
-                                <h3 class="text-lg font-semibold ">{{ $data['setting_resepsi_api']['tempat'] }}</h3>
+                                <h3 class="text-lg font-semibold">{{ $data['setting_resepsi_api']['tempat'] }}</h3>
                                 <p class="max-w-xs">{{ $data['setting_resepsi_api']['alamat'] }}</p>
                             </div>
 
@@ -308,18 +308,18 @@
 
     <section class="container mx-auto mt-20 hidden max-w-4xl transform animate-bounce cursor-pointer duration-1000">
         <div class="flex justify-center">
-            <svg class="h-24 w-24 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="h-24 w-24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10" />
                 <polygon points="10 8 16 12 10 16 10 8" />
             </svg>
         </div>
     </section>
 
-    <div class="bg-cover bg-[url('/public/images/bg/bg-2-brown.webp')]">
+    <div class="bg-[url('/public/images/bg/bg-2-brown.webp')] bg-cover">
         @if (count($data['cerita_cinta_api']) > 0)
             <section class="container mx-auto mt-20 max-w-4xl">
-                <h1 class="text-center font-greatVibes text-5xl font-bold  md:text-6xl" data-aos="fade-up" data-aos-duration="1000">Story</h1>
-                <p class="mt-6 text-center font-serif text-2xl font-semibold " data-aos="fade-up" data-aos-duration="1000">Dua jiwa namun satu pikiran, dua hati namun satu perasaan</p>
+                <h1 class="text-center font-greatVibes text-4xl font-bold md:text-6xl" data-aos="fade-up" data-aos-duration="1000">Story</h1>
+                <p class="mt-6 text-center font-serif text-2xl font-semibold" data-aos="fade-up" data-aos-duration="1000">Dua jiwa namun satu pikiran, dua hati namun satu perasaan</p>
 
                 <div class="mt-10">
                     <div class="mx-auto flex grid-cols-9 flex-col p-2 text-blue-50 md:grid">
@@ -334,7 +334,7 @@
                                     </div>
                                     <div class="col-start-6 col-end-10 my-4 mr-auto rounded-xl bg-[#332216] p-4 shadow-md" data-aos="fade-left" data-aos-duration="2000">
                                         <div class="flex items-center gap-1">
-                                            <svg class="h-5 w-5 " width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" />
                                                 <rect x="4" y="5" width="16" height="16" rx="2" />
                                                 <line x1="16" y1="3" x2="16" y2="7" />
@@ -354,7 +354,7 @@
                                 <div class="flex flex-row-reverse md:contents">
                                     <div class="col-start-1 col-end-5 my-4 ml-auto rounded-xl bg-[#332216] p-4 shadow-md" data-aos="fade-right" data-aos-duration="2000">
                                         <div class="flex items-center gap-1">
-                                            <svg class="h-5 w-5 " width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" />
                                                 <rect x="4" y="5" width="16" height="16" rx="2" />
                                                 <line x1="16" y1="3" x2="16" y2="7" />
@@ -386,8 +386,8 @@
 
     @if (count($data['gallery_api']) > 0)
         <section class="container mx-auto mt-20 max-w-5xl">
-            <h1 class="text-center font-greatVibes text-5xl font-bold  md:text-6xl" data-aos="fade-up" data-aos-duration="2000">Gallery</h1>
-            <p class="mt-6 text-center font-serif text-2xl font-semibold " data-aos="fade-up" data-aos-duration="2000">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
+            <h1 class="text-center font-greatVibes text-4xl font-bold md:text-6xl" data-aos="fade-up" data-aos-duration="2000">Gallery</h1>
+            <p class="mt-6 text-center font-serif text-2xl font-semibold" data-aos="fade-up" data-aos-duration="2000">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
             <section class="mt-8">
                 <div class="grid grid-cols-1 place-items-center justify-items-center gap-4 md:grid-cols-2 lg:grid-cols-3">
                     @foreach ($data['gallery_api'] as $key => $val)
@@ -399,32 +399,44 @@
             </section>
 
             <section class="container mx-auto mt-24 max-w-4xl">
-                <h3 class="text-center font-alkatra text-xl  antialiased md:text-2xl" data-aos="zoom-out" data-aos-duration="2000">Bila wujud cinta harus dibuktikan, maka pernikahan adalah bukti cinta lahir batin yang paling baik dan diridhoi-Nya, karena dengan begitu cinta tidak akan rusak karenanya, justru cintalah yang menjaganya</h3>
+                <h3 class="text-center font-alkatra text-xl antialiased md:text-2xl" data-aos="zoom-out" data-aos-duration="2000">Bila wujud cinta harus dibuktikan, maka pernikahan adalah bukti cinta lahir batin yang paling baik dan diridhoi-Nya, karena dengan begitu cinta tidak akan rusak karenanya, justru cintalah yang menjaganya</h3>
             </section>
         </section>
     @endif
 
-    @if ($data['vip'] === true || $data['vip'] === 'true')
-        <section class="container mx-auto mt-28 max-w-6xl" data-aos="fade-up" data-aos-duration="2000">
-            <h1 class="text-center font-greatVibes text-5xl font-bold ">Hadiah Untuk Kami</h1>
-            <p class="mt-6 text-center font-serif text-xl font-semibold ">Kehadiran Bapak/Ibu/Saudara/i merupakan hadiah terbaik bagi kami. Tetapi jika memberi merupakan tanda kasih, kami dengan senang hati menerimanya. Semoga kebaikan, keberkahan dan kesehatan selalu diberikan kepada kita semua. Aamiin...</p>
+    <section class="container mx-auto mt-20 max-w-5xl">
+        @if ($data['vip'] === true || $data['vip'] === 'true')
+            <section data-aos="zoom-in" data-aos-duration="1000" class="rounded-xl border-2 border-b-4 border-[#332216] bg-[#C5AB88] p-4 py-8">
+                <h1 class="text-center font-greatVibes text-4xl font-bold">Wedding Gift</h1>
+                <p class="text-md mt-4 text-center font-serif font-semibold">Mungkin karena jarak, waktu ataupun
+                    keadaan yang menghalangi untuk ikut
+                    hadir dalam moment bahagia kami,
+                    Silahkan klik tombol dibawah untuk
+                    mengirimkan kado/hadiah.
+                </p>
 
-            <div class="btn-open-modal mx-auto mt-8 flex max-w-[12.5rem] cursor-pointer items-center gap-2 rounded-lg bg-[#332216] p-4 shadow-md">
-                <svg class="h-8 w-8 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" />
-                    <rect x="3" y="8" width="18" height="4" rx="1" />
-                    <line x1="12" y1="8" x2="12" y2="21" />
-                    <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7" />
-                    <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5" />
-                </svg>
-                <h3 class="font-sans text-lg font-semibold uppercase text-white">Kirim Hadiah</h3>
-            </div>
-        </section>
-    @endif
+                <section class="mt-4">
+                    @foreach ($data['kado_nikah_api'] as $key => $value)
+                        <div class="mt-6 text-center text-sm">
+                            <p>{{ $value['no_wallet'] }}</p>
+                            <p class="mt-1">A/n.{{ $value['user_wallet'] }}</p>
+                            <button class="btn-copy mt-2 rounded-xl bg-[#332216] px-4 py-2 text-xs font-semibold text-gray-200" data-wallet="{{ $value['no_wallet'] }}" data-key="{{ $key }}">
+                                <span id="wallet-{{ $key }}" class="capitalize">
+                                    @if ($value['type'] === 'bank')
+                                        Bank
+                                    @endif {{ $value['wallet'] }}
+                                </span> <span class="copy-{{ $key }} hidden text-xs text-white">Berhasil disalin</span>
+                            </button>
+                        </div>
+                    @endforeach
+                </section>
+            </section>
+        @endif
+    </section>
 
-    <section class="container mx-auto mt-40 max-w-4xl">
-        <h1 class="text-center font-greatVibes text-5xl font-bold " data-aos="fade-right" data-aos-duration="2000">Ucapan Selamat & Do'a</h1>
-        <p class="mt-6 text-center font-serif text-xl font-semibold " data-aos="fade-left" data-aos-duration="2000">Kami mengharapkan kehadiran Anda.</p>
+    <section class="container mx-auto mt-20 max-w-4xl">
+        <h1 class="text-center font-greatVibes text-4xl font-bold" data-aos="fade-right" data-aos-duration="2000">Ucapan Selamat <br> Do'a</h1>
+        <p class="mt-4 text-center font-serif text-md font-semibold" data-aos="fade-left" data-aos-duration="2000">Kami mengharapkan kehadiran Anda.</p>
 
         <div class="mx-auto mb-0 mt-6 max-w-xl space-y-4 rounded-lg bg-[#332216] p-12 shadow-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
             <div>
@@ -467,12 +479,12 @@
             </button>
     </section>
 
-    <div class="bg-cover bg-[url('/public/images/bg/bg-5-brown.webp')]">
-    <section class="mt-20 text-center">
-        <p class="text-2xl font-bold">Terimakasih</p>
-        <p class="text-3xl font-semibold">Ucapan & Do'anya</p>
-        <p class="text-md mt-4">Semoga kebaikan atas do'a yang disampaikan dapat dikabulkan dan dirasakan orang yang mendoakannya juga, Amiinn.</p>
-    </section>
+    <div class="bg-[url('/public/images/bg/bg-5-brown.webp')] bg-cover">
+        <section class="mt-20 text-center">
+            <p class="text-2xl font-bold">Terimakasih</p>
+            <p class="text-3xl font-semibold">Ucapan & Do'anya</p>
+            <p class="text-md mt-4">Semoga kebaikan atas do'a yang disampaikan dapat dikabulkan dan dirasakan orang yang mendoakannya juga, Amiinn.</p>
+        </section>
     </div>
 
     @if (count($data['ucapan_api']) !== 0)
@@ -482,7 +494,7 @@
                     <div class="mb-6 flex justify-center pt-8">
                         <img src="{{ $val['foto'] !== 'null' ? asset('/storage/images/' . $val['foto']) : asset('/images/photo-blank.png') }}" class="h-[90px] w-[90px] rounded-full shadow-lg" alt="smaple image" />
                     </div>
-                    <p class="pt-4 text-center text-2xl font-semibold capitalize ">{{ $val['nama'] }}</p>
+                    <p class="pt-4 text-center text-2xl font-semibold capitalize">{{ $val['nama'] }}</p>
                     <p class="text-md mx-auto max-w-2xl px-4 pt-6 text-center text-neutral-700">
                         "{{ $val['pesan'] }}"
                     </p>
@@ -503,9 +515,9 @@
         </section>
     @endif
 
-    <footer class="mt-20 bg-[#332216] pl-4 text-white text-left rounded-tr-full border-t-4 border-black">
-        <div class="pt-4 text-white font-masthina text-3xl">
-            <h1 class="text-lg font-sans mb-3">Design By:</h1>
+    <footer class="mt-20 rounded-tr-full border-t-4 border-black bg-[#332216] pl-4 text-left text-white">
+        <div class="pt-4 font-masthina text-3xl text-white">
+            <h1 class="mb-3 font-sans text-lg">Design By:</h1>
             <a title="Instagram official kabarundangan.com" href="https://kabarundangan.com/">Kabar Undangan</a>
         </div>
 

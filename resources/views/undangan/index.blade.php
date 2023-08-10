@@ -18,7 +18,7 @@
         </div>
     </section>
 
-    <div id="content" class="hidden">
+    <div id="content" class="">
         @if ($data['vip'] === true || $data['vip'] === 'true')
             @include('undangan.template.brown-premium')
             {{-- @include('undangan.template.black-gold') --}}
@@ -31,7 +31,6 @@
         <audio id="music-background" loop src="{{ asset('/audios' . '/' . $data['music_background_api']['music']) }}"></audio>
     @endif
 
-    @include('undangan._modal')
     <x-toast-alert id="toast-loading" type="loading" message="Sedang proses" />
     <x-toast-alert id="toast-validate" type="failed" message="Periksa kembali yang wajib diisi." />
 @endsection
@@ -46,67 +45,18 @@
             }
         });
 
-        let data = @json($data);
-        var tanggalResepsi = data['setting_resepsi_api']['tanggal'].split("/");
-        var tanggalFormatted = tanggalResepsi[2] + "-" + tanggalResepsi[1] + "-" + tanggalResepsi[0];
-        var date = new Date(`${tanggalFormatted} ${data['setting_resepsi_api']['waktu_mulai']}`);
-        var now = new Date();
-        const imageUrl = '{{ asset('storage/images') }}';
-        const imagePublic = '{{ asset('/images') }}';
-        const imageDefault = '{{ asset('/images/photo-blank.png') }}';
-
-        function handleRenderingComplete() {
-            $('#loading-screen').fadeOut('slow', function() {
-                $('#content').removeClass('hidden');
-                $(this).remove();
-            });
-        }
-
-        var assetsImages = [
-            "{{ asset('images/bg/bg-brown-mobile.webp') }}",
-            "{{ asset('images/bg/bg-2-brown.webp') }}",
-            "{{ asset('images/bg/bg-3-brown.webp') }}",
-            "{{ asset('images/bg/bg-4-brown.webp') }}",
-        ];
-
-        pushImageAssets();
-        function pushImageAssets() {
-            if (data['image_gallery'].length > 0) {
-                $.each(data['image_gallery'], function(index, value) {
-                    assetsImages.push(`{{ asset('/storage/images') }}/${value}`);
-                });
-            }
-        }
-
-        function preloadAssets(callback) {
-            var images = assetsImages;
-            var fonts = ['/public/fonts/Masthina.otf'];
-
-            var totalAssets = images.length + fonts.length;
-            var loadedAssets = 0;
-
-            function assetLoaded() {
-                loadedAssets++;
-                if (loadedAssets === totalAssets) {
-                    callback();
-                }
-            }
-
-            images.forEach(function(imageUrl) {
-                var img = new Image();
-                img.onload = assetLoaded;
-                img.src = imageUrl;
-            });
-
-            fonts.forEach(function(fontUrl) {
-                var font = new FontFaceObserver('Masthina'); // Replace 'FontName' with your font name
-                font.load().then(assetLoaded);
-            });
-        }
-
-        preloadAssets(function() {
-            handleRenderingComplete();
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
         });
+
+        // Mencegah akses ke DevTools
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+                e.preventDefault();
+            }
+        });
+
+        $("#body").css("overflow", "hidden");
 
         Loadr = new(function Loadr(id) {
             const max_size = 24;
@@ -213,6 +163,75 @@
             setInterval(movementTick, 16);
             tick();
         })("loader");
+
+        let data = @json($data);
+        var tanggalResepsi = data['setting_resepsi_api']['tanggal'].split("/");
+        var tanggalFormatted = tanggalResepsi[2] + "-" + tanggalResepsi[1] + "-" + tanggalResepsi[0];
+        var date = new Date(`${tanggalFormatted} ${data['setting_resepsi_api']['waktu_mulai']}`);
+        var now = new Date();
+        const imageUrl = '{{ asset('storage/images') }}';
+        const imagePublic = '{{ asset('/images') }}';
+        const imageDefault = '{{ asset('/images/photo-blank.png') }}';
+
+        function handleRenderingComplete() {
+            $('#loading-screen').fadeOut('slow', function() {
+                $('#content').removeClass('hidden');
+                $(this).remove();
+            });
+        }
+
+        var assetsImages = [
+            "{{ asset('images/bg/bg-brown-mobile.webp') }}",
+            "{{ asset('images/bg/bg-2-brown.webp') }}",
+            "{{ asset('images/bg/bg-3-brown.webp') }}",
+            "{{ asset('images/bg/bg-4-brown.webp') }}",
+        ];
+
+        pushImageAssets();
+        function pushImageAssets() {
+            if (data['image_gallery'].length > 0) {
+                $.each(data['image_gallery'], function(index, value) {
+                    assetsImages.push(`{{ asset('/storage/images') }}/${value}`);
+                });
+            }
+        }
+
+        function preloadAssets(callback) {
+            var images = assetsImages;
+            var fonts = ['/public/fonts/Masthina.otf'];
+            var audioUrls = [`{{ asset('audios') }}/${data['music_background_api']['music']}`];
+
+            var totalAssets = images.length + audioUrls.length + fonts.length;
+            var loadedAssets = 0;
+
+            function assetLoaded() {
+                loadedAssets++;
+                if (loadedAssets === totalAssets) {
+                    callback();
+                }
+            }
+
+            images.forEach(function(imageUrl) {
+                var img = new Image();
+                img.onload = assetLoaded;
+                img.src = imageUrl;
+            });
+
+            audioUrls.forEach(function(audioUrl) {
+                var audio = new Audio();
+                audio.addEventListener('canplaythrough', assetLoaded, false);
+                audio.src = audioUrl;
+            });
+
+            fonts.forEach(function(fontUrl) {
+                var font = new FontFaceObserver('Masthina');
+                font.load().then(assetLoaded);
+            });
+        }
+
+        preloadAssets(function() {
+            handleRenderingComplete();
+        });
 
         particlesJS('particles-js', {
             "particles": {
@@ -327,19 +346,6 @@
             "retina_detect": true
         });
 
-        $("#body").css("overflow", "hidden");
-
-        document.addEventListener("contextmenu", function(e) {
-            e.preventDefault();
-        });
-
-        // Mencegah akses ke DevTools
-        document.addEventListener("keydown", function(e) {
-            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-                e.preventDefault();
-            }
-        });
-
         var timer = setInterval(function() {
             var now = new Date();
             var timeDiff = date.getTime() - now.getTime();
@@ -407,19 +413,13 @@
                 document.execCommand('copy');
                 tempInput.remove();
                 $(`.copy-${key}`).show('past')
+                $(`#wallet-${key}`).hide();
                 setTimeout(function() {
-                    $(`.copy-${key}`).hide('past')
+                    $(`.copy-${key}`).hide()
+                    $(`#wallet-${key}`).show();
                 }, 2000)
             });
         });
-
-        $(document).on('click', '.btn-open-modal', function() {
-            $('#modal-hadiah').addClass('modal-open');
-        })
-
-        $(document).on('click', '.btn-close-modal', function() {
-            $('#modal-hadiah').removeClass('modal-open');
-        })
 
         $(document).on('change', '#toggle-music', function() {
             var audio = $('#music-background')[0];

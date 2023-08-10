@@ -1,35 +1,15 @@
 {
-  "public/images/bg-image-wedding.webp": {
-    "file": "assets/bg-image-wedding.f6cfdf5b.webp",
-    "src": "public/images/bg-image-wedding.webp"
-  },
-  "public/images/bg/bg-brown-mobile.webp": {
-    "file": "assets/bg-brown-mobile.72fe7999.webp",
-    "src": "public/images/bg/bg-brown-mobile.webp"
-  },
-  "public/images/bg/bg-2-brown.webp": {
-    "file": "assets/bg-2-brown.9e4252c2.webp",
-    "src": "public/images/bg/bg-2-brown.webp"
+  "public/images/bg/bg-blackgold-mobile.webp": {
+    "file": "assets/bg-blackgold-mobile.e3cf3212.webp",
+    "src": "public/images/bg/bg-blackgold-mobile.webp"
   },
   "public/images/bg/bg-2-blackgold.webp": {
     "file": "assets/bg-2-blackgold.f70a6f8b.webp",
     "src": "public/images/bg/bg-2-blackgold.webp"
   },
-  "public/images/bg/bg-6-brown.png": {
-    "file": "assets/bg-6-brown.37b51447.png",
-    "src": "public/images/bg/bg-6-brown.png"
-  },
-  "public/images/bg/bg-3-brown.webp": {
-    "file": "assets/bg-3-brown.4246b1b1.webp",
-    "src": "public/images/bg/bg-3-brown.webp"
-  },
-  "public/images/bg/bg-blackgold-mobile.webp": {
-    "file": "assets/bg-blackgold-mobile.e3cf3212.webp",
-    "src": "public/images/bg/bg-blackgold-mobile.webp"
-  },
-  "public/images/bg-image-login.webp": {
-    "file": "assets/bg-image-login.1187aa94.webp",
-    "src": "public/images/bg-image-login.webp"
+  "public/images/bg-image-wedding.webp": {
+    "file": "assets/bg-image-wedding.f6cfdf5b.webp",
+    "src": "public/images/bg-image-wedding.webp"
   },
   "public/images/bg/bg-4-blackgold.webp": {
     "file": "assets/bg-4-blackgold.3adb67f1.webp",
@@ -38,6 +18,26 @@
   "public/images/bg/bg-3-blackgold.webp": {
     "file": "assets/bg-3-blackgold.efb5d08c.webp",
     "src": "public/images/bg/bg-3-blackgold.webp"
+  },
+  "public/images/bg/bg-brown-mobile.webp": {
+    "file": "assets/bg-brown-mobile.72fe7999.webp",
+    "src": "public/images/bg/bg-brown-mobile.webp"
+  },
+  "public/images/bg/bg-3-brown.webp": {
+    "file": "assets/bg-3-brown.4246b1b1.webp",
+    "src": "public/images/bg/bg-3-brown.webp"
+  },
+  "public/images/bg/bg-2-brown.webp": {
+    "file": "assets/bg-2-brown.9e4252c2.webp",
+    "src": "public/images/bg/bg-2-brown.webp"
+  },
+  "public/images/bg-image-login.webp": {
+    "file": "assets/bg-image-login.1187aa94.webp",
+    "src": "public/images/bg-image-login.webp"
+  },
+  "public/images/bg/bg-6-brown.png": {
+    "file": "assets/bg-6-brown.37b51447.png",
+    "src": "public/images/bg/bg-6-brown.png"
   },
   "public/images/background-card.jpg": {
     "file": "assets/background-card.cb44a2d4.jpg",
@@ -49,7 +49,7 @@
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app.d48111ab.css",
+    "file": "assets/app.cbef466d.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
