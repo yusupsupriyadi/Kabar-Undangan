@@ -1,4 +1,48 @@
 {
+  "public/images/bg/bg-2-lily.webp": {
+    "file": "assets/bg-2-lily.3deb32e9.webp",
+    "src": "public/images/bg/bg-2-lily.webp"
+  },
+  "public/images/bg/bg-lily-mobile.webp": {
+    "file": "assets/bg-lily-mobile.b69cfec0.webp",
+    "src": "public/images/bg/bg-lily-mobile.webp"
+  },
+  "public/images/bg/bg-3-lily.webp": {
+    "file": "assets/bg-3-lily.87dc6d0a.webp",
+    "src": "public/images/bg/bg-3-lily.webp"
+  },
+  "public/images/bg/bg-4-lily.webp": {
+    "file": "assets/bg-4-lily.69059332.webp",
+    "src": "public/images/bg/bg-4-lily.webp"
+  },
+  "public/images/bg/bg-2-deepocean.webp": {
+    "file": "assets/bg-2-deepocean.353db336.webp",
+    "src": "public/images/bg/bg-2-deepocean.webp"
+  },
+  "public/images/bg/bg-3-deepocean.webp": {
+    "file": "assets/bg-3-deepocean.0f7f0562.webp",
+    "src": "public/images/bg/bg-3-deepocean.webp"
+  },
+  "public/images/bg/bg-deepocean-mobile.webp": {
+    "file": "assets/bg-deepocean-mobile.72cc6d7b.webp",
+    "src": "public/images/bg/bg-deepocean-mobile.webp"
+  },
+  "public/images/bg/bg-4-deepocean.webp": {
+    "file": "assets/bg-4-deepocean.862a3437.webp",
+    "src": "public/images/bg/bg-4-deepocean.webp"
+  },
+  "public/images/bg/bg-green-fantasy-mobile.webp": {
+    "file": "assets/bg-green-fantasy-mobile.b50ce740.webp",
+    "src": "public/images/bg/bg-green-fantasy-mobile.webp"
+  },
+  "public/images/bg/bg-2-green-fantasy.webp": {
+    "file": "assets/bg-2-green-fantasy.361a5dda.webp",
+    "src": "public/images/bg/bg-2-green-fantasy.webp"
+  },
+  "public/images/bg/bg-3-green-fantasy.webp": {
+    "file": "assets/bg-3-green-fantasy.e02f82cf.webp",
+    "src": "public/images/bg/bg-3-green-fantasy.webp"
+  },
   "public/images/bg/bg-blackgold-mobile.webp": {
     "file": "assets/bg-blackgold-mobile.e3cf3212.webp",
     "src": "public/images/bg/bg-blackgold-mobile.webp"
@@ -6,10 +50,6 @@
   "public/images/bg/bg-2-blackgold.webp": {
     "file": "assets/bg-2-blackgold.f70a6f8b.webp",
     "src": "public/images/bg/bg-2-blackgold.webp"
-  },
-  "public/images/bg-image-wedding.webp": {
-    "file": "assets/bg-image-wedding.f6cfdf5b.webp",
-    "src": "public/images/bg-image-wedding.webp"
   },
   "public/images/bg/bg-4-blackgold.webp": {
     "file": "assets/bg-4-blackgold.3adb67f1.webp",
@@ -19,9 +59,17 @@
     "file": "assets/bg-3-blackgold.efb5d08c.webp",
     "src": "public/images/bg/bg-3-blackgold.webp"
   },
+  "public/images/bg-image-login.webp": {
+    "file": "assets/bg-image-login.1187aa94.webp",
+    "src": "public/images/bg-image-login.webp"
+  },
   "public/images/bg/bg-brown-mobile.webp": {
     "file": "assets/bg-brown-mobile.72fe7999.webp",
     "src": "public/images/bg/bg-brown-mobile.webp"
+  },
+  "public/images/bg/bg-6-brown.png": {
+    "file": "assets/bg-6-brown.37b51447.png",
+    "src": "public/images/bg/bg-6-brown.png"
   },
   "public/images/bg/bg-3-brown.webp": {
     "file": "assets/bg-3-brown.4246b1b1.webp",
@@ -31,13 +79,9 @@
     "file": "assets/bg-2-brown.9e4252c2.webp",
     "src": "public/images/bg/bg-2-brown.webp"
   },
-  "public/images/bg-image-login.webp": {
-    "file": "assets/bg-image-login.1187aa94.webp",
-    "src": "public/images/bg-image-login.webp"
-  },
-  "public/images/bg/bg-6-brown.png": {
-    "file": "assets/bg-6-brown.37b51447.png",
-    "src": "public/images/bg/bg-6-brown.png"
+  "public/images/bg-image-wedding.webp": {
+    "file": "assets/bg-image-wedding.f6cfdf5b.webp",
+    "src": "public/images/bg-image-wedding.webp"
   },
   "public/images/background-card.jpg": {
     "file": "assets/background-card.cb44a2d4.jpg",
@@ -49,9 +93,13 @@
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app.cbef466d.css",
+    "file": "assets/app.4fb5208e.css",
     "src": "resources/css/app.css",
     "isEntry": true
+  },
+  "public/images/bg/bg-4-green-fantasy.webp": {
+    "file": "assets/bg-2-green-fantasy.361a5dda.webp",
+    "src": "public/images/bg/bg-4-green-fantasy.webp"
   },
   "public/images/bg/bg-5-brown.webp": {
     "file": "assets/bg-3-brown.4246b1b1.webp",

@@ -31,6 +31,8 @@ Route::domain('{subdomain}.' . env('APP_URL'))->group(function () {
     Route::get('/', [WelcomeController::class, 'undangan'])->name('subdomain');
 });
 
+Route::get('/pernikahan/{name}', [WelcomeController::class, 'undangan']);
+
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/dashboard', 'dashboard')->name('admin.dashboard');
@@ -61,9 +63,6 @@ Route::controller(KirimUndangan::class)->group(function () {
 Route::controller(UndanganController::class)->group(function () {
     Route::post('/undangan/send-pesan', 'sendPesan');
 });
-
-Route::get('/pernikahan/{name}', [WelcomeController::class, 'undangan']);
-
 
 Route::prefix('auth')->group(function () {
     Route::controller(RegisteredUserController::class)->group(function () {

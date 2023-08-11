@@ -6,13 +6,13 @@
         <section class="hero-content mt-20 flex-col lg:mt-0 lg:flex-row-reverse lg:gap-20">
             <div class="text-center lg:text-left">
                 <h1 class="text-4xl font-bold text-gray-800 md:text-5xl">Buat undangan sekarang!</h1>
-                <p class="px-6 pt-4 pb-6 text-sm font-medium text-gray-800 md:px-0 md:text-lg">Saatnya tampil beda dengan beralih ke undangan digital dan bagikan kebahagianmu kepada
+                <p class="px-6 pb-6 pt-4 text-sm font-medium text-gray-800 md:px-0 md:text-lg">Saatnya tampil beda dengan beralih ke undangan digital dan bagikan kebahagianmu kepada
                     orang-orang terdekatmu.</p>
 
                 <div class="gap-4 lg:flex">
                     <div>
-                        <a title="demo" class="group relative inline-block focus:outline-none focus:ring" href="{{ route('subdomain', ['subdomain' => 'demo']) }}">
-                            <span class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-yellow-300 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                        <a title="demo" class="group relative inline-block focus:outline-none focus:ring" href="{{ route('subdomain', ['subdomain' => 'demo', 'tema' => 'brown-premium']) }}">
+                            <span class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-yellow-300 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
                             <span class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75">
                                 <span class="">DEMO</span>
                             </span>
