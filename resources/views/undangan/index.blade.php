@@ -11,15 +11,14 @@
 @endsection
 
 @section('content')
-
-    {{-- <section id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+    <section id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
         <div class="loader">
             <canvas width="480px" height="480px" id="loader"></canvas>
             <h1 class="pt-2 font-bold text-white">Sedang memuat...</h1>
         </div>
-    </section> --}}
+    </section>
 
-    <div id="content" class="">
+    <div id="content-undangan" class="hidden">
         @if ($data['vip'] === true || $data['vip'] === 'true')
             @if ($data['name'] === 'demo')
                 @include('undangan.template.' . request()->query('tema'))
@@ -49,124 +48,124 @@
             }
         });
 
-        // document.addEventListener("contextmenu", function(e) {
-        //     e.preventDefault();
-        // });
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
 
-        // // Mencegah akses ke DevTools
-        // document.addEventListener("keydown", function(e) {
-        //     if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-        //         e.preventDefault();
-        //     }
-        // });
+        // Mencegah akses ke DevTools
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+                e.preventDefault();
+            }
+        });
 
-        // $("#body").css("overflow", "hidden");
+        $("#body").css("overflow", "hidden");
 
-        // Loadr = new(function Loadr(id) {
-        //     const max_size = 24;
-        //     const max_particles = 1500;
-        //     const min_vel = 20;
-        //     const max_generation_per_frame = 10;
+        Loadr = new(function Loadr(id) {
+            const max_size = 24;
+            const max_particles = 1500;
+            const min_vel = 20;
+            const max_generation_per_frame = 10;
 
-        //     var canvas = document.getElementById(id);
-        //     var ctx = canvas.getContext('2d');
-        //     var height = canvas.height;
-        //     var center_y = height / 2;
-        //     var width = canvas.width;
-        //     var center_x = width / 2;
-        //     var animate = true;
-        //     var particles = [];
-        //     var last = Date.now(),
-        //         now = 0;
-        //     var died = 0,
-        //         len = 0,
-        //         dt;
+            var canvas = document.getElementById(id);
+            var ctx = canvas.getContext('2d');
+            var height = canvas.height;
+            var center_y = height / 2;
+            var width = canvas.width;
+            var center_x = width / 2;
+            var animate = true;
+            var particles = [];
+            var last = Date.now(),
+                now = 0;
+            var died = 0,
+                len = 0,
+                dt;
 
-        //     function isInsideHeart(x, y) {
-        //         x = ((x - center_x) / (center_x)) * 3;
-        //         y = ((y - center_y) / (center_y)) * -3;
-        //         var x2 = x * x;
-        //         var y2 = y * y;
-        //         return (Math.pow((x2 + y2 - 1), 3) - (x2 * (y2 * y)) < 0);
-        //     }
+            function isInsideHeart(x, y) {
+                x = ((x - center_x) / (center_x)) * 3;
+                y = ((y - center_y) / (center_y)) * -3;
+                var x2 = x * x;
+                var y2 = y * y;
+                return (Math.pow((x2 + y2 - 1), 3) - (x2 * (y2 * y)) < 0);
+            }
 
-        //     function random(size, freq) {
-        //         var val = 0;
-        //         var iter = freq;
-        //         do {
-        //             size /= iter;
-        //             iter += freq;
-        //             val += size * Math.random();
-        //         } while (size >= 1);
-        //         return val;
-        //     }
+            function random(size, freq) {
+                var val = 0;
+                var iter = freq;
+                do {
+                    size /= iter;
+                    iter += freq;
+                    val += size * Math.random();
+                } while (size >= 1);
+                return val;
+            }
 
-        //     function Particle() {
-        //         var x = center_x;
-        //         var y = center_y;
-        //         var size = ~~random(max_size, 2.4);
-        //         var x_vel = ((max_size + min_vel) - size) / 2 - (Math.random() * ((max_size + min_vel) - size));
-        //         var y_vel = ((max_size + min_vel) - size) / 2 - (Math.random() * ((max_size + min_vel) - size));
-        //         var nx = x;
-        //         var ny = y;
-        //         var r, g, b, a = 0.05 * size;
-        //         this.draw = function() {
-        //             r = ~~(255 * (x / width));
-        //             g = ~~(255 * (1 - (y / height)));
-        //             b = ~~(255 - r);
-        //             ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
-        //             ctx.beginPath();
-        //             ctx.arc(x, y, size, 0, Math.PI * 2, true);
-        //             ctx.closePath();
-        //             ctx.fill();
-        //         }
-        //         this.move = function(dt) {
-        //             nx += x_vel * dt;
-        //             ny += y_vel * dt;
-        //             if (!isInsideHeart(nx, ny)) {
-        //                 if (!isInsideHeart(nx, y)) {
-        //                     x_vel *= -1;
-        //                     return;
-        //                 }
-        //                 if (!isInsideHeart(x, ny)) {
-        //                     y_vel *= -1;
-        //                     return;
-        //                 }
-        //                 x_vel = -1 * y_vel;
-        //                 y_vel = -1 * x_vel;
-        //                 return;
-        //             }
-        //             x = nx;
-        //             y = ny;
-        //         }
-        //     }
+            function Particle() {
+                var x = center_x;
+                var y = center_y;
+                var size = ~~random(max_size, 2.4);
+                var x_vel = ((max_size + min_vel) - size) / 2 - (Math.random() * ((max_size + min_vel) - size));
+                var y_vel = ((max_size + min_vel) - size) / 2 - (Math.random() * ((max_size + min_vel) - size));
+                var nx = x;
+                var ny = y;
+                var r, g, b, a = 0.05 * size;
+                this.draw = function() {
+                    r = ~~(255 * (x / width));
+                    g = ~~(255 * (1 - (y / height)));
+                    b = ~~(255 - r);
+                    ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+                    ctx.beginPath();
+                    ctx.arc(x, y, size, 0, Math.PI * 2, true);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                this.move = function(dt) {
+                    nx += x_vel * dt;
+                    ny += y_vel * dt;
+                    if (!isInsideHeart(nx, ny)) {
+                        if (!isInsideHeart(nx, y)) {
+                            x_vel *= -1;
+                            return;
+                        }
+                        if (!isInsideHeart(x, ny)) {
+                            y_vel *= -1;
+                            return;
+                        }
+                        x_vel = -1 * y_vel;
+                        y_vel = -1 * x_vel;
+                        return;
+                    }
+                    x = nx;
+                    y = ny;
+                }
+            }
 
-        //     function movementTick() {
-        //         var len = particles.length;
-        //         var dead = max_particles - len;
-        //         for (var i = 0; i < dead && i < max_generation_per_frame; i++) {
-        //             particles.push(new Particle());
-        //         }
+            function movementTick() {
+                var len = particles.length;
+                var dead = max_particles - len;
+                for (var i = 0; i < dead && i < max_generation_per_frame; i++) {
+                    particles.push(new Particle());
+                }
 
-        //         now = Date.now();
-        //         dt = last - now;
-        //         dt /= 1000;
-        //         last = now;
-        //         particles.forEach(function(p) {
-        //             p.move(dt);
-        //         });
-        //     }
+                now = Date.now();
+                dt = last - now;
+                dt /= 1000;
+                last = now;
+                particles.forEach(function(p) {
+                    p.move(dt);
+                });
+            }
 
-        //     function tick() {
-        //         ctx.clearRect(0, 0, width, height);
-        //         particles.forEach(function(p) {
-        //             p.draw();
-        //         });
-        //         requestAnimationFrame(tick);
-        //     }
-        //     setInterval(movementTick, 16);
-        //     tick();
-        // })("loader");
+            function tick() {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach(function(p) {
+                    p.draw();
+                });
+                requestAnimationFrame(tick);
+            }
+            setInterval(movementTick, 16);
+            tick();
+        })("loader");
 
         let data = @json($data);
         var tanggalResepsi = data['setting_resepsi_api']['tanggal'].split("/");
@@ -176,10 +175,34 @@
         const imageUrl = '{{ asset('storage/images') }}';
         const imagePublic = '{{ asset('/images') }}';
         const imageDefault = '{{ asset('/images/photo-blank.png') }}';
+        const tema = data['name'] === 'demo' ? '{{ request()->query('tema') }}' : data['tema_api'] === null ? 'basic' : data['tema_api']['tema'];
+        var colorParticles = '#ffffff';
+        switch (tema) {
+            case 'basic':
+                colorParticles = '#969595';
+                break;
+            case 'brown-premium':
+                colorParticles = '#5c4848';
+                break;
+            case 'black-gold':
+                colorParticles = '#e3a300';
+                break;
+            case 'deep-ocean':
+                colorParticles = '#FFFFFF';
+                break;
+            case 'green-fantasy':
+                colorParticles = '#598555';
+                break;
+            case 'lily':
+                colorParticles = '#634051';
+                break;
+            default:
+                break;
+        }
 
         function handleRenderingComplete() {
             $('#loading-screen').fadeOut('slow', function() {
-                $('#content').removeClass('hidden');
+                $('#content-undangan').removeClass('hidden');
                 $(this).remove();
             });
         }
@@ -248,7 +271,7 @@
                     }
                 },
                 "color": {
-                    "value": "#FFFFFF"
+                    "value": colorParticles
                 },
                 "shape": {
                     "type": "circle",
