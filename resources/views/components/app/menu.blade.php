@@ -85,7 +85,7 @@
                     <p class="pb-1 text-sm md:pb-0">Photo Background</p>
                 </a>
             </li> --}}
-            <li class="py-2 hover:bg-purple-100 md:my-0 lg:hover:bg-transparent hidden">
+            <li class="py-2 hover:bg-purple-100 md:my-0 lg:hover:bg-transparent">
                 <a href="/tema" class="{{ $active === 'tema' ? 'hover:text-purple-500 border-purple-500 lg:hover:border-purple-500' : 'hover:text-purple-500 lg:hover:border-gray-400' }} flex items-center gap-2 border-l-4 border-transparent pl-4 align-middle text-gray-700 no-underline">
                     <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" />

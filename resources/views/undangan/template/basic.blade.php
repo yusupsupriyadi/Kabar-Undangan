@@ -59,10 +59,10 @@
     <section class="header">
         <div class="container mx-auto max-w-xl text-center">
             <h1 class="pb-6 font-sans text-lg uppercase text-stone-600 md:text-xl">We Are Getting Married</h1>
-            <section class="font-masthina text-stone-600">
-                <h1 class="text-6xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
-                <h2 class="py-2 text-4xl md:text-5xl">&</h2>
-                <h1 class="text-6xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
+            <section class="font-masthina text-stone-600 font-medium">
+                <h1 class="text-7xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
+                <h2 class="text-4xl md:text-5xl">&</h2>
+                <h1 class="text-7xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
             </section>
             <h5 class="mt-6 text-lg text-stone-600 md:text-xl">Save the date :</h5>
             <section class="mt-2 flex scale-90 justify-center text-stone-600 md:scale-100">

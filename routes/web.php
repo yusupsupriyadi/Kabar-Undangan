@@ -158,7 +158,7 @@ Route::middleware('auth')->group(function () {
     Route::controller(TemaController::class)->group(function () {
         Route::get('/tema', 'index');
         Route::get('/tema/get-data', 'getData');
-        Route::get('/tema/update', 'update');
+        Route::post('/tema/update', 'update');
     });
 });
 

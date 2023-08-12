@@ -7,11 +7,11 @@
 <main class="m-auto bg-[#FFFFFF] text-[#374f37]">
     <section class="header opening mx-auto bg-[url('/public/images/bg/bg-green-fantasy-mobile.webp')] bg-cover" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
-            <h1 class="pb-6 font-sans text-lg uppercase md:text-xl">We Are Getting Married</h1>
-            <section class="mt-2 flex items-center justify-center gap-4 text-center font-masthina">
-                <h1 class="nama-pria-opening text-6xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
-                <h2 class="px-2 text-4xl">&</h2>
-                <h1 class="text-6xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
+            <h1 class="pb-6 font-sans text-lg uppercase md:text-xl mt-6">We Are Getting Married</h1>
+            <section class="mt-8 flex items-center justify-center gap-4 text-center font-masthina font-medium">
+                <h1 class="nama-pria-opening text-7xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
+                <h2 class="text-4xl">&</h2>
+                <h1 class="text-7xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
             </section>
             <h5 class="mt-16 md:text-xl">Save the date :</h5>
             <section class="mt-4 flex justify-center">
