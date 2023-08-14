@@ -7,7 +7,7 @@
 <main class="m-auto bg-[#FAEFEB] text-[#614425]">
     <section class="header opening mx-auto bg-[url('/public/images/bg/bg-lily-mobile.webp')] bg-cover" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
-            <h1 class="pb-6 font-sans text-lg uppercase md:text-xl mt-6">We Are Getting Married</h1>
+            <h1 class="mt-6 pb-6 font-sans text-lg uppercase md:text-xl">We Are Getting Married</h1>
             <section class="mt-8 flex items-center justify-center gap-4 text-center font-masthina font-medium">
                 <h1 class="nama-pria-opening text-7xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
                 <h2 class="text-4xl">&</h2>
@@ -391,19 +391,7 @@
         <section class="container mx-auto mt-20 max-w-5xl">
             <h1 class="text-center font-greatVibes text-4xl font-bold md:text-6xl" data-aos="fade-up" data-aos-duration="2000">Gallery</h1>
             <p class="mt-6 text-center font-serif text-2xl font-semibold" data-aos="fade-up" data-aos-duration="2000">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
-            <section class="mt-8">
-                <div class="grid grid-cols-1 place-items-center justify-items-center gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    @foreach ($data['gallery_api'] as $key => $val)
-                        <div class="relative" data-aos="zoom-in" data-aos-duration="3000">
-                            <img src="{{ asset('/storage/images/' . $val['gambar']) }}" alt="{{ $val['judul'] }}" class="h-72 w-full rounded-xl object-cover md:h-64">
-                        </div>
-                    @endforeach
-                </div>
-            </section>
-
-            <section class="container mx-auto mt-24 max-w-4xl">
-                <h3 class="text-center font-alkatra text-xl antialiased md:text-2xl" data-aos="zoom-out" data-aos-duration="2000">Bila wujud cinta harus dibuktikan, maka pernikahan adalah bukti cinta lahir batin yang paling baik dan diridhoi-Nya, karena dengan begitu cinta tidak akan rusak karenanya, justru cintalah yang menjaganya</h3>
-            </section>
+            <div id="image-gallery" class="mt-8"></div>
         </section>
     @endif
 
@@ -538,7 +526,7 @@
 </main>
 
 @if ($data['vip'] === true || $data['vip'] === 'true')
-    <div class="toast-end toast" id="toggle-music">
+    <div class="toast toast-end" id="toggle-music">
         <label class="swap rounded-full bg-[#614425] p-2">
             <!-- this hidden checkbox controls the state -->
             <input type="checkbox" class="hidden" />

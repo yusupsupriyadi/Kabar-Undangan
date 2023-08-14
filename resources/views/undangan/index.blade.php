@@ -11,14 +11,14 @@
 @endsection
 
 @section('content')
-    {{-- <section id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+    <section id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
         <div class="loader">
             <canvas width="480px" height="480px" id="loader"></canvas>
             <h1 class="pt-2 font-bold text-white">Sedang memuat...</h1>
         </div>
-    </section> --}}
+    </section>
 
-    <div id="content-undangan" class="">
+    <div id="content-undangan" class="hidden">
         @if ($data['vip'] === true || $data['vip'] === 'true')
             @if ($data['name'] === 'demo')
                 @include('undangan.template.' . request()->query('tema'))
@@ -40,7 +40,7 @@
 
 @push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.3.0/fontfaceobserver.js" integrity="sha512-yGyu0Bs4Ktt2Wuws6CZIOe5XksY30AGXsqufHchKuDeuk6Twa3PiBbF1J8S0ddMJa260yY3P9AT/eV/sUKC/9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
     <script>
         $.ajaxSetup({
             headers: {
@@ -48,124 +48,124 @@
             }
         });
 
-        // document.addEventListener("contextmenu", function(e) {
-        //     e.preventDefault();
-        // });
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
 
-        // // Mencegah akses ke DevTools
-        // document.addEventListener("keydown", function(e) {
-        //     if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-        //         e.preventDefault();
-        //     }
-        // });
+        // Mencegah akses ke DevTools
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
+                e.preventDefault();
+            }
+        });
 
-        // $("#body").css("overflow", "hidden");
+        $("#body").css("overflow", "hidden");
 
-        // Loadr = new(function Loadr(id) {
-        //     const max_size = 24;
-        //     const max_particles = 1500;
-        //     const min_vel = 20;
-        //     const max_generation_per_frame = 10;
+        Loadr = new(function Loadr(id) {
+            const max_size = 24;
+            const max_particles = 1500;
+            const min_vel = 20;
+            const max_generation_per_frame = 10;
 
-        //     var canvas = document.getElementById(id);
-        //     var ctx = canvas.getContext('2d');
-        //     var height = canvas.height;
-        //     var center_y = height / 2;
-        //     var width = canvas.width;
-        //     var center_x = width / 2;
-        //     var animate = true;
-        //     var particles = [];
-        //     var last = Date.now(),
-        //         now = 0;
-        //     var died = 0,
-        //         len = 0,
-        //         dt;
+            var canvas = document.getElementById(id);
+            var ctx = canvas.getContext('2d');
+            var height = canvas.height;
+            var center_y = height / 2;
+            var width = canvas.width;
+            var center_x = width / 2;
+            var animate = true;
+            var particles = [];
+            var last = Date.now(),
+                now = 0;
+            var died = 0,
+                len = 0,
+                dt;
 
-        //     function isInsideHeart(x, y) {
-        //         x = ((x - center_x) / (center_x)) * 3;
-        //         y = ((y - center_y) / (center_y)) * -3;
-        //         var x2 = x * x;
-        //         var y2 = y * y;
-        //         return (Math.pow((x2 + y2 - 1), 3) - (x2 * (y2 * y)) < 0);
-        //     }
+            function isInsideHeart(x, y) {
+                x = ((x - center_x) / (center_x)) * 3;
+                y = ((y - center_y) / (center_y)) * -3;
+                var x2 = x * x;
+                var y2 = y * y;
+                return (Math.pow((x2 + y2 - 1), 3) - (x2 * (y2 * y)) < 0);
+            }
 
-        //     function random(size, freq) {
-        //         var val = 0;
-        //         var iter = freq;
-        //         do {
-        //             size /= iter;
-        //             iter += freq;
-        //             val += size * Math.random();
-        //         } while (size >= 1);
-        //         return val;
-        //     }
+            function random(size, freq) {
+                var val = 0;
+                var iter = freq;
+                do {
+                    size /= iter;
+                    iter += freq;
+                    val += size * Math.random();
+                } while (size >= 1);
+                return val;
+            }
 
-        //     function Particle() {
-        //         var x = center_x;
-        //         var y = center_y;
-        //         var size = ~~random(max_size, 2.4);
-        //         var x_vel = ((max_size + min_vel) - size) / 2 - (Math.random() * ((max_size + min_vel) - size));
-        //         var y_vel = ((max_size + min_vel) - size) / 2 - (Math.random() * ((max_size + min_vel) - size));
-        //         var nx = x;
-        //         var ny = y;
-        //         var r, g, b, a = 0.05 * size;
-        //         this.draw = function() {
-        //             r = ~~(255 * (x / width));
-        //             g = ~~(255 * (1 - (y / height)));
-        //             b = ~~(255 - r);
-        //             ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
-        //             ctx.beginPath();
-        //             ctx.arc(x, y, size, 0, Math.PI * 2, true);
-        //             ctx.closePath();
-        //             ctx.fill();
-        //         }
-        //         this.move = function(dt) {
-        //             nx += x_vel * dt;
-        //             ny += y_vel * dt;
-        //             if (!isInsideHeart(nx, ny)) {
-        //                 if (!isInsideHeart(nx, y)) {
-        //                     x_vel *= -1;
-        //                     return;
-        //                 }
-        //                 if (!isInsideHeart(x, ny)) {
-        //                     y_vel *= -1;
-        //                     return;
-        //                 }
-        //                 x_vel = -1 * y_vel;
-        //                 y_vel = -1 * x_vel;
-        //                 return;
-        //             }
-        //             x = nx;
-        //             y = ny;
-        //         }
-        //     }
+            function Particle() {
+                var x = center_x;
+                var y = center_y;
+                var size = ~~random(max_size, 2.4);
+                var x_vel = ((max_size + min_vel) - size) / 2 - (Math.random() * ((max_size + min_vel) - size));
+                var y_vel = ((max_size + min_vel) - size) / 2 - (Math.random() * ((max_size + min_vel) - size));
+                var nx = x;
+                var ny = y;
+                var r, g, b, a = 0.05 * size;
+                this.draw = function() {
+                    r = ~~(255 * (x / width));
+                    g = ~~(255 * (1 - (y / height)));
+                    b = ~~(255 - r);
+                    ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+                    ctx.beginPath();
+                    ctx.arc(x, y, size, 0, Math.PI * 2, true);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                this.move = function(dt) {
+                    nx += x_vel * dt;
+                    ny += y_vel * dt;
+                    if (!isInsideHeart(nx, ny)) {
+                        if (!isInsideHeart(nx, y)) {
+                            x_vel *= -1;
+                            return;
+                        }
+                        if (!isInsideHeart(x, ny)) {
+                            y_vel *= -1;
+                            return;
+                        }
+                        x_vel = -1 * y_vel;
+                        y_vel = -1 * x_vel;
+                        return;
+                    }
+                    x = nx;
+                    y = ny;
+                }
+            }
 
-        //     function movementTick() {
-        //         var len = particles.length;
-        //         var dead = max_particles - len;
-        //         for (var i = 0; i < dead && i < max_generation_per_frame; i++) {
-        //             particles.push(new Particle());
-        //         }
+            function movementTick() {
+                var len = particles.length;
+                var dead = max_particles - len;
+                for (var i = 0; i < dead && i < max_generation_per_frame; i++) {
+                    particles.push(new Particle());
+                }
 
-        //         now = Date.now();
-        //         dt = last - now;
-        //         dt /= 1000;
-        //         last = now;
-        //         particles.forEach(function(p) {
-        //             p.move(dt);
-        //         });
-        //     }
+                now = Date.now();
+                dt = last - now;
+                dt /= 1000;
+                last = now;
+                particles.forEach(function(p) {
+                    p.move(dt);
+                });
+            }
 
-        //     function tick() {
-        //         ctx.clearRect(0, 0, width, height);
-        //         particles.forEach(function(p) {
-        //             p.draw();
-        //         });
-        //         requestAnimationFrame(tick);
-        //     }
-        //     setInterval(movementTick, 16);
-        //     tick();
-        // })("loader");
+            function tick() {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach(function(p) {
+                    p.draw();
+                });
+                requestAnimationFrame(tick);
+            }
+            setInterval(movementTick, 16);
+            tick();
+        })("loader");
 
         let data = @json($data);
         var tanggalResepsi = data['setting_resepsi_api']['tanggal'].split("/");
@@ -195,6 +195,27 @@
                 break;
             case 'lily':
                 colorParticles = '#634051';
+                break;
+            default:
+                break;
+        }
+
+        let colorPallate = 'black';
+        switch (tema) {
+            case 'brown-premium':
+                colorPallate = '#332216';
+                break;
+            case 'black-gold':
+                colorPallate = '#ECB751';
+                break;
+            case 'deep-ocean':
+                colorPallate = '#031525';
+                break;
+            case 'green-fantasy':
+                colorPallate = '#374f37';
+                break;
+            case 'lily':
+                colorPallate = '#614425';
                 break;
             default:
                 break;
@@ -505,43 +526,58 @@
                 }
 
                 $.each(slicedArrays, function(index, value) {
-                    html += `<div class="grid grid-rows-3 grid-flow-col gap-4 h-[500px] mx-auto mt-5 max-w-5xl">`;
-                    $.each(value, function(index, val) {
-                        if (index === 0) {
-                            html += `
-                            <div class="row-span-2 col-span-2 border-4 border-black">
-                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover">
+                    if (value.length === 4) {
+                        html += `<div class="grid grid-rows-3 grid-flow-col gap-2 h-[500px] mx-auto mt-2 max-w-5xl">`;
+                    } else {
+                        html += `<div class="max-w-5xl">`;
+                    }
+                    if (value.length === 4) {
+                        $.each(value, function(index, val) {
+                            if (index === 0) {
+                                html += `
+                            <div class="row-span-2 col-span-2 ">
+                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
                             </div>
                         `
-                        } else if (index === 1) {
-                            html += `
-                            <div class="col-span-2 border-4 border-black">
-                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover">
+                            } else if (index === 1) {
+                                html += `
+                            <div class="col-span-2 ">
+                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
                             </div>
                         `
-                        } else if (index === 2) {
-                            html += `
-                            <div class="col-span-2 border-4 border-black">
-                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover">
+                            } else if (index === 2) {
+                                html += `
+                            <div class="col-span-2 ">
+                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
                             </div>
                         `
-                        } else if (index === 3) {
-                            html += `
-                            <div class="row-span-2 col-span-2 border-4 border-black">
-                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover">
+                            } else if (index === 3) {
+                                html += `
+                            <div class="row-span-2 col-span-2 ">
+                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
                             </div>
                         `
-                        }
+                            }
 
-                    });
+                        });
+                    } else {
+                        $.each(value, function(index, val) {
+                            html += `
+                            <div class="col-span-2  mt-2">
+                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
+                            </div>
+                        `
+                        });
+                    }
+
                     html += `</div>`;
                 });
             } else {
                 html += `<div class="grid grid-cols-2 gap-4 mx-auto mt-5 max-w-5xl">`;
                 $.each(dataGallery, function(index, value) {
                     html += `
-                        <div class="col-span-2 border-4 border-black">
-                            <img src="${imageUrl}/${value['gambar']}" alt="bg-4" class="h-full w-full object-cover">
+                        <div class="col-span-2 ">
+                            <img src="${imageUrl}/${value['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
                         </div>
                     `
                 });
@@ -549,6 +585,19 @@
             }
 
             $('#image-gallery').html(html);
+
+            var zoomableImages = $('.zoomable-image');
+
+            zoomableImages.each(function() {
+                mediumZoom(this, {
+                    margin: 50,
+                    background: 'rgba(0, 0, 0, 0.7)',
+                    scrollOffset: 0,
+                    container: null,
+                    template: null,
+                    zIndex: 1000,
+                });
+            });
         }
 
         function validateForm() {

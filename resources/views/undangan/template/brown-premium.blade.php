@@ -1,6 +1,6 @@
 <div id="particles-js" class="absolute h-full w-full bg-cover bg-repeat" style="background-position: 50% 50%"></div>
 <main class="m-auto bg-[#f5ebdf] text-[#332216]">
-    {{-- <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')]" id="opening">
+    <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')]" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
             <h1 class="pb-6 font-sans text-lg uppercase md:text-xl mt-6">We Are Getting Married</h1>
             <section class="mt-8 flex items-center justify-center gap-4 text-center font-masthina font-medium">
@@ -54,7 +54,7 @@
                 </div>
             </section>
         </div>
-    </section> --}}
+    </section>
 
     <section class="header bg-[url('/public/images/bg/bg-brown-mobile.webp')] bg-cover">
         <div class="container mx-auto max-w-xl text-center">
@@ -391,8 +391,6 @@
             <div id="image-gallery" class="mt-8"></div>
         </section>
     @endif
-
-
 
     <section class="container mx-auto mt-20 max-w-5xl">
         @if ($data['vip'] === true || $data['vip'] === 'true')
