@@ -1,6 +1,6 @@
 <div id="particles-js" class="absolute h-full w-full bg-cover bg-repeat" style="background-position: 50% 50%"></div>
 <main class="m-auto bg-[#f5ebdf] text-[#332216]">
-    <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')]" id="opening">
+    {{-- <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')]" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
             <h1 class="pb-6 font-sans text-lg uppercase md:text-xl mt-6">We Are Getting Married</h1>
             <section class="mt-8 flex items-center justify-center gap-4 text-center font-masthina font-medium">
@@ -54,7 +54,7 @@
                 </div>
             </section>
         </div>
-    </section>
+    </section> --}}
 
     <section class="header bg-[url('/public/images/bg/bg-brown-mobile.webp')] bg-cover">
         <div class="container mx-auto max-w-xl text-center">
@@ -388,21 +388,11 @@
         <section class="container mx-auto mt-20 max-w-5xl">
             <h1 class="text-center font-greatVibes text-4xl font-bold md:text-6xl" data-aos="fade-up" data-aos-duration="2000">Gallery</h1>
             <p class="mt-6 text-center font-serif text-2xl font-semibold" data-aos="fade-up" data-aos-duration="2000">Mencintai bukan untuk menyamai, tetapi keikhlasan menerima perbedaan</p>
-            <section class="mt-8">
-                <div class="grid grid-cols-1 place-items-center justify-items-center gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    @foreach ($data['gallery_api'] as $key => $val)
-                        <div class="relative" data-aos="zoom-in" data-aos-duration="3000">
-                            <img src="{{ asset('/storage/images/' . $val['gambar']) }}" alt="{{ $val['judul'] }}" class="h-72 w-full rounded-xl object-cover md:h-64">
-                        </div>
-                    @endforeach
-                </div>
-            </section>
-
-            <section class="container mx-auto mt-24 max-w-4xl">
-                <h3 class="text-center font-alkatra text-xl antialiased md:text-2xl" data-aos="zoom-out" data-aos-duration="2000">Bila wujud cinta harus dibuktikan, maka pernikahan adalah bukti cinta lahir batin yang paling baik dan diridhoi-Nya, karena dengan begitu cinta tidak akan rusak karenanya, justru cintalah yang menjaganya</h3>
-            </section>
+            <div id="image-gallery" class="mt-8"></div>
         </section>
     @endif
+
+
 
     <section class="container mx-auto mt-20 max-w-5xl">
         @if ($data['vip'] === true || $data['vip'] === 'true')
@@ -436,7 +426,7 @@
 
     <section class="container mx-auto mt-20 max-w-4xl">
         <h1 class="text-center font-greatVibes text-4xl font-bold" data-aos="fade-right" data-aos-duration="2000">Ucapan Selamat <br> Do'a</h1>
-        <p class="mt-4 text-center font-serif text-md font-semibold" data-aos="fade-left" data-aos-duration="2000">Kami mengharapkan kehadiran Anda.</p>
+        <p class="text-md mt-4 text-center font-serif font-semibold" data-aos="fade-left" data-aos-duration="2000">Kami mengharapkan kehadiran Anda.</p>
 
         <div class="mx-auto mb-0 mt-6 max-w-xl space-y-4 rounded-lg bg-[#332216] p-12 shadow-md" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
             <div>
@@ -532,7 +522,7 @@
 </main>
 
 @if ($data['vip'] === true || $data['vip'] === 'true')
-    <div class="toast-end toast" id="toggle-music">
+    <div class="toast toast-end" id="toggle-music">
         <label class="swap rounded-full bg-[#332216] p-2">
             <!-- this hidden checkbox controls the state -->
             <input type="checkbox" class="hidden" />

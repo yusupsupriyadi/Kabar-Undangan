@@ -25,7 +25,7 @@
                 <main id="tema-list" class="hidden">
                 </main>
 
-                <section id="loading-page" class="hidden my-10">
+                <section id="loading-page" class="my-10 hidden">
                     <div class='flex items-center justify-center'>
                         <button type="button" class="h-max w-max rounded-lg bg-indigo-400 font-bold text-white duration-[500ms,800ms] hover:cursor-not-allowed hover:bg-indigo-300" disabled>
                             <div class="m-[10px] flex items-center justify-center">
@@ -110,6 +110,17 @@
 
         const temaComponent = (imageUrl, name, url, type, active, id) => {
             var html = "";
+            var button = "";
+            if (vip) {
+                if(active){
+                    button = `<button class="w-[110px] mt-2 border border-b-4 border-gray-700 bg-green-500 p-2 px-4 text-xs font-semibold text-white text-center">Tema Aktiv</button>`
+                }else{
+                    button = `<button data-name="${url}" data-id="${id}" class="btn-update-tema w-[110px] mt-2 border border-b-4 border-gray-700 bg-blue-500 p-2 px-4 text-xs font-semibold text-white text-center">Pakai Tema</button>`
+                }
+            }else{
+                button = `<button class="w-[110px] mt-2 border border-b-4 border-gray-700 bg-blue-500 p-2 px-4 text-xs font-semibold text-white text-center">Premium</button>`
+            }
+
             html = `
                 <div class="md:hidden ${url === "basic" ? 'mt-0' : 'mt-12'}">
                     ${url === "basic" ? '' : '<div class="border-b-2 border-gray-300"></div>'}
@@ -128,8 +139,7 @@
                                 Lihat
                             </button>
                         </a>
-                        ${active ? `<button class="w-[110px] mt-2 border border-b-4 border-gray-700 bg-green-500 p-2 px-4 text-xs font-semibold text-white text-center">Tema Aktiv</button>`
-                        : `<button data-name="${url}" data-id="${id}" class="btn-update-tema w-[110px] mt-2 border border-b-4 border-gray-700 bg-blue-500 p-2 px-4 text-xs font-semibold text-white text-center">Pakai Tema</button>`}
+                        ${button}
                     </div>
                 </div>
             `

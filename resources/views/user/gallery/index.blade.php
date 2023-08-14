@@ -23,7 +23,7 @@
                     <x-app.card-premium />
                 </section>
 
-                <x-app.title title="Photo Gallery" desc="Fasilitas ini digunakan untuk menyampaikan foto pra pernikahan atau photo pernikahan kamu. Dan foto gallery di limit maximal 6 untuk kepentingan estetika dalam website undangan kamu." />
+                <x-app.title title="Photo Gallery" desc="Fasilitas ini digunakan untuk menyampaikan foto pra pernikahan atau photo pernikahan kamu. Dan foto gallery di limit maximal 9 untuk kepentingan estetika dalam website undangan kamu." />
 
                 <main class="py-5">
                     <div id="main-page" class="hidden">
@@ -246,7 +246,7 @@
                     }, 5000)
                 }
             }
-            
+
         }
 
         function saveData(){
@@ -290,7 +290,7 @@
                     setTimeout(function(){
                         $('#toast-success').fadeOut('past')
                     }, 4000)
-                    
+
                 }
             });
         }
@@ -350,7 +350,7 @@
             const id = $(this).data('id')
             idData = id;
         })
-        
+
         $(document).on('click', '.btn-close-modal', function(){
             $('#modal-confirm').removeClass('modal-open')
         })
@@ -392,6 +392,6 @@
                 }
             });
         }
-        
+
     </script>
 @endpush
