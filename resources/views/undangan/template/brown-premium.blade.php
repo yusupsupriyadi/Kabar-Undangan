@@ -1,17 +1,17 @@
 <div id="particles-js" class="absolute h-full w-full bg-cover bg-repeat" style="background-position: 50% 50%"></div>
 <main class="m-auto bg-[#f5ebdf] text-[#332216]">
-    <section class="header opening mx-auto bg-cover bg-[url('/public/images/bg/bg-brown-mobile.webp')]" id="opening">
+    <section class="header opening mx-auto bg-[url('/public/images/bg/bg-brown-mobile.webp')] bg-cover" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
-            <h1 class="pb-6 font-sans text-lg uppercase md:text-xl mt-6">We Are Getting Married</h1>
+            <h1 class="mt-6 pb-6 font-sans text-lg uppercase md:text-xl">We Are Getting Married</h1>
             <section class="mt-8 flex items-center justify-center gap-4 text-center font-masthina font-medium">
                 <h1 class="nama-pria-opening text-7xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
                 <h2 class="text-4xl">&</h2>
                 <h1 class="text-7xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
             </section>
-            <h5 class="mt-16  md:text-xl">Save the date :</h5>
-            <section class="mt-4 flex justify-center ">
+            <h5 class="mt-16 md:text-xl">Save the date :</h5>
+            <section class="mt-4 flex justify-center">
                 <table>
-                    <tbody class="scale-90 md:scale-100">
+                    <tbody class="scale-110">
                         <tr>
                             <td colspan="3" class="font-serif text-lg font-semibold uppercase md:text-xl">
                                 {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('MMMM') }}
@@ -21,7 +21,7 @@
                             <td>
                                 <div class="w-20 border-y border-black py-1">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('dddd') }}</div>
                             </td>
-                            <td class="px-2 text-4xl font-thin md:text-6xl">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('d') }}</td>
+                            <td class="px-2 text-6xl font-thin">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('d') }}</td>
                             <td>
                                 <div class="w-20 border-y border-black py-1">
                                     Jam {{ $data['setting_resepsi_api']['waktu_mulai'] }}</span>
@@ -30,7 +30,7 @@
                         </tr>
                         <tr>
                             <td colspan="3" class="pt-1 font-serif text-xl font-semibold uppercase md:text-2xl">
-                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('y') }}
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('Y') }}
                             </td>
                         </tr>
                     </tbody>
@@ -38,18 +38,18 @@
             </section>
             @if ($data['vip'] === true || $data['vip'] === 'true')
                 @if (request()->query('untuk') != null)
-                    <section class="mt-6 ">
-                        <h5 class="font-tangerine text-2xl font-bold ">Dear :</h5>
-                        <h5 class="font-greatVibes text-3xl font-extrabold ">{{ request()->query('untuk') }}</h5>
+                    <section class="mt-6">
+                        <h5 class="font-tangerine text-2xl font-bold">Dear :</h5>
+                        <h5 class="font-greatVibes text-3xl font-extrabold">{{ request()->query('untuk') }}</h5>
                     </section>
                 @endif
             @endif
             <section class="mt-8 flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#332216] p-6 text-white" id="open-undangan">
-                <svg class="h-6 w-6 " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                     <polyline points="22,6 12,13 2,6" />
                 </svg>
-                <div class="text-md pt-0.5 font-alkatra font-bold ">
+                <div class="text-md pt-0.5 font-alkatra font-bold">
                     BUKA UNDANGAN
                 </div>
             </section>
@@ -86,7 +86,7 @@
                         </tr>
                         <tr>
                             <td colspan="3" class="pt-1 font-serif text-2xl font-semibold uppercase">
-                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('y') }}
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('Y') }}
                             </td>
                         </tr>
                     </tbody>
@@ -478,7 +478,7 @@
     @if (count($data['ucapan_api']) !== 0)
         <section class="mx-auto mt-9 max-w-4xl px-4">
             @foreach ($data['ucapan_api'] as $key => $val)
-                <section data-aos="fade-up-right" data-aos-duration="2000"  class="lazyload bg-image mt-4 rounded-lg bg-opacity-50 bg-[url('/public/images/background-card.jpg')] bg-cover bg-center shadow-lg">
+                <section data-aos="fade-up-right" data-aos-duration="2000" class="lazyload bg-image mt-4 rounded-lg bg-opacity-50 bg-[url('/public/images/background-card.jpg')] bg-cover bg-center shadow-lg">
                     <div class="mb-6 flex justify-center pt-8">
                         <img dat-src="{{ $val['foto'] !== 'null' ? asset('/storage/images/' . $val['foto']) : asset('/images/photo-blank.png') }}" class="lazyload h-[90px] w-[90px] rounded-full shadow-lg" alt="smaple image" />
                     </div>

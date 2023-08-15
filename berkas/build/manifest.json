@@ -3,17 +3,13 @@
     "file": "assets/bg-lily-mobile.151f933a.webp",
     "src": "public/images/bg/bg-lily-mobile.webp"
   },
-  "public/images/bg/bg-2-lily.webp": {
-    "file": "assets/bg-2-lily.3deb32e9.webp",
-    "src": "public/images/bg/bg-2-lily.webp"
-  },
   "public/images/bg-image-wedding.webp": {
     "file": "assets/bg-image-wedding.f6cfdf5b.webp",
     "src": "public/images/bg-image-wedding.webp"
   },
-  "public/images/bg/bg-3-lily.webp": {
-    "file": "assets/bg-3-lily.f6874e78.webp",
-    "src": "public/images/bg/bg-3-lily.webp"
+  "public/images/bg/bg-2-lily.webp": {
+    "file": "assets/bg-2-lily.3deb32e9.webp",
+    "src": "public/images/bg/bg-2-lily.webp"
   },
   "public/images/bg-image-login.webp": {
     "file": "assets/bg-image-login.1187aa94.webp",
@@ -22,6 +18,10 @@
   "public/images/bg/bg-4-lily.webp": {
     "file": "assets/bg-4-lily.fd628ff5.webp",
     "src": "public/images/bg/bg-4-lily.webp"
+  },
+  "public/images/bg/bg-3-lily.webp": {
+    "file": "assets/bg-3-lily.f6874e78.webp",
+    "src": "public/images/bg/bg-3-lily.webp"
   },
   "public/images/bg/bg-deepocean-mobile.webp": {
     "file": "assets/bg-deepocean-mobile.863772c9.webp",
@@ -39,13 +39,13 @@
     "file": "assets/bg-4-deepocean.aa373a36.webp",
     "src": "public/images/bg/bg-4-deepocean.webp"
   },
-  "public/images/bg/bg-green-fantasy-mobile.webp": {
-    "file": "assets/bg-green-fantasy-mobile.0a323f99.webp",
-    "src": "public/images/bg/bg-green-fantasy-mobile.webp"
-  },
   "public/images/bg/bg-2-green-fantasy.webp": {
     "file": "assets/bg-2-green-fantasy.ae240b4c.webp",
     "src": "public/images/bg/bg-2-green-fantasy.webp"
+  },
+  "public/images/bg/bg-green-fantasy-mobile.webp": {
+    "file": "assets/bg-green-fantasy-mobile.0a323f99.webp",
+    "src": "public/images/bg/bg-green-fantasy-mobile.webp"
   },
   "public/images/bg/bg-3-green-fantasy.webp": {
     "file": "assets/bg-3-green-fantasy.4021895e.webp",
@@ -59,10 +59,6 @@
     "file": "assets/bg-2-blackgold.f70a6f8b.webp",
     "src": "public/images/bg/bg-2-blackgold.webp"
   },
-  "public/images/bg/bg-3-blackgold.webp": {
-    "file": "assets/bg-3-blackgold.0757c1fc.webp",
-    "src": "public/images/bg/bg-3-blackgold.webp"
-  },
   "public/images/bg/bg-4-blackgold.webp": {
     "file": "assets/bg-4-blackgold.0cdec06a.webp",
     "src": "public/images/bg/bg-4-blackgold.webp"
@@ -74,6 +70,10 @@
   "public/images/bg/bg-6-brown.png": {
     "file": "assets/bg-6-brown.73b5142f.png",
     "src": "public/images/bg/bg-6-brown.png"
+  },
+  "public/images/bg/bg-3-blackgold.webp": {
+    "file": "assets/bg-3-blackgold.0757c1fc.webp",
+    "src": "public/images/bg/bg-3-blackgold.webp"
   },
   "public/images/bg/bg-3-brown.webp": {
     "file": "assets/bg-3-brown.24d7a428.webp",
@@ -93,7 +93,7 @@
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app.e24003a6.css",
+    "file": "assets/app.fabc2d32.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },

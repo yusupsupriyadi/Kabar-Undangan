@@ -11,7 +11,7 @@
             <h5 class="mt-16 text-stone-600 md:text-xl">Save the date :</h5>
             <section class="mt-4 flex justify-center text-stone-600">
                 <table>
-                    <tbody class="scale-90 md:scale-100">
+                    <tbody class="scale-110">
                         <tr>
                             <td colspan="3" class="font-serif text-lg font-semibold uppercase md:text-xl">
                                 {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('MMMM') }}
@@ -30,7 +30,7 @@
                         </tr>
                         <tr>
                             <td colspan="3" class="pt-1 font-serif text-xl font-semibold uppercase md:text-2xl">
-                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('y') }}
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('Y') }}
                             </td>
                         </tr>
                     </tbody>
@@ -86,7 +86,7 @@
                         </tr>
                         <tr>
                             <td colspan="3" class="pt-1 font-serif text-2xl font-semibold uppercase">
-                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('y') }}
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('Y') }}
                             </td>
                         </tr>
                     </tbody>
