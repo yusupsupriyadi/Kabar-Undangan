@@ -12,18 +12,22 @@
 
 @section('content')
     <section id="loading-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
-        <div class="loader">
-            <canvas width="480px" height="480px" id="loader"></canvas>
-            <h1 class="pt-2 font-bold text-white">Sedang memuat...</h1>
+        <div>
+            <lottie-player src="https://res.cloudinary.com/dvnyeednh/raw/upload/v1692072582/animation_llbs9d91_upa48d.json" background="Transparent" speed="1" class="w-[200px]" direction="1" mode="normal" loop autoplay></lottie-player>
+            <p class="text-center">Sedang Memuat...</p>
         </div>
     </section>
 
-    <div id="content-undangan" class="hidden">
+    <div id="content-undangan">
         @if ($data['vip'] === true || $data['vip'] === 'true')
             @if ($data['name'] === 'demo')
                 @include('undangan.template.' . request()->query('tema'))
             @else
-                @include('undangan.template.' . $data['tema_api']['tema'])
+                @if (request()->query('tema') !== '')
+                    @include('undangan.template.' . request()->query('tema'))
+                @else
+                    @include('undangan.template.' . $data['tema_api']['tema'])
+                @endif
             @endif
         @else
             @include('undangan.template.basic')
@@ -34,19 +38,34 @@
         <audio id="music-background" loop src="{{ asset('/audios' . '/' . $data['music_background_api']['music']) }}"></audio>
     @endif
 
+    <div class="toast toast-center toast-top right-1/4 top-[45%] hidden min-w-max max-w-[20px] transform duration-100 md:toast-bottom" id="toast-demo-tema">
+        <div class="alert alert-success items-center rounded-xl bg-gray-700/20 p-4 shadow-md">
+            <div>
+                <span class="font-sans text-sm font-bold text-white/50">TEMA DEMO</span>
+            </div>
+        </div>
+    </div>
+
     <x-toast-alert id="toast-loading" type="loading" message="Sedang proses" />
     <x-toast-alert id="toast-validate" type="failed" message="Periksa kembali yang wajib diisi." />
 @endsection
 
 @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.3.0/fontfaceobserver.js" integrity="sha512-yGyu0Bs4Ktt2Wuws6CZIOe5XksY30AGXsqufHchKuDeuk6Twa3PiBbF1J8S0ddMJa260yY3P9AT/eV/sUKC/9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.2/dist/medium-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" integrity="sha512-q583ppKrCRc7N5O0n2nzUiJ+suUv7Et1JGels4bXOaMFQcamPk9HjdUknZuuFjBNs7tsMuadge5k9RzdmO+1GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script>
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        window.onload = function() {
+            setTimeout(function() {
+                $('#loading-screen').fadeOut('slow');
+            }, 1500)
+        }
 
         document.addEventListener("contextmenu", function(e) {
             e.preventDefault();
@@ -61,112 +80,6 @@
 
         $("#body").css("overflow", "hidden");
 
-        Loadr = new(function Loadr(id) {
-            const max_size = 24;
-            const max_particles = 1500;
-            const min_vel = 20;
-            const max_generation_per_frame = 10;
-
-            var canvas = document.getElementById(id);
-            var ctx = canvas.getContext('2d');
-            var height = canvas.height;
-            var center_y = height / 2;
-            var width = canvas.width;
-            var center_x = width / 2;
-            var animate = true;
-            var particles = [];
-            var last = Date.now(),
-                now = 0;
-            var died = 0,
-                len = 0,
-                dt;
-
-            function isInsideHeart(x, y) {
-                x = ((x - center_x) / (center_x)) * 3;
-                y = ((y - center_y) / (center_y)) * -3;
-                var x2 = x * x;
-                var y2 = y * y;
-                return (Math.pow((x2 + y2 - 1), 3) - (x2 * (y2 * y)) < 0);
-            }
-
-            function random(size, freq) {
-                var val = 0;
-                var iter = freq;
-                do {
-                    size /= iter;
-                    iter += freq;
-                    val += size * Math.random();
-                } while (size >= 1);
-                return val;
-            }
-
-            function Particle() {
-                var x = center_x;
-                var y = center_y;
-                var size = ~~random(max_size, 2.4);
-                var x_vel = ((max_size + min_vel) - size) / 2 - (Math.random() * ((max_size + min_vel) - size));
-                var y_vel = ((max_size + min_vel) - size) / 2 - (Math.random() * ((max_size + min_vel) - size));
-                var nx = x;
-                var ny = y;
-                var r, g, b, a = 0.05 * size;
-                this.draw = function() {
-                    r = ~~(255 * (x / width));
-                    g = ~~(255 * (1 - (y / height)));
-                    b = ~~(255 - r);
-                    ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
-                    ctx.beginPath();
-                    ctx.arc(x, y, size, 0, Math.PI * 2, true);
-                    ctx.closePath();
-                    ctx.fill();
-                }
-                this.move = function(dt) {
-                    nx += x_vel * dt;
-                    ny += y_vel * dt;
-                    if (!isInsideHeart(nx, ny)) {
-                        if (!isInsideHeart(nx, y)) {
-                            x_vel *= -1;
-                            return;
-                        }
-                        if (!isInsideHeart(x, ny)) {
-                            y_vel *= -1;
-                            return;
-                        }
-                        x_vel = -1 * y_vel;
-                        y_vel = -1 * x_vel;
-                        return;
-                    }
-                    x = nx;
-                    y = ny;
-                }
-            }
-
-            function movementTick() {
-                var len = particles.length;
-                var dead = max_particles - len;
-                for (var i = 0; i < dead && i < max_generation_per_frame; i++) {
-                    particles.push(new Particle());
-                }
-
-                now = Date.now();
-                dt = last - now;
-                dt /= 1000;
-                last = now;
-                particles.forEach(function(p) {
-                    p.move(dt);
-                });
-            }
-
-            function tick() {
-                ctx.clearRect(0, 0, width, height);
-                particles.forEach(function(p) {
-                    p.draw();
-                });
-                requestAnimationFrame(tick);
-            }
-            setInterval(movementTick, 16);
-            tick();
-        })("loader");
-
         let data = @json($data);
         var tanggalResepsi = data['setting_resepsi_api']['tanggal'].split("/");
         var tanggalFormatted = tanggalResepsi[2] + "-" + tanggalResepsi[1] + "-" + tanggalResepsi[0];
@@ -176,6 +89,14 @@
         const imagePublic = '{{ asset('/images') }}';
         const imageDefault = '{{ asset('/images/photo-blank.png') }}';
         const tema = data['name'] === 'demo' ? '{{ request()->query('tema') }}' : data['tema_api'] === null ? 'basic' : data['tema_api']['tema'];
+        const temaDemo = '{{ request()->query('tema') }}'
+
+        if (data['name'] !== 'demo') {
+            if (temaDemo !== '' || temaDemo !== null) {
+                $('#toast-demo-tema').fadeIn('past')
+            }
+        }
+
         var colorParticles = '#ffffff';
         switch (tema) {
             case 'basic':
@@ -199,88 +120,6 @@
             default:
                 break;
         }
-
-        let colorPallate = 'black';
-        switch (tema) {
-            case 'brown-premium':
-                colorPallate = '#332216';
-                break;
-            case 'black-gold':
-                colorPallate = '#ECB751';
-                break;
-            case 'deep-ocean':
-                colorPallate = '#031525';
-                break;
-            case 'green-fantasy':
-                colorPallate = '#374f37';
-                break;
-            case 'lily':
-                colorPallate = '#614425';
-                break;
-            default:
-                break;
-        }
-
-        function handleRenderingComplete() {
-            $('#loading-screen').fadeOut('slow', function() {
-                $('#content-undangan').removeClass('hidden');
-                $(this).remove();
-            });
-        }
-
-        var assetsImages = [
-            "{{ asset('images/bg/bg-brown-mobile.webp') }}",
-            "{{ asset('images/bg/bg-2-brown.webp') }}",
-            "{{ asset('images/bg/bg-3-brown.webp') }}",
-            "{{ asset('images/bg/bg-4-brown.webp') }}",
-        ];
-
-        pushImageAssets();
-
-        function pushImageAssets() {
-            if (data['image_gallery'].length > 0) {
-                $.each(data['image_gallery'], function(index, value) {
-                    assetsImages.push(`{{ asset('/storage/images') }}/${value}`);
-                });
-            }
-        }
-
-        function preloadAssets(callback) {
-            var images = assetsImages;
-            var fonts = ['/public/fonts/Masthina.otf'];
-            var audioUrls = [`{{ asset('audios') }}/${data['music_background_api']['music']}`];
-
-            var totalAssets = images.length + audioUrls.length + fonts.length;
-            var loadedAssets = 0;
-
-            function assetLoaded() {
-                loadedAssets++;
-                if (loadedAssets === totalAssets) {
-                    callback();
-                }
-            }
-
-            images.forEach(function(imageUrl) {
-                var img = new Image();
-                img.onload = assetLoaded;
-                img.src = imageUrl;
-            });
-
-            audioUrls.forEach(function(audioUrl) {
-                var audio = new Audio();
-                audio.addEventListener('canplaythrough', assetLoaded, false);
-                audio.src = audioUrl;
-            });
-
-            fonts.forEach(function(fontUrl) {
-                var font = new FontFaceObserver('Masthina');
-                font.load().then(assetLoaded);
-            });
-        }
-
-        preloadAssets(function() {
-            handleRenderingComplete();
-        });
 
         particlesJS('particles-js', {
             "particles": {
@@ -536,25 +375,25 @@
                             if (index === 0) {
                                 html += `
                             <div class="row-span-2 col-span-2">
-                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
+                                <img data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="lazyload h-full w-full object-cover rounded-md zoomable-image">
                             </div>
                         `
                             } else if (index === 1) {
                                 html += `
                             <div class="col-span-2 ">
-                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
+                                <img data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="lazyload h-full w-full object-cover rounded-md zoomable-image">
                             </div>
                         `
                             } else if (index === 2) {
                                 html += `
                             <div class="col-span-2 ">
-                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
+                                <img data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="lazyload h-full w-full object-cover rounded-md zoomable-image">
                             </div>
                         `
                             } else if (index === 3) {
                                 html += `
                             <div class="row-span-2 col-span-2 ">
-                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
+                                <img data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="lazyload h-full w-full object-cover rounded-md zoomable-image">
                             </div>
                         `
                             }
