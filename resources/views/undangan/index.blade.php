@@ -23,7 +23,7 @@
             @if ($data['name'] === 'demo')
                 @include('undangan.template.' . request()->query('tema'))
             @else
-                @if (request()->query('tema') !== '')
+                @if (request()->query('tema') !== '' || request()->query('tema') !== null)
                     @include('undangan.template.' . request()->query('tema'))
                 @else
                     @include('undangan.template.' . $data['tema_api']['tema'])
