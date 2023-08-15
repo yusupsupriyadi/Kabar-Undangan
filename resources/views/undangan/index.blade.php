@@ -23,14 +23,18 @@
             @if ($data['name'] === 'demo')
                 @include('undangan.template.' . request()->query('tema'))
             @else
-                @if (request()->query('tema') !== '' || request()->query('tema') !== null)
+                @if (request()->query('tema') !== null)
                     @include('undangan.template.' . request()->query('tema'))
                 @else
                     @include('undangan.template.' . $data['tema_api']['tema'])
                 @endif
             @endif
         @else
-            @include('undangan.template.basic')
+            @if (request()->query('tema') !== null)
+                @include('undangan.template.' . request()->query('tema'))
+            @else
+                @include('undangan.template.basic')
+            @endif
         @endif
     </div>
 
@@ -89,10 +93,10 @@
         const imagePublic = '{{ asset('/images') }}';
         const imageDefault = '{{ asset('/images/photo-blank.png') }}';
         const tema = data['name'] === 'demo' ? '{{ request()->query('tema') }}' : data['tema_api'] === null ? 'basic' : data['tema_api']['tema'];
-        const temaDemo = '{{ request()->query('tema') }}'
+        const temaDemo = '{{ request()->query('tema') }}';
 
         if (data['name'] !== 'demo') {
-            if (temaDemo !== '' || temaDemo !== null) {
+            if (temaDemo !== '') {
                 $('#toast-demo-tema').fadeIn('past')
             }
         }

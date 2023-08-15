@@ -1,12 +1,4 @@
 {
-  "public/images/bg-image-wedding.webp": {
-    "file": "assets/bg-image-wedding.f6cfdf5b.webp",
-    "src": "public/images/bg-image-wedding.webp"
-  },
-  "public/images/bg-image-login.webp": {
-    "file": "assets/bg-image-login.1187aa94.webp",
-    "src": "public/images/bg-image-login.webp"
-  },
   "public/images/bg/bg-lily-mobile.webp": {
     "file": "assets/bg-lily-mobile.151f933a.webp",
     "src": "public/images/bg/bg-lily-mobile.webp"
@@ -15,9 +7,17 @@
     "file": "assets/bg-2-lily.3deb32e9.webp",
     "src": "public/images/bg/bg-2-lily.webp"
   },
+  "public/images/bg-image-wedding.webp": {
+    "file": "assets/bg-image-wedding.f6cfdf5b.webp",
+    "src": "public/images/bg-image-wedding.webp"
+  },
   "public/images/bg/bg-3-lily.webp": {
     "file": "assets/bg-3-lily.f6874e78.webp",
     "src": "public/images/bg/bg-3-lily.webp"
+  },
+  "public/images/bg-image-login.webp": {
+    "file": "assets/bg-image-login.1187aa94.webp",
+    "src": "public/images/bg-image-login.webp"
   },
   "public/images/bg/bg-4-lily.webp": {
     "file": "assets/bg-4-lily.fd628ff5.webp",
@@ -35,6 +35,10 @@
     "file": "assets/bg-3-deepocean.67f90baf.webp",
     "src": "public/images/bg/bg-3-deepocean.webp"
   },
+  "public/images/bg/bg-4-deepocean.webp": {
+    "file": "assets/bg-4-deepocean.aa373a36.webp",
+    "src": "public/images/bg/bg-4-deepocean.webp"
+  },
   "public/images/bg/bg-green-fantasy-mobile.webp": {
     "file": "assets/bg-green-fantasy-mobile.0a323f99.webp",
     "src": "public/images/bg/bg-green-fantasy-mobile.webp"
@@ -42,10 +46,6 @@
   "public/images/bg/bg-2-green-fantasy.webp": {
     "file": "assets/bg-2-green-fantasy.ae240b4c.webp",
     "src": "public/images/bg/bg-2-green-fantasy.webp"
-  },
-  "public/images/bg/bg-4-deepocean.webp": {
-    "file": "assets/bg-4-deepocean.aa373a36.webp",
-    "src": "public/images/bg/bg-4-deepocean.webp"
   },
   "public/images/bg/bg-3-green-fantasy.webp": {
     "file": "assets/bg-3-green-fantasy.4021895e.webp",
