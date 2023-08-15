@@ -11,7 +11,7 @@
 
     <!-- PRODUCTION -->
     <link rel="manifest" href="{{ asset('/build/manifest.json') }}">
-    <link rel="stylesheet" href="{{ asset('/build/assets/app.2f850e2d.css') }}">
+    <link rel="stylesheet" href="{{ asset('/build/assets/app.3ae04bbb.css') }}">
 @else
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

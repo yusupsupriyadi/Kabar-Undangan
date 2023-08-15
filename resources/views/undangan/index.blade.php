@@ -527,7 +527,7 @@
 
                 $.each(slicedArrays, function(index, value) {
                     if (value.length === 4) {
-                        html += `<div class="grid grid-rows-3 grid-flow-col gap-2 h-[500px] mx-auto mt-2 max-w-5xl">`;
+                        html += `<div class="grid grid-rows-3 grid-flow-col gap-2 h-[500px] md:h-[800px] mx-auto mt-2 max-w-5xl">`;
                     } else {
                         html += `<div class="max-w-5xl">`;
                     }
@@ -535,7 +535,7 @@
                         $.each(value, function(index, val) {
                             if (index === 0) {
                                 html += `
-                            <div class="row-span-2 col-span-2 ">
+                            <div class="row-span-2 col-span-2">
                                 <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
                             </div>
                         `
