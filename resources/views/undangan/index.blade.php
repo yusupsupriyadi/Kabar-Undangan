@@ -71,17 +71,6 @@
             }, 1500)
         }
 
-        document.addEventListener("contextmenu", function(e) {
-            e.preventDefault();
-        });
-
-        // Mencegah akses ke DevTools
-        document.addEventListener("keydown", function(e) {
-            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-                e.preventDefault();
-            }
-        });
-
         $("#body").css("overflow", "hidden");
 
         let data = @json($data);

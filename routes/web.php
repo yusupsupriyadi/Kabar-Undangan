@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::domain(env('APP_URL'))->group(function () {
     Route::get('/', [WelcomeController::class, 'index']);
-});
+});  
 
 Route::domain('{subdomain}.' . env('APP_URL'))->group(function () {
     Route::get('/', [WelcomeController::class, 'undangan'])->name('subdomain');
