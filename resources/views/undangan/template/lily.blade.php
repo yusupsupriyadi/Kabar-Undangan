@@ -231,7 +231,7 @@
                             </div>
 
                         </div>
-                        <a title="google maps lokasi akad" href="{{ $data['setting_akad_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#614425] p-3">
+                        <a id="gps-akad" title="google maps lokasi akad" href="{{ $data['setting_akad_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#614425] p-3">
                             <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
                                 <line x1="18" y1="6" x2="18" y2="6.01" />
@@ -279,7 +279,7 @@
                             </div>
 
                         </div>
-                        <a title="google maps lokasi resepsi" href="{{ $data['setting_resepsi_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#614425] p-3">
+                        <a id="gps-resepsi" title="google maps lokasi resepsi" href="{{ $data['setting_resepsi_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#614425] p-3">
                             <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
                                 <line x1="18" y1="6" x2="18" y2="6.01" />

@@ -90,6 +90,16 @@
             }
         }
 
+        if (data['setting_akad_api']['google_maps'] === null && data['setting_akad_api']['google_maps'] === "") {
+            $('#gps-akad').removeClass('flex')
+            $('#gps-akad').addClass('hidden')
+        }
+
+        if (data['setting_resepsi_api']['google_maps'] === null && data['setting_resepsi_api']['google_maps'] === "") {
+            $('#gps-resepsi').removeClass('flex')
+            $('#gps-resepsi').addClass('hidden')
+        }
+
         var colorParticles = '#ffffff';
         switch (tema) {
             case 'basic':
