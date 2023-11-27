@@ -138,7 +138,7 @@
                 <section data-aos="fade-right" data-aos-duration="2000">
                     <div class="mx-auto w-52">
                         @if ($data['mempelai_wanita_api']['foto'] !== 'null' && $data['mempelai_wanita_api']['foto'] !== null)
-                            <img src="{{ asset('/storage/images/' . $data['mempelai_wanita_api']['foto']) }}" class="mt-8 rounded-full" width="208" height="208" alt="{{ $data['mempelai_wanita_api']['nama_lengkap'] }}" />
+                            <img src="{{ asset('/storage/images/' . $data['mempelai_wanita_api']['foto']) }}" class="mt-8 h-52 w-52 rounded-full object-cover" width="208" height="208" alt="{{ $data['mempelai_wanita_api']['nama_lengkap'] }}" />
                         @else
                             <img src="{{ asset('/images/foto-wanita.png') }}" width="208" height="208" alt="{{ $data['mempelai_wanita_api']['nama_lengkap'] }}" />
                         @endif
@@ -166,7 +166,7 @@
                 <section data-aos="fade-left" data-aos-duration="2000">
                     <div class="mx-auto w-52">
                         @if ($data['mempelai_pria_api']['foto'] !== 'null' && $data['mempelai_pria_api']['foto'] !== null)
-                            <img src="{{ asset('/storage/images/' . $data['mempelai_pria_api']['foto']) }}" class="mt-8 rounded-full" width="208" height="208" alt="{{ $data['mempelai_pria_api']['nama_lengkap'] }}" />
+                            <img src="{{ asset('/storage/images/' . $data['mempelai_pria_api']['foto']) }}" class="mt-8 h-52 w-52 rounded-full object-cover" alt="{{ $data['mempelai_pria_api']['nama_lengkap'] }}" />
                         @else
                             <img src="/images/foto-pria.png" width="208" height="208" alt="{{ $data['mempelai_pria_api']['nama_lengkap'] }}" />
                         @endif
