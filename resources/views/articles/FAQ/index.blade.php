@@ -5,7 +5,7 @@
         <div class="mx-auto flex flex-wrap px-2 mt-12 md:mt-0 pt-4 md:px-12 lg:pt-4">
             <!--Main Content-->
             <div class="border-rounded mt-4 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0">
-                
+
                 <div class="font-sans">
                     <h1 class="break-normal font-sans text-2xl font-semibold text-gray-900">FAQ</h1>
                     <p class="my-2 pb-1 font-sans text-sm">Pertanyaan yang mungkin ditanyakan.
@@ -59,7 +59,7 @@
                             </summary>
 
                             <p class="bg-yellow-50 py-2 px-4 text-sm leading-relaxed text-gray-700">
-                                Tidak, satu paket undangan digital dalam bentuk website hanya berlaku untuk 1 website. Artinya ketika anda mendaftar 1 buah akun di webnikah maka website yang bisa dibuat hanya satu
+                                Tidak, satu paket undangan digital dalam bentuk website hanya berlaku untuk 1 website. Artinya ketika anda mendaftar 1 buah akun di kabarundangan maka website yang bisa dibuat hanya satu
                             </p>
                         </details>
 
