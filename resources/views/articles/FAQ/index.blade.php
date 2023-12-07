@@ -2,7 +2,7 @@
 
 @section('content')
     <main class="bg-gray-100">
-        <div class="mx-auto flex flex-wrap px-2 mt-12 md:mt-0 pt-4 md:px-12 lg:pt-4">
+        <div class="mx-auto mt-12 flex flex-wrap px-2 pt-4 md:mt-0 md:px-12 lg:pt-4">
             <!--Main Content-->
             <div class="border-rounded mt-4 w-full border border-gray-400 bg-white p-8 leading-normal text-gray-900 lg:mt-0">
 
@@ -26,7 +26,7 @@
                                 </svg>
                             </summary>
 
-                            <p class="bg-yellow-50 py-2 px-4 text-sm leading-relaxed text-gray-700">
+                            <p class="bg-yellow-50 px-4 py-2 text-sm leading-relaxed text-gray-700">
                                 KabarUndangan adalah sebuah situs web yang dapat digunakan untuk membuat undangan pernikahan secara online. Anda dapat membuat undangan pernikahan secara gratis di KabarUndangan. Meskipun template undangan pada akun gratis terbatas, semua fitur premium yang tersedia di KabarUndangan tetap dapat digunakan.
                             </p>
                         </details>
@@ -42,7 +42,7 @@
                                 </svg>
                             </summary>
 
-                            <p class="bg-yellow-50 py-2 px-4 text-sm leading-relaxed text-gray-700">
+                            <p class="bg-yellow-50 px-4 py-2 text-sm leading-relaxed text-gray-700">
                                 Tentu saja, Anda dapat menggunakan KabarUndangan meskipun Anda masih awam dengan platform seperti ini. KabarUndangan dirancang dengan antarmuka yang sederhana dan mudah digunakan, sehingga cocok untuk digunakan oleh siapa saja, termasuk pemula yang tidak memiliki pengalaman dalam menggunakan platform serupa
                             </p>
                         </details>
@@ -58,8 +58,8 @@
                                 </svg>
                             </summary>
 
-                            <p class="bg-yellow-50 py-2 px-4 text-sm leading-relaxed text-gray-700">
-                                Tidak, satu paket undangan digital dalam bentuk website hanya berlaku untuk 1 website. Artinya ketika anda mendaftar 1 buah akun di kabarundangan maka website yang bisa dibuat hanya satu
+                            <p class="bg-yellow-50 px-4 py-2 text-sm leading-relaxed text-gray-700">
+                                Tidak, satu paket undangan digital dalam bentuk website hanya berlaku untuk 1 website. Artinya ketika anda mendaftar 1 buah akun di <b>kabarundangan</b> maka website yang bisa dibuat hanya satu
                             </p>
                         </details>
 
@@ -74,7 +74,7 @@
                                 </svg>
                             </summary>
 
-                            <p class="bg-yellow-50 py-2 px-4 text-sm leading-relaxed text-gray-700">
+                            <p class="bg-yellow-50 px-4 py-2 text-sm leading-relaxed text-gray-700">
                                 Ya, anda bisa menggunakan fitur <b>Kirim Undangan</b> di paket premium.
                             </p>
                         </details>
