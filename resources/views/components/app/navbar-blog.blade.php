@@ -247,7 +247,7 @@
     </div>
     <div id="promo-panel" class="hidden bg-indigo-600 px-4 py-2 text-white">
         <p class="md:text-md text-center text-xs">
-            <span class="animate-pulse">hanya 50rb</span> <span class="text-red-500/50 line-through">100rb</span>
+            <span class="animate-pulse">hanya 80rb</span> <span class="text-red-500/50 line-through">100rb</span>
             <a href="https://api.whatsapp.com/send?phone=6285155305665&text=Halo%0AAku%20tertarik%20mengambil%20paket%20premium" class="inline-block uppercase underline">Ambil Premium Sekarang!</a>
         </p>
     </div>
