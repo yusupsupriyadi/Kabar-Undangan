@@ -18,7 +18,14 @@
                             </span>
                         </a>
 
-                        <div class="mt-6 flex justify-center md:hidden">
+                        <a title="demo" class="group relative ml-0 mt-4 inline-block focus:outline-none focus:ring md:ml-4 md:mt-0" href="/pilihan-tema">
+                            <span class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-purple-300 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                            <span class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75">
+                                <span class="">PILIHAN TEMA</span>
+                            </span>
+                        </a>
+
+                        <div class="l-4 mt-6 flex justify-center md:hidden">
                             <a title="kontak bantuan" class="alert alert-success w-[180px] rounded-full px-4 py-2 text-center" href="https://api.whatsapp.com/send?phone=6285155305665&text=">
                                 <div>
                                     <span class="text-sm font-semibold">Butuh bantuan?</span>
