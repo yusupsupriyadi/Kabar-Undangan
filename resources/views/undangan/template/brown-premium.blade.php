@@ -480,7 +480,7 @@
             @foreach ($data['ucapan_api'] as $key => $val)
                 <section data-aos="fade-up-right" data-aos-duration="2000" class="lazyload bg-image mt-4 rounded-lg bg-opacity-50 bg-[url('/public/images/background-card.jpg')] bg-cover bg-center shadow-lg">
                     <div class="mb-6 flex justify-center pt-8">
-                        <img dat-src="{{ $val['foto'] !== 'null' ? asset('/storage/images/' . $val['foto']) : asset('/images/photo-blank.png') }}" class="lazyload h-[90px] w-[90px] rounded-full shadow-lg" alt="smaple image" />
+                        <img src="{{ $val['foto'] !== 'null' ? asset('/storage/images/' . $val['foto']) : asset('/images/photo-blank.png') }}" class="lazyload h-[90px] w-[90px] rounded-full shadow-lg" alt="smaple image" />
                     </div>
                     <p class="pt-4 text-center text-2xl font-semibold capitalize">{{ $val['nama'] }}</p>
                     <p class="text-md mx-auto max-w-2xl px-4 pt-6 text-center text-neutral-700">
