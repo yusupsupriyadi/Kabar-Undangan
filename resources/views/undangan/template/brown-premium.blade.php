@@ -40,7 +40,7 @@
                 @if (request()->query('untuk') != null)
                     <section class="mt-6">
                         <h5 class="font-tangerine text-2xl font-bold">Dear :</h5>
-                        <h5 class="font-greatVibes text-3xl font-extrabold">{{ request()->query('untuk') }}</h5>
+                        <h5 class="font-tangerine text-3xl font-extrabold">{{ request()->query('untuk') }}</h5>
                     </section>
                 @endif
             @endif
