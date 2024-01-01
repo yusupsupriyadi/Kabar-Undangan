@@ -373,25 +373,25 @@
 
             validateForm(typeAction)
         })
-        
+
 
         function validateForm(typeAction){
             var validateError = false;
-            $('#link-google-map-resepsi').val() === '' ? $('#link-google-map-resepsi-validate').show() : $('#link-google-map-resepsi-validate').hide()
+            // $('#link-google-map-resepsi').val() === '' ? $('#link-google-map-resepsi-validate').show() : $('#link-google-map-resepsi-validate').hide()
             $('#alamat-resepsi').val() === '' ? $('#alamat-resepsi-validate').show() : $('#alamat-resepsi-validate').hide()
             $('#waktu-mulai-resepsi').val() === '' ? $('#waktu-mulai-resepsi-validate').show() : $('#waktu-mulai-resepsi-validate').hide()
             $('#waktu-selesai-resepsi').val() === '' ? $('#waktu-selesai-resepsi-validate').show() : $('#waktu-selesai-resepsi-validate').hide()
             $('#tanggal-resepsi').val() === '' ? $('#tanggal-resepsi-validate').show() : $('#tanggal-resepsi-validate').hide()
             $('#tempat-resepsi').val() === '' ? $('#tempat-resepsi-validate').show() : $('#tempat-resepsi-validate').hide()
 
-            $('#link-google-map-akad').val() === '' ? $('#link-google-map-akad-validate').show() : $('#link-google-map-akad-validate').hide()
+            // $('#link-google-map-akad').val() === '' ? $('#link-google-map-akad-validate').show() : $('#link-google-map-akad-validate').hide()
             $('#alamat-akad').val() === '' ? $('#alamat-akad-validate').show() : $('#alamat-akad-validate').hide()
             $('#waktu-mulai-akad').val() === '' ? $('#waktu-mulai-akad-validate').show() : $('#waktu-mulai-akad-validate').hide()
             $('#waktu-selesai-akad').val() === '' ? $('#waktu-selesai-akad-validate').show() : $('#waktu-selesai-akad-validate').hide()
             $('#tanggal-akad').val() === '' ? $('#tanggal-akad-validate').show() : $('#tanggal-akad-validate').hide()
             $('#tempat-akad').val() === '' ? $('#tempat-akad-validate').show() : $('#tempat-akad-validate').hide()
 
-            if($('#link-google-map-resepsi').val() === '' && $('#alamat-resepsi').val() === '' && $('#waktu-mulai-resepsi').val() === '' && $('#waktu-selesai-resepsi').val() === '' && $('#tanggal-resepsi').val() === '' && $('#link-google-map-akad').val() === '' && $('#alamat-akad').val() === '' && $('#waktu-mulai-akad').val() === '' && $('#waktu-selesai-akad').val() === '' && $('#tanggal-akad').val() === '' && $('#tempat-akad').val() === '' && $('#tempat-resepsi').val() === ''){
+            if($('#alamat-resepsi').val() === '' && $('#waktu-mulai-resepsi').val() === '' && $('#waktu-selesai-resepsi').val() === '' && $('#tanggal-resepsi').val() === '' && $('#alamat-akad').val() === '' && $('#waktu-mulai-akad').val() === '' && $('#waktu-selesai-akad').val() === '' && $('#tanggal-akad').val() === '' && $('#tempat-akad').val() === '' && $('#tempat-resepsi').val() === ''){
                 $('#toast-validate').show()
                 setTimeout(function(){
                     $('#toast-validate').fadeOut('past')
