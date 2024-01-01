@@ -231,6 +231,7 @@
                             </div>
 
                         </div>
+                        @if ($data['setting_akad_api']['google_maps'] !== null)
                         <a id="gps-akad" title="google maps lokasi akad" href="{{ $data['setting_akad_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#374f37] p-3">
                             <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -242,6 +243,7 @@
                             </svg>
                             <h3 class="text-md text-white">Google Maps</h3>
                         </a>
+                        @endif
                     </div>
                 </div>
 
@@ -279,6 +281,7 @@
                             </div>
 
                         </div>
+                        @if ($data['setting_resepsi_api']['google_maps'] !== null)
                         <a id="gps-resepsi" title="google maps lokasi resepsi" href="{{ $data['setting_resepsi_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#374f37] p-3">
                             <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -290,6 +293,7 @@
                             </svg>
                             <h3 class="text-md text-white">Google Maps</h3>
                         </a>
+                        @endif
                     </div>
                 </div>
             </div>
