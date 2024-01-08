@@ -191,7 +191,7 @@
                         @endif
 
                         <section class="mt-8 border-t-2 border-dashed border-[#332216] pb-6 pt-4 text-center text-sm">
-                            <p>Merupakan suatu kehormatan dan kebahagiaan <br> bagi kami, apabila Bapak/Ibu/Saudara berkenan <br> hadir untuk mendoakan do'a restu <br> kepada anak kami:</p>
+                            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara berkenan hadir untuk mendoakan do'a restu <br> kepada anak kami:</p>
                             <p class="mt-4">Atas kehadiran dan do'a restu Bapak/ibu/Saudara</p>
                             <p>Kami banyak terima kasih.</p>
                             <p class="mt-4 font-semibold">Wassalamu'alaikum Wr.Wb</p>
