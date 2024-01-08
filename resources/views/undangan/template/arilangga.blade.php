@@ -5,13 +5,12 @@
             <h1 class="mt-6 font-alkatra text-2xl !font-extrabold uppercase">Undangan</h1>
             <h1 class="pb-4 font-sans text-lg !font-semibold">Syukuran Walimatul Khitan</h1>
             <div class="mx-auto flex justify-center">
-                <img src="{{ asset('/storage/images/' . $data['mempelai_pria_api']['foto']) }}" class="w-[150px] object-contain" alt="{{ $data['mempelai_pria_api']['nama_lengkap'] }}" />
+                <img src="{{ asset('/storage/images/' . $data['mempelai_pria_api']['foto']) }}" class="w-[130px] object-contain" alt="{{ $data['mempelai_pria_api']['nama_lengkap'] }}" />
             </div>
             <section class="mt-8 flex items-center justify-center gap-4 text-center font-alkatra font-medium">
-                <h1 class="nama-pria-opening text-5xl !font-black md:text-8xl">{{ $data['mempelai_pria_api']['nama_lengkap'] }}</h1>
+                <h1 class="nama-pria-opening text-4xl !font-black md:text-8xl">{{ $data['mempelai_pria_api']['nama_lengkap'] }}</h1>
             </section>
-            <h5 class="mt-4 md:text-xl">Tanggal:</h5>
-            <section class="mt-2 flex justify-center">
+            <section class="mt-4 flex justify-center">
                 <table>
                     <tbody class="scale-100">
                         <tr>
@@ -63,10 +62,10 @@
             <h1 class="mt-6 font-alkatra text-2xl !font-extrabold uppercase">Undangan</h1>
             <h1 class="pb-4 font-sans text-lg !font-semibold">Syukuran Walimatul Khitan</h1>
             <div class="mx-auto flex justify-center">
-                <img src="{{ asset('/storage/images/' . $data['mempelai_pria_api']['foto']) }}" class="w-[150px] object-contain" alt="{{ $data['mempelai_pria_api']['nama_lengkap'] }}" />
+                <img src="{{ asset('/storage/images/' . $data['mempelai_pria_api']['foto']) }}" class="w-[130px] object-contain" alt="{{ $data['mempelai_pria_api']['nama_lengkap'] }}" />
             </div>
             <section class="mt-2 flex items-center justify-center gap-4 text-center font-alkatra font-medium">
-                <h1 class="nama-pria-opening text-5xl !font-extrabold md:text-8xl">{{ $data['mempelai_pria_api']['nama_lengkap'] }}</h1>
+                <h1 class="nama-pria-opening text-4xl !font-extrabold md:text-8xl">{{ $data['mempelai_pria_api']['nama_lengkap'] }}</h1>
             </section>
             <section class="mt-4 flex scale-90 justify-center md:scale-100">
                 <table>
