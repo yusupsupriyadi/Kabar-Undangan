@@ -190,7 +190,7 @@
                             </a>
                         @endif
 
-                        <section class="mt-8 border-t-2 border-[#332216] pb-6 text-center text-sm pt-4 border-dashed">
+                        <section class="mt-8 border-t-2 border-dashed border-[#332216] pb-6 pt-4 text-center text-sm">
                             <p>Merupakan suatu kehormatan dan kebahagiaan <br> bagi kami, apabila Bapak/Ibu/Saudara berkenan <br> hadir untuk mendoakan do'a restu <br> kepada anak kami:</p>
                             <p class="mt-4">Atas kehadiran dan do'a restu Bapak/ibu/Saudara</p>
                             <p>Kami banyak terima kasih.</p>
@@ -199,7 +199,7 @@
                             <p class="">Bapak {{ $data['mempelai_pria_api']['nama_ayah'] }} &</p>
                             <p class="">Ibu {{ $data['mempelai_pria_api']['nama_ibu'] }}</p>
                             <p class="mt-4 font-semibold">Turut Mengundang:</p>
-                            <p class="">S
+                            <p class="">Segenap Keluarga</p>
                     </div>
                 </div>
             </div>
