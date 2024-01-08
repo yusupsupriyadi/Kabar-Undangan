@@ -4,7 +4,7 @@
 @endsection
 
 @section('meta')
-    <meta name="description" content="{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('dddd, DD MMMM YYYY') }}. Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Menghadiri Acara Pernikahan Kami.">
+    <meta name="description" content="{{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('dddd, DD MMMM YYYY') }}. Tanpa Mengurangi Rasa Hormat, Kami Mengundang Anda Untuk Menghadiri Acara {{ $data['name'] === 'arilangga' ? 'Syukuran anak kami.' : 'Pernikahan Kami.' }}">
 @endsection
 
 @section('styles')
@@ -22,6 +22,8 @@
         @if ($data['vip'] === true || $data['vip'] === 'true')
             @if ($data['name'] === 'demo')
                 @include('undangan.template.' . request()->query('tema'))
+            @elseif ($data['name'] === 'arilangga')
+                @include('undangan.template.arilangga')
             @else
                 @if (request()->query('tema') !== null)
                     @include('undangan.template.' . request()->query('tema'))

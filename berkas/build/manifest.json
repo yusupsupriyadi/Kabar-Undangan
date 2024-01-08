@@ -1,63 +1,75 @@
 {
-  "public/images/bg/bg-lily-mobile.webp": {
-    "file": "assets/bg-lily-mobile.151f933a.webp",
-    "src": "public/images/bg/bg-lily-mobile.webp"
-  },
-  "public/images/bg/bg-4-lily.webp": {
-    "file": "assets/bg-4-lily.fd628ff5.webp",
-    "src": "public/images/bg/bg-4-lily.webp"
-  },
-  "public/images/bg/bg-2-lily.webp": {
-    "file": "assets/bg-2-lily.3deb32e9.webp",
-    "src": "public/images/bg/bg-2-lily.webp"
-  },
-  "public/images/bg-image-login.webp": {
-    "file": "assets/bg-image-login.1187aa94.webp",
-    "src": "public/images/bg-image-login.webp"
-  },
-  "public/images/bg/bg-3-lily.webp": {
-    "file": "assets/bg-3-lily.f6874e78.webp",
-    "src": "public/images/bg/bg-3-lily.webp"
+  "public/images/bg/bg-6-brown.png": {
+    "file": "assets/bg-6-brown.73b5142f.png",
+    "src": "public/images/bg/bg-6-brown.png"
   },
   "public/images/bg/bg-brown-mobile.webp": {
     "file": "assets/bg-brown-mobile.7a5ba0d8.webp",
     "src": "public/images/bg/bg-brown-mobile.webp"
   },
-  "public/images/bg/bg-6-brown.png": {
-    "file": "assets/bg-6-brown.73b5142f.png",
-    "src": "public/images/bg/bg-6-brown.png"
-  },
-  "public/images/bg-image-wedding.webp": {
-    "file": "assets/bg-image-wedding.f6cfdf5b.webp",
-    "src": "public/images/bg-image-wedding.webp"
+  "public/images/bg/bg-3-brown.webp": {
+    "file": "assets/bg-3-brown.24d7a428.webp",
+    "src": "public/images/bg/bg-3-brown.webp"
   },
   "public/images/bg/bg-2-brown.webp": {
     "file": "assets/bg-2-brown.cd7e088f.webp",
     "src": "public/images/bg/bg-2-brown.webp"
   },
-  "public/images/bg/bg-5-brown.webp": {
-    "file": "assets/bg-5-brown.24d7a428.webp",
-    "src": "public/images/bg/bg-5-brown.webp"
+  "public/images/bg/bg-lily-mobile.webp": {
+    "file": "assets/bg-lily-mobile.151f933a.webp",
+    "src": "public/images/bg/bg-lily-mobile.webp"
+  },
+  "public/images/bg/bg-2-lily.webp": {
+    "file": "assets/bg-2-lily.3deb32e9.webp",
+    "src": "public/images/bg/bg-2-lily.webp"
+  },
+  "public/images/bg-image-wedding.webp": {
+    "file": "assets/bg-image-wedding.f6cfdf5b.webp",
+    "src": "public/images/bg-image-wedding.webp"
   },
   "public/images/bg/bg-2-blackgold.webp": {
     "file": "assets/bg-2-blackgold.f70a6f8b.webp",
     "src": "public/images/bg/bg-2-blackgold.webp"
   },
-  "public/images/bg/bg-blackgold-mobile.webp": {
-    "file": "assets/bg-blackgold-mobile.ab455b45.webp",
-    "src": "public/images/bg/bg-blackgold-mobile.webp"
+  "public/images/bg/bg-3-lily.webp": {
+    "file": "assets/bg-3-lily.f6874e78.webp",
+    "src": "public/images/bg/bg-3-lily.webp"
+  },
+  "public/images/bg/bg-3-deepocean.webp": {
+    "file": "assets/bg-3-deepocean.67f90baf.webp",
+    "src": "public/images/bg/bg-3-deepocean.webp"
   },
   "public/images/bg/bg-deepocean-mobile.webp": {
     "file": "assets/bg-deepocean-mobile.863772c9.webp",
     "src": "public/images/bg/bg-deepocean-mobile.webp"
   },
-  "public/images/bg/bg-2-deepocean.webp": {
-    "file": "assets/bg-2-deepocean.353db336.webp",
-    "src": "public/images/bg/bg-2-deepocean.webp"
-  },
   "public/images/bg/bg-4-blackgold.webp": {
     "file": "assets/bg-4-blackgold.0cdec06a.webp",
     "src": "public/images/bg/bg-4-blackgold.webp"
+  },
+  "public/images/bg/bg-blackgold-mobile.webp": {
+    "file": "assets/bg-blackgold-mobile.ab455b45.webp",
+    "src": "public/images/bg/bg-blackgold-mobile.webp"
+  },
+  "public/images/bg/bg-4-lily.webp": {
+    "file": "assets/bg-4-lily.fd628ff5.webp",
+    "src": "public/images/bg/bg-4-lily.webp"
+  },
+  "public/images/bg/bg-green-fantasy-mobile.webp": {
+    "file": "assets/bg-green-fantasy-mobile.0a323f99.webp",
+    "src": "public/images/bg/bg-green-fantasy-mobile.webp"
+  },
+  "public/images/bg/bg-2-green-fantasy.webp": {
+    "file": "assets/bg-2-green-fantasy.ae240b4c.webp",
+    "src": "public/images/bg/bg-2-green-fantasy.webp"
+  },
+  "public/images/bg/bg-3-green-fantasy.webp": {
+    "file": "assets/bg-3-green-fantasy.4021895e.webp",
+    "src": "public/images/bg/bg-3-green-fantasy.webp"
+  },
+  "public/images/bg/bg-2-deepocean.webp": {
+    "file": "assets/bg-2-deepocean.353db336.webp",
+    "src": "public/images/bg/bg-2-deepocean.webp"
   },
   "public/images/bg/bg-3-blackgold.webp": {
     "file": "assets/bg-3-blackgold.0757c1fc.webp",
@@ -67,21 +79,9 @@
     "file": "assets/bg-4-deepocean.aa373a36.webp",
     "src": "public/images/bg/bg-4-deepocean.webp"
   },
-  "public/images/bg/bg-3-deepocean.webp": {
-    "file": "assets/bg-3-deepocean.67f90baf.webp",
-    "src": "public/images/bg/bg-3-deepocean.webp"
-  },
-  "public/images/bg/bg-4-green-fantasy.webp": {
-    "file": "assets/bg-4-green-fantasy.ae240b4c.webp",
-    "src": "public/images/bg/bg-4-green-fantasy.webp"
-  },
-  "public/images/bg/bg-3-green-fantasy.webp": {
-    "file": "assets/bg-3-green-fantasy.4021895e.webp",
-    "src": "public/images/bg/bg-3-green-fantasy.webp"
-  },
-  "public/images/bg/bg-green-fantasy-mobile.webp": {
-    "file": "assets/bg-green-fantasy-mobile.0a323f99.webp",
-    "src": "public/images/bg/bg-green-fantasy-mobile.webp"
+  "public/images/bg-image-login.webp": {
+    "file": "assets/bg-image-login.1187aa94.webp",
+    "src": "public/images/bg-image-login.webp"
   },
   "public/images/background-card.jpg": {
     "file": "assets/background-card.cb44a2d4.jpg",
@@ -93,16 +93,16 @@
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app.f775996c.css",
+    "file": "assets/app.6f1b83c1.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
-  "public/images/bg/bg-3-brown.webp": {
-    "file": "assets/bg-5-brown.24d7a428.webp",
-    "src": "public/images/bg/bg-3-brown.webp"
+  "public/images/bg/bg-5-brown.webp": {
+    "file": "assets/bg-3-brown.24d7a428.webp",
+    "src": "public/images/bg/bg-5-brown.webp"
   },
-  "public/images/bg/bg-2-green-fantasy.webp": {
-    "file": "assets/bg-4-green-fantasy.ae240b4c.webp",
-    "src": "public/images/bg/bg-2-green-fantasy.webp"
+  "public/images/bg/bg-4-green-fantasy.webp": {
+    "file": "assets/bg-2-green-fantasy.ae240b4c.webp",
+    "src": "public/images/bg/bg-4-green-fantasy.webp"
   }
 }

@@ -53,7 +53,6 @@ class WelcomeController extends Controller
             }
         }
         $data['image_gallery'] = $imageGallery;
-        // dd($data);
         return view('undangan.index', compact('data'));
     }
 }
