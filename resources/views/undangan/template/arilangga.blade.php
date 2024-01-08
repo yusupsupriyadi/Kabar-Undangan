@@ -10,7 +10,7 @@
             <section class="mt-8 flex items-center justify-center gap-4 text-center font-alkatra font-medium">
                 <h1 class="nama-pria-opening text-5xl !font-black md:text-8xl">{{ $data['mempelai_pria_api']['nama_lengkap'] }}</h1>
             </section>
-            <h5 class="mt-12 md:text-xl">Tanggal:</h5>
+            <h5 class="mt-8 md:text-xl">Tanggal:</h5>
             <section class="mt-4 flex justify-center">
                 <table>
                     <tbody class="scale-100">
@@ -46,7 +46,7 @@
                     </section>
                 @endif
             @endif
-            <section class="mt-8 flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#332216] p-6 text-white" id="open-undangan">
+            <section class="mt-8 flex cursor-pointer items-center mx-4 justify-center gap-2 rounded-xl bg-[#332216] p-6 text-white shadow" id="open-undangan">
                 <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                     <polyline points="22,6 12,13 2,6" />
