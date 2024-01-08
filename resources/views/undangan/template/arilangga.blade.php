@@ -3,15 +3,15 @@
     <section class="header opening mx-auto bg-[url('/public/images/bg/bg-brown-mobile.webp')] bg-cover" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
             <h1 class="mt-6 font-alkatra text-2xl !font-extrabold uppercase">Undangan</h1>
-            <h1 class="pb-4 font-sans text-lg">Syukuran Walimatul Khitan</h1>
+            <h1 class="pb-4 font-sans text-lg !font-semibold">Syukuran Walimatul Khitan</h1>
             <div class="mx-auto flex justify-center">
-                <img src="/images/foto-pria.png" class="w-[150px]" alt="{{ $data['mempelai_pria_api']['nama_lengkap'] }}" />
+                <img src="{{ asset('/storage/images/' . $data['mempelai_pria_api']['foto']) }}" class="w-[150px] object-contain" alt="{{ $data['mempelai_pria_api']['nama_lengkap'] }}" />
             </div>
             <section class="mt-8 flex items-center justify-center gap-4 text-center font-alkatra font-medium">
                 <h1 class="nama-pria-opening text-5xl !font-black md:text-8xl">{{ $data['mempelai_pria_api']['nama_lengkap'] }}</h1>
             </section>
-            <h5 class="mt-8 md:text-xl">Tanggal:</h5>
-            <section class="mt-4 flex justify-center">
+            <h5 class="mt-4 md:text-xl">Tanggal:</h5>
+            <section class="mt-2 flex justify-center">
                 <table>
                     <tbody class="scale-100">
                         <tr>
@@ -46,12 +46,12 @@
                     </section>
                 @endif
             @endif
-            <section class="mt-8 flex cursor-pointer items-center mx-4 justify-center gap-2 rounded-xl bg-[#332216] p-6 text-white shadow" id="open-undangan">
+            <section class="mx-4 mt-8 flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#332216] p-6 text-white shadow-xl" id="open-undangan">
                 <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                     <polyline points="22,6 12,13 2,6" />
                 </svg>
-                <div class="text-md pt-0.5 font-alkatra font-bold">
+                <div class="text-md pt-0.5 font-alkatra font-bold ">
                     BUKA UNDANGAN
                 </div>
             </section>
@@ -61,7 +61,7 @@
     <section class="header bg-[url('/public/images/bg/bg-brown-mobile.webp')] bg-cover">
         <div class="container mx-auto max-w-xl text-center">
             <h1 class="mt-6 font-alkatra text-2xl !font-extrabold uppercase">Undangan</h1>
-            <h1 class="pb-4 font-sans text-lg">Syukuran Walimatul Khitan</h1>
+            <h1 class="pb-4 font-sans text-lg !font-semibold">Syukuran Walimatul Khitan</h1>
             <div class="mx-auto flex justify-center">
                 <img src="{{ asset('/storage/images/' . $data['mempelai_pria_api']['foto']) }}" class="w-[150px] object-contain" alt="{{ $data['mempelai_pria_api']['nama_lengkap'] }}" />
             </div>
