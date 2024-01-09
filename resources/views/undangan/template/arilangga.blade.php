@@ -10,7 +10,7 @@
             <section class="mt-8 flex items-center justify-center gap-4 text-center font-alkatra font-medium">
                 <h1 class="nama-pria-opening text-4xl !font-black md:text-8xl">{{ $data['mempelai_pria_api']['nama_lengkap'] }}</h1>
             </section>
-            <section class="mt-4 flex justify-center">
+            <section class="mt-4  justify-center hidden">
                 <table>
                     <tbody class="scale-100">
                         <tr>
