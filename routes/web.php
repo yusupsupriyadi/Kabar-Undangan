@@ -24,12 +24,12 @@ use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 // Production
-Route::domain(env('APP_URL'))->group(function () {
-    Route::get('/', [WelcomeController::class, 'index']);
-});
+// Route::domain(env('APP_URL'))->group(function () {
+//     Route::get('/', [WelcomeController::class, 'index']);
+// });
 
 // Development
-// Route::get('/', [WelcomeController::class, 'index']);
+Route::get('/', [WelcomeController::class, 'index']);
 
 
 Route::domain('{subdomain}.' . env('APP_URL'))->group(function () {

@@ -2,18 +2,17 @@
 <main class="m-auto bg-[#f5ebdf] text-[#332216]">
     <section class="header opening mx-auto bg-[url('/public/images/bg/bg-brown-mobile.webp')] bg-cover" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
-            <h1 class="mt-6 pb-6 font-sans text-lg uppercase md:text-xl">We Are Getting Married</h1>
-            <section class="mt-8 flex items-center justify-center gap-4 text-center font-masthina font-medium">
-                <h1 class="nama-pria-opening text-7xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
-                <h2 class="text-4xl">&</h2>
-                <h1 class="text-7xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
+            <h1 class="text-md mt-6 pb-6 font-sans uppercase md:text-xl">We Are Getting Married</h1>
+            <section class="mt-4 flex items-center justify-center gap-4 text-center font-masthina font-medium">
+                <h1 class="nama-pria-opening text-6xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
+                <h2 class="text-2xl">&</h2>
+                <h1 class="text-6xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
             </section>
-            <h5 class="mt-16 md:text-xl">Save the date :</h5>
             <section class="mt-4 flex justify-center">
                 <table>
-                    <tbody class="scale-110">
+                    <tbody>
                         <tr>
-                            <td colspan="3" class="font-serif text-lg font-semibold uppercase md:text-xl">
+                            <td colspan="3" class="font-serif text-md font-semibold uppercase md:text-xl">
                                 {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('MMMM') }}
                             </td>
                         </tr>
@@ -29,7 +28,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3" class="pt-1 font-serif text-xl font-semibold uppercase md:text-2xl">
+                            <td colspan="3" class="pt-1 font-serif text-md font-semibold uppercase md:text-2xl">
                                 {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->format('Y') }}
                             </td>
                         </tr>
@@ -44,15 +43,17 @@
                     </section>
                 @endif
             @endif
-            <section class="mt-8 flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#332216] p-6 text-white" id="open-undangan">
-                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                </svg>
-                <div class="text-md pt-0.5 font-alkatra font-bold">
-                    BUKA UNDANGAN
-                </div>
-            </section>
+            <div class="flex justify-center">
+                <section class="mt-8 shadow-xl flex cursor-pointer items-center justify-center gap-2 rounded-md bg-[#332216] p-4 text-white" id="open-undangan">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    <div class="text-md pt-0.5 font-alkatra font-bold">
+                        BUKA UNDANGAN
+                    </div>
+                </section>
+            </div>
         </div>
     </section>
 
@@ -398,31 +399,33 @@
 
     <section class="container mx-auto mt-20 max-w-5xl">
         @if ($data['vip'] === true || $data['vip'] === 'true')
-            <section data-aos="zoom-in" data-aos-duration="1000" class="rounded-xl border-2 border-b-4 border-[#332216] bg-[#C5AB88] p-4 py-8">
-                <h1 class="text-center font-greatVibes text-4xl font-bold">Wedding Gift</h1>
-                <p class="text-md mt-4 text-center font-serif font-semibold">Mungkin karena jarak, waktu ataupun
-                    keadaan yang menghalangi untuk ikut
-                    hadir dalam moment bahagia kami,
-                    Silahkan klik tombol dibawah untuk
-                    mengirimkan kado/hadiah.
-                </p>
+            @if (count($data['kado_nikah_api']) !== 0)
+                <section data-aos="zoom-in" data-aos-duration="1000" class="rounded-xl border-2 border-b-4 border-[#332216] bg-[#C5AB88] p-4 py-8">
+                    <h1 class="text-center font-greatVibes text-4xl font-bold">Wedding Gift</h1>
+                    <p class="text-md mt-4 text-center font-serif font-semibold">Mungkin karena jarak, waktu ataupun
+                        keadaan yang menghalangi untuk ikut
+                        hadir dalam moment bahagia kami,
+                        Silahkan klik tombol dibawah untuk
+                        mengirimkan kado/hadiah.
+                    </p>
 
-                <section class="mt-4">
-                    @foreach ($data['kado_nikah_api'] as $key => $value)
-                        <div class="mt-6 text-center text-sm">
-                            <p>{{ $value['no_wallet'] }}</p>
-                            <p class="mt-1">A/n.{{ $value['user_wallet'] }}</p>
-                            <button class="btn-copy mt-2 rounded-xl bg-[#332216] px-4 py-2 text-xs font-semibold text-gray-200" data-wallet="{{ $value['no_wallet'] }}" data-key="{{ $key }}">
-                                <span id="wallet-{{ $key }}" class="capitalize">
-                                    @if ($value['type'] === 'bank')
-                                        Bank
-                                    @endif {{ $value['wallet'] }}
-                                </span> <span class="copy-{{ $key }} hidden text-xs text-white">Berhasil disalin</span>
-                            </button>
-                        </div>
-                    @endforeach
+                    <section class="mt-4">
+                        @foreach ($data['kado_nikah_api'] as $key => $value)
+                            <div class="mt-6 text-center text-sm">
+                                <p>{{ $value['no_wallet'] }}</p>
+                                <p class="mt-1">A/n.{{ $value['user_wallet'] }}</p>
+                                <button class="btn-copy mt-2 rounded-xl bg-[#332216] px-4 py-2 text-xs font-semibold text-gray-200" data-wallet="{{ $value['no_wallet'] }}" data-key="{{ $key }}">
+                                    <span id="wallet-{{ $key }}" class="capitalize">
+                                        @if ($value['type'] === 'bank')
+                                            Bank
+                                        @endif {{ $value['wallet'] }}
+                                    </span> <span class="copy-{{ $key }} hidden text-xs text-white">Berhasil disalin</span>
+                                </button>
+                            </div>
+                        @endforeach
+                    </section>
                 </section>
-            </section>
+            @endif
         @endif
     </section>
 

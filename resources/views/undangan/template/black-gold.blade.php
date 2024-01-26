@@ -232,17 +232,17 @@
 
                         </div>
                         @if ($data['setting_resepsi_api']['google_maps'] !== null)
-                        <a id="gps-resepsi" title="google maps lokasi akad" href="{{ $data['setting_akad_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#ECB751] p-3">
-                            <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <line x1="18" y1="6" x2="18" y2="6.01" />
-                                <path d="M18 13l-3.5 -5a4 4 0 1 1 7 0l-3.5 5" />
-                                <polyline points="10.5 4.75 9 4 3 7 3 20 9 17 15 20 21 17 21 15" />
-                                <line x1="9" y1="4" x2="9" y2="17" />
-                                <line x1="15" y1="15" x2="15" y2="20" />
-                            </svg>
-                            <h3 class="text-md text-white">Google Maps</h3>
-                        </a>
+                            <a id="gps-resepsi" title="google maps lokasi akad" href="{{ $data['setting_akad_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#ECB751] p-3">
+                                <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                    <line x1="18" y1="6" x2="18" y2="6.01" />
+                                    <path d="M18 13l-3.5 -5a4 4 0 1 1 7 0l-3.5 5" />
+                                    <polyline points="10.5 4.75 9 4 3 7 3 20 9 17 15 20 21 17 21 15" />
+                                    <line x1="9" y1="4" x2="9" y2="17" />
+                                    <line x1="15" y1="15" x2="15" y2="20" />
+                                </svg>
+                                <h3 class="text-md text-white">Google Maps</h3>
+                            </a>
                         @endif
                     </div>
                 </div>
@@ -282,17 +282,17 @@
 
                         </div>
                         @if ($data['setting_akad_api']['google_maps'] !== null)
-                        <a id="gps-akad" title="google maps lokasi resepsi" href="{{ $data['setting_resepsi_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#ECB751] p-3">
-                            <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" />
-                                <line x1="18" y1="6" x2="18" y2="6.01" />
-                                <path d="M18 13l-3.5 -5a4 4 0 1 1 7 0l-3.5 5" />
-                                <polyline points="10.5 4.75 9 4 3 7 3 20 9 17 15 20 21 17 21 15" />
-                                <line x1="9" y1="4" x2="9" y2="17" />
-                                <line x1="15" y1="15" x2="15" y2="20" />
-                            </svg>
-                            <h3 class="text-md text-white">Google Maps</h3>
-                        </a>
+                            <a id="gps-akad" title="google maps lokasi resepsi" href="{{ $data['setting_resepsi_api']['google_maps'] }}" target="blank" class="mx-auto mt-8 flex max-w-[10.5rem] items-center gap-2 rounded-xl bg-[#ECB751] p-3">
+                                <svg class="h-6 w-6 text-white" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                    <line x1="18" y1="6" x2="18" y2="6.01" />
+                                    <path d="M18 13l-3.5 -5a4 4 0 1 1 7 0l-3.5 5" />
+                                    <polyline points="10.5 4.75 9 4 3 7 3 20 9 17 15 20 21 17 21 15" />
+                                    <line x1="9" y1="4" x2="9" y2="17" />
+                                    <line x1="15" y1="15" x2="15" y2="20" />
+                                </svg>
+                                <h3 class="text-md text-white">Google Maps</h3>
+                            </a>
                         @endif
                     </div>
                 </div>
@@ -402,31 +402,33 @@
 
     <section class="container mx-auto mt-20 max-w-5xl">
         @if ($data['vip'] === true || $data['vip'] === 'true')
-            <div data-aos="zoom-in" data-aos-duration="1000" class="rounded-xl border-2 border-b-4 border-[#ECB751] bg-[#171717] p-4 py-8">
-                <h1 class="text-center font-greatVibes text-4xl font-bold">Wedding Gift</h1>
-                <p class="text-md mt-4 text-center font-serif font-semibold">Mungkin karena jarak, waktu ataupun
-                    keadaan yang menghalangi untuk ikut
-                    hadir dalam moment bahagia kami,
-                    Silahkan klik tombol dibawah untuk
-                    mengirimkan kado/hadiah.
-                </p>
+            @if (count($data['kado_nikah_api']) !== 0)
+                <div data-aos="zoom-in" data-aos-duration="1000" class="rounded-xl border-2 border-b-4 border-[#ECB751] bg-[#171717] p-4 py-8">
+                    <h1 class="text-center font-greatVibes text-4xl font-bold">Wedding Gift</h1>
+                    <p class="text-md mt-4 text-center font-serif font-semibold">Mungkin karena jarak, waktu ataupun
+                        keadaan yang menghalangi untuk ikut
+                        hadir dalam moment bahagia kami,
+                        Silahkan klik tombol dibawah untuk
+                        mengirimkan kado/hadiah.
+                    </p>
 
-                <section class="mt-4">
-                    @foreach ($data['kado_nikah_api'] as $key => $value)
-                        <div class="mt-6 text-center text-sm">
-                            <p>{{ $value['no_wallet'] }}</p>
-                            <p class="mt-1">A/n.{{ $value['user_wallet'] }}</p>
-                            <button class="btn-copy mt-2 rounded-xl bg-[#ECB751] px-4 py-2 text-xs font-semibold text-black" data-wallet="{{ $value['no_wallet'] }}" data-key="{{ $key }}">
-                                <span id="wallet-{{ $key }}" class="capitalize">
-                                    @if ($value['type'] === 'bank')
-                                        Bank
-                                    @endif {{ $value['wallet'] }}
-                                </span> <span class="copy-{{ $key }} hidden text-xs text-white">Berhasil disalin</span>
-                            </button>
-                        </div>
-                    @endforeach
-                </section>
-            </div>
+                    <section class="mt-4">
+                        @foreach ($data['kado_nikah_api'] as $key => $value)
+                            <div class="mt-6 text-center text-sm">
+                                <p>{{ $value['no_wallet'] }}</p>
+                                <p class="mt-1">A/n.{{ $value['user_wallet'] }}</p>
+                                <button class="btn-copy mt-2 rounded-xl bg-[#ECB751] px-4 py-2 text-xs font-semibold text-black" data-wallet="{{ $value['no_wallet'] }}" data-key="{{ $key }}">
+                                    <span id="wallet-{{ $key }}" class="capitalize">
+                                        @if ($value['type'] === 'bank')
+                                            Bank
+                                        @endif {{ $value['wallet'] }}
+                                    </span> <span class="copy-{{ $key }} hidden text-xs text-white">Berhasil disalin</span>
+                                </button>
+                            </div>
+                        @endforeach
+                    </section>
+                </div>
+            @endif
         @endif
 
     </section>

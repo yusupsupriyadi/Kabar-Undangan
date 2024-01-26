@@ -1,22 +1,16 @@
 <div id="particles-js" class="absolute h-full w-full bg-cover bg-repeat" style="background-position: 50% 50%"></div>
-{{-- color list
-    text = 614425
-    bg = FAEFEB
-    bg2 = F0DAD1
---}}
 <main class="m-auto bg-[#FAEFEB] text-[#614425]">
     <section class="header opening mx-auto bg-[url('/public/images/bg/bg-lily-mobile.webp')] bg-cover" id="opening">
         <div class="container mx-auto max-w-4xl text-center">
-            <h1 class="mt-6 pb-6 font-sans text-lg uppercase md:text-xl">We Are Getting Married</h1>
-            <section class="mt-8 flex items-center justify-center gap-4 text-center font-masthina font-medium">
-                <h1 class="nama-pria-opening text-7xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
-                <h2 class="text-4xl">&</h2>
-                <h1 class="text-7xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
+            <h1 class="mt-6 pb-6 font-sans text-md uppercase md:text-xl">We Are Getting Married</h1>
+            <section class="mt-4 flex items-center justify-center gap-4 text-center font-masthina font-medium">
+                <h1 class="nama-pria-opening text-6xl md:text-8xl">{{ $data['mempelai_pria_api']['nama_panggilan'] }}</h1>
+                <h2 class="text-2xl">&</h2>
+                <h1 class="text-6xl md:text-8xl">{{ $data['mempelai_wanita_api']['nama_panggilan'] }}</h1>
             </section>
-            <h5 class="mt-16 md:text-xl">Save the date :</h5>
-            <section class="mt-4 flex justify-center">
+            <section class="mt-8 flex justify-center">
                 <table>
-                    <tbody class="scale-110">
+                    <tbody>
                         <tr>
                             <td colspan="3" class="font-serif text-lg font-semibold uppercase md:text-xl">
                                 {{ \Carbon\Carbon::createFromFormat('d/m/Y', $data['setting_resepsi_api']['tanggal'])->locale('id')->isoFormat('MMMM') }}
@@ -49,15 +43,17 @@
                     </section>
                 @endif
             @endif
-            <section class="mt-8 flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#614425] p-6 text-white" id="open-undangan">
-                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                </svg>
-                <div class="text-md pt-0.5 font-alkatra font-bold">
-                    BUKA UNDANGAN
-                </div>
-            </section>
+            <div class="flex justify-center">
+                <button class="mt-8 flex cursor-pointer items-center justify-center gap-2 rounded-md shadow-xl bg-[#614425] p-4 text-white" id="open-undangan">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                    <div class="text-md pt-0.5 font-alkatra font-bold">
+                        BUKA UNDANGAN
+                    </div>
+                </button>
+            </div>
         </div>
     </section>
 
