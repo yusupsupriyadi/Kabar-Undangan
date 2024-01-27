@@ -379,26 +379,26 @@
                         $.each(value, function(index, val) {
                             if (index === 0) {
                                 html += `
-                            <div class="row-span-2 col-span-2">
-                                <img data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="lazyload h-full w-full object-cover rounded-md zoomable-image">
+                            <div class="col-span-2 row-span-2">
+                                <img  data-aos="zoom-in" data-aos-duration="1000" data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md lazyload zoomable-image">
                             </div>
                         `
                             } else if (index === 1) {
                                 html += `
                             <div class="col-span-2 ">
-                                <img data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="lazyload h-full w-full object-cover rounded-md zoomable-image">
+                                <img data-aos="zoom-in" data-aos-duration="1000" data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md lazyload zoomable-image">
                             </div>
                         `
                             } else if (index === 2) {
                                 html += `
                             <div class="col-span-2 ">
-                                <img data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="lazyload h-full w-full object-cover rounded-md zoomable-image">
+                                <img data-aos="zoom-in" data-aos-duration="1000" data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md lazyload zoomable-image">
                             </div>
                         `
                             } else if (index === 3) {
                                 html += `
-                            <div class="row-span-2 col-span-2 ">
-                                <img data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="lazyload h-full w-full object-cover rounded-md zoomable-image">
+                            <div class="col-span-2 row-span-2 ">
+                                <img data-aos="zoom-in" data-aos-duration="1000" data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md lazyload zoomable-image">
                             </div>
                         `
                             }
@@ -407,8 +407,8 @@
                     } else {
                         $.each(value, function(index, val) {
                             html += `
-                            <div class="col-span-2  mt-2">
-                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
+                            <div class="col-span-2 mt-2">
+                                <img src="${imageUrl}/${val['gambar']}" data-aos="zoom-in" data-aos-duration="1000" alt="bg-4" class="object-cover w-full h-full rounded-md zoomable-image">
                             </div>
                         `
                         });
@@ -417,11 +417,11 @@
                     html += `</div>`;
                 });
             } else {
-                html += `<div class="grid grid-cols-2 gap-4 mx-auto mt-5 max-w-5xl">`;
+                html += `<div class="grid max-w-5xl grid-cols-2 gap-4 mx-auto mt-5">`;
                 $.each(dataGallery, function(index, value) {
                     html += `
-                        <div class="col-span-2 ">
-                            <img src="${imageUrl}/${value['gambar']}" alt="bg-4" class="h-full w-full object-cover rounded-md zoomable-image">
+                        <div class="col-span-2">
+                            <img src="${imageUrl}/${value['gambar']}" alt="bg-4" data-aos="zoom-in" data-aos-duration="1000" class="object-cover w-full h-full rounded-md zoomable-image">
                         </div>
                     `
                 });
