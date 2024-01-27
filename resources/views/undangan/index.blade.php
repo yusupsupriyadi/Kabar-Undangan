@@ -45,7 +45,7 @@
     @endif
 
     <div class="toast toast-center toast-top right-1/4 top-[45%] hidden min-w-max max-w-[20px] transform duration-100 md:toast-bottom" id="toast-demo-tema">
-        <div class="alert alert-success items-center rounded-xl bg-gray-700/20 p-4 shadow-md">
+        <div class="items-center p-4 shadow-md alert alert-success rounded-xl bg-gray-700/20">
             <div>
                 <span class="font-sans text-sm font-bold text-white/50">TEMA DEMO</span>
             </div>
@@ -380,25 +380,25 @@
                             if (index === 0) {
                                 html += `
                             <div class="col-span-2 row-span-2">
-                                <img  data-aos="zoom-in" data-aos-duration="1000" data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md lazyload zoomable-image">
+                                <img data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md lazyload zoomable-image">
                             </div>
                         `
                             } else if (index === 1) {
                                 html += `
                             <div class="col-span-2 ">
-                                <img data-aos="zoom-in" data-aos-duration="1000" data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md lazyload zoomable-image">
+                                <img data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md lazyload zoomable-image">
                             </div>
                         `
                             } else if (index === 2) {
                                 html += `
                             <div class="col-span-2 ">
-                                <img data-aos="zoom-in" data-aos-duration="1000" data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md lazyload zoomable-image">
+                                <img data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md lazyload zoomable-image">
                             </div>
                         `
                             } else if (index === 3) {
                                 html += `
                             <div class="col-span-2 row-span-2 ">
-                                <img data-aos="zoom-in" data-aos-duration="1000" data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md lazyload zoomable-image">
+                                <img data-src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md lazyload zoomable-image">
                             </div>
                         `
                             }
@@ -408,7 +408,7 @@
                         $.each(value, function(index, val) {
                             html += `
                             <div class="col-span-2 mt-2">
-                                <img src="${imageUrl}/${val['gambar']}" data-aos="zoom-in" data-aos-duration="1000" alt="bg-4" class="object-cover w-full h-full rounded-md zoomable-image">
+                                <img src="${imageUrl}/${val['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md zoomable-image">
                             </div>
                         `
                         });
@@ -420,8 +420,8 @@
                 html += `<div class="grid max-w-5xl grid-cols-2 gap-4 mx-auto mt-5">`;
                 $.each(dataGallery, function(index, value) {
                     html += `
-                        <div class="col-span-2">
-                            <img src="${imageUrl}/${value['gambar']}" alt="bg-4" data-aos="zoom-in" data-aos-duration="1000" class="object-cover w-full h-full rounded-md zoomable-image">
+                        <div class="col-span-2 ">
+                            <img src="${imageUrl}/${value['gambar']}" alt="bg-4" class="object-cover w-full h-full rounded-md zoomable-image">
                         </div>
                     `
                 });
